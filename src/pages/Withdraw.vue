@@ -43,7 +43,7 @@
       <div v-if="docs.length == 0" class="text-center">
         ¯\_(ツ)_/¯
         <br />
-        You don’t have any deposit yet
+        You don’t have any withdraw yet
       </div>
 
       <div v-else class="table-responsive-sm">
