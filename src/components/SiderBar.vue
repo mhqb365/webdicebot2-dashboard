@@ -14,7 +14,7 @@
       <div v-if="!isLogin" class="px-3 py-2">
         <b-list-group>
           <b-list-group-item>
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Getting Started</router-link>
           </b-list-group-item>
 
           <b-list-group-item>
@@ -30,7 +30,7 @@
       <div v-else class="px-3 py-2">
         <b-list-group>
           <b-list-group-item>
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Getting Started</router-link>
           </b-list-group-item>
 
           <b-list-group-item>
