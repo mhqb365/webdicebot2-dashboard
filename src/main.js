@@ -18,7 +18,7 @@ Vue.mixin({
     }
   },
   mounted: function () {
-    localStorage.getItem('userName') && localStorage.getItem('token')
+    localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission')
       ? (this.isLogin = true)
       : (this.isLogin = false)
   },

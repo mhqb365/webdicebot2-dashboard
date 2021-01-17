@@ -9,7 +9,7 @@
       </p>
 
       <b-overlay :show="isLoading" rounded="sm">
-        <label>User name</label>
+        <label>Username</label>
         <b-form-input class="mb-3" v-model="data.userName"></b-form-input>
 
         <label>Email</label>
