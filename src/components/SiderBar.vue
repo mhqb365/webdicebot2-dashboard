@@ -57,6 +57,14 @@
             <router-link to="/Withdraw">Withdraw</router-link>
           </b-list-group-item>
 
+          <b-list-group-item v-if="isAdmin">
+            <router-link to="/Summary">Summary</router-link>
+          </b-list-group-item>
+
+          <b-list-group-item v-if="isAdmin">
+            <router-link to="/AddFree">AddFree</router-link>
+          </b-list-group-item>
+
           <b-list-group-item>
             <router-link to="/Logout">Logout</router-link>
           </b-list-group-item>

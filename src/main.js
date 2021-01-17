@@ -15,12 +15,15 @@ Vue.mixin({
   data() {
     return {
       isLogin: false,
+      isAdmin: false,
     }
   },
   mounted: function () {
     localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission')
       ? (this.isLogin = true)
       : (this.isLogin = false)
+
+    localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
   },
   methods: {
     clipboardSuccess: function ({ value }) {

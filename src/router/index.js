@@ -9,6 +9,8 @@ import MyLicense from '@/pages/MyLicense'
 import BuyLicense from '@/pages/BuyLicense'
 import Deposit from '@/pages/Deposit'
 import Withdraw from '@/pages/Withdraw'
+import Summary from '@/pages/Summary'
+import AddFree from '@/pages/AddFree'
 import Logout from '@/pages/Logout'
 
 Vue.use(Router)
@@ -65,6 +67,18 @@ const router = new Router({
       path: '/Withdraw',
       name: 'Withdraw',
       component: Withdraw,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/Summary',
+      name: 'Summary',
+      component: Summary,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/AddFree',
+      name: 'AddFree',
+      component: AddFree,
       meta: { requiresAuth: true }
     },
     {
