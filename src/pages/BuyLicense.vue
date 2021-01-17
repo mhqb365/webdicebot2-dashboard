@@ -3,6 +3,8 @@
     <div class="py-5">
       <h2 class="display-4 text-primary"># Buy license</h2>
 
+      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+
       <div class="form-group">
         <label>How many day you wanna? Minimum 10 days</label>
         <input
@@ -14,8 +16,6 @@
       </div>
 
       <p>You will pay {{ data.price }} TRX</p>
-
-      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
 
       <b-button v-if="isLoading" variant="primary" block disabled>
         <span class="spinner-border spinner-border-sm"></span>

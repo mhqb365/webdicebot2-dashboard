@@ -61,6 +61,7 @@ export default {
         if (!res.status) return this.showAlert(res.message, false);
         localStorage.setItem("userName", this.data.userName);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("permission", res.data.permission);
         this.showAlert("Register success");
         window.location.href = "/Dashboard";
       });

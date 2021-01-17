@@ -2,6 +2,9 @@
   <div>
     <div class="py-5">
       <h2 class="display-4 text-primary"># Withdraw</h2>
+
+      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+
       <b-overlay :show="isLoading" rounded="sm">
         <label>Address</label>
         <b-form-input class="mb-3" v-model="data.address"></b-form-input>
@@ -13,9 +16,25 @@
           type="number"
         ></b-form-input>
 
-        <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
-
         <b-button variant="primary" block @click="withdraw">Withdraw</b-button>
+      </b-overlay>
+    </div>
+
+    <div class="py-5">
+      <h2 class="display-4 text-primary"># Send to user</h2>
+
+      <b-overlay :show="isLoading" rounded="sm">
+        <label>Username</label>
+        <b-form-input class="mb-3" v-model="dataTip.userName"></b-form-input>
+
+        <label>Amount</label>
+        <b-form-input
+          class="mb-3"
+          v-model="dataTip.amount"
+          type="number"
+        ></b-form-input>
+
+        <b-button variant="primary" block @click="tip">Send</b-button>
       </b-overlay>
     </div>
 
@@ -96,6 +115,14 @@ export default {
         address: "",
         amount: 0,
       },
+      dataTip: {
+        userName: "",
+        amount: 0,
+      },
+      data: {
+        address: "",
+        amount: 0,
+      },
       user: {},
       docs: [],
       page: 1,
@@ -137,6 +164,25 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
+        if (!res.status) return this.showAlert(res.message, false);
+        this.showAlert("Success");
+        this.profile();
+        this.listWithdraw(this.page);
+      });
+    },
+    tip: function (page) {
+      this.isLoading = true;
+      axios({
+        url: API_URL + "/withdraw/tip/" + localStorage.getItem("userName"),
+        method: "POST",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+        data: this.dataTip,
+      }).then((response) => {
+        this.isLoading = false;
+        let res = response.data;
+        console.log(res);
         if (!res.status) return this.showAlert(res.message, false);
         this.showAlert("Success");
         this.profile();

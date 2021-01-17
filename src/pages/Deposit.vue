@@ -3,6 +3,8 @@
     <div class="py-5">
       <h2 class="display-4 text-primary"># Deposit</h2>
 
+      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+
       <label>My deposit address</label>
 
       <b-input-group class="mb-3">
@@ -18,8 +20,6 @@
           >
         </b-input-group-append>
       </b-input-group>
-
-      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
     </div>
 
     <div class="py-5">

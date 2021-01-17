@@ -38,6 +38,10 @@
           </b-list-group-item>
 
           <b-list-group-item>
+            <router-link to="/MyInfo">My Info</router-link>
+          </b-list-group-item>
+
+          <b-list-group-item>
             <router-link to="/MyLicense">My License</router-link>
           </b-list-group-item>
 
@@ -58,6 +62,10 @@
           </b-list-group-item>
         </b-list-group>
       </div>
+
+      <span class="p-4">
+        Web DiceBot &copy; 2019 - {{ new Date().getFullYear() }}
+      </span>
     </b-sidebar>
   </div>
 </template>

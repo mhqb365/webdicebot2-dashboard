@@ -32,6 +32,11 @@
       <a href="https://youtube.com/embed/Tu7oTnP7noc" target="_blank"
         >See video</a
       >
+      <br />
+      Buy TRX (Tron) at:
+      <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
+        >Binance.com</a
+      >
     </div>
 
     <div class="py-5">

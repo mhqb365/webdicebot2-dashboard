@@ -4,6 +4,7 @@ import Home from '@/pages/Home'
 import Register from '@/pages/Register'
 import Login from '@/pages/Login'
 import BotInstaller from '@/pages/BotInstaller'
+import MyInfo from '@/pages/MyInfo'
 import MyLicense from '@/pages/MyLicense'
 import BuyLicense from '@/pages/BuyLicense'
 import Deposit from '@/pages/Deposit'
@@ -34,6 +35,12 @@ const router = new Router({
       path: '/BotInstaller',
       name: 'BotInstaller',
       component: BotInstaller,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/MyInfo',
+      name: 'MyInfo',
+      component: MyInfo,
       meta: { requiresAuth: true }
     },
     {
