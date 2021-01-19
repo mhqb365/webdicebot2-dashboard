@@ -62,7 +62,7 @@
           </b-list-group-item>
 
           <b-list-group-item v-if="isAdmin">
-            <router-link to="/AddFree">AddFree</router-link>
+            <router-link to="/AddFree">Add Free License</router-link>
           </b-list-group-item>
 
           <b-list-group-item>
