@@ -204,20 +204,28 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/trustdice-dice'
 document.body.appendChild(script)`,
         },
-        {
-          name: "wixiplay.io - dice",
-          value: `const BOT_URL = '${API_URL}'
-var script = document.createElement('script')
-script.type = 'text/javascript'
-script.src = BOT_URL+'/bot/init/wixiplay-dice'
-document.body.appendChild(script)`,
-        },
+//         {
+//           name: "wixiplay.io - dice",
+//           value: `const BOT_URL = '${API_URL}'
+// var script = document.createElement('script')
+// script.type = 'text/javascript'
+// script.src = BOT_URL+'/bot/init/wixiplay-dice'
+// document.body.appendChild(script)`,
+//         },
         {
           name: "wolf.bet - dice",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/wolf'
+document.body.appendChild(script)`,
+        },
+        {
+          name: "wolf.bet - limbo",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/wolf-limbo'
 document.body.appendChild(script)`,
         },
         {
