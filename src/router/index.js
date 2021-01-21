@@ -10,7 +10,7 @@ import BuyLicense from '@/pages/BuyLicense'
 import Deposit from '@/pages/Deposit'
 import Withdraw from '@/pages/Withdraw'
 import Summary from '@/pages/Summary'
-import AddFree from '@/pages/AddFree'
+import AddFreeLicense from '@/pages/AddFreeLicense'
 import Logout from '@/pages/Logout'
 
 Vue.use(Router)
@@ -76,9 +76,9 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/AddFree',
-      name: 'AddFree',
-      component: AddFree,
+      path: '/AddFreeLicense',
+      name: 'AddFreeLicense',
+      component: AddFreeLicense,
       meta: { requiresAuth: true }
     },
     {

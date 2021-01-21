@@ -1,19 +1,23 @@
 <template>
-  <div id="app">
-    <SiderBar />
-    <b-container class="p-4">
-      <router-view />
-    </b-container>
+  <div id="app" class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <Left />
+      </div>
+      <div class="col-9">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import SiderBar from "@/components/SiderBar";
+import Left from "@/layout/Left";
 
 export default {
   name: "App",
   components: {
-    SiderBar,
+    Left,
   },
 };
 </script>

@@ -1,20 +1,13 @@
 <template>
   <div>
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># My info</h2>
+    <h2 class="display-4 text-primary"># My info</h2>
 
-      <b-list-group>
-        <b-list-group-item> Username: {{ user.userName }} </b-list-group-item>
-
-        <b-list-group-item> Email: {{ user.email }} </b-list-group-item>
-
-        <b-list-group-item>
-          Deposit address: {{ user.address }}
-        </b-list-group-item>
-
-        <b-list-group-item> Balance: {{ user.balance }} </b-list-group-item>
-      </b-list-group>
-    </div>
+    <ul class="list-group">
+      <li class="list-group-item">Username: {{ user.userName }}</li>
+      <li class="list-group-item">Email: {{ user.email }}</li>
+      <li class="list-group-item">Deposit address: {{ user.address }}</li>
+      <li class="list-group-item">Balance: {{ user.balance }}</li>
+    </ul>
   </div>
 </template>
 

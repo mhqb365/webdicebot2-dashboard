@@ -1,14 +1,22 @@
 <template>
   <div>
-    <div class="py-5">
+    <h2 class="display-4 text-primary"># Add Free License</h2>
+
+    <div class="form-group">
       <label>Username</label>
-      <b-form-input class="mb-3" v-model="data.userName"></b-form-input>
-
-      <label>Limit</label>
-      <b-form-input class="mb-3" v-model="data.limit"></b-form-input>
-
-      <b-button variant="primary" block @click="add">Add</b-button>
+      <input v-model="data.userName" type="number" class="form-control" />
     </div>
+
+    <div class="form-group">
+      <label>Limit</label>
+      <input v-model="data.limit" type="number" class="form-control" />
+    </div>
+
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+
+    <button v-else class="btn btn-primary btn-block" @click="add">Add</button>
   </div>
 </template>
 
@@ -19,6 +27,7 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      isLoading: false,
       data: {
         userName: "",
         limit: 10,

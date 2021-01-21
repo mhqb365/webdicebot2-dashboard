@@ -1,31 +1,27 @@
 <template>
   <div>
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># Bot installer</h2>
+    <h2 class="display-4 text-primary"># Bot installer</h2>
 
-      <div class="form-group">
-        <select class="form-control" v-model="selectName" @change="changeBot">
-          <option v-for="bot in bots" :key="bot.name" :value="bot.name">
-            {{ bot.name }}
-          </option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <textarea class="form-control" rows="5" v-model="selectValue">
-        </textarea>
-      </div>
-
-      <b-button
-        variant="primary"
-        block
-        v-clipboard="() => selectValue"
-        v-clipboard:success="clipboardSuccess"
-        v-clipboard:error="clipboardError"
-      >
-        Copy
-      </b-button>
+    <div class="form-group">
+      <select class="form-control" v-model="selectName" @change="changeBot">
+        <option v-for="bot in bots" :key="bot.name" :value="bot.name">
+          {{ bot.name }}
+        </option>
+      </select>
     </div>
+
+    <div class="form-group">
+      <textarea class="form-control" rows="5" v-model="selectValue"> </textarea>
+    </div>
+
+    <button
+      class="btn btn-primary btn-block"
+      v-clipboard="() => selectValue"
+      v-clipboard:success="clipboardSuccess"
+      v-clipboard:error="clipboardError"
+    >
+      Copy
+    </button>
   </div>
 </template>
 
@@ -204,14 +200,6 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/trustdice-dice'
 document.body.appendChild(script)`,
         },
-//         {
-//           name: "wixiplay.io - dice",
-//           value: `const BOT_URL = '${API_URL}'
-// var script = document.createElement('script')
-// script.type = 'text/javascript'
-// script.src = BOT_URL+'/bot/init/wixiplay-dice'
-// document.body.appendChild(script)`,
-//         },
         {
           name: "wolf.bet - dice",
           value: `const BOT_URL = '${API_URL}'

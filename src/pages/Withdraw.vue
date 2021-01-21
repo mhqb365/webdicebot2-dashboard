@@ -1,103 +1,107 @@
 <template>
   <div>
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># Withdraw</h2>
+    <h2 class="display-4 text-primary"># Withdraw</h2>
 
-      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+    <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
 
-      <b-overlay :show="isLoading" rounded="sm">
-        <label>Address</label>
-        <b-form-input class="mb-3" v-model="data.address"></b-form-input>
-
-        <label>Amount (withdraw fee 1 TRX)</label>
-        <b-form-input
-          class="mb-3"
-          v-model="data.amount"
-          type="number"
-        ></b-form-input>
-
-        <b-button variant="primary" block @click="withdraw">Withdraw</b-button>
-      </b-overlay>
+    <div class="form-group">
+      <label>Address</label>
+      <input v-model="data.address" type="text" class="form-control" />
     </div>
 
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># Send to user</h2>
-
-      <b-overlay :show="isLoading" rounded="sm">
-        <label>Username</label>
-        <b-form-input class="mb-3" v-model="dataTip.userName"></b-form-input>
-
-        <label>Amount</label>
-        <b-form-input
-          class="mb-3"
-          v-model="dataTip.amount"
-          type="number"
-        ></b-form-input>
-
-        <b-button variant="primary" block @click="tip">Send</b-button>
-      </b-overlay>
+    <div class="form-group">
+      <label>Amount</label>
+      <input v-model="data.amount" type="number" class="form-control" />
     </div>
 
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># History</h2>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
 
-      <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+    <button v-else class="btn btn-primary btn-block" @click="withdraw">
+      Withdraw
+    </button>
 
-      <ul class="pagination">
-        <li v-if="hasPrevPage" class="page-item">
-          <button type="button" class="page-link" @click="license(page - 1)">
-            Previous
-          </button>
-        </li>
-        <li class="page-item active">
-          <button type="button" class="page-link">{{ page }}</button>
-        </li>
-        <li v-if="hasNextPage" class="page-item">
-          <button type="button" class="page-link" @click="license(page + 1)">
-            Next
-          </button>
-        </li>
-      </ul>
+    <hr />
 
-      <div v-if="docs.length == 0" class="text-center">
-        ¯\_(ツ)_/¯
-        <br />
-        You don’t have any withdraw yet
-      </div>
+    <h2 class="display-4 text-primary"># Send to user</h2>
 
-      <div v-else class="table-responsive-sm">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Txid</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="doc in docs" :key="doc._id">
-              <td>
-                {{
-                  new Date(doc.time).toLocaleString("en-GB", {
-                    timeZone: "UTC",
-                  })
-                }}
-                (GMT+0)
-              </td>
-              <td>
-                <a
-                  v-if="doc.txid.length == 64"
-                  :href="tronNode + doc.txid"
-                  target="_blank"
-                  >{{ doc.txid }}</a
-                >
-                <span v-else>send to {{ doc.txid }}</span>
-              </td>
-              <td>{{ doc.amount }} TRX</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input v-model="dataTip.userName" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Amount</label>
+      <input v-model="dataTip.amount" type="number" class="form-control" />
+    </div>
+
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+
+    <button v-else class="btn btn-primary btn-block" @click="tip">Send</button>
+
+    <hr />
+
+    <h2 class="display-4 text-primary"># History</h2>
+
+    <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+
+    <ul class="pagination">
+      <li v-if="hasPrevPage" class="page-item">
+        <button type="button" class="page-link" @click="license(page - 1)">
+          Previous
+        </button>
+      </li>
+      <li class="page-item active">
+        <button type="button" class="page-link">{{ page }}</button>
+      </li>
+      <li v-if="hasNextPage" class="page-item">
+        <button type="button" class="page-link" @click="license(page + 1)">
+          Next
+        </button>
+      </li>
+    </ul>
+
+    <div v-if="docs.length == 0" class="text-center">
+      ¯\_(ツ)_/¯
+      <br />
+      You don’t have any withdraw yet
+    </div>
+
+    <div v-else class="table-responsive-sm">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Txid</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="doc in docs" :key="doc._id">
+            <td>
+              {{
+                new Date(doc.time).toLocaleString("en-GB", {
+                  timeZone: "UTC",
+                })
+              }}
+              (GMT+0)
+            </td>
+            <td>
+              <a
+                v-if="doc.txid.length == 64"
+                :href="tronNode + doc.txid"
+                target="_blank"
+                >{{ doc.txid }}</a
+              >
+              <span v-else>send to {{ doc.txid }}</span>
+            </td>
+            <td>{{ doc.amount }} TRX</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>

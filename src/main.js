@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import './plugins/bootstrap'
+// import './plugins/bootstrap'
 import './plugins/vue-clipboard'
 import './plugins/vue-sweetalert2'
 import axios from 'axios'

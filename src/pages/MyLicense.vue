@@ -1,91 +1,89 @@
 <template>
   <div>
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># My license</h2>
+    <h2 class="display-4 text-primary"># My license</h2>
 
-      <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+    <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
-      <ul class="pagination">
-        <li v-if="hasPrevPage" class="page-item">
-          <button type="button" class="page-link" @click="license(page - 1)">
-            Previous
-          </button>
-        </li>
-        <li class="page-item active">
-          <button type="button" class="page-link">{{ page }}</button>
-        </li>
-        <li v-if="hasNextPage" class="page-item">
-          <button type="button" class="page-link" @click="license(page + 1)">
-            Next
-          </button>
-        </li>
-      </ul>
+    <ul class="pagination">
+      <li v-if="hasPrevPage" class="page-item">
+        <button type="button" class="page-link" @click="license(page - 1)">
+          Previous
+        </button>
+      </li>
+      <li class="page-item active">
+        <button type="button" class="page-link">{{ page }}</button>
+      </li>
+      <li v-if="hasNextPage" class="page-item">
+        <button type="button" class="page-link" @click="license(page + 1)">
+          Next
+        </button>
+      </li>
+    </ul>
 
-      <div v-if="docs.length == 0" class="text-center">
-        ¯\_(ツ)_/¯
-        <br />
-        You don’t have any licenses yet
-      </div>
+    <div v-if="docs.length == 0" class="text-center">
+      ¯\_(ツ)_/¯
+      <br />
+      You don’t have any licenses yet
+    </div>
 
-      <div v-else class="table-responsive-sm">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Status</th>
-              <th>License</th>
-              <th>Start</th>
-              <th>End</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="doc in docs" :key="doc._id">
-              <td>
-                {{
-                  (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
-                    ? "Expired"
-                    : doc.locked
-                    ? "Locked"
-                    : "Working"
-                }}
-              </td>
-              <td>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" :value="doc.value" />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      v-clipboard="() => doc.value"
-                      v-clipboard:success="clipboardSuccess"
-                      v-clipboard:error="clipboardError"
-                    >
-                      Copy
-                    </button>
-                  </div>
+    <div v-else class="table-responsive-sm">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>License</th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="doc in docs" :key="doc._id">
+            <td>
+              {{
+                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                  ? "Expired"
+                  : doc.locked
+                  ? "Locked"
+                  : "Working"
+              }}
+            </td>
+            <td>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" :value="doc.value" />
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    v-clipboard="() => doc.value"
+                    v-clipboard:success="clipboardSuccess"
+                    v-clipboard:error="clipboardError"
+                  >
+                    Copy
+                  </button>
                 </div>
-              </td>
-              <td>
-                {{
-                  new Date(doc.time).toLocaleString("en-GB", {
-                    timeZone: "UTC",
-                  })
-                }}
-                (GMT+0)
-              </td>
-              <td>
-                {{
-                  new Date(
-                    Number(864e5 * doc.limit) + Number(new Date(doc.time))
-                  ).toLocaleString("en-GB", {
-                    timeZone: "UTC",
-                  })
-                }}
-                (GMT+0)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </div>
+            </td>
+            <td>
+              {{
+                new Date(doc.time).toLocaleString("en-GB", {
+                  timeZone: "UTC",
+                })
+              }}
+              (GMT+0)
+            </td>
+            <td>
+              {{
+                new Date(
+                  Number(864e5 * doc.limit) + Number(new Date(doc.time))
+                ).toLocaleString("en-GB", {
+                  timeZone: "UTC",
+                })
+              }}
+              (GMT+0)
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>

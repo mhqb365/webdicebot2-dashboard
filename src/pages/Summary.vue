@@ -1,64 +1,62 @@
 <template>
   <div>
-    <div class="py-5">
-      <h2 class="display-4 text-primary"># Summary</h2>
+    <h2 class="display-4 text-primary"># Summary</h2>
 
-      <ul class="pagination">
-        <li
-          class="page-item"
-          v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
-        >
-          <button class="page-link" @click="summary('ThisMonth')">
-            This month
-          </button>
-        </li>
+    <ul class="pagination">
+      <li
+        class="page-item"
+        v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
+      >
+        <button class="page-link" @click="summary('ThisMonth')">
+          This month
+        </button>
+      </li>
 
-        <li
-          class="page-item"
-          v-bind:class="[state == 'LastMonth' ? 'active' : '']"
-        >
-          <button class="page-link" @click="summary('LastMonth')">
-            Last month
-          </button>
-        </li>
+      <li
+        class="page-item"
+        v-bind:class="[state == 'LastMonth' ? 'active' : '']"
+      >
+        <button class="page-link" @click="summary('LastMonth')">
+          Last month
+        </button>
+      </li>
 
-        <li class="page-item" v-bind:class="[state == 'Total' ? 'active' : '']">
-          <button class="page-link" @click="summary('Total')">Total</button>
-        </li>
-      </ul>
+      <li class="page-item" v-bind:class="[state == 'Total' ? 'active' : '']">
+        <button class="page-link" @click="summary('Total')">Total</button>
+      </li>
+    </ul>
 
-      <div class="row">
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Income
-            <br />
-            <h4 class="text-success">{{ Number(income).toFixed(0) }} TRX</h4>
-            {{ Number(priceUsd * income).toFixed(2) }} $
-          </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 summary">
+          Income
+          <br />
+          <h4 class="text-success">{{ Number(income).toFixed(0) }} TRX</h4>
+          {{ Number(priceUsd * income).toFixed(2) }} $
         </div>
+      </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            License
-            <br />
-            <h4 class="text-primary">{{ license }}</h4>
-          </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 summary">
+          License
+          <br />
+          <h4 class="text-primary">{{ license }}</h4>
         </div>
+      </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Pay
-            <br />
-            <h4 class="text-warning">{{ pay }}</h4>
-          </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 summary">
+          Pay
+          <br />
+          <h4 class="text-warning">{{ pay }}</h4>
         </div>
+      </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Free
-            <br />
-            <h4 class="text-danger">{{ free }}</h4>
-          </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 summary">
+          Free
+          <br />
+          <h4 class="text-danger">{{ free }}</h4>
         </div>
       </div>
     </div>
