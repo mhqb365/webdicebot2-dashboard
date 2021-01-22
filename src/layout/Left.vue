@@ -44,7 +44,7 @@
         </li>
       </ul>
 
-      <ul class="list-group mb-3">
+      <ul v-if="isAdmin" class="list-group mb-3">
         <li class="list-group-item">
           <router-link to="/Summary">Summary</router-link>
         </li>
