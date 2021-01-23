@@ -4,7 +4,7 @@
 
     <div class="form-group">
       <label>Username</label>
-      <input v-model="data.userName" type="number" class="form-control" />
+      <input v-model="data.userName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
