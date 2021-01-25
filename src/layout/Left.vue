@@ -40,6 +40,12 @@
           <router-link to="/Withdraw">Withdraw</router-link>
         </li>
         <li class="list-group-item">
+          <router-link to="/ScriptStore">Script Store</router-link>
+        </li>
+        <li class="list-group-item">
+          <router-link to="/ShareYourScript">Share Your Script</router-link>
+        </li>
+        <li class="list-group-item">
           <router-link to="/Logout">Logout</router-link>
         </li>
       </ul>

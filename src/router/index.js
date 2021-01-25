@@ -13,6 +13,8 @@ import Summary from '@/pages/Summary'
 import AddFreeLicense from '@/pages/AddFreeLicense'
 import DepositList from '@/pages/DepositList'
 import WithdrawList from '@/pages/WithdrawList'
+import ScriptStore from '@/pages/ScriptStore'
+import ShareYourScript from '@/pages/ShareYourScript'
 import Logout from '@/pages/Logout'
 
 Vue.use(Router)
@@ -93,6 +95,18 @@ const router = new Router({
       path: '/WithdrawList',
       name: 'WithdrawList',
       component: WithdrawList,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/ScriptStore',
+      name: 'ScriptStore',
+      component: ScriptStore,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/ShareYourScript',
+      name: 'ShareYourScript',
+      component: ShareYourScript,
       meta: { requiresAuth: true }
     },
     {
