@@ -20,11 +20,11 @@
       <textarea class="form-control" rows="5" id="content"></textarea>
     </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="share">
+    <button v-else class="btn btn-primary btn-block mb-3" @click="share">
       Share
     </button>
   </div>

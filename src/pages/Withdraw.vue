@@ -14,11 +14,11 @@
       <input v-model="data.amount" type="number" class="form-control" />
     </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="withdraw">
+    <button v-else class="btn btn-primary btn-block mb-3" @click="withdraw">
       Withdraw
     </button>
 
@@ -36,11 +36,11 @@
       <input v-model="dataTip.amount" type="number" class="form-control" />
     </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="tip">Send</button>
+    <button v-else class="btn btn-primary btn-block mb-3" @click="tip">Send</button>
 
     <hr />
 

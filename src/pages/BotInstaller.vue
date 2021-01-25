@@ -15,7 +15,7 @@
     </div>
 
     <button
-      class="btn btn-primary btn-block"
+      class="btn btn-primary btn-block mb-3"
       v-clipboard="() => selectValue"
       v-clipboard:success="clipboardSuccess"
       v-clipboard:error="clipboardError"

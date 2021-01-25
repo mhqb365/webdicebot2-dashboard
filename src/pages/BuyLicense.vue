@@ -16,11 +16,11 @@
 
     <p>You will pay {{ data.price }} TRX</p>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="order">Buy</button>
+    <button v-else class="btn btn-primary btn-block mb-3" @click="order">Buy</button>
   </div>
 </template>
 

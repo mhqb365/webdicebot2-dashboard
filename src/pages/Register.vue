@@ -22,11 +22,11 @@
       <input v-model="data.password" type="password" class="form-control" />
     </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="register">
+    <button v-else class="btn btn-primary btn-block mb-3" @click="register">
       Register
     </button>
   </div>
