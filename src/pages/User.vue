@@ -23,7 +23,7 @@
     <div v-if="docs.length == 0" class="text-center">
       ¯\_(ツ)_/¯
       <br />
-      You don’t have any licenses yet
+      You don’t have any user yet
     </div>
 
     <div v-else class="table-responsive-sm">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">User detail</h4>
