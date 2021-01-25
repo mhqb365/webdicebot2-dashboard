@@ -6,7 +6,7 @@
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page - 1)">
+        <button type="button" class="page-link" @click="users(page - 1)">
           Previous
         </button>
       </li>
@@ -14,7 +14,7 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page + 1)">
+        <button type="button" class="page-link" @click="users(page + 1)">
           Next
         </button>
       </li>
@@ -139,6 +139,13 @@ export default {
       });
     },
     detail: function (userName) {
+      this.modal = {
+        userName: "",
+        email: "",
+        address: "",
+        balance: 0,
+      };
+
       axios({
         url: API_URL + "/user/profile/" + userName,
         method: "GET",
