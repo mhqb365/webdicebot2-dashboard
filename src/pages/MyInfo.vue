@@ -6,7 +6,7 @@
       <li class="list-group-item">Username: {{ user.userName }}</li>
       <li class="list-group-item">Email: {{ user.email }}</li>
       <li class="list-group-item">Deposit address: {{ user.address }}</li>
-      <li class="list-group-item">Balance: {{ user.balance }} TRX</li>
+      <li class="list-group-item">Balance: {{ Number(user.balance).toFixed(6) }} TRX</li>
     </ul>
   </div>
 </template>
