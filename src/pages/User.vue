@@ -27,11 +27,30 @@
     </div>
 
     <div v-else class="table-responsive-sm">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by username"
+          v-model="keyword"
+          @change="search()"
+        />
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click="emptyKeyWord()"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Time</th>
-            <th>User</th>
+            <th>Username</th>
             <th></th>
           </tr>
         </thead>
@@ -108,6 +127,7 @@ export default {
       totalPages: 0,
       hasPrevPage: false,
       hasNextPage: false,
+      keyword: "",
       modal: {
         userName: "",
         email: "",
@@ -157,6 +177,24 @@ export default {
         console.log(res);
         this.modal = res.data;
       });
+    },
+    search: function (page) {
+      if (this.keyword == "") return this.users(this.page);
+      axios({
+        url: API_URL + "/user/search/" + this.keyword + "?&page=1",
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        let res = response.data;
+        // console.log(res);
+        this.docs = res.data.docs;
+      });
+    },
+    emptyKeyWord: function () {
+      this.keyword = "";
+      this.users(this.page);
     },
   },
 };
