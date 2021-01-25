@@ -58,6 +58,9 @@
           <router-link to="/AddFreeLicense">Add Free License</router-link>
         </li>
         <li class="list-group-item">
+          <router-link to="/User">User List</router-link>
+        </li>
+        <li class="list-group-item">
           <router-link to="/DepositList">Deposit List</router-link>
         </li>
         <li class="list-group-item">

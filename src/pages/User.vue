@@ -30,60 +30,67 @@
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th>Status</th>
-            <th>License</th>
-            <th>Start</th>
-            <th>End</th>
+            <th>Time</th>
+            <th>User</th>
+            <th></th>
           </tr>
         </thead>
+
         <tbody>
           <tr v-for="doc in docs" :key="doc._id">
-            <td>
-              {{
-                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
-                  ? "Expired"
-                  : doc.locked
-                  ? "Locked"
-                  : "Working"
-              }}
-            </td>
-            <td>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" :value="doc.value" />
-                <div class="input-group-append">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    v-clipboard="() => doc.value"
-                    v-clipboard:success="clipboardSuccess"
-                    v-clipboard:error="clipboardError"
-                  >
-                    Copy
-                  </button>
-                </div>
-              </div>
-            </td>
             <td>
               {{
                 new Date(doc.time).toLocaleString("en-GB", {
                   timeZone: "UTC",
                 })
               }}
-              (GMT+0)
-            </td>
-            <td>
-              {{
-                new Date(
-                  Number(864e5 * doc.limit) + Number(new Date(doc.time))
-                ).toLocaleString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
               (GMT)
+            </td>
+            <td>{{ doc.userName }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                @click="detail(doc.userName)"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                Detail
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">User detail</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item">Username: {{ modal.userName }}</li>
+              <li class="list-group-item">Email: {{ modal.email }}</li>
+              <li class="list-group-item">
+                Deposit address: {{ modal.address }}
+              </li>
+              <li class="list-group-item">Balance: {{ modal.balance }}</li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -101,20 +108,21 @@ export default {
       totalPages: 0,
       hasPrevPage: false,
       hasNextPage: false,
+      modal: {
+        userName: "",
+        email: "",
+        address: "",
+        balance: 0,
+      },
     };
   },
   mounted: function () {
-    this.license(this.page);
+    this.users(this.page);
   },
   methods: {
-    license: function (page) {
+    users: function (page) {
       axios({
-        url:
-          API_URL +
-          "/license/fetch/" +
-          localStorage.getItem("userName") +
-          "?page=" +
-          page,
+        url: API_URL + "/user?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -128,6 +136,19 @@ export default {
         this.totalPages = res.data.totalPages;
         this.hasPrevPage = res.data.hasPrevPage;
         this.hasNextPage = res.data.hasNextPage;
+      });
+    },
+    detail: function (userName) {
+      axios({
+        url: API_URL + "/user/profile/" + userName,
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        let res = response.data;
+        console.log(res);
+        this.modal = res.data;
       });
     },
   },

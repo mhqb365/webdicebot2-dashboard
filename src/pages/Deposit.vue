@@ -63,7 +63,7 @@
                   timeZone: "UTC",
                 })
               }}
-              (GMT+0)
+              (GMT)
             </td>
             <td>
               <a

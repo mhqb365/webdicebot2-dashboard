@@ -44,7 +44,7 @@
                   timeZone: "UTC",
                 })
               }}
-              (GMT+0)
+              (GMT)
             </td>
             <td>{{ doc.userName }}</td>
             <td>

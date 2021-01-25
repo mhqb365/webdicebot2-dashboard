@@ -89,13 +89,13 @@ export default {
         },
       }).then((response) => {
         let res = response.data;
-        console.log(res);
-        this.docs = res.docs;
-        this.page = res.page;
-        this.totalDocs = res.totalDocs;
-        this.totalPages = res.totalPages;
-        this.hasPrevPage = res.hasPrevPage;
-        this.hasNextPage = res.hasNextPage;
+        // console.log(res);
+        this.docs = res.data.docs;
+        this.page = res.data.page;
+        this.totalDocs = res.data.totalDocs;
+        this.totalPages = res.data.totalPages;
+        this.hasPrevPage = res.data.hasPrevPage;
+        this.hasNextPage = res.data.hasNextPage;
       });
     },
   },

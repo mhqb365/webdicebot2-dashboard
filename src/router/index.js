@@ -15,6 +15,7 @@ import DepositList from '@/pages/DepositList'
 import WithdrawList from '@/pages/WithdrawList'
 import ScriptStore from '@/pages/ScriptStore'
 import ShareYourScript from '@/pages/ShareYourScript'
+import User from '@/pages/User'
 import Logout from '@/pages/Logout'
 
 Vue.use(Router)
@@ -107,6 +108,12 @@ const router = new Router({
       path: '/ShareYourScript',
       name: 'ShareYourScript',
       component: ShareYourScript,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/User',
+      name: 'User',
+      component: User,
       meta: { requiresAuth: true }
     },
     {
