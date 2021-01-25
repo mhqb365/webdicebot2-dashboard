@@ -12,7 +12,7 @@
 2. You must know control your money in dice
 3. You have to differentiate between dice tools with strategy script for dice
 4. You must know the Lua language (v5.3) or Javascript language when play with strategy script
-5. You must have license key when use web dicebot (buy license when you has been join the to Web DiceBot system)
+5. You must have license key when use Web DiceBot
 6. Do not share your license if you don't wanna anyone use bot by your money
 7. Only use the installer in webdicebot.xyz if you don't want someone fake us to trick you
 8. Upgrade level max security in your account at all dice sites</pre

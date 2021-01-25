@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="app" class="container">
     <div class="row">
       <div class="col-3">
         <Left />
@@ -42,10 +42,6 @@ export default {
 </script>
 
 <style>
-#app {
-  background: url("/static/bg.png") no-repeat top center;
-}
-
 .to-top {
   position: fixed;
   bottom: 20px;
