@@ -4,6 +4,7 @@
       <div class="col-3">
         <Left />
       </div>
+
       <div class="col-9">
         <router-view />
       </div>
@@ -23,4 +24,7 @@ export default {
 </script>
 
 <style>
+#app {
+  background: url("/static/bg.png") no-repeat;
+}
 </style>
