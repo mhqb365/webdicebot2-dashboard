@@ -28,16 +28,16 @@
           <tr>
             <th>Username</th>
             <th>Type</th>
+            <th>Limit</th>
             <th>Status</th>
-            <th>License</th>
-            <th>Start</th>
-            <th>End</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="doc in docs" :key="doc._id">
             <td>{{ doc.userName }}</td>
             <td>{{ doc.type }}</td>
+            <td>{{ doc.limit }}</td>
             <td>
               {{
                 (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
@@ -62,24 +62,6 @@
                   </button>
                 </div>
               </div>
-            </td>
-            <td>
-              {{
-                new Date(doc.time).toLocaleString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
-              (GMT+0)
-            </td>
-            <td>
-              {{
-                new Date(
-                  Number(864e5 * doc.limit) + Number(new Date(doc.time))
-                ).toLocaleString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
-              (GMT)
             </td>
           </tr>
         </tbody>
