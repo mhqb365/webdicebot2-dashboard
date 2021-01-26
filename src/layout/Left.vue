@@ -61,6 +61,9 @@
           <a href="/User">User List</a>
         </li>
         <li class="list-group-item">
+          <a href="/License">License List</a>
+        </li>
+        <li class="list-group-item">
           <a href="/DepositList">Deposit List</a>
         </li>
         <li class="list-group-item">

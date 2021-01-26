@@ -16,6 +16,7 @@ import WithdrawList from '@/pages/WithdrawList'
 import ScriptStore from '@/pages/ScriptStore'
 import ShareYourScript from '@/pages/ShareYourScript'
 import User from '@/pages/User'
+import License from '@/pages/License'
 import Logout from '@/pages/Logout'
 
 Vue.use(Router)
@@ -114,6 +115,12 @@ const router = new Router({
       path: '/User',
       name: 'User',
       component: User,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/License',
+      name: 'License',
+      component: License,
       meta: { requiresAuth: true }
     },
     {

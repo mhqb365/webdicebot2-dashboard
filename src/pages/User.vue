@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># My license</h2>
+    <h2 class="display-4 text-primary"># User list</h2>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 

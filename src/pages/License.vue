@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Withdraw list</h2>
+    <h2 class="display-4 text-primary"># License list</h2>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="withdrawList(page - 1)">
+        <button type="button" class="page-link" @click="licenses(page - 1)">
           Previous
         </button>
       </li>
@@ -14,51 +14,73 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="withdrawList(page + 1)">
+        <button type="button" class="page-link" @click="licenses(page + 1)">
           Next
         </button>
       </li>
     </ul>
 
-    <div v-if="docs.length == 0" class="text-center">
-      ¯\_(ツ)_/¯
-      <br />
-      Don’t have any withdraw yet
-    </div>
-
-    <div v-else class="table-responsive-sm">
+    <div class="table-responsive-sm">
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
       <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th>Time</th>
-            <th>User</th>
-            <th>Txid</th>
-            <th>Amount</th>
+            <th>Username</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>License</th>
+            <th>Start</th>
+            <th>End</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="doc in docs" :key="doc._id">
+            <td>{{ doc.userName }}</td>
+            <td>{{ doc.type }}</td>
+            <td>
+              {{
+                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                  ? "Expired"
+                  : doc.locked
+                  ? "Locked"
+                  : "Working"
+              }}
+            </td>
+            <td>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" :value="doc.value" />
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    v-clipboard="() => doc.value"
+                    v-clipboard:success="clipboardSuccess"
+                    v-clipboard:error="clipboardError"
+                  >
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </td>
             <td>
               {{
                 new Date(doc.time).toLocaleString("en-GB", {
                   timeZone: "UTC",
                 })
               }}
+              (GMT+0)
+            </td>
+            <td>
+              {{
+                new Date(
+                  Number(864e5 * doc.limit) + Number(new Date(doc.time))
+                ).toLocaleString("en-GB", {
+                  timeZone: "UTC",
+                })
+              }}
               (GMT)
             </td>
-            <td>{{ doc.userName }}</td>
-            <td>
-              <a
-                v-if="doc.txid.length == 64"
-                :href="tronNode + doc.txid"
-                target="_blank"
-                >{{ doc.txid }}</a
-              >
-              <span v-else>send to {{ doc.txid }}</span>
-            </td>
-            <td>{{ doc.amount }} TRX</td>
           </tr>
         </tbody>
       </table>
@@ -69,7 +91,6 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
-import TRON_NODE from "@/utils/tronNode";
 
 export default {
   data() {
@@ -81,17 +102,16 @@ export default {
       totalPages: 0,
       hasPrevPage: false,
       hasNextPage: false,
-      tronNode: TRON_NODE,
     };
   },
   mounted: function () {
-    this.withdrawList(this.page);
+    this.licenses(this.page);
   },
   methods: {
-    withdrawList: function (page) {
+    licenses: function (page) {
       this.isLoading = true;
       axios({
-        url: API_URL + "/withdraw/fetchAdmin/?page=" + page,
+        url: API_URL + "/license/fetchAdmin?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

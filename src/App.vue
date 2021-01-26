@@ -9,7 +9,9 @@
         <router-view />
       </div>
 
-      <a class="to-top" href="#app">Go top</a>
+      <a class="to-top pl-2 pr-2" href="#app">
+        <i class="fas fa-angle-up" style="font-size: 36px"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -49,7 +51,6 @@ export default {
   text-decoration: none;
   color: #fff;
   background: #007bff;
-  padding: 10px 20px;
   display: none;
   border: 1px solid transparent;
   border-radius: 0.25rem;
