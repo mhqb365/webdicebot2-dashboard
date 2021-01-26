@@ -40,7 +40,9 @@
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block mb-3" @click="tip">Send</button>
+    <button v-else class="btn btn-primary btn-block mb-3" @click="tip">
+      Send
+    </button>
 
     <hr />
 
@@ -71,7 +73,9 @@
     </div>
 
     <div v-else class="table-responsive-sm">
-      <table class="table table-bordered table-hover">
+      <div v-if="isLoading2" class="spinner-border text-muted"></div>
+
+      <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Time</th>
@@ -115,6 +119,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      isLoading2: false,
       data: {
         address: "",
         amount: 0,
@@ -194,6 +199,7 @@ export default {
       });
     },
     listWithdraw: function (page) {
+      this.isLoading2 = true;
       axios({
         url:
           API_URL +
@@ -206,6 +212,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading2 = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;

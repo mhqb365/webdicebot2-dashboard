@@ -71,7 +71,14 @@ export default {
           return this.showAlert(res.message, false);
         } else {
           this.showAlert(res.message);
-          window.location.href = "/ScriptStore";
+          this.data = {
+            type: "Lua",
+            name: "",
+            content: "",
+            author: localStorage.getItem("userName"),
+          };
+
+          this.simplemde.value(this.data.content);
         }
       });
     },

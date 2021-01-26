@@ -46,7 +46,9 @@
         </div>
       </div>
 
-      <table class="table table-bordered table-hover">
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Time</th>
@@ -93,13 +95,17 @@
           </div>
 
           <div class="modal-body">
-            <ul class="list-group">
+            <div v-if="isLoading2" class="spinner-border text-muted"></div>
+
+            <ul v-else class="list-group">
               <li class="list-group-item">Username: {{ modal.userName }}</li>
               <li class="list-group-item">Email: {{ modal.email }}</li>
               <li class="list-group-item">
                 Deposit address: {{ modal.address }}
               </li>
-              <li class="list-group-item">Balance: {{ Number(modal.balance).toFixed(6) }} TRX</li>
+              <li class="list-group-item">
+                Balance: {{ Number(modal.balance).toFixed(6) }} TRX
+              </li>
             </ul>
           </div>
 
@@ -121,6 +127,8 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      isLoading: false,
+      isLoading2: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -141,6 +149,7 @@ export default {
   },
   methods: {
     users: function (page) {
+      this.isLoading = true;
       axios({
         url: API_URL + "/user?page=" + page,
         method: "GET",
@@ -148,6 +157,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;
@@ -159,12 +169,7 @@ export default {
       });
     },
     detail: function (userName) {
-      this.modal = {
-        userName: "",
-        email: "",
-        address: "",
-        balance: 0,
-      };
+      this.isLoading2 = true;
 
       axios({
         url: API_URL + "/user/profile/" + userName,
@@ -173,13 +178,15 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading2 = false;
         let res = response.data;
-        console.log(res);
+        // console.log(res);
         this.modal = res.data;
       });
     },
     search: function (page) {
       if (this.keyword == "") return this.users(this.page);
+      this.isLoading = true;
       axios({
         url: API_URL + "/user/search/" + this.keyword + "?&page=1",
         method: "GET",
@@ -187,6 +194,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;

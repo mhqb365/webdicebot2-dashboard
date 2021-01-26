@@ -27,7 +27,9 @@
     </div>
 
     <div v-else class="table-responsive-sm">
-      <table class="table table-bordered table-hover">
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Time</th>
@@ -72,6 +74,7 @@ import TRON_NODE from "@/utils/tronNode";
 export default {
   data() {
     return {
+      isLoading: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -86,6 +89,7 @@ export default {
   },
   methods: {
     depositList: function (page) {
+      this.isLoading = true;
       axios({
         url: API_URL + "/deposit/fetchAdmin/?page=" + page,
         method: "GET",
@@ -93,6 +97,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;

@@ -27,7 +27,9 @@
     </div>
 
     <div v-else class="table-responsive-sm">
-      <table class="table table-bordered table-hover">
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Status</th>
@@ -95,6 +97,7 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      isLoading: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -108,6 +111,7 @@ export default {
   },
   methods: {
     license: function (page) {
+      this.isLoading = true;
       axios({
         url:
           API_URL +
@@ -120,6 +124,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;

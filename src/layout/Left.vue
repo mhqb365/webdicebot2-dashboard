@@ -69,7 +69,7 @@
       </ul>
     </div>
 
-    <span>Web DiceBot &copy; 2019 - {{ new Date().getFullYear() }} </span>
+    <span class="pb-4">Web DiceBot &copy; 2019 - {{ new Date().getFullYear() }} </span>
   </div>
 </template>
 

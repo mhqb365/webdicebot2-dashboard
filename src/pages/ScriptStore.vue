@@ -27,7 +27,9 @@
     </div>
 
     <div v-else class="row">
-      <div class="col-sm-12 mb-3" v-for="doc in docs" :key="doc._id">
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <div v-else class="col-sm-12 mb-3" v-for="doc in docs" :key="doc._id">
         <div class="card p-2">
           <b>
             <span class="badge badge-warning">{{ doc.type }}</span>
@@ -68,6 +70,7 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      isLoading: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -81,6 +84,7 @@ export default {
   },
   methods: {
     script: function (page) {
+      this.isLoading = true;
       axios({
         url: API_URL + "/script?page=" + page,
         method: "GET",
@@ -88,6 +92,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         this.docs = res.data.docs;

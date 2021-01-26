@@ -26,7 +26,9 @@
       </li>
     </ul>
 
-    <div class="row">
+    <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+    <div v-else class="row">
       <div class="col-md-3 mb-3">
         <div class="card p-4 summary">
           Income
@@ -92,6 +94,8 @@ export default {
       this.license = 0;
       this.pay = 0;
       this.free = 0;
+      this.isLoading = true;
+
       axios({
         url: API_URL + "/license/summary" + state,
         method: "GET",
@@ -99,6 +103,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading = false;
         let res = response.data;
         // console.log(res);
         if (!res.status) return this.showAlert(res.message, false);
