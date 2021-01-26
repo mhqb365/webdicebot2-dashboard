@@ -66,13 +66,7 @@
       </li>
     </ul>
 
-    <div v-if="docs.length == 0" class="text-center">
-      ¯\_(ツ)_/¯
-      <br />
-      You don’t have any withdraw yet
-    </div>
-
-    <div v-else class="table-responsive-sm">
+    <div class="table-responsive-sm">
       <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
       <table v-else class="table table-bordered table-hover">

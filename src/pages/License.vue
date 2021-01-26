@@ -1,32 +1,12 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Deposit</h2>
-
-    <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
-
-    <label>My deposit address</label>
-
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" v-model="user.address" />
-      <div class="input-group-append">
-        <button
-          class="btn btn-primary btn-block"
-          v-clipboard="() => user.address"
-          v-clipboard:success="clipboardSuccess"
-          v-clipboard:error="clipboardError"
-        >
-          Copy
-        </button>
-      </div>
-    </div>
-
-    <h2 class="display-4 text-primary"># History</h2>
+    <h2 class="display-4 text-primary"># Withdraw list</h2>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page - 1)">
+        <button type="button" class="page-link" @click="withdrawList(page - 1)">
           Previous
         </button>
       </li>
@@ -34,19 +14,26 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page + 1)">
+        <button type="button" class="page-link" @click="withdrawList(page + 1)">
           Next
         </button>
       </li>
     </ul>
 
-    <div class="table-responsive-sm">
+    <div v-if="docs.length == 0" class="text-center">
+      ¯\_(ツ)_/¯
+      <br />
+      Don’t have any withdraw yet
+    </div>
+
+    <div v-else class="table-responsive-sm">
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
       <table v-else class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Time</th>
+            <th>User</th>
             <th>Txid</th>
             <th>Amount</th>
           </tr>
@@ -61,6 +48,7 @@
               }}
               (GMT)
             </td>
+            <td>{{ doc.userName }}</td>
             <td>
               <a
                 v-if="doc.txid.length == 64"
@@ -68,7 +56,7 @@
                 target="_blank"
                 >{{ doc.txid }}</a
               >
-              <span v-else>receive from {{ doc.txid }}</span>
+              <span v-else>send to {{ doc.txid }}</span>
             </td>
             <td>{{ doc.amount }} TRX</td>
           </tr>
@@ -87,7 +75,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      user: {},
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -98,32 +85,13 @@ export default {
     };
   },
   mounted: function () {
-    this.profile();
-    this.listDeposit(this.page);
+    this.withdrawList(this.page);
   },
   methods: {
-    profile: function () {
-      axios({
-        url: API_URL + "/user/profile/" + localStorage.getItem("userName"),
-        method: "GET",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      }).then((response) => {
-        let res = response.data;
-        // console.log(res);
-        this.user = res.data;
-      });
-    },
-    listDeposit: function (page) {
+    withdrawList: function (page) {
       this.isLoading = true;
       axios({
-        url:
-          API_URL +
-          "/deposit/fetch/" +
-          localStorage.getItem("userName") +
-          "?page=" +
-          page,
+        url: API_URL + "/withdraw/fetchAdmin/?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

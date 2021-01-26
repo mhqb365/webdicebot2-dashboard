@@ -20,13 +20,7 @@
       </li>
     </ul>
 
-    <div v-if="docs.length == 0" class="text-center">
-      ¯\_(ツ)_/¯
-      <br />
-      You don’t have any user yet
-    </div>
-
-    <div v-else class="table-responsive-sm">
+    <div class="table-responsive-sm">
       <div class="input-group mb-3">
         <input
           type="text"

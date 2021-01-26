@@ -20,13 +20,7 @@
       </li>
     </ul>
 
-    <div v-if="docs.length == 0" class="text-center">
-      ¯\_(ツ)_/¯
-      <br />
-      Don’t have any script yet
-    </div>
-
-    <div v-else class="row">
+    <div class="row">
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
       <div v-else class="col-sm-12 mb-3" v-for="doc in docs" :key="doc._id">
