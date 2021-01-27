@@ -1,13 +1,14 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Terms of use</h2>
-    <hr />
-    <p>
-      The following user agreement is to read in its entirety prior to the use
-      of web diceBot's products and services. the agreement constitutes a legal
-      binding between the user and all services found on webdicebot.xyz
-    </p>
-    <pre>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Terms of use</h2>
+
+      <p>
+        The following user agreement is to read in its entirety prior to the use
+        of web diceBot's products and services. the agreement constitutes a
+        legal binding between the user and all services found on webdicebot.xyz
+      </p>
+      <pre>
 1. You must know what is dice
 2. You must know control your money in dice
 3. You have to differentiate between dice tools with strategy script for dice
@@ -16,28 +17,32 @@
 6. Do not share your license if you don't wanna anyone use bot by your money
 7. Only use the installer in webdicebot.xyz if you don't want someone fake us to trick you
 8. Upgrade level max security in your account at all dice sites</pre
-    >
+      >
+    </div>
 
-    <h2 class="display-4 text-primary"># How to use</h2>
-    <hr />
-    Step 1: Join to the Web DiceBot system via Register/Login
-    <br />
-    Step 2: Deposit TRX (Tron) to your deposit address then buy license with
-    days you want
-    <br />
-    Step 3: Paste installer to console of browser on dice site you play.
-    <a href="https://youtube.com/embed/Tu7oTnP7noc" target="_blank"
-      >See video</a
-    >
-    <br />
-    Buy TRX (Tron) at:
-    <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
-      >Binance.com</a
-    >
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># How to use</h2>
 
-    <h2 class="display-4 text-primary"># Sample Lua strategy script</h2>
-    <hr />
-    <pre>
+      Step 1: Join to the Web DiceBot system via Register/Login
+      <br />
+      Step 2: Deposit TRX (Tron) to your deposit address then buy license with
+      days you want
+      <br />
+      Step 3: Paste installer to console of browser on dice site you play.
+      <a href="https://youtube.com/embed/Tu7oTnP7noc" target="_blank"
+        >See video</a
+      >
+      <br />
+      Buy TRX (Tron) at:
+      <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
+        >Binance.com</a
+      >
+    </div>
+
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Sample Lua strategy script</h2>
+
+      <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -50,11 +55,15 @@ function dobet()
         nextbet=previousbet*2
     end
 end</pre
-    >
+      >
+    </div>
 
-    <h2 class="display-4 text-primary"># Sample Javascript strategy script</h2>
-    <hr />
-    <pre>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary">
+        # Sample Javascript strategy script
+      </h2>
+
+      <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -67,11 +76,13 @@ function dobet() {
         nextbet=previousbet*2
     }
 }</pre
-    >
+      >
+    </div>
 
-    <h2 class="display-4 text-primary"># Variables</h2>
-    <hr />
-    <pre>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Variables</h2>
+
+      <pre>
 chance : % win change
 bethigh : bet side, true is over/above, false is under/below
 nextbet : bet amount for next bet make
@@ -89,10 +100,13 @@ losses : lose count
 losestreak : streak of lose count
 currentstreak : streak of bet count
 </pre
-    >
-    <h2 class="display-4 text-primary"># Functions</h2>
-    <hr />
-    <pre>
+      >
+    </div>
+
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Functions</h2>
+
+      <pre>
 dobet() : loop betting
 start() : start betting
 stop() : stop betting
@@ -101,7 +115,8 @@ resetseed() : reset seed fair
 resetstats() : reset stats in round
 ching() : alert with sound
 </pre
-    >
+      >
+    </div>
   </div>
 </template>
 

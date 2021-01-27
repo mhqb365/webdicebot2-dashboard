@@ -1,26 +1,30 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Buy license</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Buy license</h2>
 
-    <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
 
-    <div class="form-group">
-      <label>How many day you wanna? Minimum 10 days</label>
-      <input
-        type="number"
-        class="form-control"
-        v-model="data.limit"
-        @change="calculator"
-      />
+      <div class="form-group">
+        <label>How many day you wanna? Minimum 10 days</label>
+        <input
+          type="number"
+          class="form-control"
+          v-model="data.limit"
+          @change="calculator"
+        />
+      </div>
+
+      <p>You will pay {{ data.price }} TRX</p>
+
+      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+
+      <button v-else class="btn btn-primary btn-block" @click="order">
+        Buy
+      </button>
     </div>
-
-    <p>You will pay {{ data.price }} TRX</p>
-
-    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
-      <span class="spinner-border spinner-border-sm"></span>
-    </button>
-
-    <button v-else class="btn btn-primary btn-block mb-3" @click="order">Buy</button>
   </div>
 </template>
 

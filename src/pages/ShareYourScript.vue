@@ -1,32 +1,34 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Share your script</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Share your script</h2>
 
-    <div class="form-group">
-      <label>Language</label>
-      <select class="form-control" v-model="data.type">
-        <option>Lua</option>
-        <option>Javascript</option>
-      </select>
+      <div class="form-group">
+        <label>Language</label>
+        <select class="form-control" v-model="data.type">
+          <option>Lua</option>
+          <option>Javascript</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Script name</label>
+        <input type="text" class="form-control" v-model="data.name" />
+      </div>
+
+      <div class="form-group">
+        <label>Content</label>
+        <textarea class="form-control" rows="5" id="content"></textarea>
+      </div>
+
+      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+
+      <button v-else class="btn btn-primary btn-block" @click="share">
+        Share
+      </button>
     </div>
-
-    <div class="form-group">
-      <label>Script name</label>
-      <input type="text" class="form-control" v-model="data.name" />
-    </div>
-
-    <div class="form-group">
-      <label>Content</label>
-      <textarea class="form-control" rows="5" id="content"></textarea>
-    </div>
-
-    <button v-if="isLoading" class="btn btn-primary btn-block mb-3" disabled>
-      <span class="spinner-border spinner-border-sm"></span>
-    </button>
-
-    <button v-else class="btn btn-primary btn-block mb-3" @click="share">
-      Share
-    </button>
   </div>
 </template>
 

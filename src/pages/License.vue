@@ -1,71 +1,73 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># License list</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># License list</h2>
 
-    <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+      <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
-    <ul class="pagination">
-      <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="licenses(page - 1)">
-          Previous
-        </button>
-      </li>
-      <li class="page-item active">
-        <button type="button" class="page-link">{{ page }}</button>
-      </li>
-      <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="licenses(page + 1)">
-          Next
-        </button>
-      </li>
-    </ul>
+      <ul class="pagination">
+        <li v-if="hasPrevPage" class="page-item">
+          <button type="button" class="page-link" @click="licenses(page - 1)">
+            Previous
+          </button>
+        </li>
+        <li class="page-item active">
+          <button type="button" class="page-link">{{ page }}</button>
+        </li>
+        <li v-if="hasNextPage" class="page-item">
+          <button type="button" class="page-link" @click="licenses(page + 1)">
+            Next
+          </button>
+        </li>
+      </ul>
 
-    <div class="table-responsive-sm">
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div class="table-responsive-sm">
+        <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-      <table v-else class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Type</th>
-            <th>Limit</th>
-            <th>Status</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="doc in docs" :key="doc._id">
-            <td>{{ doc.userName }}</td>
-            <td>{{ doc.type }}</td>
-            <td>{{ doc.limit }}</td>
-            <td>
-              {{
-                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
-                  ? "Expired"
-                  : doc.locked
-                  ? "Locked"
-                  : "Working"
-              }}
-            </td>
-            <td>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" :value="doc.value" />
-                <div class="input-group-append">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    v-clipboard="() => doc.value"
-                    v-clipboard:success="clipboardSuccess"
-                    v-clipboard:error="clipboardError"
-                  >
-                    Copy
-                  </button>
+        <table v-else class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Type</th>
+              <th>Limit</th>
+              <th>Status</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="doc in docs" :key="doc._id">
+              <td>{{ doc.userName }}</td>
+              <td>{{ doc.type }}</td>
+              <td>{{ doc.limit }}</td>
+              <td>
+                {{
+                  (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                    ? "Expired"
+                    : doc.locked
+                    ? "Locked"
+                    : "Working"
+                }}
+              </td>
+              <td>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" :value="doc.value" />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      v-clipboard="() => doc.value"
+                      v-clipboard:success="clipboardSuccess"
+                      v-clipboard:error="clipboardError"
+                    >
+                      Copy
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>

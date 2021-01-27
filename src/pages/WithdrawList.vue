@@ -1,61 +1,71 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># Withdraw list</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># Withdraw list</h2>
 
-    <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+      <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
-    <ul class="pagination">
-      <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="withdrawList(page - 1)">
-          Previous
-        </button>
-      </li>
-      <li class="page-item active">
-        <button type="button" class="page-link">{{ page }}</button>
-      </li>
-      <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="withdrawList(page + 1)">
-          Next
-        </button>
-      </li>
-    </ul>
+      <ul class="pagination">
+        <li v-if="hasPrevPage" class="page-item">
+          <button
+            type="button"
+            class="page-link"
+            @click="withdrawList(page - 1)"
+          >
+            Previous
+          </button>
+        </li>
+        <li class="page-item active">
+          <button type="button" class="page-link">{{ page }}</button>
+        </li>
+        <li v-if="hasNextPage" class="page-item">
+          <button
+            type="button"
+            class="page-link"
+            @click="withdrawList(page + 1)"
+          >
+            Next
+          </button>
+        </li>
+      </ul>
 
-    <div class="table-responsive-sm">
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div class="table-responsive-sm">
+        <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-      <table v-else class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>User</th>
-            <th>Txid</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="doc in docs" :key="doc._id">
-            <td>
-              {{
-                new Date(doc.time).toLocaleString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
-              (GMT)
-            </td>
-            <td>{{ doc.userName }}</td>
-            <td>
-              <a
-                v-if="doc.txid.length == 64"
-                :href="tronNode + doc.txid"
-                target="_blank"
-                >{{ doc.txid }}</a
-              >
-              <span v-else>send to {{ doc.txid }}</span>
-            </td>
-            <td>{{ doc.amount }} TRX</td>
-          </tr>
-        </tbody>
-      </table>
+        <table v-else class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>User</th>
+              <th>Txid</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="doc in docs" :key="doc._id">
+              <td>
+                {{
+                  new Date(doc.time).toLocaleString("en-GB", {
+                    timeZone: "UTC",
+                  })
+                }}
+                (GMT)
+              </td>
+              <td>{{ doc.userName }}</td>
+              <td>
+                <a
+                  v-if="doc.txid.length == 64"
+                  :href="tronNode + doc.txid"
+                  target="_blank"
+                  >{{ doc.txid }}</a
+                >
+                <span v-else>send to {{ doc.txid }}</span>
+              </td>
+              <td>{{ doc.amount }} TRX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>

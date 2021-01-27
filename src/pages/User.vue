@@ -1,81 +1,83 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># User list</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># User list</h2>
 
-    <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
+      <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
-    <ul class="pagination">
-      <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="users(page - 1)">
-          Previous
-        </button>
-      </li>
-      <li class="page-item active">
-        <button type="button" class="page-link">{{ page }}</button>
-      </li>
-      <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="users(page + 1)">
-          Next
-        </button>
-      </li>
-    </ul>
-
-    <div class="table-responsive-sm">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by username"
-          v-model="keyword"
-          @change="search()"
-        />
-        <div class="input-group-append">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            @click="emptyKeyWord()"
-          >
-            Clear
+      <ul class="pagination">
+        <li v-if="hasPrevPage" class="page-item">
+          <button type="button" class="page-link" @click="users(page - 1)">
+            Previous
           </button>
+        </li>
+        <li class="page-item active">
+          <button type="button" class="page-link">{{ page }}</button>
+        </li>
+        <li v-if="hasNextPage" class="page-item">
+          <button type="button" class="page-link" @click="users(page + 1)">
+            Next
+          </button>
+        </li>
+      </ul>
+
+      <div class="table-responsive-sm">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by username"
+            v-model="keyword"
+            @change="search()"
+          />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              @click="emptyKeyWord()"
+            >
+              Clear
+            </button>
+          </div>
         </div>
+
+        <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+        <table v-else class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Username</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr v-for="doc in docs" :key="doc._id">
+              <td>
+                {{
+                  new Date(doc.time).toLocaleString("en-GB", {
+                    timeZone: "UTC",
+                  })
+                }}
+                (GMT)
+              </td>
+              <td>{{ doc.userName }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  @click="detail(doc.userName)"
+                  data-toggle="modal"
+                  data-target="#myModal"
+                >
+                  Detail
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
-
-      <table v-else class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Username</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr v-for="doc in docs" :key="doc._id">
-            <td>
-              {{
-                new Date(doc.time).toLocaleString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
-              (GMT)
-            </td>
-            <td>{{ doc.userName }}</td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary btn-sm"
-                @click="detail(doc.userName)"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                Detail
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <div class="modal fade" id="myModal">

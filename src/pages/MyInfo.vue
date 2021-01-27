@@ -1,17 +1,19 @@
 <template>
   <div>
-    <h2 class="display-4 text-primary"># My info</h2>
+    <div class="pb-5">
+      <h2 class="display-4 text-primary"># My info</h2>
 
-    <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-    <ul v-else class="list-group">
-      <li class="list-group-item">Username: {{ user.userName }}</li>
-      <li class="list-group-item">Email: {{ user.email }}</li>
-      <li class="list-group-item">Deposit address: {{ user.address }}</li>
-      <li class="list-group-item">
-        Balance: {{ Number(user.balance).toFixed(6) }} TRX
-      </li>
-    </ul>
+      <ul v-else class="list-group">
+        <li class="list-group-item">Username: {{ user.userName }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">Deposit address: {{ user.address }}</li>
+        <li class="list-group-item">
+          Balance: {{ Number(user.balance).toFixed(6) }} TRX
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
