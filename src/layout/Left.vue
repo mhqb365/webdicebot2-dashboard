@@ -25,6 +25,9 @@
           <a href="/BotInstaller">Bot Installer</a>
         </li>
         <li class="list-group-item">
+          <a href="/HiLoGame">Hi-Lo Game <span class="badge badge-danger">Hot</span></a>
+        </li>
+        <li class="list-group-item">
           <a href="/MyInfo">My Info</a>
         </li>
         <li class="list-group-item">

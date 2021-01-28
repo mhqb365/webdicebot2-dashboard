@@ -3,7 +3,12 @@
     <div class="pb-5">
       <h2 class="display-4 text-primary"># Buy license</h2>
 
-      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+      <p>
+        You have
+        <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
+        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
+        TRX
+      </p>
 
       <div class="form-group">
         <label>How many day you wanna? Minimum 10 days</label>
@@ -15,7 +20,12 @@
         />
       </div>
 
-      <p>You will pay {{ data.price }} TRX</p>
+      <p>
+        You will pay
+        <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
+        <span v-else>{{ data.price }}</span>
+        TRX
+      </p>
 
       <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
         <span class="spinner-border spinner-border-sm"></span>
@@ -36,6 +46,8 @@ export default {
   data() {
     return {
       isLoading: false,
+      isLoading2: false,
+      isLoading3: false,
       user: {},
       priceTronPerDay: 0,
       data: {
@@ -51,7 +63,9 @@ export default {
   },
   methods: {
     fetchPrice: function () {
+      this.isLoading2 = true;
       this.fetchPriceTron().then((response) => {
+        this.isLoading2 = false;
         // console.log(response);
         this.isLoading = false;
         this.priceTronPerDay = 2 / Number(response) / 1e1;
@@ -59,6 +73,7 @@ export default {
       });
     },
     profile: function () {
+      this.isLoading3 = true;
       axios({
         url: API_URL + "/user/profile/" + localStorage.getItem("userName"),
         method: "GET",
@@ -66,6 +81,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading3 = false;
         this.isLoading = false;
         let res = response.data;
         // console.log(res);

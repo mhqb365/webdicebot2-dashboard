@@ -3,7 +3,12 @@
     <div class="pb-5">
       <h2 class="display-4 text-primary"># Withdraw</h2>
 
-      <p>You have {{ Number(user.balance).toFixed(6) }} TRX</p>
+      <p>
+        You have
+        <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
+        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
+        TRX
+      </p>
 
       <div class="form-group">
         <label>Address</label>
@@ -116,6 +121,7 @@ export default {
     return {
       isLoading: false,
       isLoading2: false,
+      isLoading3: false,
       data: {
         address: "",
         amount: 0,
@@ -144,6 +150,7 @@ export default {
   },
   methods: {
     profile: function () {
+      this.isLoading3 = true;
       axios({
         url: API_URL + "/user/profile/" + localStorage.getItem("userName"),
         method: "GET",
@@ -151,6 +158,7 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading3 = false;
         let res = response.data;
         // console.log(res);
         this.user = res.data;
