@@ -4,7 +4,6 @@ import Home from '@/pages/Home'
 import Register from '@/pages/Register'
 import Login from '@/pages/Login'
 import BotInstaller from '@/pages/BotInstaller'
-import HiLoGame from '@/pages/HiLoGame'
 import MyInfo from '@/pages/MyInfo'
 import MyLicense from '@/pages/MyLicense'
 import BuyLicense from '@/pages/BuyLicense'
@@ -44,12 +43,6 @@ const router = new Router({
       path: '/BotInstaller',
       name: 'BotInstaller',
       component: BotInstaller,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/HiLoGame',
-      name: 'HiLoGame',
-      component: HiLoGame,
       meta: { requiresAuth: true }
     },
     {
