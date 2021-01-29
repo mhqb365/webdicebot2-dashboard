@@ -6,7 +6,7 @@
       <p>
         You have
         <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
+        <span v-else>{{ Number(user.balance).toFixed(0) }}</span>
         TRX
       </p>
 
