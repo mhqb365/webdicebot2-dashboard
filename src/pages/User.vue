@@ -100,7 +100,7 @@
                 Deposit address: {{ modal.address }}
               </li>
               <li class="list-group-item">
-                Balance: {{ Number(modal.balance).toFixed(6) }} TRX
+                Balance: {{ Number(modal.balance).toFixed(0) }} TRX
               </li>
             </ul>
           </div>
