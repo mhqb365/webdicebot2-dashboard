@@ -140,6 +140,14 @@ script.src = BOT_URL+'/bot/init/luckyfish-dice-classic'
 document.body.appendChild(script)`,
         },
         {
+          name: "luckyfish.io - dice multiplayer",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/luckyfish-dice-multiplayer'
+document.body.appendChild(script)`,
+        },
+        {
           name: "luckyfish.io - limbo",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
