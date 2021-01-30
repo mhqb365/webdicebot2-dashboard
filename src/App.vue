@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container bg-light">
     <div class="row">
       <div class="col-3">
         <Left />
