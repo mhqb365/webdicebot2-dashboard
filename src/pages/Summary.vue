@@ -3,63 +3,87 @@
     <div class="pb-5">
       <h2 class="display-4 text-primary"># Summary</h2>
 
-      <ul class="pagination">
-        <li
-          class="page-item"
-          v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
-        >
-          <button class="page-link" @click="summary('ThisMonth')">
-            This month
-          </button>
-        </li>
+      <div class="pb-5">
+        <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
-        <li
-          class="page-item"
-          v-bind:class="[state == 'LastMonth' ? 'active' : '']"
-        >
-          <button class="page-link" @click="summary('LastMonth')">
-            Last month
-          </button>
-        </li>
-
-        <li class="page-item" v-bind:class="[state == 'Total' ? 'active' : '']">
-          <button class="page-link" @click="summary('Total')">Total</button>
-        </li>
-      </ul>
-
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
-
-      <div v-else class="row">
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Income
-            <br />
-            <h4 class="text-success">{{ Number(income).toFixed(0) }} TRX</h4>
-            {{ Number(priceUsd * income).toFixed(2) }} $
+        <div v-else class="row">
+          <div class="col-md-12 mb-12">
+            <div class="card p-4 summary">
+              User balance
+              <br />
+              <h4 class="text-primary">
+                {{ Number(userBalance).toFixed(0) }} TRX
+              </h4>
+              {{ Number(priceUsd * userBalance).toFixed(2) }} $
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            License
-            <br />
-            <h4 class="text-primary">{{ license }}</h4>
+      <div class="pb-5">
+        <!-- <h2 class="display-4 text-primary"># Summary</h2> -->
+
+        <ul class="pagination">
+          <li
+            class="page-item"
+            v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
+          >
+            <button class="page-link" @click="summary('ThisMonth')">
+              This month
+            </button>
+          </li>
+
+          <li
+            class="page-item"
+            v-bind:class="[state == 'LastMonth' ? 'active' : '']"
+          >
+            <button class="page-link" @click="summary('LastMonth')">
+              Last month
+            </button>
+          </li>
+
+          <li
+            class="page-item"
+            v-bind:class="[state == 'Total' ? 'active' : '']"
+          >
+            <button class="page-link" @click="summary('Total')">Total</button>
+          </li>
+        </ul>
+
+        <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+        <div v-else class="row">
+          <div class="col-md-3 mb-3">
+            <div class="card p-4 summary">
+              Income
+              <br />
+              <h4 class="text-success">{{ Number(income).toFixed(0) }} TRX</h4>
+              {{ Number(priceUsd * income).toFixed(2) }} $
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Pay
-            <br />
-            <h4 class="text-warning">{{ pay }}</h4>
+          <div class="col-md-3 mb-3">
+            <div class="card p-4 summary">
+              License
+              <br />
+              <h4 class="text-primary">{{ license }}</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-3 mb-3">
-          <div class="card p-4 summary">
-            Free
-            <br />
-            <h4 class="text-danger">{{ free }}</h4>
+          <div class="col-md-3 mb-3">
+            <div class="card p-4 summary">
+              Pay
+              <br />
+              <h4 class="text-warning">{{ pay }}</h4>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <div class="card p-4 summary">
+              Free
+              <br />
+              <h4 class="text-danger">{{ free }}</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -75,6 +99,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      isLoading2: false,
       userName: "",
       state: "ThisMonth",
       income: 0,
@@ -82,10 +107,12 @@ export default {
       license: 0,
       pay: 0,
       free: 0,
+      userBalance: 0,
     };
   },
   mounted: function () {
     this.summary(this.state);
+    this.totalBalance();
     this.fetchPriceUsd();
     setInterval(() => this.fetchPriceUsd(), 6e4);
   },
@@ -113,6 +140,23 @@ export default {
           this.income += d.price;
           this.license += 1;
           d.type == "Pay" ? (this.pay += 1) : (this.free += 1);
+        });
+      });
+    },
+    totalBalance: function () {
+      this.isLoading2 = true;
+      axios({
+        url: API_URL + "/wallet/balance",
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        this.isLoading2 = false;
+        let res = response.data;
+        // console.log(res);
+        res.data.map((r) => {
+          if (r.userName != "mhqb365") this.userBalance += Number(r.balance);
         });
       });
     },
