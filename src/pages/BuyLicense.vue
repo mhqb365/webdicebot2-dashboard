@@ -23,7 +23,7 @@
       <p>
         You will pay
         <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ Number(data.price).toFixed(0) }}</span>
+        <span v-else>{{ data.price }}</span>
         TRX
       </p>
 
@@ -89,7 +89,9 @@ export default {
       });
     },
     calculator: function () {
-      this.data.price = this.data.limit * this.priceTronPerDay;
+      this.data.price = Number(
+        Number(this.data.limit * this.priceTronPerDay).toFixed(0)
+      );
     },
     order: function () {
       this.isLoading = true;
