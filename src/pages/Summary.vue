@@ -9,7 +9,7 @@
         <div v-else class="row">
           <div class="col-md-12 mb-12">
             <div class="card p-4 summary">
-              User balance
+              Users balance
               <br />
               <h4 class="text-primary">
                 {{ Number(userBalance).toFixed(0) }} TRX
