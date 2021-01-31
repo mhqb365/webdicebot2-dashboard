@@ -43,7 +43,7 @@
 
         <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-        <table v-else class="table table-bordered table-hover">
+        <table v-else class="table table-bordered table-hover bg-white">
           <thead>
             <tr>
               <th>Time</th>
@@ -60,7 +60,6 @@
                     timeZone: "UTC",
                   })
                 }}
-                (GMT)
               </td>
               <td>{{ doc.userName }}</td>
               <td>

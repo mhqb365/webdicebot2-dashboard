@@ -24,7 +24,7 @@
       <div class="table-responsive-sm">
         <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-        <table v-else class="table table-bordered table-hover">
+        <table v-else class="table table-bordered table-hover bg-white">
           <thead>
             <tr>
               <th>Status</th>
@@ -66,7 +66,6 @@
                     timeZone: "UTC",
                   })
                 }}
-                (GMT+0)
               </td>
               <td>
                 {{
