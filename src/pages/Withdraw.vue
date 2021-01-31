@@ -20,6 +20,8 @@
         <input v-model="data.amount" type="number" class="form-control" />
       </div>
 
+      <p><small>Withdraw fee: 1 TRX</small></p>
+
       <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
         <span class="spinner-border spinner-border-sm"></span>
       </button>
@@ -98,7 +100,7 @@
                   v-if="doc.txid.length == 64"
                   :href="tronNode + doc.txid"
                   target="_blank"
-                  >{{ doc.txid.slice(0,5) }}...{{ doc.txid.slice(-5) }}</a
+                  >{{ doc.txid.slice(0, 5) }}...{{ doc.txid.slice(-5) }}</a
                 >
                 <span v-else>send to {{ doc.txid }}</span>
               </td>
