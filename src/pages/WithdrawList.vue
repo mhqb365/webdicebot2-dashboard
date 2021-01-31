@@ -57,7 +57,7 @@
                   v-if="doc.txid.length == 64"
                   :href="tronNode + doc.txid"
                   target="_blank"
-                  >{{ doc.txid }}</a
+                  >{{ doc.txid.slice(0,5) }}...{{ doc.txid.slice(-5) }}</a
                 >
                 <span v-else>send to {{ doc.txid }}</span>
               </td>
