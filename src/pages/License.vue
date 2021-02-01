@@ -32,10 +32,23 @@
               <th>Limit</th>
               <th>Status</th>
               <th>Value</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="doc in docs" :key="doc._id">
+            <tr
+              v-for="doc in docs"
+              :key="doc._id"
+              v-bind:class="[
+                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                  ? 'text-danger'
+                  : doc.locked
+                  ? 'text-secondary'
+                  : doc.type == 'Pay'
+                  ? 'text-success'
+                  : 'text-dark',
+              ]"
+            >
               <td>{{ doc.userName }}</td>
               <td>{{ doc.type }}</td>
               <td>{{ doc.limit }}</td>
@@ -63,6 +76,24 @@
                     </button>
                   </div>
                 </div>
+              </td>
+              <td>
+                <button
+                  v-if="doc.locked"
+                  @click="action('unlock', doc._id)"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  Unlock
+                </button>
+                <button
+                  v-else
+                  @click="action('lock', doc._id)"
+                  type="button"
+                  class="btn btn-warning"
+                >
+                  Lock
+                </button>
               </td>
             </tr>
           </tbody>
@@ -110,6 +141,19 @@ export default {
         this.totalPages = res.data.totalPages;
         this.hasPrevPage = res.data.hasPrevPage;
         this.hasNextPage = res.data.hasNextPage;
+      });
+    },
+    action: function (action, license) {
+      axios({
+        url: API_URL + "/license/" + action + "/" + license,
+        method: "PUT",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        let res = response.data;
+        // console.log(res);
+        this.licenses(this.page);
       });
     },
   },

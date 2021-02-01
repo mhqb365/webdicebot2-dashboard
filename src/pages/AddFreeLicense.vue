@@ -52,8 +52,8 @@ export default {
         // console.log(res);
         if (!res.status) return this.showAlert(res.message, false);
         this.showAlert("Success");
-        this.userName = "";
-        this.limit = 10;
+        this.data.userName = "";
+        this.data.limit = 10;
       });
     },
   },

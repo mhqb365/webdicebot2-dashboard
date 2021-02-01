@@ -34,7 +34,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="doc in docs" :key="doc._id">
+            <tr
+              v-for="doc in docs"
+              :key="doc._id"
+              v-bind:class="[
+                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                  ? 'text-danger'
+                  : doc.locked
+                  ? 'text-secondary'
+                  : doc.type == 'Pay'
+                  ? 'text-success'
+                  : 'text-dark',
+              ]"
+            >
               <td>
                 {{
                   (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
