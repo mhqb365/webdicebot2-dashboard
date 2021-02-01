@@ -22,6 +22,25 @@
       </ul>
 
       <div class="table-responsive-sm">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by username"
+            v-model="keyword"
+            @change="search()"
+          />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              @click="emptyKeyWord()"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
         <div v-if="isLoading" class="spinner-border text-muted"></div>
 
         <table v-else class="table table-bordered table-hover bg-white">
@@ -32,7 +51,7 @@
               <th>Limit</th>
               <th>Status</th>
               <th>Value</th>
-              <th></th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -78,22 +97,30 @@
                 </div>
               </td>
               <td>
-                <button
-                  v-if="doc.locked"
-                  @click="action('unlock', doc._id)"
-                  type="button"
-                  class="btn btn-warning"
-                >
-                  Unlock
-                </button>
-                <button
-                  v-else
-                  @click="action('lock', doc._id)"
-                  type="button"
-                  class="btn btn-warning"
-                >
-                  Lock
-                </button>
+                <span v-if="isLoading">
+                  <button class="btn btn-warning" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                  </button>
+                </span>
+
+                <span v-else>
+                  <button
+                    v-if="doc.locked"
+                    @click="action('unlock', doc._id)"
+                    type="button"
+                    class="btn btn-warning"
+                  >
+                    Unlock
+                  </button>
+                  <button
+                    v-else
+                    @click="action('lock', doc._id)"
+                    type="button"
+                    class="btn btn-warning"
+                  >
+                    Lock
+                  </button>
+                </span>
               </td>
             </tr>
           </tbody>
@@ -110,7 +137,9 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      keyword: "",
       isLoading: false,
+      isLoading2: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -144,6 +173,7 @@ export default {
       });
     },
     action: function (action, license) {
+      this.isLoading2 = true;
       axios({
         url: API_URL + "/license/" + action + "/" + license,
         method: "PUT",
@@ -151,10 +181,31 @@ export default {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
+        this.isLoading2 = false;
         let res = response.data;
         // console.log(res);
         this.licenses(this.page);
       });
+    },
+    search: function (page) {
+      if (this.keyword == "") return this.users(this.page);
+      this.isLoading = true;
+      axios({
+        url: API_URL + "/license/search/" + this.keyword + "?&page=1",
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        this.isLoading = false;
+        let res = response.data;
+        // console.log(res);
+        this.docs = res.data.docs;
+      });
+    },
+    emptyKeyWord: function () {
+      this.keyword = "";
+      this.users(this.page);
     },
   },
 };

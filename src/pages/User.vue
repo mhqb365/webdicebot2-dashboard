@@ -48,7 +48,7 @@
             <tr>
               <th>Time</th>
               <th>Username</th>
-              <th></th>
+              <th>Action</th>
             </tr>
           </thead>
 
@@ -65,7 +65,7 @@
               <td>
                 <button
                   type="button"
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-primary"
                   @click="detail(doc.userName)"
                   data-toggle="modal"
                   data-target="#myModal"
