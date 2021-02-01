@@ -60,7 +60,7 @@
                 >
                 <span v-else>receive from {{ doc.txid }}</span>
               </td>
-              <td>{{ Number(doc.amount).toFixed(0) }} TRX</td>
+              <td>{{ parseInt(doc.amount) }} TRX</td>
             </tr>
           </tbody>
         </table>

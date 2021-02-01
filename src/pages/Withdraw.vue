@@ -6,7 +6,7 @@
       <p>
         You have
         <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ Number(user.balance).toFixed(0) }}</span>
+        <span v-else>{{ parseInt(user.balance) }}</span>
         TRX
       </p>
 
@@ -103,7 +103,7 @@
                 >
                 <span v-else>send to {{ doc.txid }}</span>
               </td>
-              <td>{{ Number(doc.amount).toFixed(0) }} TRX</td>
+              <td>{{ parseInt(doc.amount) }} TRX</td>
             </tr>
           </tbody>
         </table>

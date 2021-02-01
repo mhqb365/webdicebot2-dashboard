@@ -11,9 +11,7 @@
             <div class="card p-4 summary">
               Users balance
               <br />
-              <h4 class="text-primary">
-                {{ Number(userBalance).toFixed(0) }} TRX
-              </h4>
+              <h4 class="text-primary">{{ parseInt(userBalance) }} TRX</h4>
               {{ Number(priceUsd * userBalance).toFixed(2) }} $
             </div>
           </div>
@@ -57,7 +55,7 @@
             <div class="card p-4 summary">
               Income
               <br />
-              <h4 class="text-success">{{ Number(income).toFixed(0) }} TRX</h4>
+              <h4 class="text-success">{{ parseInt(income) }} TRX</h4>
               {{ Number(priceUsd * income).toFixed(2) }} $
             </div>
           </div>

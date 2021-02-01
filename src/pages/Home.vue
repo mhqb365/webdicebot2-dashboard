@@ -8,6 +8,7 @@
         of web diceBot's products and services. the agreement constitutes a
         legal binding between the user and all services found on webdicebot.xyz
       </p>
+
       <pre class="bg-white rounded p-2">
 1. You must know what is dice
 2. You must know control your money in dice

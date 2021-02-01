@@ -6,7 +6,7 @@
       <p>
         You have
         <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ Number(user.balance).toFixed(0) }}</span>
+        <span v-else>{{ parseInt(user.balance) }}</span>
         TRX
       </p>
 
@@ -73,11 +73,11 @@
                   v-if="doc.txid.length == 64"
                   :href="tronNode + doc.txid"
                   target="_blank"
-                  >{{ doc.txid.slice(0,5) }}...{{ doc.txid.slice(-5) }}</a
+                  >{{ doc.txid.slice(0, 5) }}...{{ doc.txid.slice(-5) }}</a
                 >
                 <span v-else>receive from {{ doc.txid }}</span>
               </td>
-              <td>{{ Number(doc.amount).toFixed(0) }} TRX</td>
+              <td>{{ parseInt(doc.amount) }} TRX</td>
             </tr>
           </tbody>
         </table>
