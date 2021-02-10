@@ -106,6 +106,7 @@ export default {
         // console.log(res);
         if (!res.status) return this.showAlert(res.message, false);
         this.showAlert("Success");
+        window.location.href = "/MyLicense";
       });
     },
   },

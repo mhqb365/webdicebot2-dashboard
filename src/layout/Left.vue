@@ -75,11 +75,7 @@
 </template>
 
 <script>
-export default {
-  mounted: function () {
-    if (this.isLogin) this.checkDeposit();
-  },
-};
+export default {};
 </script>
 
 <style>

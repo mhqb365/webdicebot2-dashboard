@@ -52,19 +52,6 @@ Vue.mixin({
       })
       return result.data.price
     },
-    checkDeposit: function () {
-      axios({
-        url: API_URL + '/deposit/check/' + localStorage.getItem('userName'),
-        method: 'GET',
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      }).then(response => {
-        let res = response.data
-        // console.log(res)
-        if (res.status) if (res.data.change) window.location.reload()
-      })
-    },
   }
 })
 

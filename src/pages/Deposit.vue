@@ -5,9 +5,25 @@
 
       <p>
         You have
-        <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
+        <span
+          v-if="isLoading2 || isLoading3"
+          class="spinner-border spinner-border-sm"
+        ></span>
         <span v-else>{{ parseInt(user.balance) }}</span>
         TRX
+
+        <button v-if="isLoading3" class="btn btn-primary btn-sm ml-2" disabled>
+          <span class="spinner-border spinner-border-sm"></span>
+        </button>
+
+        <button
+          v-else
+          type="button"
+          class="btn btn-primary btn-sm ml-2"
+          @click="checkDeposit()"
+        >
+          <i class="fas fa-sync"></i>
+        </button>
       </p>
 
       <label>My deposit address</label>
@@ -96,6 +112,7 @@ export default {
     return {
       isLoading: false,
       isLoading2: false,
+      isLoading3: false,
       user: {},
       docs: [],
       page: 1,
@@ -149,6 +166,21 @@ export default {
         this.totalPages = res.data.totalPages;
         this.hasPrevPage = res.data.hasPrevPage;
         this.hasNextPage = res.data.hasNextPage;
+      });
+    },
+    checkDeposit: function () {
+      this.isLoading3 = true;
+      axios({
+        url: API_URL + "/deposit/check/" + localStorage.getItem("userName"),
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        this.isLoading3 = false;
+        let res = response.data;
+        // console.log(res)
+        if (res.status) if (res.data.change) window.location.reload();
       });
     },
   },
