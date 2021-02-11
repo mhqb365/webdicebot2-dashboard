@@ -10,7 +10,7 @@
         <li class="list-group-item">Email: {{ user.email }}</li>
         <li class="list-group-item">Deposit address: {{ user.address }}</li>
         <li class="list-group-item">
-          Balance: {{ parseInt(user.balance) }} TRX
+          Balance: {{ Number(user.balance).toFixed(6) }} TRX
         </li>
       </ul>
     </div>

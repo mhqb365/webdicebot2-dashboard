@@ -25,14 +25,6 @@
         <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
         <span v-else>{{ data.price }}</span>
         TRX
-        <span
-          class="badge badge-warning"
-          data-toggle="tooltip"
-          title="Price from Binance and update realtime"
-          type="button"
-        >
-          ?
-        </span>
       </p>
 
       <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
@@ -97,9 +89,9 @@ export default {
       });
     },
     calculator: function () {
-      this.data.price = Number(
-        Number(this.data.limit * this.priceTronPerDay + 1).toFixed(6)
-      ) + 1;
+      this.data.price =
+        Number(Number(this.data.limit * this.priceTronPerDay + 1).toFixed(6)) +
+        1;
     },
     order: function () {
       this.isLoading = true;

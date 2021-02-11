@@ -91,7 +91,7 @@
                   target="_blank"
                   >{{ doc.txid.slice(0, 5) }}...{{ doc.txid.slice(-5) }}</a
                 >
-                <span v-else>receive from {{ doc.txid }}</span>
+                <span v-else>Receive from {{ doc.txid }}</span>
               </td>
               <td>{{ doc.amount }} TRX</td>
             </tr>

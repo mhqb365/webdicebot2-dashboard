@@ -6,7 +6,7 @@
       <p>
         You have
         <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ parseInt(user.balance) }}</span>
+        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
         TRX
       </p>
 
@@ -101,9 +101,9 @@
                   target="_blank"
                   >{{ doc.txid.slice(0, 5) }}...{{ doc.txid.slice(-5) }}</a
                 >
-                <span v-else>send to {{ doc.txid }}</span>
+                <span v-else>Send to {{ doc.txid }}</span>
               </td>
-              <td>{{ parseInt(doc.amount) }} TRX</td>
+              <td>{{ doc.amount }} TRX</td>
             </tr>
           </tbody>
         </table>
@@ -173,7 +173,10 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-        data: this.data,
+        data: {
+          address: this.data.address,
+          amount: Number(this.data.amount).toFixed(6),
+        },
       }).then((response) => {
         this.isLoading = false;
         let res = response.data;
@@ -192,7 +195,10 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-        data: this.dataTip,
+        data: {
+          userName: this.dataTip.userName,
+          amount: Number(this.dataTip.amount).toFixed(6),
+        },
       }).then((response) => {
         this.isLoading = false;
         let res = response.data;

@@ -3,85 +3,74 @@
     <div class="pb-5">
       <h2 class="display-4 text-primary"># Summary</h2>
 
-      <div class="pb-5">
-        <div v-if="isLoading2" class="spinner-border text-muted"></div>
+      <ul class="pagination">
+        <li
+          class="page-item"
+          v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
+        >
+          <button class="page-link" @click="summary('ThisMonth')">
+            This month
+          </button>
+        </li>
 
-        <div v-else class="row">
-          <div class="col-md-12 mb-12">
-            <div class="card p-4 summary">
-              Users balance
-              <br />
-              <h4 class="text-primary">{{ parseInt(userBalance) }} TRX</h4>
-              {{ Number(priceUsd * userBalance).toFixed(2) }} $
-            </div>
+        <li
+          class="page-item"
+          v-bind:class="[state == 'LastMonth' ? 'active' : '']"
+        >
+          <button class="page-link" @click="summary('LastMonth')">
+            Last month
+          </button>
+        </li>
+
+        <li class="page-item" v-bind:class="[state == 'Total' ? 'active' : '']">
+          <button class="page-link" @click="summary('Total')">Total</button>
+        </li>
+      </ul>
+
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <div v-else class="row">
+        <div class="col-md-12 mb-3">
+          <div class="card p-4 summary">
+            Current balance of users
+            <br />
+            <h4 class="text-primary">
+              {{ Number(userBalance).toFixed(6) }} TRX
+            </h4>
+            {{ Number(priceUsd * userBalance).toFixed(3) }} $
           </div>
         </div>
-      </div>
 
-      <div class="pb-5">
-        <!-- <h2 class="display-4 text-primary"># Summary</h2> -->
-
-        <ul class="pagination">
-          <li
-            class="page-item"
-            v-bind:class="[state == 'ThisMonth' ? 'active' : '']"
-          >
-            <button class="page-link" @click="summary('ThisMonth')">
-              This month
-            </button>
-          </li>
-
-          <li
-            class="page-item"
-            v-bind:class="[state == 'LastMonth' ? 'active' : '']"
-          >
-            <button class="page-link" @click="summary('LastMonth')">
-              Last month
-            </button>
-          </li>
-
-          <li
-            class="page-item"
-            v-bind:class="[state == 'Total' ? 'active' : '']"
-          >
-            <button class="page-link" @click="summary('Total')">Total</button>
-          </li>
-        </ul>
-
-        <div v-if="isLoading" class="spinner-border text-muted"></div>
-
-        <div v-else class="row">
-          <div class="col-md-3 mb-3">
-            <div class="card p-4 summary">
-              Income
-              <br />
-              <h4 class="text-success">{{ parseInt(income) }} TRX</h4>
-              {{ Number(priceUsd * income).toFixed(2) }} $
-            </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-4 summary">
+            Income
+            <br />
+            <h4 class="text-success">{{ Number(income).toFixed(6) }} TRX</h4>
+            {{ Number(priceUsd * income).toFixed(3) }} $
           </div>
+        </div>
 
-          <div class="col-md-3 mb-3">
-            <div class="card p-4 summary">
-              License
-              <br />
-              <h4 class="text-primary">{{ license }}</h4>
-            </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-4 summary">
+            License
+            <br />
+            <h4 class="text-primary">{{ license }}</h4>
           </div>
+        </div>
 
-          <div class="col-md-3 mb-3">
-            <div class="card p-4 summary">
-              Pay
-              <br />
-              <h4 class="text-warning">{{ pay }}</h4>
-            </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-4 summary">
+            Pay
+            <br />
+            <h4 class="text-warning">{{ pay }}</h4>
           </div>
+        </div>
 
-          <div class="col-md-3 mb-3">
-            <div class="card p-4 summary">
-              Free
-              <br />
-              <h4 class="text-danger">{{ free }}</h4>
-            </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-4 summary">
+            Free
+            <br />
+            <h4 class="text-danger">{{ free }}</h4>
           </div>
         </div>
       </div>
