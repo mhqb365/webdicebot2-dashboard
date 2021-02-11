@@ -6,7 +6,7 @@
       <p>
         You have
         <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ parseInt(user.balance) }}</span>
+        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
         TRX
       </p>
 
@@ -97,7 +97,9 @@ export default {
       });
     },
     calculator: function () {
-      this.data.price = parseInt(this.data.limit * this.priceTronPerDay) + 1;
+      this.data.price = Number(
+        Number(this.data.limit * this.priceTronPerDay + 1).toFixed(6)
+      ) + 1;
     },
     order: function () {
       this.isLoading = true;

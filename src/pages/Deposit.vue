@@ -9,7 +9,7 @@
           v-if="isLoading2 || isLoading3"
           class="spinner-border spinner-border-sm"
         ></span>
-        <span v-else>{{ parseInt(user.balance) }}</span>
+        <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
         TRX
 
         <button v-if="isLoading3" class="btn btn-primary btn-sm ml-2" disabled>
@@ -93,7 +93,7 @@
                 >
                 <span v-else>receive from {{ doc.txid }}</span>
               </td>
-              <td>{{ parseInt(doc.amount) }} TRX</td>
+              <td>{{ doc.amount }} TRX</td>
             </tr>
           </tbody>
         </table>

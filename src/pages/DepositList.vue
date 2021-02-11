@@ -60,7 +60,7 @@
                 >
                 <span v-else>receive from {{ doc.txid }}</span>
               </td>
-              <td>{{ parseInt(doc.amount) }} TRX</td>
+              <td>{{ doc.amount }} TRX</td>
             </tr>
           </tbody>
         </table>
