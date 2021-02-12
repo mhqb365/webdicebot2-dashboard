@@ -27,10 +27,10 @@
         </li>
       </ul>
 
-      <div class="row">
-        <div v-if="isLoading2" class="spinner-border text-muted"></div>
+      <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
-        <div v-else class="col-md-12 mb-3">
+      <div v-else class="row">
+        <div class="col-md-12 mb-3">
           <div class="card p-4 summary">
             Balance of users
             <br />
