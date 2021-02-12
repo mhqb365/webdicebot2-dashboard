@@ -27,12 +27,12 @@
         </li>
       </ul>
 
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div class="row">
+        <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
-      <div v-else class="row">
-        <div class="col-md-12 mb-3">
+        <div v-else class="col-md-12 mb-3">
           <div class="card p-4 summary">
-            Current balance of users
+            Balance of users
             <br />
             <h4 class="text-primary">
               {{ Number(userBalance).toFixed(6) }} TRX
@@ -40,7 +40,11 @@
             {{ Number(priceUsd * userBalance).toFixed(3) }} $
           </div>
         </div>
+      </div>
 
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
+
+      <div v-else class="row">
         <div class="col-md-6 mb-3">
           <div class="card p-4 summary">
             Income
