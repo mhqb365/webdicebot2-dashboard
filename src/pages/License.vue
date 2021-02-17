@@ -21,35 +21,39 @@
         </li>
       </ul>
 
-      <div class="table-responsive-sm">
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search by username"
-            v-model="keyword"
-            @change="search()"
-          />
-          <div class="input-group-append">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              @click="emptyKeyWord()"
-            >
-              Clear
-            </button>
-          </div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by username"
+          v-model="keyword"
+          @change="search()"
+        />
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click="emptyKeyWord()"
+          >
+            Clear
+          </button>
         </div>
+      </div>
 
+      <p class="small">
+        <span class="text-success">Green color</span>: Paid and Working,
+        <span class="text-danger">Red color</span>: Expired,
+        <span class="text-dark">Dark color</span>: Free or Locked
+      </p>
+
+      <div class="table-responsive-sm">
         <div v-if="isLoading" class="spinner-border text-muted"></div>
 
         <table v-else class="table table-bordered table-hover bg-white">
           <thead>
             <tr>
               <th>Username</th>
-              <th>Type</th>
               <th>Limit</th>
-              <th>Status</th>
               <th>Value</th>
               <th>Action</th>
             </tr>
@@ -62,24 +66,14 @@
                 (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
                   ? 'text-danger'
                   : doc.locked
-                  ? 'text-secondary'
+                  ? 'text-dark'
                   : doc.type == 'Pay'
                   ? 'text-success'
                   : 'text-dark',
               ]"
             >
               <td>{{ doc.userName }}</td>
-              <td>{{ doc.type }}</td>
               <td>{{ doc.limit }}</td>
-              <td>
-                {{
-                  (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
-                    ? "Expired"
-                    : doc.locked
-                    ? "Locked"
-                    : "Working"
-                }}
-              </td>
               <td>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" :value="doc.value" />
