@@ -33,6 +33,7 @@
         <table v-else class="table table-bordered table-hover bg-white">
           <thead>
             <tr>
+              <th>Price</th>
               <th>License</th>
               <th>Start</th>
               <th>End</th>
@@ -52,6 +53,9 @@
                   : 'text-dark',
               ]"
             >
+              <td>
+                {{ Number(doc.price).toFixed(6) }} TRX
+              </td>
               <td>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" :value="doc.value" />
@@ -83,7 +87,6 @@
                     timeZone: "UTC",
                   })
                 }}
-                (GMT)
               </td>
             </tr>
           </tbody>

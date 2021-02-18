@@ -86,7 +86,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="doc in docs" :key="doc._id">
+            <tr v-for="doc in docs" :key="doc._id" class="text-danger">
               <td>
                 {{
                   new Date(doc.time).toLocaleString("en-GB", {
@@ -103,7 +103,7 @@
                 >
                 <span v-else>Send to {{ doc.txid }}</span>
               </td>
-              <td>{{ doc.amount }} TRX</td>
+              <td>-{{ Number(doc.amount).toFixed(6) }} TRX</td>
             </tr>
           </tbody>
         </table>

@@ -54,6 +54,7 @@
             <tr>
               <th>Username</th>
               <th>Limit</th>
+              <th>Price</th>
               <th>Value</th>
               <th>Action</th>
             </tr>
@@ -74,6 +75,7 @@
             >
               <td>{{ doc.userName }}</td>
               <td>{{ doc.limit }}</td>
+              <td>{{ Number(doc.price).toFixed(6) }} TRX</td>
               <td>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" :value="doc.value" />
