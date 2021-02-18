@@ -91,7 +91,7 @@
                 </div>
               </td>
               <td>
-                <span v-if="isLoading">
+                <span v-if="isLoading2">
                   <button class="btn btn-warning" disabled>
                     <span class="spinner-border spinner-border-sm"></span>
                   </button>
