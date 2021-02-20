@@ -42,7 +42,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="doc in docs" :key="doc._id" class="text-success">
+            <tr v-for="doc in docs" :key="doc._id">
               <td>
                 {{
                   new Date(doc.time).toLocaleString("en-GB", {

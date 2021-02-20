@@ -41,9 +41,10 @@
       </div>
 
       <p class="small">
-        <span class="text-success">Green color</span>: Paid and Working,
-        <span class="text-danger">Red color</span>: Expired,
-        <span class="text-dark">Dark color</span>: Free or Locked
+        <span class="text-success">Green color</span>: Paid and Working.
+        <span class="text-danger">Red color</span>: Expired.
+        <span class="text-warning">Yellow color</span>: Locked.
+        <span class="text-dark">Black color</span>: Free
       </p>
 
       <div class="table-responsive-sm">
@@ -67,7 +68,7 @@
                 (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
                   ? 'text-danger'
                   : doc.locked
-                  ? 'text-dark'
+                  ? 'text-warning'
                   : doc.type == 'Pay'
                   ? 'text-success'
                   : 'text-dark',
@@ -75,7 +76,13 @@
             >
               <td>{{ doc.userName }}</td>
               <td>{{ doc.limit }}</td>
-              <td>{{ Number(doc.price).toFixed(6) }} TRX</td>
+              <td>
+                {{
+                  Number(doc.price) > 0
+                    ? Number(doc.price).toFixed(6) + " TRX"
+                    : "Free"
+                }}
+              </td>
               <td>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" :value="doc.value" />
