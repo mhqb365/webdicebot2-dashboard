@@ -25,7 +25,9 @@ export default {
     Left,
   },
   mounted: function () {
-    var duration = 500;
+    this.checkDeposit();
+
+    let duration = 500;
     $(window).scroll(function () {
       if (jQuery(this).scrollTop() > 200) {
         jQuery(".to-top").fadeIn(duration);
