@@ -20,7 +20,7 @@ Vue.mixin({
   },
   mounted: function () {
     localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission')
-      ? (this.isLogin = true)
+      ? (this.isLogin = true, this.checkDeposit())
       : (this.isLogin = false)
 
     localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
@@ -51,6 +51,19 @@ Vue.mixin({
         method: "GET",
       })
       return result.data.price
+    },
+    checkDeposit: function () {
+      axios({
+        url: API_URL + "/deposit/check/" + localStorage.getItem("userName"),
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        let res = response.data;
+        // console.log(res)
+        if (res.status) if (res.data.change) window.location.reload();
+      });
     },
   }
 })

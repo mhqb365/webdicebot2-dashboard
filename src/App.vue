@@ -25,8 +25,6 @@ export default {
     Left,
   },
   mounted: function () {
-    this.checkDeposit();
-
     let duration = 500;
     $(window).scroll(function () {
       if (jQuery(this).scrollTop() > 200) {
