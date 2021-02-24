@@ -63,7 +63,7 @@ Vue.mixin({
         let res = response.data;
         // console.log(res)
         if (res.status) if (res.data.change) window.location.reload();
-      });
+      }).catch(() => window.location.href = '/Logout');
     },
   }
 })
