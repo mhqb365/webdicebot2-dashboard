@@ -1,27 +1,33 @@
 <template>
-  <div id="app" class="container bg-light">
-    <div class="row">
-      <div class="col-3">
-        <Left />
-      </div>
+  <div id="app">
+    <Navbar class="d-block d-sm-none" />
 
-      <div class="col-9">
-        <router-view />
-      </div>
+    <div class="container bg-light">
+      <div class="row">
+        <div class="col-md-3">
+          <Left class="d-none d-sm-block" />
+        </div>
 
-      <a class="to-top pl-2 pr-2" href="#app">
-        <i class="fas fa-angle-up" style="font-size: 36px"></i>
-      </a>
+        <div class="col-sm-12 col-md-9">
+          <router-view />
+        </div>
+
+        <a class="to-top pl-2 pr-2" href="#app">
+          <i class="fas fa-angle-up" style="font-size: 36px"></i>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Navbar from "@/layout/Navbar";
 import Left from "@/layout/Left";
 
 export default {
   name: "App",
   components: {
+    Navbar,
     Left,
   },
   mounted: function () {
