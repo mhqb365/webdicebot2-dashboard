@@ -1,6 +1,75 @@
 <template>
   <div>
     <div class="pb-5">
+      <h2 class="display-4 text-primary"># Support sites</h2>
+
+      <div class="bg-white rounded p-2">
+        <li>
+          <a href="https://999dice.com/?270331638" target="_blank">
+            999dice.com
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://betfury.io/?r=5f86fffc38b5653094d3206b"
+            target="_blank"
+          >
+            betfury.io
+          </a>
+        </li>
+        <li>
+          <a href="https://bitsler.com/?ref=mhqb365" target="_blank">
+            bitsler.com
+          </a>
+        </li>
+        <li>
+          <a href="https://bitvest.io?r=134231" target="_blank"> bitvest.io </a>
+        </li>
+        <li>
+          <a href="https://casinoroyale.bet" target="_blank">
+            casinoroyale.bet
+          </a>
+        </li>
+        <li>
+          <a href="https://crypto.games" target="_blank"> crypto.games </a>
+        </li>
+        <li>
+          <a href="https://freebitco.in" target="_blank"> freebitco.in </a>
+        </li>
+        <li>
+          <a href="https://gigabet.com/r/mhqb365" target="_blank"> gigabet.com </a>
+        </li>
+        <li>
+          <a href="https://gigabet.com/r/mhqb365" target="_blank"> gigabet.com </a>
+        </li>
+        <li>
+          <a href="https://luckyfish.xyz/?c=c_mhqb365" target="_blank"> luckyfish.io </a>
+        </li>
+        <li>
+          <a href="https://n-11vnm9z.nanogames.io" target="_blank"> nanogames.io </a>
+        </li>
+        <li>
+          <a href="https://paradice.in/?c=@mhqb365" target="_blank"> paradice.in </a>
+        </li>
+        <li>
+          <a href="https://primedice.com/?c=3e6d33fce7" target="_blank"> primedice.com </a>
+        </li>
+        <li>
+          <a href="https://stake.com/?c=1dddd271b9" target="_blank"> stake.com </a>
+        </li>
+        <li>
+          <a href="https://trustdice.win" target="_blank"> trustdice.win </a>
+        </li>
+        <li>
+          <a href="https://wolf.bet?c=mhqb365" target="_blank"> wolf.bet </a>
+        </li>
+        <li>
+          <a href="http://yolodice.com" target="_blank"> yolodice.com </a>
+        </li>
+      </div>
+    </div>
+
+    <div class="pb-5">
       <h2 class="display-4 text-primary"># Terms of use</h2>
 
       <p class="bg-white rounded p-2">
