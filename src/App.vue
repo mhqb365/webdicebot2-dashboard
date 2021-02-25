@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar class="d-block d-sm-none" />
 
-    <div class="container bg-light">
+    <div class="container">
       <div class="row">
         <div class="col-md-3">
           <Left class="d-none d-sm-block" />
