@@ -21,10 +21,10 @@
         </li>
       </ul>
 
-      <div class="row">
-        <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-        <div v-else class="col-sm-12 mb-3" v-for="doc in docs" :key="doc._id">
+      <div v-else class="row">
+        <div class="col-sm-12 mb-3" v-for="doc in docs" :key="doc._id">
           <div class="card p-2">
             <b>
               <span class="badge badge-warning">{{ doc.type }}</span>
