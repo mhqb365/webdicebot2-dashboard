@@ -8,6 +8,10 @@
           <a href="/">Getting Started</a>
         </li>
         <li class="list-group-item">
+          <a href="/Token">WDB Token</a>
+          <span class="badge badge-danger">On comming</span>
+        </li>
+        <li class="list-group-item">
           <a href="/Register">Register</a>
         </li>
         <li class="list-group-item">
@@ -20,6 +24,10 @@
       <ul class="list-group mb-3">
         <li class="list-group-item">
           <a href="/">Getting Started</a>
+        </li>
+        <li class="list-group-item">
+          <a href="/Token">WDB Token</a>
+          <span class="badge badge-danger">On comming</span>
         </li>
         <li class="list-group-item">
           <a href="/BotInstaller">Bot Installer</a>

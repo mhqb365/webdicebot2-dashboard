@@ -22,6 +22,10 @@
             <a class="nav-link" href="/">Getting Started</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/Token">Token</a>
+          <span class="badge badge-danger">On comming</span>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/Register">Register</a>
           </li>
           <li class="nav-item">
@@ -32,6 +36,10 @@
         <ul v-else class="navbar-nav mb-3">
           <li class="nav-item">
             <a class="nav-link" href="/">Getting Started</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Token">Token</a>
+          <span class="badge badge-danger">On comming</span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/BotInstaller">Bot Installer</a>

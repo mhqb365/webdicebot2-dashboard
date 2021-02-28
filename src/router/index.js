@@ -16,6 +16,7 @@ import WithdrawList from '@/pages/WithdrawList'
 import ScriptStore from '@/pages/ScriptStore'
 import ShareYourScript from '@/pages/ShareYourScript'
 import User from '@/pages/User'
+import Token from '@/pages/Token'
 import License from '@/pages/License'
 import Logout from '@/pages/Logout'
 
@@ -38,6 +39,11 @@ const router = new Router({
       path: '/Login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/Token',
+      name: 'Token',
+      component: Token
     },
     {
       path: '/BotInstaller',
