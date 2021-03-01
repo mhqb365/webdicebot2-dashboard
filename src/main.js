@@ -20,7 +20,7 @@ Vue.mixin({
   },
   mounted: function () {
     localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission')
-      ? (this.isLogin = true, setTimeout(() => this.checkDeposit(), 6e4))
+      ? (this.isLogin = true, setInterval(() => this.checkDeposit(), 3e4))
       : (this.isLogin = false)
 
     localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
