@@ -5,17 +5,17 @@
     <div v-if="!isLogin">
       <ul class="list-group">
         <li class="list-group-item">
-          <router-link to="/">Getting Started</router-link>
+          <a href="/">Getting Started</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Token">WDB Token</router-link>
+          <a href="/Token">WDB Token</a>
           <span class="badge badge-danger">On comming</span>
         </li>
         <li class="list-group-item">
-          <router-link to="/Register">Register</router-link>
+          <a href="/Register">Register</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Login">Login</router-link>
+          <a href="/Login">Login</a>
         </li>
       </ul>
     </div>
@@ -23,59 +23,59 @@
     <div v-else>
       <ul class="list-group mb-3">
         <li class="list-group-item">
-          <router-link to="/">Getting Started</router-link>
+          <a href="/">Getting Started</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Token">WDB Token</router-link>
+          <a href="/Token">WDB Token</a>
           <span class="badge badge-danger">On comming</span>
         </li>
         <li class="list-group-item">
-          <router-link to="/BotInstaller">Bot Installer</router-link>
+          <a href="/BotInstaller">Bot Installer</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/MyInfo">My Info</router-link>
+          <a href="/MyInfo">My Info</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/MyLicense">My License</router-link>
+          <a href="/MyLicense">My License</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/BuyLicense">Buy License</router-link>
+          <a href="/BuyLicense">Buy License</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Deposit">Deposit</router-link>
+          <a href="/Deposit">Deposit</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Withdraw">Withdraw</router-link>
+          <a href="/Withdraw">Withdraw</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/ScriptStore">Script Store</router-link>
+          <a href="/ScriptStore">Script Store</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/ShareYourScript">Share Your Script</router-link>
+          <a href="/ShareYourScript">Share Your Script</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/Logout">Logout</router-link>
+          <a href="/Logout">Logout</a>
         </li>
       </ul>
 
       <ul v-if="isAdmin" class="list-group mb-3">
         <li class="list-group-item">
-          <router-link to="/Summary">Summary</router-link>
+          <a href="/Summary">Summary</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/AddFreeLicense">Add Free License</router-link>
+          <a href="/AddFreeLicense">Add Free License</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/User">User List</router-link>
+          <a href="/User">User List</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/License">License List</router-link>
+          <a href="/License">License List</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/DepositList">Deposit List</router-link>
+          <a href="/DepositList">Deposit List</a>
         </li>
         <li class="list-group-item">
-          <router-link to="/WithdrawList">Withdraw List</router-link>
+          <a href="/WithdrawList">Withdraw List</a>
         </li>
       </ul>
     </div>

@@ -2,7 +2,7 @@
   <div class="">
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <!-- Brand -->
-      <!-- <a class="navbar-brand" href="#"># Menu</router-link> -->
+      <!-- <a class="navbar-brand" href="#"># Menu</a> -->
       <h2 class="display-4 text-primary"># Menu</h2>
 
       <!-- Toggler/collapsibe Button -->
@@ -19,75 +19,75 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul v-if="!isLogin" class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Getting Started</router-link>
+            <a class="nav-link" href="/">Getting Started</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Token">Token</router-link>
+            <a class="nav-link" href="/Token">Token</a>
           <span class="badge badge-danger">On comming</span>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Register">Register</router-link>
+            <a class="nav-link" href="/Register">Register</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Login">Login</router-link>
+            <a class="nav-link" href="/Login">Login</a>
           </li>
         </ul>
 
         <ul v-else class="navbar-nav mb-3">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Getting Started</router-link>
+            <a class="nav-link" href="/">Getting Started</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Token">Token</router-link>
+            <a class="nav-link" href="/Token">Token</a>
           <span class="badge badge-danger">On comming</span>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BotInstaller">Bot Installer</router-link>
+            <a class="nav-link" href="/BotInstaller">Bot Installer</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/MyInfo">My Info</router-link>
+            <a class="nav-link" href="/MyInfo">My Info</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/MyLicense">My License</router-link>
+            <a class="nav-link" href="/MyLicense">My License</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BuyLicense">Buy License</router-link>
+            <a class="nav-link" href="/BuyLicense">Buy License</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Deposit">Deposit</router-link>
+            <a class="nav-link" href="/Deposit">Deposit</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Withdraw">Withdraw</router-link>
+            <a class="nav-link" href="/Withdraw">Withdraw</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/ScriptStore">Script Store</router-link>
+            <a class="nav-link" href="/ScriptStore">Script Store</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/ShareYourScript">Share Your Script</router-link>
+            <a class="nav-link" href="/ShareYourScript">Share Your Script</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Logout">Logout</router-link>
+            <a class="nav-link" href="/Logout">Logout</a>
           </li>
         </ul>
 
         <ul v-if="isAdmin" class="navbar-nav mb-3">
           <li class="nav-item">
-            <router-link class="nav-link" to="/Summary">Summary</router-link>
+            <a class="nav-link" href="/Summary">Summary</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/AddFreeLicense">Add Free License</router-link>
+            <a class="nav-link" href="/AddFreeLicense">Add Free License</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/User">User List</router-link>
+            <a class="nav-link" href="/User">User List</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/License">License List</router-link>
+            <a class="nav-link" href="/License">License List</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/DepositList">Deposit List</router-link>
+            <a class="nav-link" href="/DepositList">Deposit List</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/WithdrawList">Withdraw List</router-link>
+            <a class="nav-link" href="/WithdrawList">Withdraw List</a>
           </li>
         </ul>
       </div>
