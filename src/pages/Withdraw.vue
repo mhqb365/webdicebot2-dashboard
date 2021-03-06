@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Withdraw</h2>
+      <h2 class="text-primary"># Withdraw</h2>
 
       <p>
         You have
@@ -32,7 +32,7 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Send to user</h2>
+      <h2 class="text-primary"># Send to user</h2>
 
       <div class="form-group">
         <label>Username</label>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># History</h2>
+      <h2 class="text-primary"># History</h2>
 
       <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 

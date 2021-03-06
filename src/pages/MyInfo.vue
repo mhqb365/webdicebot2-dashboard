@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># My info</h2>
+      <h2 class="text-primary"># My info</h2>
 
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Add free license</h2>
+      <h2 class="text-primary"># Add free license</h2>
 
       <div class="form-group">
         <label>Username</label>

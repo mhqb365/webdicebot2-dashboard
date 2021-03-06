@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h2 class="display-4 text-primary"># Menu</h2>
+    <h2 class="text-primary"># Menu</h2>
 
     <div v-if="!isLogin">
       <ul class="list-group">
@@ -8,7 +8,7 @@
           <a href="/">Getting Started</a>
         </li>
         <li class="list-group-item">
-          <a href="/Token">WDB Token</a>
+          <a href="/Token">Token</a>
           <span class="badge badge-danger">On comming</span>
         </li>
         <li class="list-group-item">
@@ -26,7 +26,7 @@
           <a href="/">Getting Started</a>
         </li>
         <li class="list-group-item">
-          <a href="/Token">WDB Token</a>
+          <a href="/Token">Token</a>
           <span class="badge badge-danger">On comming</span>
         </li>
         <li class="list-group-item">

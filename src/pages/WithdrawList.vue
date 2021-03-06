@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Withdraw list</h2>
+      <h2 class="text-primary"># Withdraw list</h2>
 
       <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 

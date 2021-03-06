@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Login</h2>
+      <h2 class="text-primary"># Login</h2>
 
       <p>
         Account only use at webdicebot.xyz. You do not have an account?

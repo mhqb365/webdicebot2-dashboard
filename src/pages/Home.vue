@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Terms of use</h2>
+      <h2 class="text-primary"># Terms of use</h2>
 
       <p class="p-2">
         The following user agreement is to read in its entirety prior to the use
@@ -22,7 +22,7 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># How to use</h2>
+      <h2 class="text-primary"># How to use</h2>
 
       <p class="p-2">
         Step 1: Join to the Web DiceBot system via Register/Login
@@ -43,7 +43,7 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Sample Lua strategy script</h2>
+      <h2 class="text-primary"># Sample Lua strategy script</h2>
 
       <pre class="p-2">
 chance=49.5
@@ -62,7 +62,7 @@ end</pre
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary">
+      <h2 class="text-primary">
         # Sample Javascript strategy script
       </h2>
 
@@ -83,7 +83,7 @@ function dobet() {
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Variables</h2>
+      <h2 class="text-primary"># Variables</h2>
 
       <pre class="p-2">
 chance : % win change
@@ -107,7 +107,7 @@ currentstreak : streak of bet count
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Functions</h2>
+      <h2 class="text-primary"># Functions</h2>
 
       <pre class="p-2">
 dobet() : loop betting

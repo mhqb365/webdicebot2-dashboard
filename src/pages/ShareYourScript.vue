@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Share your script</h2>
+      <h2 class="text-primary"># Share your script</h2>
+
+      <p class="text-warning">Please share script clean and can working on Web DiceBot</p>
 
       <div class="form-group">
         <label>Language</label>

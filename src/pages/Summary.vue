@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Summary</h2>
+      <h2 class="text-primary"># Summary</h2>
 
       <ul class="pagination">
         <li
@@ -27,7 +27,7 @@
         </li>
       </ul>
 
-      <div v-if="isLoading2" class="spinner-border text-muted"></div>
+      <!-- <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
       <div v-else class="row">
         <div class="col-md-12 mb-3">
@@ -40,7 +40,7 @@
             {{ Number(priceUsd * userBalance).toFixed(3) }} $
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
@@ -103,7 +103,7 @@ export default {
   },
   mounted: function () {
     this.summary(this.state);
-    this.totalBalance();
+    // this.totalBalance();
     this.fetchPriceUsd();
     setInterval(() => this.fetchPriceUsd(), 6e4);
   },
@@ -134,23 +134,23 @@ export default {
         });
       });
     },
-    totalBalance: function () {
-      this.isLoading2 = true;
-      axios({
-        url: API_URL + "/wallet/balance",
-        method: "GET",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      }).then((response) => {
-        this.isLoading2 = false;
-        let res = response.data;
-        // console.log(res);
-        res.data.map((r) => {
-          if (r.userName != "mhqb365") this.userBalance += Number(r.balance);
-        });
-      });
-    },
+    // totalBalance: function () {
+    //   this.isLoading2 = true;
+    //   axios({
+    //     url: API_URL + "/wallet/balance",
+    //     method: "GET",
+    //     headers: {
+    //       Auth: localStorage.getItem("token"),
+    //     },
+    //   }).then((response) => {
+    //     this.isLoading2 = false;
+    //     let res = response.data;
+    //     // console.log(res);
+    //     res.data.map((r) => {
+    //       if (r.userName != "mhqb365") this.userBalance += Number(r.balance);
+    //     });
+    //   });
+    // },
     fetchPriceUsd: function () {
       this.fetchPriceTron().then((response) => {
         // console.log(response);

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># WDB Token</h2>
+      <h2 class="text-primary"># Web DiceBot Token</h2>
 
       <p>The official token issued by Web DiceBot on the TRON network</p>
 

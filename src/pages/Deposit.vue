@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Deposit</h2>
+      <h2 class="text-primary"># Deposit</h2>
 
       <p>
         You have
         <span
-          v-if="isLoading2 || isLoading3"
+          v-if="isLoading2"
           class="spinner-border spinner-border-sm"
         ></span>
         <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># History</h2>
+      <h2 class="text-primary"># History</h2>
 
       <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 

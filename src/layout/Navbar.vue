@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <!-- Brand -->
       <!-- <a class="navbar-brand" href="#"># Menu</a> -->
-      <h2 class="display-4 text-primary"># Menu</h2>
+      <h2 class="text-primary"># Menu</h2>
 
       <!-- Toggler/collapsibe Button -->
       <button

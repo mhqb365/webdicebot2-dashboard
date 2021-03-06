@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Buy license</h2>
+      <h2 class="text-primary"># Buy license</h2>
 
       <p>
         You have

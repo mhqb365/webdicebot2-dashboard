@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="display-4 text-primary"># Bot installer</h2>
+      <h2 class="text-primary"># Bot installer</h2>
 
       <div class="form-group">
         <select class="form-control" v-model="selectName" @change="changeBot">
