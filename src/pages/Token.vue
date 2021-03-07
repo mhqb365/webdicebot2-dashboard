@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="pb-5">
-      <h2 class="text-primary"># Web DiceBot Token</h2>
+  <div class="pb-5">
+    <h2 class="text-primary"># Web DiceBot Token</h2>
 
-      <p>The official token issued by Web DiceBot on the TRON network</p>
+    <p>The official token issued by Web DiceBot on the TRON network</p>
 
-      <li>Use this token to buy license with discount price</li>
-      <li>List on swap exchange for trade</li>
-      <li>List on dice sites for play</li>
-      <li>More...</li>
+    <li>Use this token to buy license with discount price</li>
+    <li>List on swap exchange for trade</li>
+    <li>List on dice sites for play</li>
+    <li>More...</li>
 
-      <br />
+    <br />
 
-      <p>We are working for that, wait news</p>
-    </div>
+    <p>We are working for that, wait news</p>
   </div>
 </template>
 

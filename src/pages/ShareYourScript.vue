@@ -1,36 +1,36 @@
 <template>
-  <div>
-    <div class="pb-5">
-      <h2 class="text-primary"># Share your script</h2>
+  <div class="pb-5">
+    <h2 class="text-primary"># Share your script</h2>
 
-      <p class="text-warning">Please share script clean and can working on Web DiceBot</p>
+    <p class="text-warning">
+      Please share script clean and can working on Web DiceBot, if not will be deleted
+    </p>
 
-      <div class="form-group">
-        <label>Language</label>
-        <select class="form-control" v-model="data.type">
-          <option>Lua</option>
-          <option>Javascript</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Script name</label>
-        <input type="text" class="form-control" v-model="data.name" />
-      </div>
-
-      <div class="form-group">
-        <label>Content</label>
-        <textarea class="form-control" rows="5" id="content"></textarea>
-      </div>
-
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
-
-      <button v-else class="btn btn-primary btn-block" @click="share">
-        Share
-      </button>
+    <div class="form-group">
+      <label>Language</label>
+      <select class="form-control" v-model="data.type">
+        <option>Lua</option>
+        <option>Javascript</option>
+      </select>
     </div>
+
+    <div class="form-group">
+      <label>Script name</label>
+      <input type="text" class="form-control" v-model="data.name" />
+    </div>
+
+    <div class="form-group">
+      <label>Content</label>
+      <textarea class="form-control" rows="5" id="content"></textarea>
+    </div>
+
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+
+    <button v-else class="btn btn-primary btn-block" @click="share">
+      Share
+    </button>
   </div>
 </template>
 

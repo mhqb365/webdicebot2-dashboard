@@ -50,7 +50,6 @@
             Income
             <br />
             <h4 class="text-success">{{ Number(income).toFixed(6) }} TRX</h4>
-            {{ Number(priceUsd * income).toFixed(3) }} $
           </div>
         </div>
 
@@ -104,8 +103,6 @@ export default {
   mounted: function () {
     this.summary(this.state);
     // this.totalBalance();
-    this.fetchPriceUsd();
-    setInterval(() => this.fetchPriceUsd(), 6e4);
   },
   methods: {
     summary: function (state) {
@@ -151,12 +148,6 @@ export default {
     //     });
     //   });
     // },
-    fetchPriceUsd: function () {
-      this.fetchPriceTron().then((response) => {
-        // console.log(response);
-        this.priceUsd = Number(response);
-      });
-    },
   },
 };
 </script>

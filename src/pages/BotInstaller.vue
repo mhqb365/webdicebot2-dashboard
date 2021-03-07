@@ -1,30 +1,27 @@
 <template>
-  <div>
-    <div class="pb-5">
-      <h2 class="text-primary"># Bot installer</h2>
+  <div class="pb-5">
+    <h2 class="text-primary"># Bot installer</h2>
 
-      <div class="form-group">
-        <select class="form-control" v-model="selectName" @change="changeBot">
-          <option v-for="bot in bots" :key="bot.name" :value="bot.name">
-            {{ bot.name }}
-          </option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <textarea class="form-control" rows="5" v-model="selectValue">
-        </textarea>
-      </div>
-
-      <button
-        class="btn btn-primary btn-block"
-        v-clipboard="() => selectValue"
-        v-clipboard:success="clipboardSuccess"
-        v-clipboard:error="clipboardError"
-      >
-        Copy
-      </button>
+    <div class="form-group">
+      <select class="form-control" v-model="selectName" @change="changeBot">
+        <option v-for="bot in bots" :key="bot.name" :value="bot.name">
+          {{ bot.name }}
+        </option>
+      </select>
     </div>
+
+    <div class="form-group">
+      <textarea class="form-control" rows="5" v-model="selectValue"> </textarea>
+    </div>
+
+    <button
+      class="btn btn-primary btn-block"
+      v-clipboard="() => selectValue"
+      v-clipboard:success="clipboardSuccess"
+      v-clipboard:error="clipboardError"
+    >
+      Copy
+    </button>
   </div>
 </template>
 
