@@ -19,10 +19,7 @@ Vue.mixin({
     }
   },
   mounted: function () {
-    localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission')
-      ? (this.isLogin = true, setInterval(() => this.checkDeposit(), 6e4))
-      : (this.isLogin = false)
-
+    localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission') ? this.isLogin = true : this.isLogin = false
     localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
   },
   methods: {
@@ -62,8 +59,8 @@ Vue.mixin({
       }).then((response) => {
         let res = response.data;
         // console.log(res)
-        if (res.status) if (res.data.change) window.location.reload();
-      }).catch(() => window.location.href = '/Logout');
+        if (res.status) if (res.data.change) window.location.reload()
+      }).catch(() => window.location.href = '/Logout')
     },
   }
 })

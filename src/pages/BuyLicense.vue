@@ -22,7 +22,7 @@
     <p>
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>~{{ data.price }}</span>
+      <span v-else>≈{{ data.price }}</span>
       TRX
     </p>
 

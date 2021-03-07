@@ -31,6 +31,9 @@ export default {
     Left,
   },
   mounted: function () {
+    this.checkDeposit();
+    setInterval(() => this.checkDeposit(), 3e4);
+
     let duration = 500;
     $(window).scroll(function () {
       if (jQuery(this).scrollTop() > 200) {
