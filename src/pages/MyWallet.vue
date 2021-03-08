@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># My info</h2>
+    <h2 class="text-primary"># My wallet</h2>
 
     <ul class="list-group">
       <li class="list-group-item">Username: {{ userName }}</li>
