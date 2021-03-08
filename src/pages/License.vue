@@ -6,7 +6,7 @@
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="licenses(page - 1)">
+        <button type="button" class="page-link" @click="licensesList(page - 1)">
           Previous
         </button>
       </li>
@@ -14,11 +14,17 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="licenses(page + 1)">
+        <button type="button" class="page-link" @click="licensesList(page + 1)">
           Next
         </button>
       </li>
     </ul>
+
+    <p class="small">
+      <span class="text-success">Green</span>: Paid and working |
+      <span class="text-danger">Red</span>: Expired |
+      <span class="text-warning">Yellow</span>: Locked
+    </p>
 
     <div class="input-group mb-3">
       <input
@@ -34,13 +40,6 @@
         </button>
       </div>
     </div>
-
-    <p class="small">
-      <span class="text-success">Green color</span>: Paid and Working.
-      <span class="text-danger">Red color</span>: Expired.
-      <span class="text-warning">Yellow color</span>: Locked.
-      <span class="text-dark">Black color</span>: Free
-    </p>
 
     <div class="table-responsive-sm">
       <div v-if="isLoading" class="spinner-border text-muted"></div>
@@ -146,13 +145,13 @@ export default {
     };
   },
   mounted: function () {
-    this.licenses(this.page);
+    this.licensesList(this.page);
   },
   methods: {
-    licenses: function (page) {
+    licensesList: function (page) {
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/fetchAdmin?page=" + page,
+        url: API_URL + "/license/licenseList?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -161,18 +160,18 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.docs = res.data.docs;
-        this.page = res.data.page;
-        this.totalDocs = res.data.totalDocs;
-        this.totalPages = res.data.totalPages;
-        this.hasPrevPage = res.data.hasPrevPage;
-        this.hasNextPage = res.data.hasNextPage;
+        this.docs = res.docs;
+        this.page = res.page;
+        this.totalDocs = res.totalDocs;
+        this.totalPages = res.totalPages;
+        this.hasPrevPage = res.hasPrevPage;
+        this.hasNextPage = res.hasNextPage;
       });
     },
     action: function (action, license) {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/license/" + license + "/" + action,
+        url: API_URL + "/license/" + action + "/" + license,
         method: "PUT",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -181,11 +180,11 @@ export default {
         this.isLoading2 = false;
         let res = response.data;
         // console.log(res);
-        this.licenses(this.page);
+        this.licensesList(this.page);
       });
     },
-    search: function (page) {
-      if (this.keyword == "") return this.users(this.page);
+    search: function () {
+      if (this.keyword == "") return this.licensesList(this.page);
       this.isLoading = true;
       axios({
         url: API_URL + "/license/search/" + this.keyword + "?&page=1",
@@ -197,12 +196,12 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.docs = res.data.docs;
+        this.docs = res.docs;
       });
     },
     emptyKeyWord: function () {
       this.keyword = "";
-      this.users(this.page);
+      this.licensesList(this.page);
     },
   },
 };

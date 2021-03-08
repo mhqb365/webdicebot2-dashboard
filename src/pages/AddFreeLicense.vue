@@ -38,7 +38,7 @@ export default {
     add: function () {
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/add",
+        url: API_URL + "/license/addFree",
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -48,8 +48,7 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        if (!res.status) return this.showAlert(res.message, false);
-        this.showAlert("Success");
+        this.showAlert(res);
         this.data.userName = "";
         this.data.limit = 10;
       });

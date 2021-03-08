@@ -76,7 +76,7 @@ export default {
       this.isLoading = true;
       axios({
         url:
-          API_URL + "/wallet/" + localStorage.getItem("userName") + "/balance",
+          API_URL + "/wallet/balance/" + localStorage.getItem("userName"),
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -106,7 +106,7 @@ export default {
     buy: function () {
       this.isLoading3 = true;
       axios({
-        url: API_URL + "/license/" + localStorage.getItem("userName") + "/buy",
+        url: API_URL + "/license/buyLicense/" + localStorage.getItem("userName"),
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),

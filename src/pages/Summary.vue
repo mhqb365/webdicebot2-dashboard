@@ -114,22 +114,26 @@ export default {
       this.isLoading = true;
 
       axios({
-        url: API_URL + "/license/summary" + state,
+        url: API_URL + "/license/summary/" + state,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        if (!res.status) return this.showAlert(res.message, false);
-        res.data.map((d) => {
-          this.income += d.price;
-          this.license += 1;
-          d.type == "Pay" ? (this.pay += 1) : (this.free += 1);
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          console.log(res);
+          res.map((d) => {
+            this.income += d.price;
+            this.license += 1;
+            d.type == "Pay" ? (this.pay += 1) : (this.free += 1);
+          });
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          window.location.href = "/Logout";
         });
-      });
     },
     // totalBalance: function () {
     //   this.isLoading2 = true;

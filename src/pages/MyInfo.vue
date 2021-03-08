@@ -94,7 +94,7 @@ export default {
       this.isLoading = true;
       axios({
         url:
-          API_URL + "/wallet/" + localStorage.getItem("userName") + "/balance",
+          API_URL + "/wallet/balance/" + localStorage.getItem("userName"),
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

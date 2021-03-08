@@ -6,7 +6,7 @@
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="users(page - 1)">
+        <button type="button" class="page-link" @click="userList(page - 1)">
           Previous
         </button>
       </li>
@@ -14,7 +14,7 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="users(page + 1)">
+        <button type="button" class="page-link" @click="userList(page + 1)">
           Next
         </button>
       </li>
@@ -65,11 +65,11 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="detail(doc.userName)"
+                @click="getProfile(doc.userName)"
                 data-toggle="modal"
                 data-target="#myModal"
               >
-                Detail
+                Profile
               </button>
             </td>
           </tr>
@@ -81,7 +81,7 @@
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">User detail</h4>
+            <h4 class="modal-title">Profile</h4>
             <button type="button" class="close" data-dismiss="modal">
               &times;
             </button>
@@ -94,10 +94,29 @@
               <li class="list-group-item">Username: {{ modal.userName }}</li>
               <li class="list-group-item">Email: {{ modal.email }}</li>
               <li class="list-group-item">
-                Deposit address: {{ modal.address }}
+                Address:
+                <a
+                  :href="tronNode + 'address/' + modal.address"
+                  target="_blank"
+                >
+                  {{ modal.address }}
+                </a>
               </li>
               <li class="list-group-item">
-                Balance: {{ Number(modal.balance).toFixed(6) }} TRX
+                Balance:
+                <span
+                  v-if="isLoading3"
+                  class="spinner-border spinner-border-sm"
+                ></span>
+                <span v-else>{{ Number(modal.balance).toFixed(6) }}</span>
+                TRX
+                <img
+                  class="ml-1"
+                  type="button"
+                  src="/static/refresh.svg"
+                  width="18px"
+                  @click="getBalance(modal.userName)"
+                />
               </li>
             </ul>
           </div>
@@ -116,12 +135,14 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
+import TRON_NODE from "@/utils/tronNode";
 
 export default {
   data() {
     return {
       isLoading: false,
       isLoading2: false,
+      isLoading3: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -135,16 +156,17 @@ export default {
         address: "",
         balance: 0,
       },
+      tronNode: TRON_NODE,
     };
   },
   mounted: function () {
-    this.users(this.page);
+    this.userList(this.page);
   },
   methods: {
-    users: function (page) {
+    userList: function (page) {
       this.isLoading = true;
       axios({
-        url: API_URL + "/user?page=" + page,
+        url: API_URL + "/user/userList?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -153,17 +175,16 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.docs = res.data.docs;
-        this.page = res.data.page;
-        this.totalDocs = res.data.totalDocs;
-        this.totalPages = res.data.totalPages;
-        this.hasPrevPage = res.data.hasPrevPage;
-        this.hasNextPage = res.data.hasNextPage;
+        this.docs = res.docs;
+        this.page = res.page;
+        this.totalDocs = res.totalDocs;
+        this.totalPages = res.totalPages;
+        this.hasPrevPage = res.hasPrevPage;
+        this.hasNextPage = res.hasNextPage;
       });
     },
-    detail: function (userName) {
+    getProfile: function (userName) {
       this.isLoading2 = true;
-
       axios({
         url: API_URL + "/user/profile/" + userName,
         method: "GET",
@@ -174,11 +195,32 @@ export default {
         this.isLoading2 = false;
         let res = response.data;
         // console.log(res);
-        this.modal = res.data;
+        this.modal = res;
+        this.getBalance(this.modal.userName);
       });
     },
-    search: function (page) {
-      if (this.keyword == "") return this.users(this.page);
+    getBalance: function (userName) {
+      this.isLoading3 = true;
+      axios({
+        url: API_URL + "/wallet/balance/" + userName,
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      })
+        .then((response) => {
+          this.isLoading3 = false;
+          let res = response.data;
+          // console.log(res);
+          this.modal.balance = Number(res).toFixed(6);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          window.location.href = "/Logout";
+        });
+    },
+    search: function () {
+      if (this.keyword == "") return this.userList(this.page);
       this.isLoading = true;
       axios({
         url: API_URL + "/user/search/" + this.keyword + "?&page=1",
@@ -190,12 +232,12 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.docs = res.data.docs;
+        this.docs = res.docs;
       });
     },
     emptyKeyWord: function () {
       this.keyword = "";
-      this.users(this.page);
+      this.userList(this.page);
     },
   },
 };
