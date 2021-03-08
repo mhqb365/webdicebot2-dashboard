@@ -75,12 +75,12 @@
         <li class="list-group-item">
           <a href="/License"> License List </a>
         </li>
-        <li class="list-group-item">
+        <!-- <li class="list-group-item">
           <a href="/DepositList"> Deposit List </a>
         </li>
         <li class="list-group-item">
           <a href="/WithdrawList"> Withdraw List </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
