@@ -122,10 +122,10 @@ export default {
       });
     },
     search: function (page) {
-      if (this.keyword == "") return this.users(this.page);
+      if (this.keyword == "") return this.search(this.page);
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/search/" + this.keyword + "?&page=1",
+        url: API_URL + "/deposit/search/" + this.keyword + "?&page=1",
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -139,7 +139,7 @@ export default {
     },
     emptyKeyWord: function () {
       this.keyword = "";
-      this.users(this.page);
+      this.search(this.page);
     },
   },
 };

@@ -45,12 +45,12 @@
         <li class="list-group-item">
           <a href="/BuyLicense"> Buy License </a>
         </li>
-        <li class="list-group-item">
+        <!-- <li class="list-group-item">
           <a href="/Deposit"> Deposit </a>
         </li>
         <li class="list-group-item">
           <a href="/Withdraw"> Withdraw </a>
-        </li>
+        </li> -->
         <li class="list-group-item">
           <a href="/ScriptStore"> Script Store </a>
         </li>

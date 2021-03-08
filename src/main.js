@@ -42,7 +42,7 @@ Vue.mixin({
       localStorage.removeItem('token')
       window.location.href = '/'
     },
-    fetchPriceTron: async function () {
+    getTrxPrice: async function () {
       let result = await axios({
         url: "https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT",
         method: "GET",

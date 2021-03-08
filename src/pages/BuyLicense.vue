@@ -4,8 +4,8 @@
 
     <p>
       You have
-      <span v-if="isLoading3" class="spinner-border spinner-border-sm"></span>
-      <span v-else>{{ Number(user.balance).toFixed(6) }}</span>
+      <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
+      <span v-else>{{ Number(balance).toFixed(6) }}</span>
       TRX
     </p>
 
@@ -22,15 +22,15 @@
     <p>
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>≈{{ data.price }}</span>
+      <span v-else>≈{{ Number(data.price).toFixed(6) }}</span>
       TRX
     </p>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+    <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="order">Buy</button>
+    <button v-else class="btn btn-primary btn-block" @click="buy">Buy</button>
   </div>
 </template>
 
@@ -41,6 +41,7 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
+      balance: 0,
       isLoading: false,
       isLoading2: false,
       isLoading3: false,
@@ -50,55 +51,57 @@ export default {
         limit: 10,
         price: 0,
       },
+      trxPrice: 0,
+      licensePricePerDays: 0,
+      licensePrice: 0,
     };
   },
   mounted: function () {
-    this.fetchPrice();
-    setInterval(() => this.fetchPrice(), 6e4);
-    this.profile();
+    this.getBalance();
+    this.getPrice();
+    setInterval(() => this.getPrice(), 6e4);
   },
   methods: {
-    fetchPrice: function () {
-      this.isLoading2 = true;
-      this.fetchPriceTron().then((response) => {
-        this.isLoading2 = false;
-        // console.log(response);
-        this.isLoading = false;
-        this.priceTronPerDay = 2 / Number(response) / 1e1;
-        this.calculator();
-      });
-    },
-    profile: function () {
-      this.isLoading3 = true;
+    getBalance: function () {
+      this.isLoading = true;
       axios({
-        url: API_URL + "/user/profile/" + localStorage.getItem("userName"),
+        url:
+          API_URL + "/wallet/" + localStorage.getItem("userName") + "/balance",
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
         },
       }).then((response) => {
-        this.isLoading3 = false;
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.user = res.data;
+        this.balance = Number(res).toFixed(6);
+      });
+    },
+    getPrice: function () {
+      this.isLoading2 = true;
+      this.getTrxPrice().then((response) => {
+        this.isLoading2 = false;
+        // console.log(response);
+        this.trxPrice = Number(response).toFixed(6);
+        this.calculator();
       });
     },
     calculator: function () {
-      this.data.price =
-        Number(Number(this.data.limit * this.priceTronPerDay).toFixed(6)) + 1;
+      this.licensePricePerDays = 2 / Number(this.trxPrice) / 1e1;
+      this.data.price = this.data.limit * this.licensePricePerDays + 1;
     },
-    order: function () {
-      this.isLoading = true;
+    buy: function () {
+      this.isLoading3 = true;
       axios({
-        url: API_URL + "/license/order/" + localStorage.getItem("userName"),
+        url: API_URL + "/license/" + localStorage.getItem("userName") + "/buy",
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),
         },
         data: this.data,
       }).then((response) => {
-        this.isLoading = false;
+        this.isLoading3 = false;
         let res = response.data;
         // console.log(res);
         if (!res.status) return this.showAlert(res.message, false);
