@@ -172,7 +172,7 @@ export default {
     action: function (action, license) {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/license/" + action + "/" + license,
+        url: API_URL + "/license/" + license + "/" + action,
         method: "PUT",
         headers: {
           Auth: localStorage.getItem("token"),

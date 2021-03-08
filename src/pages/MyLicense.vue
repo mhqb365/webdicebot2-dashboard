@@ -21,10 +21,9 @@
     </ul>
 
     <p class="small">
-      <span class="text-success">Green color</span>: Paid and Working.
-      <span class="text-danger">Red color</span>: Expired.
-      <span class="text-warning">Yellow color</span>: Locked.
-      <span class="text-dark">Black color</span>: Free
+      <span class="text-success">Green</span>: Paid and working |
+      <span class="text-danger">Red</span>: Expired |
+      <span class="text-warning">Yellow</span>: Locked
     </p>
 
     <div class="table-responsive-sm">
@@ -35,7 +34,7 @@
           <tr>
             <th>Price</th>
             <th>License</th>
-            <th>Start</th>
+            <th>Begin</th>
             <th>End</th>
           </tr>
         </thead>
@@ -124,9 +123,9 @@ export default {
       axios({
         url:
           API_URL +
-          "/license/fetch/" +
+          "/license/" +
           localStorage.getItem("userName") +
-          "?page=" +
+          "/licenseList?page=" +
           page,
         method: "GET",
         headers: {
