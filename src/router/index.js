@@ -7,12 +7,8 @@ import BotInstaller from '@/pages/BotInstaller'
 import MyWallet from '@/pages/MyWallet'
 import MyLicense from '@/pages/MyLicense'
 import BuyLicense from '@/pages/BuyLicense'
-import Deposit from '@/pages/Deposit'
-import Withdraw from '@/pages/Withdraw'
 import Summary from '@/pages/Summary'
 import AddFreeLicense from '@/pages/AddFreeLicense'
-import DepositList from '@/pages/DepositList'
-import WithdrawList from '@/pages/WithdrawList'
 import ScriptStore from '@/pages/ScriptStore'
 import ShareYourScript from '@/pages/ShareYourScript'
 import User from '@/pages/User'
@@ -71,18 +67,6 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/Deposit',
-      name: 'Deposit',
-      component: Deposit,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/Withdraw',
-      name: 'Withdraw',
-      component: Withdraw,
-      meta: { requiresAuth: true }
-    },
-    {
       path: '/Summary',
       name: 'Summary',
       component: Summary,
@@ -92,18 +76,6 @@ const router = new Router({
       path: '/AddFreeLicense',
       name: 'AddFreeLicense',
       component: AddFreeLicense,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/DepositList',
-      name: 'DepositList',
-      component: DepositList,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/WithdrawList',
-      name: 'WithdrawList',
-      component: WithdrawList,
       meta: { requiresAuth: true }
     },
     {
