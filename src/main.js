@@ -39,6 +39,9 @@ Vue.mixin({
     },
     logout: function () {
       localStorage.removeItem('userName')
+      localStorage.removeItem('email')
+      localStorage.removeItem('address')
+      localStorage.removeItem('permission')
       localStorage.removeItem('token')
       window.location.href = '/'
     },
@@ -49,19 +52,19 @@ Vue.mixin({
       })
       return result.data.price
     },
-    checkDeposit: function () {
-      axios({
-        url: API_URL + "/deposit/check/" + localStorage.getItem("userName"),
-        method: "GET",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      }).then((response) => {
-        let res = response.data;
-        // console.log(res)
-        if (res.status) if (res.data.change) window.location.reload()
-      }).catch(() => window.location.href = '/Logout')
-    },
+    // checkDeposit: function () {
+    //   axios({
+    //     url: API_URL + "/deposit/check/" + localStorage.getItem("userName"),
+    //     method: "GET",
+    //     headers: {
+    //       Auth: localStorage.getItem("token"),
+    //     },
+    //   }).then((response) => {
+    //     let res = response.data;
+    //     // console.log(res)
+    //     if (res.status) if (res.data.change) window.location.reload()
+    //   }).catch(() => window.location.href = '/Logout')
+    // },
   }
 })
 

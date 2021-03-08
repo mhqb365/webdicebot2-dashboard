@@ -2,14 +2,35 @@
   <div class="pb-5">
     <h2 class="text-primary"># My info</h2>
 
-    <div v-if="isLoading" class="spinner-border text-muted"></div>
-
-    <ul v-else class="list-group">
-      <li class="list-group-item">Username: {{ user.userName }}</li>
-      <li class="list-group-item">Email: {{ user.email }}</li>
-      <li class="list-group-item">Deposit address: {{ user.address }}</li>
+    <ul class="list-group">
+      <li class="list-group-item">Username: {{ userName }}</li>
+      <li class="list-group-item">Email: {{ email }}</li>
       <li class="list-group-item">
-        Balance: {{ Number(user.balance).toFixed(6) }} TRX
+        Balance:
+        <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
+        <span v-else>{{ Number(balance).toFixed(6) }}</span>
+        TRX
+      </li>
+      <li class="list-group-item">
+        <a :href="tronNode + 'address/' + address" target="_blank">
+          <button class="btn btn-primary mb-2">
+            <img src="/static/tronscan.png" width="18px" />
+            Account Details
+          </button>
+        </a>
+
+        <button class="btn btn-success mb-2">
+          <img src="/static/receive.svg" width="18px" />
+          Receive
+        </button>
+        <button class="btn btn-danger mb-2">
+          <img src="/static/send.svg" width="18px" />
+          Send
+        </button>
+        <button class="btn btn-secondary mb-2">
+          <img src="/static/export.svg" width="18px" />
+          Export Private Key
+          </button>
       </li>
     </ul>
   </div>
@@ -18,22 +39,28 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
+import TRON_NODE from "@/utils/tronNode";
 
 export default {
   data() {
     return {
       isLoading: false,
-      user: {},
+      userName: localStorage.getItem("userName"),
+      email: localStorage.getItem("email"),
+      address: localStorage.getItem("address"),
+      balance: 0,
+      tronNode: TRON_NODE,
     };
   },
   mounted: function () {
-    this.profile();
+    this.getBalance();
   },
   methods: {
-    profile: function () {
+    getBalance: function () {
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/profile/" + localStorage.getItem("userName"),
+        url:
+          API_URL + "/wallet/" + localStorage.getItem("userName") + "/balance",
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -42,7 +69,7 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.user = res.data;
+        this.balance = Number(res).toFixed(6);
       });
     },
   },

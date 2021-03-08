@@ -54,17 +54,24 @@ export default {
         url: API_URL + "/user/register",
         method: "POST",
         data: this.data,
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        if (!res.status) return this.showAlert(res.message, false);
-        localStorage.setItem("userName", this.data.userName);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("permission", res.data.permission);
-        this.showAlert("Register success");
-        window.location.href = "/Dashboard";
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          localStorage.setItem("userName", res.userName);
+          localStorage.setItem("email", res.email);
+          localStorage.setItem("address", res.address);
+          localStorage.setItem("permission", res.permission);
+          localStorage.setItem("token", res.token);
+          this.showAlert("Register success");
+          window.location.href = "/Dashboard";
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          // console.log(error.response.data);
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

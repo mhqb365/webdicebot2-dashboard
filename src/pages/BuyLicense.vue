@@ -7,6 +7,10 @@
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }}</span>
       TRX
+      <a :href="tronNode + 'address/' + address" target="_blank">
+        <img class="ml-1" src="/static/tronscan.png" width="18px" />
+        Details
+      </a>
     </p>
 
     <div class="form-group">
@@ -37,29 +41,32 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
+import TRON_NODE from "@/utils/tronNode";
 
 export default {
   data() {
     return {
-      balance: 0,
       isLoading: false,
       isLoading2: false,
       isLoading3: false,
-      user: {},
-      priceTronPerDay: 0,
+      address: localStorage.getItem("address"),
+      balance: 0,
+      trxPrice: 0,
+      licensePricePerDays: 0,
       data: {
         limit: 10,
         price: 0,
       },
-      trxPrice: 0,
-      licensePricePerDays: 0,
-      licensePrice: 0,
+      tronNode: TRON_NODE,
     };
   },
   mounted: function () {
     this.getBalance();
     this.getPrice();
-    setInterval(() => this.getPrice(), 6e4);
+    setInterval(() => {
+      this.getBalance();
+      this.getPrice();
+    }, 6e4);
   },
   methods: {
     getBalance: function () {
@@ -88,8 +95,10 @@ export default {
       });
     },
     calculator: function () {
-      this.licensePricePerDays = 2 / Number(this.trxPrice) / 1e1;
-      this.data.price = this.data.limit * this.licensePricePerDays + 1;
+      this.licensePricePerDays = Number(
+        2 / Number(this.trxPrice) / 1e1
+      ).toFixed(6);
+      this.data.price = this.data.limit * Number(this.licensePricePerDays) + 1;
     },
     buy: function () {
       this.isLoading3 = true;
@@ -100,14 +109,19 @@ export default {
           Auth: localStorage.getItem("token"),
         },
         data: this.data,
-      }).then((response) => {
-        this.isLoading3 = false;
-        let res = response.data;
-        // console.log(res);
-        if (!res.status) return this.showAlert(res.message, false);
-        this.showAlert("Success");
-        window.location.href = "/MyLicense";
-      });
+      })
+        .then((response) => {
+          this.isLoading3 = false;
+          let res = response.data;
+          console.log(res);
+          this.showAlert(res);
+          window.location.href = "/MyLicense";
+        })
+        .catch((error) => {
+          this.isLoading3 = false;
+          // console.error(error.response.data);
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

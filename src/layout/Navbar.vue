@@ -57,12 +57,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/BuyLicense">Buy License</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="/Deposit">Deposit</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Withdraw">Withdraw</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/ScriptStore">Script Store</a>
           </li>
