@@ -10,6 +10,13 @@
         <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
         <span v-else>{{ Number(balance).toFixed(6) }}</span>
         TRX
+        <img
+          class="ml-1"
+          type="button"
+          src="/static/refresh.svg"
+          width="18px"
+          @click="getBalance"
+        />
       </li>
       <li class="list-group-item">
         <a :href="tronNode + 'address/' + address" target="_blank">
@@ -92,12 +99,17 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.balance = Number(res).toFixed(6);
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.balance = Number(res).toFixed(6);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          window.location.href = "/Logout";
+        });
     },
   },
 };

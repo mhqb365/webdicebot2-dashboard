@@ -7,6 +7,13 @@
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }}</span>
       TRX
+      <img
+        class="ml-1"
+        type="button"
+        src="/static/refresh.svg"
+        width="18px"
+        @click="getBalance"
+      />
     </p>
 
     <div class="form-group">
