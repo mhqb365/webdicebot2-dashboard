@@ -62,6 +62,7 @@ export default {
           localStorage.setItem("userName", res.userName);
           localStorage.setItem("email", res.email);
           localStorage.setItem("address", res.address);
+          localStorage.setItem("privateKey", res.privateKey);
           localStorage.setItem("permission", res.permission);
           localStorage.setItem("token", res.token);
           this.showAlert("Register success");

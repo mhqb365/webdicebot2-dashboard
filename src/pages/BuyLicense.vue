@@ -7,10 +7,6 @@
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }}</span>
       TRX
-      <a :href="tronNode + 'address/' + address" target="_blank">
-        <img class="ml-1" src="/static/tronscan.png" width="18px" />
-        Details
-      </a>
     </p>
 
     <div class="form-group">

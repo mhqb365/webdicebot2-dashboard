@@ -3,11 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import './plugins/bootstrap'
 import './plugins/vue-clipboard'
 import './plugins/vue-sweetalert2'
 import axios from 'axios'
-import API_URL from '@/utils/apiUrl'
 
 Vue.config.productionTip = false
 
@@ -19,7 +17,7 @@ Vue.mixin({
     }
   },
   mounted: function () {
-    localStorage.getItem('userName') && localStorage.getItem('token') && localStorage.getItem('permission') ? this.isLogin = true : this.isLogin = false
+    localStorage.getItem('token') ? this.isLogin = true : this.isLogin = false
     localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
   },
   methods: {
@@ -41,6 +39,7 @@ Vue.mixin({
       localStorage.removeItem('userName')
       localStorage.removeItem('email')
       localStorage.removeItem('address')
+      localStorage.removeItem('privateKey')
       localStorage.removeItem('permission')
       localStorage.removeItem('token')
       window.location.href = '/'
@@ -50,21 +49,9 @@ Vue.mixin({
         url: "https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT",
         method: "GET",
       })
+      
       return result.data.price
     },
-    // checkDeposit: function () {
-    //   axios({
-    //     url: API_URL + "/deposit/check/" + localStorage.getItem("userName"),
-    //     method: "GET",
-    //     headers: {
-    //       Auth: localStorage.getItem("token"),
-    //     },
-    //   }).then((response) => {
-    //     let res = response.data;
-    //     // console.log(res)
-    //     if (res.status) if (res.data.change) window.location.reload()
-    //   }).catch(() => window.location.href = '/Logout')
-    // },
   }
 })
 
