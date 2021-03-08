@@ -21,6 +21,25 @@
     </ul>
 
     <div class="table-responsive-sm">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by username"
+          v-model="keyword"
+          @change="search()"
+        />
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click="emptyKeyWord()"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
       <table v-else class="table table-bordered table-hover bg-white">
@@ -75,6 +94,7 @@ export default {
       hasPrevPage: false,
       hasNextPage: false,
       tronNode: TRON_NODE,
+      keyword: "",
     };
   },
   mounted: function () {
@@ -100,6 +120,26 @@ export default {
         this.hasPrevPage = res.data.hasPrevPage;
         this.hasNextPage = res.data.hasNextPage;
       });
+    },
+    search: function (page) {
+      if (this.keyword == "") return this.users(this.page);
+      this.isLoading = true;
+      axios({
+        url: API_URL + "/user/search/" + this.keyword + "?&page=1",
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      }).then((response) => {
+        this.isLoading = false;
+        let res = response.data;
+        // console.log(res);
+        this.docs = res.data.docs;
+      });
+    },
+    emptyKeyWord: function () {
+      this.keyword = "";
+      this.users(this.page);
     },
   },
 };

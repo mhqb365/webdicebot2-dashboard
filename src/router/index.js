@@ -19,6 +19,7 @@ import User from '@/pages/User'
 import Token from '@/pages/Token'
 import License from '@/pages/License'
 import Logout from '@/pages/Logout'
+import HiloGame from '@/pages/HiloGame'
 
 Vue.use(Router)
 
@@ -115,6 +116,12 @@ const router = new Router({
       path: '/ShareYourScript',
       name: 'ShareYourScript',
       component: ShareYourScript,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/HiloGame',
+      name: 'HiloGame',
+      component: HiloGame,
       meta: { requiresAuth: true }
     },
     {

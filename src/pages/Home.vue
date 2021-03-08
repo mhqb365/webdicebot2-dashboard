@@ -30,10 +30,7 @@
         Step 2: Deposit TRX (Tron) to your deposit address then buy license with
         days you want
         <br />
-        Step 3: Paste installer to console of browser on dice site you play.
-        <a href="https://youtube.com/embed/Tu7oTnP7noc" target="_blank"
-          >See video</a
-        >
+        Step 3: Paste installer to console of browser on dice site you play
         <br />
         Buy TRX (Tron) at:
         <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
