@@ -31,8 +31,7 @@ export default {
     Left,
   },
   mounted: function () {
-    this.checkDeposit();
-    setInterval(() => this.checkDeposit(), 3e4);
+    if (this.isLogin) this.checkDeposit();
 
     let duration = 500;
     $(window).scroll(function () {

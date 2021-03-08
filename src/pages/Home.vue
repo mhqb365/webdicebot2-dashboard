@@ -33,6 +33,10 @@
         Step 3: Paste installer to console of browser on dice site you play
         <br />
         Buy TRX (Tron) at:
+        
+        <a href="https://justswap.org/#/home" target="_blank"
+          >JustSwap</a
+        >,
         <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
           >Binance.com</a
         >
