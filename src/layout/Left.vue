@@ -29,10 +29,6 @@
           <a href="/Token"> Token </a>
           <span class="badge badge-danger"> On comming </span>
         </li>
-        <!-- <li class="list-group-item">
-          <a href="/HiloGame"> Hilo Game </a>
-          <span class="badge badge-danger">Hot</span>
-        </li> -->
         <li class="list-group-item">
           <a href="/BotInstaller"> Bot Installer </a>
         </li>

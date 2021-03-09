@@ -6,7 +6,7 @@
 
     <ul class="pagination">
       <li v-if="hasPrevPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page - 1)">
+        <button type="button" class="page-link" @click="fetchScript(page - 1)">
           Previous
         </button>
       </li>
@@ -14,7 +14,7 @@
         <button type="button" class="page-link">{{ page }}</button>
       </li>
       <li v-if="hasNextPage" class="page-item">
-        <button type="button" class="page-link" @click="license(page + 1)">
+        <button type="button" class="page-link" @click="fetchScript(page + 1)">
           Next
         </button>
       </li>
@@ -89,10 +89,10 @@ export default {
     };
   },
   mounted: function () {
-    this.script(this.page);
+    this.fetchScript(this.page);
   },
   methods: {
-    script: function (page) {
+    fetchScript: function (page) {
       this.isLoading = true;
       axios({
         url: API_URL + "/script?page=" + page,
@@ -104,12 +104,12 @@ export default {
         this.isLoading = false;
         let res = response.data;
         // console.log(res);
-        this.docs = res.data.docs;
-        this.page = res.data.page;
-        this.totalDocs = res.data.totalDocs;
-        this.totalPages = res.data.totalPages;
-        this.hasPrevPage = res.data.hasPrevPage;
-        this.hasNextPage = res.data.hasNextPage;
+        this.docs = res.docs;
+        this.page = res.page;
+        this.totalDocs = res.totalDocs;
+        this.totalPages = res.totalPages;
+        this.hasPrevPage = res.hasPrevPage;
+        this.hasNextPage = res.hasNextPage;
       });
     },
     deleteScript: function (id) {
@@ -122,8 +122,8 @@ export default {
       }).then((response) => {
         let res = response.data;
         // console.log(res);
-        this.showAlert(res.message);
-        if (res.status) this.script(this.page);
+        this.showAlert(res);
+        this.fetchScript(this.page);
       });
     },
   },

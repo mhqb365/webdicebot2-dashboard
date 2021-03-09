@@ -3,7 +3,8 @@
     <h2 class="text-primary"># Share your script</h2>
 
     <p class="text-warning small">
-      Please share script clean and can working on Web DiceBot, if not will be deleted
+      Please share script clean and can working on Web DiceBot, if not will be
+      deleted
     </p>
 
     <div class="form-group">
@@ -71,19 +72,15 @@ export default {
       }).then((response) => {
         this.isLoading = false;
         let res = response.data;
-        if (!res.status) {
-          return this.showAlert(res.message, false);
-        } else {
-          this.showAlert(res.message);
-          this.data = {
-            type: "Lua",
-            name: "",
-            content: "",
-            author: localStorage.getItem("userName"),
-          };
+        this.showAlert(res);
+        this.data = {
+          type: "Lua",
+          name: "",
+          content: "",
+          author: localStorage.getItem("userName"),
+        };
 
-          this.simplemde.value(this.data.content);
-        }
+        this.simplemde.value(this.data.content);
       });
     },
   },

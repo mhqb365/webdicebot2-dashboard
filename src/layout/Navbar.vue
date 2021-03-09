@@ -37,10 +37,6 @@
             <a class="nav-link" href="/Token"> Token </a>
             <span class="badge badge-danger"> On comming </span>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/HiloGame">Hilo Game</a>
-            <span class="badge badge-danger">Hot</span>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/BotInstaller"> Bot Installer </a>
           </li>
