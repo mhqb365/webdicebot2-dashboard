@@ -27,7 +27,7 @@
       <p class="p-2">
         Step 1: Join to the Web DiceBot system via Register/Login
         <br />
-        Step 2: Deposit TRX (Tron) to your deposit address then buy license with
+        Step 2: Deposit TRX (Tron) to your wallet address then buy license with
         days you want
         <br />
         Step 3: Paste installer to console of browser on dice site you play
