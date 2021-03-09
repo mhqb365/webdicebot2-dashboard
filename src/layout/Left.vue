@@ -35,7 +35,7 @@
         <li class="list-group-item">
           <a href="/MyWallet">
             My Wallet
-            <span class="badge badge-success"> DeFi </span>
+            <span class="badge badge-success"> Tron - DeFi </span>
           </a>
         </li>
         <li class="list-group-item">

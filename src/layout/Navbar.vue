@@ -43,7 +43,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/MyWallet">
               My Wallet
-              <span class="badge badge-success"> DeFi </span>
+              <span class="badge badge-success"> Tron - DeFi </span>
             </a>
           </li>
           <li class="nav-item">
