@@ -7,13 +7,9 @@
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }}</span>
       TRX
-      <img
-        class="ml-1"
-        type="button"
-        src="/static/refresh.svg"
-        width="18px"
-        @click="getBalance"
-      />
+      <button type="button" class="btn btn-light btn-sm" @click="getBalance">
+        <img src="/static/refresh.svg" width="18px" />
+      </button>
     </p>
 
     <div class="form-group">
@@ -75,8 +71,7 @@ export default {
     getBalance: function () {
       this.isLoading = true;
       axios({
-        url:
-          API_URL + "/wallet/balance/" + localStorage.getItem("userName"),
+        url: API_URL + "/wallet/balance/" + localStorage.getItem("userName"),
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -106,7 +101,8 @@ export default {
     buy: function () {
       this.isLoading3 = true;
       axios({
-        url: API_URL + "/license/buyLicense/" + localStorage.getItem("userName"),
+        url:
+          API_URL + "/license/buyLicense/" + localStorage.getItem("userName"),
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),
