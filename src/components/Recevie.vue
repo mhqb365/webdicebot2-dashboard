@@ -12,19 +12,28 @@
         <div class="modal-body text-center">
           <p>Current only support TRX</p>
 
-          <div class="form-group">
-            <input v-model="address" type="text" class="form-control" />
-          </div>
+          <qrcode-vue
+            class="my-4"
+            :value="address"
+            :size="120"
+            level="H"
+          ></qrcode-vue>
 
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-clipboard="() => address"
-            v-clipboard:success="clipboardSuccess"
-            v-clipboard:error="clipboardError"
-          >
-            Copy address
-          </button>
+          <div class="input-group mb-3">
+            <input v-model="address" type="text" class="form-control" />
+            
+            <div class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-primary"
+                v-clipboard="() => address"
+                v-clipboard:success="clipboardSuccess"
+                v-clipboard:error="clipboardError"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,7 +41,12 @@
 </template>
 
 <script>
+import QrcodeVue from "qrcode.vue";
+
 export default {
+  components: {
+    QrcodeVue,
+  },
   data() {
     return {
       address: localStorage.getItem("address"),

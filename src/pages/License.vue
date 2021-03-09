@@ -187,7 +187,7 @@ export default {
       if (this.keyword == "") return this.licensesList(this.page);
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/search/" + this.keyword + "?&page=1",
+        url: API_URL + "/license/search/" + this.keyword,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

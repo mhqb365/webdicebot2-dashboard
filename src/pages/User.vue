@@ -99,7 +99,9 @@
                   :href="tronNode + 'address/' + modal.address"
                   target="_blank"
                 >
-                  {{ modal.address }}
+                  {{
+                    modal.address.slice(0, 6) + "..." + modal.address.slice(-6)
+                  }}
                 </a>
               </li>
               <li class="list-group-item">
@@ -110,13 +112,13 @@
                 ></span>
                 <span v-else>{{ Number(modal.balance).toFixed(6) }}</span>
                 TRX
-                <img
-                  class="ml-1"
+                <button
                   type="button"
-                  src="/static/refresh.svg"
-                  width="18px"
+                  class="btn btn-light btn-sm"
                   @click="getBalance(modal.userName)"
-                />
+                >
+                  <img src="/static/refresh.svg" width="18px" />
+                </button>
               </li>
             </ul>
           </div>
@@ -215,7 +217,7 @@ export default {
           this.modal.balance = Number(res).toFixed(6);
         })
         .catch((error) => {
-          console.log(error.response.data);
+          // console.log(error.response.data);
           window.location.href = "/Logout";
         });
     },
@@ -223,7 +225,7 @@ export default {
       if (this.keyword == "") return this.userList(this.page);
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/search/" + this.keyword + "?&page=1",
+        url: API_URL + "/user/search/" + this.keyword,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

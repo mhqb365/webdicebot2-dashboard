@@ -27,7 +27,7 @@
         </li>
         <li class="list-group-item">
           <a href="/Token"> Token </a>
-          <span class="badge badge-danger">On comming</span>
+          <span class="badge badge-danger"> On comming </span>
         </li>
         <!-- <li class="list-group-item">
           <a href="/HiloGame"> Hilo Game </a>
@@ -37,7 +37,10 @@
           <a href="/BotInstaller"> Bot Installer </a>
         </li>
         <li class="list-group-item">
-          <a href="/MyWallet"> My Wallet </a>
+          <a href="/MyWallet">
+            My Wallet
+            <span class="badge badge-success"> DeFi </span>
+          </a>
         </li>
         <li class="list-group-item">
           <a href="/MyLicense"> My License </a>
@@ -45,12 +48,6 @@
         <li class="list-group-item">
           <a href="/BuyLicense"> Buy License </a>
         </li>
-        <!-- <li class="list-group-item">
-          <a href="/Deposit"> Deposit </a>
-        </li>
-        <li class="list-group-item">
-          <a href="/Withdraw"> Withdraw </a>
-        </li> -->
         <li class="list-group-item">
           <a href="/ScriptStore"> Script Store </a>
         </li>
@@ -75,12 +72,6 @@
         <li class="list-group-item">
           <a href="/License"> License List </a>
         </li>
-        <!-- <li class="list-group-item">
-          <a href="/DepositList"> Deposit List </a>
-        </li>
-        <li class="list-group-item">
-          <a href="/WithdrawList"> Withdraw List </a>
-        </li> -->
       </ul>
     </div>
   </div>

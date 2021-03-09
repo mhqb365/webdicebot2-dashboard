@@ -10,19 +10,21 @@
         </div>
 
         <div class="modal-body text-center">
-          <div class="form-group">
+          <div class="input-group mb-3">
             <input v-model="privateKey" type="text" class="form-control" />
-          </div>
 
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-clipboard="() => privateKey"
-            v-clipboard:success="clipboardSuccess"
-            v-clipboard:error="clipboardError"
-          >
-            Copy private key
-          </button>
+            <div class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-primary"
+                v-clipboard="() => privateKey"
+                v-clipboard:success="clipboardSuccess"
+                v-clipboard:error="clipboardError"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
