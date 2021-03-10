@@ -2,6 +2,11 @@
   <div class="pb-5">
     <h2 class="text-primary"># My wallet</h2>
 
+    <p class="small text-warning">
+      This is a Tron wallet, it link Tron Ecosystem. You can import this wallet
+      to any wallet app support Tron
+    </p>
+
     <ul class="list-group">
       <li class="list-group-item">Username: {{ userName }}</li>
       <li class="list-group-item">Email: {{ email }}</li>

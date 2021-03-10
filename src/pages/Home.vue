@@ -3,13 +3,13 @@
     <div class="pb-5">
       <h2 class="text-primary"># Terms of use</h2>
 
-      <p class="p-2">
+      <p class="small text-warning">
         The following user agreement is to read in its entirety prior to the use
-        of web diceBot's products and services. the agreement constitutes a
+        of Web DiceBot's products and services. The agreement constitutes a
         legal binding between the user and all services found on webdicebot.xyz
       </p>
 
-      <pre class="p-2">
+      <pre>
 1. You must know what is dice
 2. You must know control your money in dice
 3. You have to differentiate between dice tools with strategy script for dice
@@ -24,29 +24,22 @@
     <div class="pb-5">
       <h2 class="text-primary"># How to use</h2>
 
-      <p class="p-2">
-        Step 1: Join to the Web DiceBot system via Register/Login
-        <br />
-        Step 2: Deposit TRX (Tron) to your wallet address then buy license with
-        days you want
-        <br />
-        Step 3: Paste installer to console of browser on dice site you play
-        <br />
-        Buy TRX (Tron) at:
-        
-        <a href="https://justswap.org/#/home" target="_blank"
-          >JustSwap</a
-        >,
-        <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
-          >Binance.com</a
-        >
-      </p>
+      <pre>
+Step 1: Join to the Web DiceBot system via Register/Login
+Step 2: Deposit TRX (Tron) to your wallet address then buy license with days you want
+Step 3: Paste installer to console of browser on dice site you play
+You can buy TRX (Tron) at:
+<a href="https://justswap.org/#/home" target="_blank">JustSwap</a>,
+<a href="https://binance.com/vn/register?ref=37324651" target="_blank"
+  >Binance.com</a
+>
+or any crypto exchanges</pre>
     </div>
 
     <div class="pb-5">
       <h2 class="text-primary"># Sample Lua strategy script</h2>
 
-      <pre class="p-2">
+      <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -63,11 +56,9 @@ end</pre
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary">
-        # Sample Javascript strategy script
-      </h2>
+      <h2 class="text-primary"># Sample Javascript strategy script</h2>
 
-      <pre class="p-2">
+      <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -86,7 +77,7 @@ function dobet() {
     <div class="pb-5">
       <h2 class="text-primary"># Variables</h2>
 
-      <pre class="p-2">
+      <pre>
 chance : % win change
 bethigh : bet side, true is over/above, false is under/below
 nextbet : bet amount for next bet make
@@ -110,7 +101,7 @@ currentstreak : streak of bet count
     <div class="pb-5">
       <h2 class="text-primary"># Functions</h2>
 
-      <pre class="p-2">
+      <pre>
 dobet() : loop betting
 start() : start betting
 stop() : stop betting

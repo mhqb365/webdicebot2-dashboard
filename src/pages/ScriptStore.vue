@@ -2,6 +2,10 @@
   <div class="pb-5">
     <h2 class="text-primary"># Script store</h2>
 
+    <p class="small text-warning">
+      Test script with test coin before use with real coin
+    </p>
+
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
     <ul class="pagination">

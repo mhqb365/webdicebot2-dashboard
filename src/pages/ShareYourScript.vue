@@ -2,7 +2,7 @@
   <div class="pb-5">
     <h2 class="text-primary"># Share your script</h2>
 
-    <p class="text-warning small">
+    <p class="small text-warning">
       Please share script clean and can working on Web DiceBot, if not will be
       deleted
     </p>
