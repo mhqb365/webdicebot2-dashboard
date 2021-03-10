@@ -27,20 +27,17 @@
         </li>
       </ul>
 
-      <!-- <div v-if="isLoading2" class="spinner-border text-muted"></div>
+      <div v-if="isLoading2" class="spinner-border text-muted"></div>
 
       <div v-else class="row">
         <div class="col-md-12 mb-3">
           <div class="card p-4 summary">
-            Balance of users
+            Admin balance
             <br />
-            <h4 class="text-primary">
-              {{ Number(userBalance).toFixed(6) }} TRX
-            </h4>
-            {{ Number(priceUsd * userBalance).toFixed(3) }} $
+            <h4 class="text-primary">{{ Number(balance).toFixed(6) }} TRX</h4>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
@@ -84,6 +81,7 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
+import tronWeb from "@/utils/tronWeb";
 
 export default {
   data() {
@@ -93,16 +91,16 @@ export default {
       userName: "",
       state: "ThisMonth",
       income: 0,
-      priceUsd: 0,
       license: 0,
       pay: 0,
       free: 0,
-      userBalance: 0,
+      balance: 0,
+      address: localStorage.getItem("address"),
     };
   },
   mounted: function () {
     this.summary(this.state);
-    // this.totalBalance();
+    this.getBalance();
   },
   methods: {
     summary: function (state) {
@@ -123,7 +121,7 @@ export default {
         .then((response) => {
           this.isLoading = false;
           let res = response.data;
-          console.log(res);
+          // console.log(res);
           res.map((d) => {
             this.income += d.price;
             this.license += 1;
@@ -135,23 +133,13 @@ export default {
           window.location.href = "/Logout";
         });
     },
-    // totalBalance: function () {
-    //   this.isLoading2 = true;
-    //   axios({
-    //     url: API_URL + "/wallet/balance",
-    //     method: "GET",
-    //     headers: {
-    //       Auth: localStorage.getItem("token"),
-    //     },
-    //   }).then((response) => {
-    //     this.isLoading2 = false;
-    //     let res = response.data;
-    //     // console.log(res);
-    //     res.data.map((r) => {
-    //       if (r.userName != "mhqb365") this.userBalance += Number(r.balance);
-    //     });
-    //   });
-    // },
+    getBalance: async function () {
+      this.isLoading2 = true;
+      let bal = await tronWeb.trx.getBalance(this.address);
+      this.isLoading2 = false;
+      this.balance = tronWeb.fromSun(bal);
+      // console.log(this.balance);
+    },
   },
 };
 </script>
