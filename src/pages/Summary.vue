@@ -101,6 +101,7 @@ export default {
   mounted: function () {
     this.summary(this.state);
     this.getBalance();
+    setTimeout(() => this.getBalance(), 3e4);
   },
   methods: {
     summary: function (state) {
