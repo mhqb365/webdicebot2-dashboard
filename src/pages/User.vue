@@ -96,7 +96,7 @@
               <li class="list-group-item">
                 Address:
                 <a
-                  :href="tronNode + 'address/' + modal.address"
+                  :href="tronScan + 'address/' + modal.address"
                   target="_blank"
                 >
                   {{
@@ -137,7 +137,7 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
-import TRON_NODE from "@/utils/tronNode";
+import TRON_SCAN from "@/utils/tronScan";
 
 export default {
   data() {
@@ -158,7 +158,7 @@ export default {
         address: "",
         balance: 0,
       },
-      tronNode: TRON_NODE,
+      tronScan: TRON_SCAN,
     };
   },
   mounted: function () {

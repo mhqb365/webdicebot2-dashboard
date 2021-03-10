@@ -40,7 +40,8 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
-import TRON_NODE from "@/utils/tronNode";
+import TRON_SCAN from "@/utils/tronScan";
+import tronWeb from "@/utils/tronWeb";
 
 export default {
   data() {
@@ -56,7 +57,7 @@ export default {
         limit: 10,
         price: 0,
       },
-      tronNode: TRON_NODE,
+      tronScan: TRON_SCAN,
     };
   },
   mounted: function () {
@@ -68,20 +69,12 @@ export default {
     }, 6e4);
   },
   methods: {
-    getBalance: function () {
+    getBalance: async function () {
       this.isLoading = true;
-      axios({
-        url: API_URL + "/wallet/balance/" + localStorage.getItem("userName"),
-        method: "GET",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.balance = Number(res).toFixed(6);
-      });
+      let bal = await tronWeb.trx.getBalance(this.address);
+      this.isLoading = false;
+      this.balance = tronWeb.fromSun(bal);
+      // console.log(this.balance);
     },
     getPrice: function () {
       this.isLoading2 = true;
