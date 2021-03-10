@@ -27,26 +27,37 @@
         </li>
       </ul>
 
-      <div v-if="isLoading2" class="spinner-border text-muted"></div>
-
-      <div v-else class="row">
+      <div class="row">
         <div class="col-md-12 mb-3">
           <div class="card p-4 summary">
             Admin balance
             <br />
-            <h4 class="text-primary">{{ Number(balance).toFixed(6) }} TRX</h4>
+            <h4 class="text-primary">
+              <div v-if="isLoading2" class="spinner-border text-muted"></div>
+              <span v-else> {{ Number(balance).toFixed(6) }} TRX</span>
+              <span
+                ><button
+                  type="button"
+                  class="btn btn-light btn-sm"
+                  @click="getBalance"
+                >
+                  <img src="/static/refresh.svg" width="18px" />
+                </button>
+              </span>
+            </h4>
           </div>
         </div>
       </div>
 
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
-
-      <div v-else class="row">
+      <div class="row">
         <div class="col-md-6 mb-3">
           <div class="card p-4 summary">
             Income
             <br />
-            <h4 class="text-success">{{ Number(income).toFixed(6) }} TRX</h4>
+            <h4 class="text-success">
+              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <span v-else>{{ Number(income).toFixed(6) }}</span> TRX
+            </h4>
           </div>
         </div>
 
@@ -54,7 +65,10 @@
           <div class="card p-4 summary">
             License
             <br />
-            <h4 class="text-primary">{{ license }}</h4>
+            <h4 class="text-primary">
+              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <span v-else>{{ license }}</span>
+            </h4>
           </div>
         </div>
 
@@ -62,7 +76,10 @@
           <div class="card p-4 summary">
             Pay
             <br />
-            <h4 class="text-warning">{{ pay }}</h4>
+            <h4 class="text-warning">
+              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <span v-else>{{ pay }}</span>
+            </h4>
           </div>
         </div>
 
@@ -70,7 +87,10 @@
           <div class="card p-4 summary">
             Free
             <br />
-            <h4 class="text-danger">{{ free }}</h4>
+            <h4 class="text-danger">
+              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <span v-else>{{ free }}</span>
+            </h4>
           </div>
         </div>
       </div>
