@@ -115,7 +115,7 @@
                 <button
                   type="button"
                   class="btn btn-light btn-sm"
-                  @click="getBalance(modal.userName)"
+                  @click="getBalance()"
                 >
                   <img src="/static/refresh.svg" width="18px" />
                 </button>
@@ -138,6 +138,7 @@
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
 import TRON_SCAN from "@/utils/tronScan";
+import tronWeb from "@/utils/tronWeb";
 
 export default {
   data() {
@@ -204,33 +205,18 @@ export default {
           let res = response.data;
           // console.log(res);
           this.modal = res;
-          this.getBalance(this.modal.userName);
+          this.getBalance();
         })
         .catch((error) => {
           this.isLoading2 = false;
           this.showAlert(error.response.data, false);
         });
     },
-    getBalance: function (userName) {
+    getBalance: async function () {
       this.isLoading3 = true;
-      axios({
-        url: API_URL + "/wallet/balance/" + userName,
-        method: "GET",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-      })
-        .then((response) => {
-          this.isLoading3 = false;
-          let res = response.data;
-          // console.log(res);
-          this.modal.balance = Number(res).toFixed(6);
-        })
-        .catch((error) => {
-          this.isLoading3 = false;
-          // console.log(error.response.data);
-          window.location.href = "/Logout";
-        });
+      let bal = await tronWeb.trx.getBalance(this.modal.address);
+      this.isLoading3 = false;
+      this.modal.balance = tronWeb.fromSun(bal);
     },
     search: function () {
       if (this.keyword == "") return this.userList(this.page);
