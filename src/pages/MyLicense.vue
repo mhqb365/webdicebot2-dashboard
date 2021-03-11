@@ -131,17 +131,22 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.docs = res.docs;
-        this.page = res.page;
-        this.totalDocs = res.totalDocs;
-        this.totalPages = res.totalPages;
-        this.hasPrevPage = res.hasPrevPage;
-        this.hasNextPage = res.hasNextPage;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.docs = res.docs;
+          this.page = res.page;
+          this.totalDocs = res.totalDocs;
+          this.totalPages = res.totalPages;
+          this.hasPrevPage = res.hasPrevPage;
+          this.hasNextPage = res.hasNextPage;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

@@ -150,8 +150,8 @@ export default {
           });
         })
         .catch((error) => {
-          console.log(error.response.data);
-          window.location.href = "/Logout";
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
         });
     },
     getBalance: async function () {

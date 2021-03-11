@@ -33,9 +33,7 @@
           <a href="/BotInstaller"> Bot Installer </a>
         </li>
         <li class="list-group-item">
-          <a href="/MyWallet">
-            My Wallet
-          </a>
+          <a href="/MyWallet"> My Wallet </a>
         </li>
         <li class="list-group-item">
           <a href="/MyLicense"> My License </a>

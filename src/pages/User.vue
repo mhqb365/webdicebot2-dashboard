@@ -173,17 +173,22 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.docs = res.docs;
-        this.page = res.page;
-        this.totalDocs = res.totalDocs;
-        this.totalPages = res.totalPages;
-        this.hasPrevPage = res.hasPrevPage;
-        this.hasNextPage = res.hasNextPage;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.docs = res.docs;
+          this.page = res.page;
+          this.totalDocs = res.totalDocs;
+          this.totalPages = res.totalPages;
+          this.hasPrevPage = res.hasPrevPage;
+          this.hasNextPage = res.hasNextPage;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
+        });
     },
     getProfile: function (userName) {
       this.isLoading2 = true;
@@ -193,13 +198,18 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading2 = false;
-        let res = response.data;
-        // console.log(res);
-        this.modal = res;
-        this.getBalance(this.modal.userName);
-      });
+      })
+        .then((response) => {
+          this.isLoading2 = false;
+          let res = response.data;
+          // console.log(res);
+          this.modal = res;
+          this.getBalance(this.modal.userName);
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          this.showAlert(error.response.data, false);
+        });
     },
     getBalance: function (userName) {
       this.isLoading3 = true;
@@ -217,6 +227,7 @@ export default {
           this.modal.balance = Number(res).toFixed(6);
         })
         .catch((error) => {
+          this.isLoading3 = false;
           // console.log(error.response.data);
           window.location.href = "/Logout";
         });
@@ -230,12 +241,17 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.docs = res.docs;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.docs = res.docs;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
+        });
     },
     emptyKeyWord: function () {
       this.keyword = "";

@@ -39,9 +39,13 @@
               </b>
             </span>
 
-            <span class="float-right">
+            <span v-if="isAdmin" class="float-right">
+              <button v-if="isLoading2" class="btn btn-primary" disabled>
+                <span class="spinner-border spinner-border-sm"></span>
+              </button>
+
               <button
-                v-if="isAdmin"
+                v-else
                 type="button"
                 class="btn btn-danger btn-sm"
                 @click="deleteScript(doc._id)"
@@ -84,6 +88,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      isLoading2: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -104,31 +109,42 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.docs = res.docs;
-        this.page = res.page;
-        this.totalDocs = res.totalDocs;
-        this.totalPages = res.totalPages;
-        this.hasPrevPage = res.hasPrevPage;
-        this.hasNextPage = res.hasNextPage;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.docs = res.docs;
+          this.page = res.page;
+          this.totalDocs = res.totalDocs;
+          this.totalPages = res.totalPages;
+          this.hasPrevPage = res.hasPrevPage;
+          this.hasNextPage = res.hasNextPage;
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          this.showAlert(error.response.data, false);
+        });
     },
     deleteScript: function (id) {
+      this.isLoading2 = true;
       axios({
         url: API_URL + "/script/" + id,
         method: "DELETE",
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        let res = response.data;
-        // console.log(res);
-        this.showAlert(res);
-        this.fetchScript(this.page);
-      });
+      })
+        .then((response) => {
+          let res = response.data;
+          // console.log(res);
+          this.showAlert(res);
+          this.fetchScript(this.page);
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

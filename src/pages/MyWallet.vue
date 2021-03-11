@@ -86,7 +86,6 @@ export default {
     };
   },
   mounted: function () {
-    tronWeb.setPrivateKey(localStorage.getItem("privateKey"));
     this.getBalance();
     setTimeout(() => this.getBalance(), 3e4);
   },

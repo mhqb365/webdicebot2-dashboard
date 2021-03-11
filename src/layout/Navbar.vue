@@ -41,9 +41,7 @@
             <a class="nav-link" href="/BotInstaller"> Bot Installer </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/MyWallet">
-              My Wallet
-            </a>
+            <a class="nav-link" href="/MyWallet"> My Wallet </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/MyLicense"> My License </a>

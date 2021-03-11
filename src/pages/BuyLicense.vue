@@ -25,7 +25,7 @@
     <p>
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>≈{{ Number(data.price).toFixed(6) }}</span>
+      <span v-else>≈ {{ Number(data.price).toFixed(6) }}</span>
       TRX
     </p>
 
@@ -66,7 +66,7 @@ export default {
     setInterval(() => {
       this.getBalance();
       this.getPrice();
-    }, 6e4);
+    }, 3e4);
   },
   methods: {
     getBalance: async function () {
@@ -105,7 +105,7 @@ export default {
         .then((response) => {
           this.isLoading3 = false;
           let res = response.data;
-          console.log(res);
+          // console.log(res);
           this.showAlert(res);
           window.location.href = "/MyLicense";
         })

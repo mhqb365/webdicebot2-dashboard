@@ -14,15 +14,19 @@
 
           <div class="form-group text-left">
             <label>Address</label>
-            <input v-model="data.address" type="text" class="form-control" />
+            <input v-model="address" type="text" class="form-control" />
           </div>
 
           <div class="form-group text-left">
             <label>Amount</label>
-            <input v-model="data.amount" type="number" class="form-control" />
+            <input v-model="amount" type="number" class="form-control" />
           </div>
 
-          <button type="button" class="btn btn-primary" @click="send">
+          <button v-if="isLoading" class="btn btn-primary" disabled>
+            <span class="spinner-border spinner-border-sm"></span>
+          </button>
+
+          <button v-else type="button" class="btn btn-primary" @click="send">
             Send
           </button>
 
@@ -37,43 +41,34 @@
 </template>
 
 <script>
-import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import tronWeb from "@/utils/tronWeb";
 
 export default {
   data() {
     return {
       isLoading: false,
-      data: {
-        address: "",
-        amount: 0,
-      },
+      address: "",
+      amount: 0,
     };
   },
+  mounted: function () {
+    tronWeb.setPrivateKey(localStorage.getItem("privateKey"));
+  },
   methods: {
-    send: function () {
+    send: async function () {
       this.isLoading = true;
-      axios({
-        url: API_URL + "/wallet/send/" + localStorage.getItem("userName"),
-        method: "POST",
-        headers: {
-          Auth: localStorage.getItem("token"),
-        },
-        data: this.data,
-      })
-        .then((response) => {
-          this.isLoading = false;
-          let res = response.data;
-          // console.log(res);
-          this.showAlert(res);
-          // window.location.href = "/MyLicense";
-          $("#myModalSend").modal("hide");
-        })
-        .catch((error) => {
-          this.isLoading = false;
-          // console.error(error.response.data);
-          this.showAlert(error.response.data, false);
-        });
+
+      let dataTransaction = await tronWeb.trx.sendTransaction(
+        this.address,
+        tronWeb.toSun(Number(this.amount).toFixed(6))
+      );
+
+      this.isLoading = false;
+
+      if (dataTransaction.result) {
+        this.showAlert("Success");
+        $("#myModalSend").modal("hide");
+      } else this.showAlert("Fail, error by Tron.network", false);
     },
   },
 };

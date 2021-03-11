@@ -69,19 +69,24 @@ export default {
           Auth: localStorage.getItem("token"),
         },
         data: this.data,
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        this.showAlert(res);
-        this.data = {
-          type: "Lua",
-          name: "",
-          content: "",
-          author: localStorage.getItem("userName"),
-        };
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          this.showAlert(res);
+          this.data = {
+            type: "Lua",
+            name: "",
+            content: "",
+            author: localStorage.getItem("userName"),
+          };
 
-        this.simplemde.value(this.data.content);
-      });
+          this.simplemde.value(this.data.content);
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

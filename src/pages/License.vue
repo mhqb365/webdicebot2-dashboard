@@ -192,12 +192,17 @@ export default {
         headers: {
           Auth: localStorage.getItem("token"),
         },
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.docs = res.docs;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.docs = res.docs;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
+        });
     },
     emptyKeyWord: function () {
       this.keyword = "";

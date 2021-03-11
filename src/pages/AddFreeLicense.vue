@@ -44,14 +44,19 @@ export default {
           Auth: localStorage.getItem("token"),
         },
         data: this.data,
-      }).then((response) => {
-        this.isLoading = false;
-        let res = response.data;
-        // console.log(res);
-        this.showAlert(res);
-        this.data.userName = "";
-        this.data.limit = 10;
-      });
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          // console.log(res);
+          this.showAlert(res);
+          this.data.userName = "";
+          this.data.limit = 10;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };

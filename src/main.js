@@ -13,7 +13,7 @@ Vue.mixin({
   data() {
     return {
       isLogin: false,
-      isAdmin: false,
+      isAdmin: false
     }
   },
   mounted: function () {
@@ -49,9 +49,9 @@ Vue.mixin({
         url: "https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT",
         method: "GET",
       })
-      
+
       return result.data.price
-    },
+    }
   }
 })
 
