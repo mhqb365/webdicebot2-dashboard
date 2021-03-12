@@ -15,6 +15,8 @@ import User from '@/pages/User'
 import Token from '@/pages/Token'
 import License from '@/pages/License'
 import Logout from '@/pages/Logout'
+import ForgotPassword from '@/pages/ForgotPassword'
+import ChangePassword from '@/pages/ChangePassword'
 
 Vue.use(Router)
 
@@ -106,6 +108,17 @@ const router = new Router({
       name: 'Logout',
       component: Logout,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/ChangePassword',
+      name: 'ChangePassword',
+      component: ChangePassword,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/ForgotPassword',
+      name: 'ForgotPassword',
+      component: ForgotPassword
     },
     {
       path: '*',

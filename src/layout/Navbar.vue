@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/Login"> Login </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ForgotPassword"> Forgot Password </a>
+          </li>
         </ul>
 
         <ul v-else class="navbar-nav mb-3">
@@ -54,6 +57,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/ShareYourScript"> Share Your Script </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ChangePassword"> Change Password </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Logout"> Logout </a>

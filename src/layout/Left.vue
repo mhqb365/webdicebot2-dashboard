@@ -17,6 +17,9 @@
         <li class="list-group-item">
           <a href="/Login"> Login </a>
         </li>
+        <li class="list-group-item">
+          <a href="/ForgotPassword"> Forgot Password </a>
+        </li>
       </ul>
     </div>
 
@@ -46,6 +49,9 @@
         </li>
         <li class="list-group-item">
           <a href="/ShareYourScript"> Share Your Script </a>
+        </li>
+        <li class="list-group-item">
+          <a href="/ChangePassword"> Change Password </a>
         </li>
         <li class="list-group-item">
           <a href="/Logout"> Logout </a>

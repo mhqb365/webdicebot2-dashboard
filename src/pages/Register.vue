@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <label>Email</label>
-      <input v-model="data.email" type="text" class="form-control" />
+      <input v-model="data.email" type="email" class="form-control" />
     </div>
 
     <div class="form-group">
