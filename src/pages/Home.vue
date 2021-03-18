@@ -109,6 +109,7 @@ continuebet() : continue betting after call function stop()
 resetseed() : reset seed fair
 resetstats() : reset stats in round
 ching() : alert with sound
+checkbalance() : check current balance if new deposit
 </pre
       >
     </div>
