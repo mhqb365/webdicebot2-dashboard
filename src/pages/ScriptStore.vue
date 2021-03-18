@@ -3,7 +3,9 @@
     <h2 class="text-primary"># Script store</h2>
 
     <p class="small text-warning">
-      Test script with test coin before use with real coin
+      Test any script with test coin before use with real coin. Check script
+      content first, some one will add tip function or withdraw function to
+      stole your money (Web DiceBot do not support tip function or withdraw function)
     </p>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
