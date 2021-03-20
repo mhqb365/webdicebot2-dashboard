@@ -11,12 +11,12 @@
 
       <pre>
 1. You must know what is dice
-2. You must know control your money in dice
-3. You have to differentiate between dice tools with strategy script for dice
-4. You must know the Lua language (v5.3) or Javascript language when play with strategy script
+2. You must control your money in dice
+3. You must have to differentiate between dice tools with dice script
+4. You must know the Lua language (v5.3) or Javascript language when play with dice script
 5. You must have license key when use Web DiceBot
-6. Do not share your license if you don't wanna anyone use bot by your money
-7. Only use the installer in webdicebot.xyz if you don't want someone fake us to trick you
+6. Do not share your license if you do not wanna anyone use bot by your money
+7. Only use the installer at webdicebot.xyz if you do not want someone fake us to trick you
 8. Upgrade level max security in your account at all dice sites</pre
       >
     </div>
@@ -26,8 +26,9 @@
 
       <pre>
 Step 1: Join to the Web DiceBot system via Register/Login
-Step 2: Deposit TRX (Tron) to your wallet address then buy license with days you want
-Step 3: Paste installer to console of browser on dice site you play
+Step 2: Deposit TRX (Tron) to your wallet then buy license with days you wanna
+Step 3: At dice site you play, open dev tool of browser then paste installer to console tab
+
 You can buy TRX (Tron) at:
 <a href="https://justswap.org/#/home" target="_blank">JustSwap</a>,
 <a href="https://binance.com/vn/register?ref=37324651" target="_blank"
@@ -75,7 +76,7 @@ function dobet() {
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Variables</h2>
+      <h2 class="text-primary"># System variables</h2>
 
       <pre>
 chance : % win change
@@ -99,7 +100,7 @@ currentstreak : streak of bet count
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Functions</h2>
+      <h2 class="text-primary"># System functions</h2>
 
       <pre>
 dobet() : loop betting
