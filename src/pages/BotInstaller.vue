@@ -121,6 +121,14 @@ script.src = BOT_URL+'/bot/init/cryptoplay-dice'
 document.body.appendChild(script)`,
         },
         {
+          name: "cryptoplay - limbo",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/cryptoplay-limbo'
+document.body.appendChild(script)`,
+        },
+        {
           name: "duckdice.io - bonus mode",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
