@@ -3,15 +3,10 @@
     <h2 class="text-primary"># Script store</h2>
 
     <p class="small text-warning">
-      Test any script with test coin before use with real coin. Check script
-      content first, some one will add tip function or withdraw function to
-      stole your money (Web DiceBot do not support tip function or withdraw
-      function)
-    </p>
-
-    <p class="small text-danger">
-      Someone add tip function on dice script to steal money, check before play
-      with another bot
+      Start script with test coin before use with real coin. Some one will add
+      tip function or withdraw function to stole your money so check script
+      before play with another bot. Web DiceBot do not support tip function or
+      withdraw function
     </p>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
