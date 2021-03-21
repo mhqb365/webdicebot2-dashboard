@@ -113,7 +113,7 @@ script.src = BOT_URL+'/bot/init/crypto-games-dice'
 document.body.appendChild(script)`,
         },
         {
-          name: "cryptoplay - dice classic",
+          name: "cryptoplay.io - dice classic",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
@@ -121,7 +121,7 @@ script.src = BOT_URL+'/bot/init/cryptoplay-dice'
 document.body.appendChild(script)`,
         },
         {
-          name: "cryptoplay - limbo",
+          name: "cryptoplay.io - limbo",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
