@@ -17,6 +17,7 @@ import License from '@/pages/License'
 import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
+import EditScript from '@/pages/EditScript'
 
 Vue.use(Router)
 
@@ -26,22 +27,26 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: { requiresAuth: false }
     },
     {
       path: '/Register',
       name: 'Register',
-      component: Register
+      component: Register,
+      meta: { requiresAuth: false }
     },
     {
       path: '/Login',
       name: 'Login',
-      component: Login
+      component: Login,
+      meta: { requiresAuth: false }
     },
     {
       path: '/Token',
       name: 'Token',
-      component: Token
+      component: Token,
+      meta: { requiresAuth: false }
     },
     {
       path: '/BotInstaller',
@@ -119,6 +124,11 @@ const router = new Router({
       path: '/ForgotPassword',
       name: 'ForgotPassword',
       component: ForgotPassword
+    },
+    {
+      path: '/EditScript',
+      name: 'EditScript',
+      component: EditScript
     },
     {
       path: '*',

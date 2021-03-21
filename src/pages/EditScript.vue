@@ -1,24 +1,18 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Share your script</h2>
+    <h2 class="text-primary"># Edit script</h2>
 
-    <p class="small text-warning">
-      Please share script clean and can working on Web DiceBot, if not will be
-      deleted
-    </p>
-
-    <div class="form-group">
-      <label>Language</label>
-      <select class="form-control" v-model="data.type">
-        <option>Lua</option>
-        <option>Javascript</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Script name</label>
-      <input type="text" class="form-control" v-model="data.name" />
-    </div>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      @click="
+        $router.push({
+          name: 'ScriptStore',
+        })
+      "
+    >
+      Cancel
+    </button>
 
     <div class="form-group">
       <label>Content</label>
@@ -29,9 +23,7 @@
       <span class="spinner-border spinner-border-sm"></span>
     </button>
 
-    <button v-else class="btn btn-primary btn-block" @click="share">
-      Share
-    </button>
+    <button v-else class="btn btn-primary btn-block" @click="save">Save</button>
   </div>
 </template>
 
@@ -45,10 +37,7 @@ export default {
       isLoading: false,
       simplemde: "",
       data: {
-        type: "Lua",
-        name: "",
         content: "",
-        author: localStorage.getItem("userName"),
       },
     };
   },
@@ -57,15 +46,39 @@ export default {
       element: document.getElementById("content"),
       toolbar: false,
     });
+    this.loadScript();
+    // console.log()
   },
   methods: {
-    share: function () {
+    loadScript: function () {
+      this.isLoading = true;
+
+      axios({
+        url: API_URL + "/script/" + this.$route.params.id,
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+        data: this.data,
+      })
+        .then((response) => {
+          this.isLoading = false;
+          let res = response.data;
+          //   console.log(res);
+          this.simplemde.value(res.content);
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          this.showAlert(error.response.data, false);
+        });
+    },
+    save: function () {
       this.isLoading = true;
       this.data.content = this.simplemde.value();
 
       axios({
-        url: API_URL + "/script",
-        method: "POST",
+        url: API_URL + "/script/" + this.$route.params.id,
+        method: "PUT",
         headers: {
           Auth: localStorage.getItem("token"),
         },
@@ -75,14 +88,7 @@ export default {
           this.isLoading = false;
           let res = response.data;
           this.showAlert(res);
-          this.data = {
-            type: "Lua",
-            name: "",
-            content: "",
-            author: localStorage.getItem("userName"),
-          };
-
-          this.simplemde.value(this.data.content);
+          window.location.href = "/ScriptStore";
         })
         .catch((error) => {
           this.isLoading2 = false;
