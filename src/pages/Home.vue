@@ -38,7 +38,7 @@ or any crypto exchanges</pre>
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Sample Lua strategy script</h2>
+      <h2 class="text-primary"># Sample Lua dice script</h2>
 
       <pre>
 chance=49.5
@@ -57,7 +57,7 @@ end</pre
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Sample Javascript strategy script</h2>
+      <h2 class="text-primary"># Sample Javascript dice script</h2>
 
       <pre>
 chance=49.5
