@@ -2,6 +2,11 @@
   <div class="pb-5">
     <h2 class="text-primary"># Bot installer</h2>
 
+    <p class="small text-warning">
+      Only use the installer at webdicebot.xyz if you do not want someone fake
+      us to trick you
+    </p>
+
     <div class="form-group">
       <select class="form-control" v-model="selectName" @change="changeBot">
         <option v-for="bot in bots" :key="bot.name" :value="bot.name">
@@ -48,14 +53,14 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/999dice'
 document.body.appendChild(script)`,
         },
-//         {
-//           name: "bc.game - dice classic",
-//           value: `const BOT_URL = '${API_URL}'
-// var script = document.createElement('script')
-// script.type = 'text/javascript'
-// script.src = BOT_URL+'/bot/init/bcgame-dice-classic'
-// document.body.appendChild(script)`,
-//         },
+        //         {
+        //           name: "bc.game - dice classic",
+        //           value: `const BOT_URL = '${API_URL}'
+        // var script = document.createElement('script')
+        // script.type = 'text/javascript'
+        // script.src = BOT_URL+'/bot/init/bcgame-dice-classic'
+        // document.body.appendChild(script)`,
+        //         },
         {
           name: "betfury.io - dice",
           value: `const BOT_URL = '${API_URL}'
