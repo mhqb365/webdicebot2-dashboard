@@ -18,6 +18,7 @@ import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
 import EditScript from '@/pages/EditScript'
+import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)
 
@@ -131,8 +132,13 @@ const router = new Router({
       component: EditScript
     },
     {
+      path: '/NotFound',
+      name: 'NotFound',
+      component: NotFound
+    },
+    {
       path: '*',
-      redirect: '/'
+      redirect: '/NotFound'
     }
   ]
 })
