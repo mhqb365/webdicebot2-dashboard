@@ -261,14 +261,6 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/wolf-limbo'
 document.body.appendChild(script)`,
         },
-        //         {
-        //           name: "yolodice.com",
-        //           value: `const BOT_URL = '${API_URL}'
-        // var script = document.createElement('script')
-        // script.type = 'text/javascript'
-        // script.src = BOT_URL+'/bot/init/yolodice'
-        // document.body.appendChild(script)`,
-        //         },
       ],
     };
   },
