@@ -53,14 +53,14 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/999dice'
 document.body.appendChild(script)`,
         },
-        //         {
-        //           name: "bc.game - dice classic",
-        //           value: `const BOT_URL = '${API_URL}'
+        // {
+        //   name: "bc.game - dice classic",
+        //   value: `const BOT_URL = '${API_URL}'
         // var script = document.createElement('script')
         // script.type = 'text/javascript'
         // script.src = BOT_URL+'/bot/init/bcgame-dice-classic'
         // document.body.appendChild(script)`,
-        //         },
+        // },
         {
           name: "betfury.io - dice",
           value: `const BOT_URL = '${API_URL}'

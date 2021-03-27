@@ -3,10 +3,10 @@
     <h2 class="text-primary"># Script store</h2>
 
     <p class="small text-warning">
-      Start script with test coin before use with real coin. Some one will add
-      tip function or withdraw function to stole your money so check script
-      before play with another bot. Web DiceBot do not support tip function or
-      withdraw function
+      Script store is free and shared by anyone. You should start script with
+      test coin before use with real coin. Some one will add tip function or
+      withdraw function to stole your money so check script before play with
+      another bot. Web DiceBot do not support tip function or withdraw function
     </p>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
