@@ -33,6 +33,10 @@
           <span class="badge badge-danger"> On comming </span>
         </li>
         <li class="list-group-item">
+          <a href="/Swap"> Swap </a>
+          <span class="badge badge-danger"> On comming </span>
+        </li>
+        <li class="list-group-item">
           <a href="/BotInstaller"> Bot Installer </a>
         </li>
         <li class="list-group-item">

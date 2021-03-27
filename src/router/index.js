@@ -19,6 +19,7 @@ import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
 import EditScript from '@/pages/EditScript'
 import NotFound from '@/pages/NotFound'
+import Swap from '@/pages/Swap'
 
 Vue.use(Router)
 
@@ -122,19 +123,28 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
     {
+      path: '/Swap',
+      name: 'Swap',
+      component: Swap,
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/ForgotPassword',
       name: 'ForgotPassword',
-      component: ForgotPassword
+      component: ForgotPassword,
+      meta: { requiresAuth: false }
     },
     {
       path: '/EditScript',
       name: 'EditScript',
-      component: EditScript
+      component: EditScript,
+      meta: { requiresAuth: true }
     },
     {
       path: '/NotFound',
       name: 'NotFound',
-      component: NotFound
+      component: NotFound,
+      meta: { requiresAuth: false }
     },
     {
       path: '*',

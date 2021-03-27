@@ -41,6 +41,10 @@
             <span class="badge badge-danger"> On comming </span>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/Swap"> Swap </a>
+            <span class="badge badge-danger"> On comming </span>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/BotInstaller"> Bot Installer </a>
           </li>
           <li class="nav-item">

@@ -1,32 +1,43 @@
 <template>
-  <div class="pb-5">
-    <h2 class="text-primary"># Bot installer</h2>
+  <div>
+    <div class="pb-5">
+      <h2 class="text-primary"># Bot installer</h2>
 
-    <p class="small text-warning">
-      Only use the installer at webdicebot.xyz if you do not want someone fake
-      us to trick you
-    </p>
+      <p class="small text-warning">
+        Only use the installer at webdicebot.xyz if you do not want someone fake
+        us to trick you
+      </p>
 
-    <div class="form-group">
-      <select class="form-control" v-model="selectName" @change="changeBot">
-        <option v-for="bot in bots" :key="bot.name" :value="bot.name">
-          {{ bot.name }}
-        </option>
-      </select>
+      <div class="form-group">
+        <select class="form-control" v-model="selectName" @change="changeBot">
+          <option v-for="bot in bots" :key="bot.name" :value="bot.name">
+            {{ bot.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control" rows="5" v-model="selectValue">
+        </textarea>
+      </div>
+
+      <button
+        class="btn btn-primary btn-block"
+        v-clipboard="() => selectValue"
+        v-clipboard:success="clipboardSuccess"
+        v-clipboard:error="clipboardError"
+      >
+        Copy
+      </button>
     </div>
 
-    <div class="form-group">
-      <textarea class="form-control" rows="5" v-model="selectValue"> </textarea>
-    </div>
+    <div class="pb-5">
+      <h2 class="text-primary pt-5"># Auto installer</h2>
+      
+      <p>Browser extension auto install Web DiceBot</p>
 
-    <button
-      class="btn btn-primary btn-block"
-      v-clipboard="() => selectValue"
-      v-clipboard:success="clipboardSuccess"
-      v-clipboard:error="clipboardError"
-    >
-      Copy
-    </button>
+      <span class="badge badge-danger"> On comming </span>
+    </div>
   </div>
 </template>
 
