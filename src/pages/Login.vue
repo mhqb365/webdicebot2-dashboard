@@ -60,7 +60,7 @@ export default {
           localStorage.setItem("permission", res.permission);
           localStorage.setItem("token", res.token);
           this.showAlert("Login success");
-          window.location.href = "/Dashboard";
+          window.location.href = "/";
         })
         .catch((error) => {
           this.isLoading = false;

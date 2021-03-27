@@ -56,6 +56,7 @@ export default {
         .catch((error) => {
           this.isLoading = false;
           this.showAlert(error.response.data, false);
+          window.location.href = "/Logout";
         });
     },
   },
