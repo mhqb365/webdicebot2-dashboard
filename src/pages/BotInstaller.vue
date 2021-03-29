@@ -33,7 +33,7 @@
 
     <div class="pb-5">
       <h2 class="text-primary pt-5"># Auto installer</h2>
-      
+
       <p>Browser extension auto install Web DiceBot</p>
 
       <span class="badge badge-danger"> On comming </span>
@@ -64,14 +64,6 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/999dice'
 document.body.appendChild(script)`,
         },
-        // {
-        //   name: "bc.game - dice classic",
-        //   value: `const BOT_URL = '${API_URL}'
-        // var script = document.createElement('script')
-        // script.type = 'text/javascript'
-        // script.src = BOT_URL+'/bot/init/bcgame-dice-classic'
-        // document.body.appendChild(script)`,
-        // },
         {
           name: "betfury.io - dice",
           value: `const BOT_URL = '${API_URL}'
