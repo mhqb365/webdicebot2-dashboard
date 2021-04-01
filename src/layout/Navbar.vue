@@ -19,7 +19,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Token"> Token </a>
-            <span class="badge badge-danger"> On comming </span>
+            <span class="badge badge-danger"> On coming </span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Register"> Register </a>
@@ -38,11 +38,11 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Token"> Token </a>
-            <span class="badge badge-danger"> On comming </span>
+            <span class="badge badge-danger"> On coming </span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Swap"> Swap </a>
-            <span class="badge badge-danger"> On comming </span>
+            <span class="badge badge-danger"> On coming </span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/BotInstaller"> Bot Installer </a>

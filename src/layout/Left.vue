@@ -9,7 +9,7 @@
         </li>
         <li class="list-group-item">
           <a href="/Token"> Token </a>
-          <span class="badge badge-danger"> On comming</span>
+          <span class="badge badge-danger"> On coming</span>
         </li>
         <li class="list-group-item">
           <a href="/Register"> Register </a>
@@ -30,11 +30,11 @@
         </li>
         <li class="list-group-item">
           <a href="/Token"> Token </a>
-          <span class="badge badge-danger"> On comming </span>
+          <span class="badge badge-danger"> On coming </span>
         </li>
         <li class="list-group-item">
           <a href="/Swap"> Swap </a>
-          <span class="badge badge-danger"> On comming </span>
+          <span class="badge badge-danger"> On coming </span>
         </li>
         <li class="list-group-item">
           <a href="/BotInstaller"> Bot Installer </a>
