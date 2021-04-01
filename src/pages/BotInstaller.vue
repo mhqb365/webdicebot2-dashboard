@@ -169,14 +169,6 @@ script.src = BOT_URL+'/bot/init/freebitco'
 document.body.appendChild(script)`,
         },
         {
-          name: "gigabet.com - dice",
-          value: `const BOT_URL = '${API_URL}'
-var script = document.createElement('script')
-script.type = 'text/javascript'
-script.src = BOT_URL+'/bot/init/gigabet-dice'
-document.body.appendChild(script)`,
-        },
-        {
           name: "luckyfish.io - dice classic",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
