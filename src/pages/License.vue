@@ -47,6 +47,7 @@
       <table v-else class="table table-bordered table-hover bg-white">
         <thead>
           <tr>
+            <th>Time</th>
             <th>Username</th>
             <th>Limit</th>
             <th>Price</th>
@@ -68,6 +69,13 @@
                 : 'text-dark',
             ]"
           >
+            <td>
+              {{
+                new Date(doc.time).toLocaleString("en-GB", {
+                  timeZone: "UTC",
+                })
+              }}
+            </td>
             <td>{{ doc.userName }}</td>
             <td>{{ doc.limit }}</td>
             <td>
