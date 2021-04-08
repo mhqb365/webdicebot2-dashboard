@@ -3,7 +3,7 @@
     <div class="pb-5">
       <h2 class="text-primary"># Bot installer</h2>
 
-      <p class="small text-warning">
+      <p class="small">
         Only use the installer at webdicebot.xyz if you do not want someone fake
         us to trick you
       </p>

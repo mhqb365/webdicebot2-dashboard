@@ -18,10 +18,6 @@
             <a class="nav-link" href="/"> Getting Started </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Token"> Token </a>
-            <span class="badge badge-danger"> On coming </span>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/Register"> Register </a>
           </li>
           <li class="nav-item">
@@ -35,10 +31,6 @@
         <ul v-else class="navbar-nav mb-3">
           <li class="nav-item">
             <a class="nav-link" href="/"> Getting Started </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Token"> Token </a>
-            <span class="badge badge-danger"> On coming </span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Swap"> Swap </a>
@@ -58,9 +50,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/ScriptStore"> Script Store </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/ShareYourScript"> Share Your Script </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/ChangePassword"> Change Password </a>

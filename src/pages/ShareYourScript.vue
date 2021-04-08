@@ -2,7 +2,19 @@
   <div class="pb-5">
     <h2 class="text-primary"># Share your script</h2>
 
-    <p class="small text-warning">
+    <button
+      type="button"
+      class="btn btn-secondary mb-3"
+      @click="
+        $router.push({
+          name: 'ScriptStore',
+        })
+      "
+    >
+      Cancel
+    </button>
+
+    <p class="small">
       Please share script clean and can working on Web DiceBot, if not will be
       deleted
     </p>
@@ -75,17 +87,10 @@ export default {
           this.isLoading = false;
           let res = response.data;
           this.showAlert(res);
-          this.data = {
-            type: "Lua",
-            name: "",
-            content: "",
-            author: localStorage.getItem("userName"),
-          };
-
-          this.simplemde.value(this.data.content);
+          setTimeout(() => (window.location.href = "/ScriptStore"), 1e3);
         })
         .catch((error) => {
-          this.isLoading2 = false;
+          this.isLoading = false;
           this.showAlert(error.response.data, false);
         });
     },

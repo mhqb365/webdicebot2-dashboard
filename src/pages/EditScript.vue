@@ -4,7 +4,7 @@
 
     <button
       type="button"
-      class="btn btn-secondary"
+      class="btn btn-secondary mb-3"
       @click="
         $router.push({
           name: 'ScriptStore',
@@ -64,7 +64,7 @@ export default {
         .then((response) => {
           this.isLoading = false;
           let res = response.data;
-          //   console.log(res);
+          // console.log(res);
           this.simplemde.value(res.content);
         })
         .catch((error) => {
@@ -88,10 +88,10 @@ export default {
           this.isLoading = false;
           let res = response.data;
           this.showAlert(res);
-          window.location.href = "/ScriptStore";
+          setTimeout(() => (window.location.href = "/ScriptStore"), 1e3);
         })
         .catch((error) => {
-          this.isLoading2 = false;
+          this.isLoading = false;
           this.showAlert(error.response.data, false);
         });
     },

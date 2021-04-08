@@ -2,7 +2,7 @@
   <div class="pb-5">
     <h2 class="text-primary"># Login</h2>
 
-    <p>
+    <p class="small">
       Account only use at webdicebot.xyz. You do not have an account?
       <router-link to="/Register">Register</router-link>
     </p>
@@ -60,7 +60,7 @@ export default {
           localStorage.setItem("permission", res.permission);
           localStorage.setItem("token", res.token);
           this.showAlert("Login success");
-          window.location.href = "/";
+          setTimeout(() => (window.location.href = "/"), 1e3);
         })
         .catch((error) => {
           this.isLoading = false;

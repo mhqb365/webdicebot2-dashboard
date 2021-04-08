@@ -8,10 +8,6 @@
           <a href="/"> Getting Started </a>
         </li>
         <li class="list-group-item">
-          <a href="/Token"> Token </a>
-          <span class="badge badge-danger"> On coming</span>
-        </li>
-        <li class="list-group-item">
           <a href="/Register"> Register </a>
         </li>
         <li class="list-group-item">
@@ -27,10 +23,6 @@
       <ul class="list-group mb-3">
         <li class="list-group-item">
           <a href="/"> Getting Started </a>
-        </li>
-        <li class="list-group-item">
-          <a href="/Token"> Token </a>
-          <span class="badge badge-danger"> On coming </span>
         </li>
         <li class="list-group-item">
           <a href="/Swap"> Swap </a>
@@ -50,9 +42,6 @@
         </li>
         <li class="list-group-item">
           <a href="/ScriptStore"> Script Store </a>
-        </li>
-        <li class="list-group-item">
-          <a href="/ShareYourScript"> Share Your Script </a>
         </li>
         <li class="list-group-item">
           <a href="/ChangePassword"> Change Password </a>

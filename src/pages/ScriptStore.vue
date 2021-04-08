@@ -2,7 +2,19 @@
   <div class="pb-5">
     <h2 class="text-primary"># Script store</h2>
 
-    <p class="small text-warning">
+    <button
+      type="button"
+      class="btn btn-primary mb-3"
+      @click="
+        $router.push({
+          name: 'ShareYourScript',
+        })
+      "
+    >
+      Share Your Script
+    </button>
+
+    <p class="small">
       Script store is free and shared by anyone. You should start script with
       test coin before use with real coin. Some one will add tip function or
       withdraw function to stole your money so check script before play with
@@ -64,7 +76,7 @@
                 <button
                   type="button"
                   class="btn btn-danger btn-sm"
-                  @click="deleteScript(doc._id)"
+                  @click="confirmDeleteScript(doc)"
                 >
                   Delete
                 </button>
@@ -143,6 +155,16 @@ export default {
           this.showAlert(error.response.data, false);
         });
     },
+    confirmDeleteScript(script) {
+      this.$swal.fire({
+        icon: "warning",
+        title: "Delete script " + script.name,
+        showDenyButton: true,
+        preConfirm: () => {
+          this.deleteScript(script._id);
+        },
+      });
+    },
     deleteScript: function (id) {
       this.isLoading2 = true;
       axios({
@@ -153,6 +175,7 @@ export default {
         },
       })
         .then((response) => {
+          this.isLoading2 = false;
           let res = response.data;
           // console.log(res);
           this.showAlert(res);

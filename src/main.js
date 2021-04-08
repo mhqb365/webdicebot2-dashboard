@@ -32,7 +32,10 @@ Vue.mixin({
       this.$swal.fire({
         icon: type ? "success" : "error",
         title: message,
-        showConfirmButton: true
+        showConfirmButton: false,
+        timer: 3000,
+        toast: true,
+        position: 'top-end'
       });
     },
     logout: function () {
