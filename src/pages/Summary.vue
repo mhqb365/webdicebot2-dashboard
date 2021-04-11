@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-md-12 mb-3">
           <div class="card p-4 summary">
-            Admin balance
+            Balance
             <br />
             <h4 class="text-primary">
               <div v-if="isLoading2" class="spinner-border text-muted"></div>

@@ -50,6 +50,12 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+#app {
+  font-family: "Kanit", sans-serif;
+}
+
 .to-top {
   position: fixed;
   bottom: 20px;

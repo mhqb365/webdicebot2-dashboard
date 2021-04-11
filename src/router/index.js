@@ -12,14 +12,12 @@ import AddFreeLicense from '@/pages/AddFreeLicense'
 import ScriptStore from '@/pages/ScriptStore'
 import ShareYourScript from '@/pages/ShareYourScript'
 import User from '@/pages/User'
-import Token from '@/pages/Token'
 import License from '@/pages/License'
 import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
 import EditScript from '@/pages/EditScript'
 import NotFound from '@/pages/NotFound'
-import Swap from '@/pages/Swap'
 
 Vue.use(Router)
 
@@ -42,12 +40,6 @@ const router = new Router({
       path: '/Login',
       name: 'Login',
       component: Login,
-      meta: { requiresAuth: false }
-    },
-    {
-      path: '/Token',
-      name: 'Token',
-      component: Token,
       meta: { requiresAuth: false }
     },
     {
@@ -120,12 +112,6 @@ const router = new Router({
       path: '/ChangePassword',
       name: 'ChangePassword',
       component: ChangePassword,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/Swap',
-      name: 'Swap',
-      component: Swap,
       meta: { requiresAuth: true }
     },
     {
