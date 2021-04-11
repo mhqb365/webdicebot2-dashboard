@@ -4,7 +4,7 @@
       <h2 class="text-primary">Summary</h2>
 
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="card p-4">
             Total license
             <br />
@@ -14,7 +14,7 @@
             </h4>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="card p-4">
             TRX spend
             <br />
