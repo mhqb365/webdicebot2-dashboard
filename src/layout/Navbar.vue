@@ -20,7 +20,8 @@
               href="/"
               v-bind:class="[this.$route.path == '/' ? 'active' : '']"
             >
-              Getting Started
+              <i class="fas fa-bars"></i>
+              &nbsp; Getting Started
             </a>
           </li>
           <li class="nav-item">
@@ -29,7 +30,8 @@
               href="/Register"
               v-bind:class="[this.$route.path == '/Register' ? 'active' : '']"
             >
-              Register
+              <i class="fas fa-user-plus"></i>
+              &nbsp; Register
             </a>
           </li>
           <li class="nav-item">
@@ -38,7 +40,8 @@
               href="/Login"
               v-bind:class="[this.$route.path == '/Login' ? 'active' : '']"
             >
-              Login
+              <i class="fas fa-sign-in-alt"></i>
+              &nbsp; Login
             </a>
           </li>
           <li class="nav-item">
@@ -49,7 +52,8 @@
                 this.$route.path == '/ForgotPassword' ? 'active' : '',
               ]"
             >
-              Forgot Password
+              <i class="fas fa-lock"></i>
+              &nbsp; Forgot Password
             </a>
           </li>
         </ul>
@@ -61,7 +65,8 @@
               href="/"
               v-bind:class="[this.$route.path == '/' ? 'active' : '']"
             >
-              Getting Started
+              <i class="fas fa-bars"></i>
+              &nbsp; Getting Started
             </a>
           </li>
           <li class="nav-item">
@@ -72,7 +77,8 @@
                 this.$route.path == '/BotInstaller' ? 'active' : '',
               ]"
             >
-              Bot Installer
+              <i class="fas fa-robot"></i>
+              &nbsp; Bot Installer
             </a>
           </li>
           <li class="nav-item">
@@ -81,7 +87,8 @@
               href="/MyWallet"
               v-bind:class="[this.$route.path == '/MyWallet' ? 'active' : '']"
             >
-              My Wallet
+              <i class="fas fa-wallet"></i>
+              &nbsp; My Wallet
             </a>
           </li>
           <li class="nav-item">
@@ -90,7 +97,8 @@
               href="/MyLicense"
               v-bind:class="[this.$route.path == '/MyLicense' ? 'active' : '']"
             >
-              My License
+              <i class="fas fa-user"></i>
+              &nbsp; My License
             </a>
           </li>
           <li class="nav-item">
@@ -99,7 +107,8 @@
               href="/BuyLicense"
               v-bind:class="[this.$route.path == '/BuyLicense' ? 'active' : '']"
             >
-              Buy License
+              <i class="fas fa-shopping-cart"></i>
+              &nbsp; Buy License
             </a>
           </li>
           <li class="nav-item">
@@ -110,7 +119,8 @@
                 this.$route.path == '/ScriptStore' ? 'active' : '',
               ]"
             >
-              Script Store
+              <i class="fas fa-store"></i>
+              &nbsp; Script Store
             </a>
           </li>
           <li class="nav-item">
@@ -121,11 +131,15 @@
                 this.$route.path == '/ChangePassword' ? 'active' : '',
               ]"
             >
-              Change Password
+              <i class="fas fa-lock"></i>
+              &nbsp; Change Password
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Logout"> Logout </a>
+            <a class="nav-link" href="/Logout">
+              <i class="fas fa-sign-out-alt"></i>
+              &nbsp; Logout
+            </a>
           </li>
         </ul>
 
@@ -136,7 +150,8 @@
               href="/Summary"
               v-bind:class="[this.$route.path == '/Summary' ? 'active' : '']"
             >
-              Summary
+              <i class="fas fa-user-shield"></i>
+              &nbsp; Summary
             </a>
           </li>
           <li class="nav-item">
@@ -147,7 +162,8 @@
                 this.$route.path == '/AddFreeLicense' ? 'active' : '',
               ]"
             >
-              Add Free License
+              <i class="fas fa-plus-square"></i>
+              &nbsp; Add Free License
             </a>
           </li>
           <li class="nav-item">
@@ -156,7 +172,8 @@
               href="/User"
               v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
             >
-              User List
+              <i class="fas fa-users"></i>
+              &nbsp; User List
             </a>
           </li>
           <li class="nav-item">
@@ -165,7 +182,8 @@
               href="/License"
               v-bind:class="[this.$route.path == '/License' ? 'active' : '']"
             >
-              License List
+              <i class="fas fa-th-list"></i>
+              &nbsp; License List
             </a>
           </li>
         </ul>
