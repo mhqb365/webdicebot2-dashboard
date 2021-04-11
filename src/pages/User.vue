@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># User list</h2>
+    <h2 class="text-primary">User list</h2>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
 
@@ -42,7 +42,7 @@
 
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-      <table v-else class="table table-bordered table-hover bg-white">
+      <table v-else class="table table-bordered table-hover bg-white table-sm">
         <thead>
           <tr>
             <th>Time</th>
@@ -111,7 +111,6 @@
                   class="spinner-border spinner-border-sm"
                 ></span>
                 <span v-else>{{ Number(modal.balance).toFixed(6) }}</span>
-                TRX
                 <button
                   type="button"
                   class="btn btn-light btn-sm"

@@ -1,12 +1,11 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Buy license</h2>
+    <h2 class="text-primary">Buy license</h2>
 
     <p>
       You have
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }}</span>
-      TRX
       <button type="button" class="btn btn-light btn-sm" @click="getBalance">
         <img src="/static/refresh.svg" width="18px" />
       </button>
@@ -26,7 +25,6 @@
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
       <span v-else>≈ {{ Number(data.price).toFixed(6) }}</span>
-      TRX
     </p>
 
     <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>

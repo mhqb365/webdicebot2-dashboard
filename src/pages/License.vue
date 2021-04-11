@@ -44,7 +44,7 @@
     <div class="table-responsive-sm">
       <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-      <table v-else class="table table-bordered table-hover bg-white">
+      <table v-else class="table table-bordered table-hover bg-white table-sm">
         <thead>
           <tr>
             <th>Time</th>
@@ -80,9 +80,7 @@
             <td>{{ doc.limit }}</td>
             <td>
               {{
-                Number(doc.price) > 0
-                  ? Number(doc.price).toFixed(6) + " TRX"
-                  : "Free"
+                Number(doc.price) > 0 ? Number(doc.price).toFixed(6) : "Free"
               }}
             </td>
             <td>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="text-primary"># Bot installer</h2>
+      <h2 class="text-primary">Bot installer</h2>
 
       <p class="small">
         Only use the installer at webdicebot.xyz if you do not want someone fake
@@ -32,11 +32,11 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary pt-5"># Auto installer</h2>
+      <h2 class="text-primary pt-5">Auto installer</h2>
 
-      <p>Browser extension auto install Web DiceBot</p>
+      <p class="small">Browser extension auto install Web DiceBot</p>
 
-      <span class="badge badge-danger"> On comming </span>
+      <span class="badge badge-danger"> On coming </span>
     </div>
   </div>
 </template>

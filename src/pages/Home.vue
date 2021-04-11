@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="text-primary"># Terms of use</h2>
+      <h2 class="text-primary">Terms of use</h2>
 
       <p class="small">
         The following user agreement is to read in its entirety prior to the use
@@ -9,7 +9,7 @@
         legal binding between the user and all services found on webdicebot.xyz
       </p>
 
-      <pre>
+      <pre class="bg-light p-2">
 1. You must know what is dice
 2. You must control your money in dice
 3. You must have to differentiate between dice tools with dice script
@@ -22,13 +22,13 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># How to use</h2>
+      <h2 class="text-primary">How to use</h2>
 
-      <pre>
+      <pre class="bg-light p-2">
 Step 1: Join to the Web DiceBot system via Register/Login
 Step 2: Deposit TRX (Tron) to your wallet then buy license with days you wanna
 Step 3: At dice site you play, open dev tool of browser then paste installer to console tab
-<a href="https://www.youtube.com/embed/hlGGOO2aZsY" target="_blank">Video tutorial</a>
+☛ <a href="https://www.youtube.com/embed/hlGGOO2aZsY" target="_blank">Video tutorial</a>
 
 You can buy TRX (Tron) at:
 <a href="https://justswap.org/#/home" target="_blank">JustSwap</a>,
@@ -39,9 +39,9 @@ or any crypto exchanges</pre>
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Sample Lua dice script</h2>
+      <h2 class="text-primary">Sample Lua dice script</h2>
 
-      <pre>
+      <pre class="bg-light p-2">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -58,9 +58,9 @@ end</pre
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># Sample Javascript dice script</h2>
+      <h2 class="text-primary">Sample Javascript dice script</h2>
 
-      <pre>
+      <pre class="bg-light p-2">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -77,9 +77,9 @@ function dobet() {
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># System variables</h2>
+      <h2 class="text-primary">System variables</h2>
 
-      <pre>
+      <pre class="bg-light p-2">
 chance : % win change
 bethigh : bet side, true is over/above, false is under/below
 nextbet : bet amount for next bet make
@@ -101,9 +101,9 @@ currentstreak : streak of bet count
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary"># System functions</h2>
+      <h2 class="text-primary">System functions</h2>
 
-      <pre>
+      <pre class="bg-light p-2">
 dobet() : loop betting
 start() : start betting
 stop() : stop betting

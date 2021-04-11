@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h2 class="text-primary"># Menu</h2>
+    <h2 class="text-primary">Menu</h2>
 
     <div v-if="!isLogin">
       <ul class="list-group">

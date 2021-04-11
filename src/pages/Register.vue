@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Register</h2>
+    <h2 class="text-primary">Register</h2>
 
     <p class="small">
       Account only use at webdicebot.xyz. You have an account?

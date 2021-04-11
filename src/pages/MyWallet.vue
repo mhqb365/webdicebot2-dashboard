@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># My wallet</h2>
+    <h2 class="text-primary">My wallet</h2>
 
     <p class="small">
       This is a Tron wallet, it link Tron Ecosystem. You can import this wallet
@@ -14,7 +14,6 @@
         Balance:
         <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
         <span v-else>{{ Number(balance).toFixed(6) }}</span>
-        TRX
         <button type="button" class="btn btn-light btn-sm" @click="getBalance">
           <img src="/static/refresh.svg" width="18px" />
         </button>

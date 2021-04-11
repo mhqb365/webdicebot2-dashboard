@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Edit script</h2>
+    <h2 class="text-primary">Edit script</h2>
 
     <button
       type="button"

@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Forgot password</h2>
+    <h2 class="text-primary">Forgot password</h2>
 
     <div class="form-group">
       <label>Email</label>

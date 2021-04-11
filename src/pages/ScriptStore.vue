@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <h2 class="text-primary"># Script store</h2>
+    <h2 class="text-primary">Script store</h2>
 
     <button
       type="button"

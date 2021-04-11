@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pb-5">
-      <h2 class="text-primary"># Summary</h2>
+      <h2 class="text-primary">Summary</h2>
 
       <ul class="pagination">
         <li
@@ -34,7 +34,7 @@
             <br />
             <h4 class="text-primary">
               <div v-if="isLoading2" class="spinner-border text-muted"></div>
-              <span v-else> {{ Number(balance).toFixed(6) }} TRX</span>
+              <span v-else> {{ Number(balance).toFixed(6) }}</span>
               <span
                 ><button
                   type="button"
@@ -56,7 +56,7 @@
             <br />
             <h4 class="text-success">
               <div v-if="isLoading" class="spinner-border text-muted"></div>
-              <span v-else>{{ Number(income).toFixed(6) }}</span> TRX
+              <span v-else>{{ Number(income).toFixed(6) }}</span>
             </h4>
           </div>
         </div>
