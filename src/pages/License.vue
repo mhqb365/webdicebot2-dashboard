@@ -47,7 +47,7 @@
       <table v-else class="table table-bordered table-hover bg-white table-sm">
         <thead>
           <tr>
-            <th>Time</th>
+            <!-- <th>Time</th> -->
             <th>Username</th>
             <th>Limit</th>
             <th>Price</th>
@@ -69,13 +69,13 @@
                 : 'text-dark',
             ]"
           >
-            <td>
+            <!-- <td>
               {{
                 new Date(doc.time).toLocaleString("en-GB", {
                   timeZone: "UTC",
                 })
               }}
-            </td>
+            </td> -->
             <td>{{ doc.userName }}</td>
             <td>{{ doc.limit }}</td>
             <td>
@@ -84,7 +84,7 @@
               }}
             </td>
             <td>
-              <div class="input-group mb-3">
+              <div class="input-group mb-3 input-group-sm">
                 <input type="text" class="form-control" :value="doc.value" />
                 <div class="input-group-append">
                   <button
@@ -101,7 +101,7 @@
             </td>
             <td>
               <span v-if="isLoading2">
-                <button class="btn btn-warning" disabled>
+                <button class="btn btn-warning btn-sm" disabled>
                   <span class="spinner-border spinner-border-sm"></span>
                 </button>
               </span>
@@ -111,7 +111,7 @@
                   v-if="doc.locked"
                   @click="action('unlock', doc._id)"
                   type="button"
-                  class="btn btn-warning"
+                  class="btn btn-warning btn-sm"
                 >
                   Unlock
                 </button>
@@ -119,7 +119,7 @@
                   v-else
                   @click="action('lock', doc._id)"
                   type="button"
-                  class="btn btn-warning"
+                  class="btn btn-warning btn-sm"
                 >
                   Lock
                 </button>

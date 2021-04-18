@@ -26,7 +26,7 @@
             <span class="spinner-border spinner-border-sm"></span>
           </button>
 
-          <button v-else type="button" class="btn btn-primary" @click="send">
+          <button v-else type="button" class="btn btn-primary btn-block" @click="send">
             Send
           </button>
 

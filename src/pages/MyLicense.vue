@@ -59,7 +59,7 @@
 
         <table
           v-else
-          class="table table-bordered table-hover bg-white table-sm"
+          class="table table-bordered table-hover bg-white table-sm rounded"
         >
           <thead>
             <tr>
@@ -89,12 +89,12 @@
                 }}
               </td>
               <td>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 input-group-sm">
                   <input type="text" class="form-control" :value="doc.value" />
                   <div class="input-group-append">
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      class="btn btn-primary btn-sm"
                       v-clipboard="() => doc.value"
                       v-clipboard:success="clipboardSuccess"
                       v-clipboard:error="clipboardError"

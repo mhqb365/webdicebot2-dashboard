@@ -45,7 +45,7 @@
       <table v-else class="table table-bordered table-hover bg-white table-sm">
         <thead>
           <tr>
-            <th>Time</th>
+            <!-- <th>Time</th> -->
             <th>Username</th>
             <th>Action</th>
           </tr>
@@ -53,18 +53,18 @@
 
         <tbody>
           <tr v-for="doc in docs" :key="doc._id">
-            <td>
+            <!-- <td>
               {{
                 new Date(doc.time).toLocaleString("en-GB", {
                   timeZone: "UTC",
                 })
               }}
-            </td>
+            </td> -->
             <td>{{ doc.userName }}</td>
             <td>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-primary btn-sm"
                 @click="getProfile(doc.userName)"
                 data-toggle="modal"
                 data-target="#myModal"

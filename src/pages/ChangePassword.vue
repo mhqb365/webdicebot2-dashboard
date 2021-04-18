@@ -30,7 +30,7 @@
     </button>
 
     <button v-else class="btn btn-primary btn-block" @click="changePassword">
-      Request
+      Save
     </button>
   </div>
 </template>
