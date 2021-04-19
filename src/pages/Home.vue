@@ -28,7 +28,7 @@
 Step 1: Join to the Web DiceBot system via Register/Login
 Step 2: Deposit TRX (Tron) to your wallet then buy license with days you wanna
 Step 3: At dice site you play, open dev tool of browser then paste installer to console tab
-☛ <a href="https://www.youtube.com/embed/hlGGOO2aZsY" target="_blank">Video tutorial</a>
+<a href="https://www.youtube.com/embed/hlGGOO2aZsY" target="_blank">See video tutorial</a>
 
 You can buy TRX (Tron) at:
 <a href="https://justswap.org/#/home" target="_blank">JustSwap</a>,

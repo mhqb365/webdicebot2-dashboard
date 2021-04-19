@@ -1,31 +1,48 @@
 <template>
-  <div class="pb-5">
-    <h2 class="text-primary">My wallet</h2>
+  <div>
+    <div class="pb-5">
+      <h2 class="text-primary">My info</h2>
 
-    <p class="small">
-      This is a Tron wallet, it link Tron Ecosystem. You can import this wallet
-      to any wallet app support Tron
-    </p>
+      <ul class="list-group">
+        <li class="list-group-item">Username: {{ userName }}</li>
+        <li class="list-group-item">Email: {{ email }}</li>
+      </ul>
 
-    <ul class="list-group">
-      <li class="list-group-item">Username: {{ userName }}</li>
-      <li class="list-group-item">Email: {{ email }}</li>
-      <li class="list-group-item">
-        Balance:
-        <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
-        <span v-else>{{ Number(balance).toFixed(6) }}</span>
-        <button type="button" class="btn btn-light btn-sm" @click="getBalance">
-          <img src="/static/refresh.svg" width="18px" />
-        </button>
-      </li>
-      <li class="list-group-item">
-        <a :href="tronScan + 'address/' + address" target="_blank">
-          <button class="btn btn-primary mb-2">
-            <img src="/static/details.svg" width="18px" />
-            Account Details
-          </button>
-        </a>
+      <Recevie />
+      <Send />
+      <PrivateKey />
+    </div>
 
+    <div class="pb-5">
+      <h2 class="text-primary">My wallet</h2>
+
+      <p class="small">
+        This is a Tron wallet, it link Tron Ecosystem. You can import this
+        wallet to any wallet app support Tron
+      </p>
+
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <p>Current only support TRX</p>
+
+          <h3>
+            <span
+              v-if="isLoading"
+              class="spinner-border spinner-border-sm"
+            ></span>
+            <span v-else>{{ Number(balance).toFixed(6) }}</span>
+            <button
+              type="button"
+              class="btn btn-light btn-sm"
+              @click="getBalance"
+            >
+              <img src="/static/refresh.svg" width="18px" />
+            </button>
+          </h3>
+        </div>
+      </div>
+
+      <div class="text-center">
         <button
           class="btn btn-success mb-2"
           data-toggle="modal"
@@ -44,6 +61,13 @@
           Send
         </button>
 
+        <a :href="tronScan + 'address/' + address" target="_blank">
+          <button class="btn btn-info mb-2">
+            <img src="/static/details.svg" width="18px" />
+            Account Details
+          </button>
+        </a>
+
         <button
           class="btn btn-secondary mb-2"
           data-toggle="modal"
@@ -52,12 +76,8 @@
           <img src="/static/export.svg" width="18px" />
           Export Private Key
         </button>
-      </li>
-    </ul>
-
-    <Recevie />
-    <Send />
-    <PrivateKey />
+      </div>
+    </div>
   </div>
 </template>
 
