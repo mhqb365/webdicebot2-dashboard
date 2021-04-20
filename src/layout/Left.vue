@@ -3,7 +3,7 @@
     <h2 class="text-primary">Menu</h2>
 
     <div class="alert alert-info">
-      TRX: ≈ {{ Number(trxPrice).toFixed(2) }}$
+      TRX ≈ {{ Number(trxPrice).toFixed(3) }}$
     </div>
 
     <div v-if="!isLogin">

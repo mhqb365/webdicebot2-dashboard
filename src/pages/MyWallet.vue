@@ -46,7 +46,7 @@
               class="spinner-border spinner-border-sm"
             ></span>
 
-            <span v-else> ≈ {{ Number(balanceUsd).toFixed(2) }}$ </span>
+            <span v-else> ≈ {{ Number(balanceUsd).toFixed(3) }}$ </span>
           </p>
         </div>
       </div>
