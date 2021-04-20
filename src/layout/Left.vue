@@ -2,9 +2,7 @@
   <div class="">
     <h2 class="text-primary">Menu</h2>
 
-    <div class="alert alert-info">
-      TRX ≈ {{ Number(trxPrice).toFixed(3) }}$
-    </div>
+    <div class="alert alert-info">TRX ≈ {{ Number(trxPrice).toFixed(3) }}$</div>
 
     <div v-if="!isLogin">
       <ul class="list-group">
@@ -211,10 +209,18 @@ export default {
     };
   },
   mounted: function () {
-    this.getTrxPrice().then((response) => {
-      // console.log(response);
-      this.trxPrice = Number(response);
-    });
+    this.updatePrice();
+    setInterval(() => {
+      this.updatePrice();
+    }, 3e4);
+  },
+  methods: {
+    updatePrice: function () {
+      this.getTrxPrice().then((response) => {
+        // console.log(response);
+        this.trxPrice = Number(response);
+      });
+    },
   },
 };
 </script>

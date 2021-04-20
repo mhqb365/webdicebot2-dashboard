@@ -204,10 +204,18 @@ export default {
     };
   },
   mounted: function () {
-    this.getTrxPrice().then((response) => {
-      // console.log(response);
-      this.trxPrice = Number(response);
-    });
+    this.updatePrice();
+    setInterval(() => {
+      this.updatePrice();
+    }, 3e4);
+  },
+  methods: {
+    updatePrice: function () {
+      this.getTrxPrice().then((response) => {
+        // console.log(response);
+        this.trxPrice = Number(response);
+      });
+    },
   },
 };
 </script>
