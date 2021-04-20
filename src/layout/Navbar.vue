@@ -3,6 +3,10 @@
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <h2 class="text-primary">Menu</h2>
 
+      <div class="alert alert-info">
+        TRX: ≈ {{ Number(trxPrice).toFixed(2) }}$
+      </div>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -193,7 +197,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      trxPrice: 0,
+    };
+  },
+  mounted: function () {
+    this.getTrxPrice().then((response) => {
+      // console.log(response);
+      this.trxPrice = Number(response);
+    });
+  },
+};
 </script>
 
 <style>
