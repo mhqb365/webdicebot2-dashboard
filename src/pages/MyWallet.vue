@@ -39,6 +39,15 @@
               <img src="/static/refresh.svg" width="18px" />
             </button>
           </h3>
+
+          <p>
+            <span
+              v-if="isLoading"
+              class="spinner-border spinner-border-sm"
+            ></span>
+
+            <span v-else> ≈ {{ Number(balanceUsd).toFixed(2) }}$ </span>
+          </p>
         </div>
       </div>
 
@@ -101,6 +110,7 @@ export default {
       email: localStorage.getItem("email"),
       address: localStorage.getItem("address"),
       balance: 0,
+      balanceUsd: 0,
       tronScan: TRON_SCAN,
     };
   },
@@ -115,6 +125,10 @@ export default {
       this.isLoading = false;
       this.balance = tronWeb.fromSun(bal);
       // console.log(this.balance);
+      this.getTrxPrice().then((response) => {
+        // console.log(response);
+        this.balanceUsd = Number(response) * this.balance;
+      });
     },
   },
 };
