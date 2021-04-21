@@ -28,28 +28,6 @@
       </ul>
 
       <div class="row">
-        <div class="col-md-12 mb-3">
-          <div class="card p-4 summary">
-            Balance
-            <br />
-            <h4 class="text-primary">
-              <div v-if="isLoading2" class="spinner-border text-muted"></div>
-              <span v-else> {{ Number(balance).toFixed(6) }}</span>
-              <span
-                ><button
-                  type="button"
-                  class="btn btn-light btn-sm"
-                  @click="getBalance"
-                >
-                  <img src="/static/refresh.svg" width="18px" />
-                </button>
-              </span>
-            </h4>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-6 mb-3">
           <div class="card p-4 summary">
             Income
