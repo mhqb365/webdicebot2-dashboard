@@ -87,6 +87,7 @@ balance : current balance
 profit : total profit in round
 currentprofit, lastBet.profit : profit of last bet make
 previousbet, lastBet.amount : amount of last bet make
+lastBet.id : nonce of user
 lastBet.chance : win chance of last bet make
 lastBet.roll : result number of last bet make
 win : true is last bet make has win, false is lose
