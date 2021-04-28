@@ -5,9 +5,9 @@
     <p>
       You have
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
-      <span v-else>{{ Number(balance).toFixed(6) }}</span>
+      <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
       <button type="button" class="btn btn-light btn-sm" @click="getBalance">
-        <img src="/static/refresh.svg" width="18px" />
+        <i class="fas fa-sync"></i>
       </button>
     </p>
 
@@ -24,7 +24,7 @@
     <p>
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>≈ {{ Number(data.price).toFixed(6) }}</span>
+      <span v-else>≈ {{ Number(data.price).toFixed(6) }} TRX</span>
     </p>
 
     <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>
@@ -79,7 +79,7 @@ export default {
       this.getTrxPrice().then((response) => {
         this.isLoading2 = false;
         // console.log(response);
-        this.trxPrice = Number(response).toFixed(6);
+        this.trxPrice = Number(response.price_in_usd).toFixed(6);
         this.calculator();
       });
     },

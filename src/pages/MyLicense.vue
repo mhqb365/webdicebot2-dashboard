@@ -85,7 +85,9 @@
             >
               <td>
                 {{
-                  Number(doc.price) > 0 ? Number(doc.price).toFixed(6) : "Free"
+                  Number(doc.price) > 0
+                    ? Number(doc.price).toFixed(6) + " TRX"
+                    : "Free"
                 }}
               </td>
               <td>

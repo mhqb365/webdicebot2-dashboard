@@ -49,11 +49,11 @@ Vue.mixin({
     },
     getTrxPrice: async function () {
       let result = await axios({
-        url: "https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT",
+        url: "https://apilist.tronscan.org/api/token/price?token=trx",
         method: "GET",
       })
 
-      return result.data.price
+      return result.data
     }
   }
 })

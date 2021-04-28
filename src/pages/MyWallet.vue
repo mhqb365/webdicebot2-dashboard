@@ -25,21 +25,6 @@
         <div class="card-body">
           <p>Current only support TRX</p>
 
-          <h3>
-            <span
-              v-if="isLoading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-            <span v-else>{{ Number(balance).toFixed(6) }}</span>
-            <button
-              type="button"
-              class="btn btn-light btn-sm"
-              @click="getBalance"
-            >
-              <img src="/static/refresh.svg" width="18px" />
-            </button>
-          </h3>
-
           <p>
             <span
               v-if="isLoading"
@@ -47,7 +32,22 @@
             ></span>
 
             <span v-else> ≈ {{ Number(balanceUsd).toFixed(3) }}$ </span>
+            <button
+              type="button"
+              class="btn btn-light btn-sm"
+              @click="getBalance"
+            >
+              <i class="fas fa-sync"></i>
+            </button>
           </p>
+
+          <h3 class="m-0">
+            <span
+              v-if="isLoading"
+              class="spinner-border spinner-border-sm"
+            ></span>
+            <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
+          </h3>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default {
       // console.log(this.balance);
       this.getTrxPrice().then((response) => {
         // console.log(response);
-        this.balanceUsd = Number(response) * this.balance;
+        this.balanceUsd = Number(response.price_in_usd) * this.balance;
       });
     },
   },

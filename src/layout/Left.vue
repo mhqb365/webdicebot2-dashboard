@@ -2,7 +2,13 @@
   <div class="">
     <h2 class="text-primary">Menu</h2>
 
-    <div class="alert alert-info">TRX ≈ {{ Number(trxPrice).toFixed(3) }}$</div>
+    <div class="alert alert-info">
+      <a href="https://coinmarketcap.com/currencies/tron/" target="_blank">
+        TRX ≈ {{ Number(trxPrice).toFixed(3) }}$ ({{
+          Number(percent_change_24h).toFixed(2)
+        }}%)
+      </a>
+    </div>
 
     <div v-if="!isLogin">
       <ul class="list-group">
@@ -206,6 +212,7 @@ export default {
   data() {
     return {
       trxPrice: 0,
+      percent_change_24h: 0,
     };
   },
   mounted: function () {
@@ -218,7 +225,8 @@ export default {
     updatePrice: function () {
       this.getTrxPrice().then((response) => {
         // console.log(response);
-        this.trxPrice = Number(response);
+        this.trxPrice = Number(response.price_in_usd);
+        this.percent_change_24h = Number(response.percent_change_24h);
       });
     },
   },

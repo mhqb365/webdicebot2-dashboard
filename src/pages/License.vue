@@ -47,7 +47,7 @@
       <table v-else class="table table-bordered table-hover bg-white table-sm">
         <thead>
           <tr>
-            <!-- <th>Time</th> -->
+            <th>Time</th>
             <th>Username</th>
             <th>Limit</th>
             <th>Price</th>
@@ -69,18 +69,20 @@
                 : 'text-dark',
             ]"
           >
-            <!-- <td>
+            <td>
               {{
-                new Date(doc.time).toLocaleString("en-GB", {
+                new Date(doc.time).toLocaleDateString("en-GB", {
                   timeZone: "UTC",
                 })
               }}
-            </td> -->
+            </td>
             <td>{{ doc.userName }}</td>
             <td>{{ doc.limit }}</td>
             <td>
               {{
-                Number(doc.price) > 0 ? Number(doc.price).toFixed(6) : "Free"
+                Number(doc.price) > 0
+                  ? Number(doc.price).toFixed(6) + " TRX"
+                  : "Free"
               }}
             </td>
             <td>
