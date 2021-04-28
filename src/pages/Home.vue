@@ -16,7 +16,7 @@
 4. You must know the Lua language (v5.3) or Javascript language when play with dice script
 5. You must have license key when use Web DiceBot
 6. Do not share your license if you do not wanna anyone use bot by your money
-7. Only use the installer at webdicebot.xyz if you do not want someone fake us to trick you
+7. Only use the installer at dashboard.webdicebot.xyz if you do not want someone fake us to trick you
 8. Upgrade level max security in your account at all dice sites</pre
       >
     </div>
@@ -26,16 +26,10 @@
 
       <pre class="bg-white border rounded p-2">
 Step 1: Join to the Web DiceBot system via Register/Login
-Step 2: Deposit TRX (Tron) to your wallet then buy license with days you wanna
-Step 3: At dice site you play, open dev tool of browser then paste installer to console tab
-<a href="https://www.youtube.com/embed/hlGGOO2aZsY" target="_blank">See video tutorial</a>
-
-You can buy TRX (Tron) at:
-<a href="https://justswap.org/#/home" target="_blank">JustSwap</a>,
-<a href="https://binance.com/vn/register?ref=37324651" target="_blank"
-  >Binance.com</a
->
-or any crypto exchanges</pre>
+Step 2: Deposit TRX (Tron) to your account at My Wallet then go to Buy License with days you wanna
+Step 3: Go to Bot Installer -> select your casino -> copy installer code
+Step 4: Go to casino -> right click -> Inspect -> paste installer code
+to Console -> follow the next request of bot on casino</pre>
     </div>
 
     <div class="pb-5">
