@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <nav class="navbar navbar-expand-md bg-light navbar-light">
-      <h2 class="text-primary">Menu</h2>
+      <!-- <h2 class="text-primary">Menu</h2> -->
 
       <div class="alert alert-info">
         <a href="https://coinmarketcap.com/currencies/tron/" target="_blank">

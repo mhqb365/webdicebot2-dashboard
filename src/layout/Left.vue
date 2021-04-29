@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h2 class="text-primary">Menu</h2>
+    <!-- <h2 class="text-primary">Menu</h2> -->
 
     <div class="alert alert-info">
       <a href="https://coinmarketcap.com/currencies/tron/" target="_blank">
@@ -118,6 +118,19 @@
           <a href="/BuyLicense">
             <i class="fas fa-shopping-cart"></i>
             &nbsp; Buy License
+          </a>
+        </li>
+        <li
+          class="list-group-item"
+          v-bind:class="[
+            this.$route.path == '/RockPaperScissors'
+              ? 'custom-active  list-link'
+              : '',
+          ]"
+        >
+          <a href="/RockPaperScissors">
+          <i class="fas fa-hand-rock"></i>
+            &nbsp; Rock Paper Scissors
           </a>
         </li>
         <li

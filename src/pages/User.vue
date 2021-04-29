@@ -116,7 +116,7 @@
                   class="btn btn-light btn-sm"
                   @click="getBalance()"
                 >
-                  <img src="/static/refresh.svg" width="18px" />
+                  <i class="fas fa-sync"></i>
                 </button>
               </li>
             </ul>

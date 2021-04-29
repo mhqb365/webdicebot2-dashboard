@@ -28,8 +28,8 @@
 Step 1: Join to the Web DiceBot system via Register/Login
 Step 2: Deposit TRX (Tron) to your account at My Wallet then go to Buy License with days you wanna
 Step 3: Go to Bot Installer -> select your casino -> copy installer code
-Step 4: Go to casino -> right click -> Inspect -> paste installer code
-to Console -> follow the next request of bot on casino</pre>
+Step 4: Go to casino -> right click -> Inspect -> paste installer code to Console -> follow the next request of bot on casino</pre
+      >
     </div>
 
     <div class="pb-5">

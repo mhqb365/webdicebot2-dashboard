@@ -17,6 +17,7 @@ import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
 import EditScript from '@/pages/EditScript'
+import RockPaperScissors from '@/pages/RockPaperScissors'
 import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)
@@ -124,6 +125,12 @@ const router = new Router({
       path: '/EditScript',
       name: 'EditScript',
       component: EditScript,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/RockPaperScissors',
+      name: 'RockPaperScissors',
+      component: RockPaperScissors,
       meta: { requiresAuth: true }
     },
     {
