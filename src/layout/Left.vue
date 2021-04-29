@@ -120,7 +120,7 @@
             &nbsp; Buy License
           </a>
         </li>
-        <li
+        <!-- <li
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/RockPaperScissors'
@@ -132,7 +132,7 @@
           <i class="fas fa-hand-rock"></i>
             &nbsp; Rock Paper Scissors
           </a>
-        </li>
+        </li> -->
         <li
           class="list-group-item"
           v-bind:class="[

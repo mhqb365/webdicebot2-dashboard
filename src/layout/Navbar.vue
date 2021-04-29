@@ -119,6 +119,18 @@
               &nbsp; Buy License
             </a>
           </li>
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              href="/RockPaperScissors"
+              v-bind:class="[
+                this.$route.path == '/RockPaperScissors' ? 'active' : '',
+              ]"
+            >
+              <i class="fas fa-hand-rock"></i>
+              &nbsp; Rock Paper Scissors
+            </a>
+          </li> -->
           <li class="nav-item">
             <a
               class="nav-link"
