@@ -14,9 +14,8 @@
       Cancel
     </button>
 
-    <p class="small">
-      Please share script clean and can working on Web DiceBot, if not will be
-      deleted
+    <p class="small text-warning">
+      + Please share script clean and can working on Web DiceBot
     </p>
 
     <div class="form-group">

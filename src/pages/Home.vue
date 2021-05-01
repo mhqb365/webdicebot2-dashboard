@@ -3,9 +3,9 @@
     <div class="pb-5">
       <h2 class="text-primary">Terms of use</h2>
 
-      <p class="small">
-        The following user agreement is to read in its entirety prior to the use
-        of Web DiceBot's products and services. The agreement constitutes a
+      <p class="small text-warning">
+        + The following user agreement is to read in its entirety prior to the
+        use of Web DiceBot's products and services. The agreement constitutes a
         legal binding between the user and all services found on webdicebot.xyz
       </p>
 
@@ -16,7 +16,7 @@
 4. You must know the Lua language (v5.3) or Javascript language when play with dice script
 5. You must have license key when use Web DiceBot
 6. Do not share your license if you do not wanna anyone use bot by your money
-7. Only use the installer at dashboard.webdicebot.xyz if you do not want someone fake us to trick you
+7. Only use the installer at dashboard.webdicebot.xyz if you do not wanna someone fake us to trick you
 8. Upgrade level max security in your account at all dice sites</pre
       >
     </div>

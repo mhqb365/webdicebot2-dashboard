@@ -8,7 +8,7 @@
           <Left class="d-none d-sm-block" />
         </div>
 
-        <div class="col-sm-12 col-md-9">
+        <div class="col-md-9">
           <router-view />
         </div>
 

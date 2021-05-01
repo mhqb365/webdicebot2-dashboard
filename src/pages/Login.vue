@@ -2,8 +2,10 @@
   <div class="pb-5">
     <h2 class="text-primary">Login</h2>
 
-    <p class="small">
-      Account only use at webdicebot.xyz. You do not have an account?
+    <p class="small text-warning">
+      + Account only use at webdicebot.xyz
+      <br />
+      + You do not have an account?
       <router-link to="/Register">Register</router-link>
     </p>
 

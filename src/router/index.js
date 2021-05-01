@@ -17,7 +17,7 @@ import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
 import EditScript from '@/pages/EditScript'
-import RockPaperScissors from '@/pages/RockPaperScissors'
+import RockPaperScissors from '@/pages/games/RockPaperScissors'
 import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)

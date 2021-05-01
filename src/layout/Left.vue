@@ -2,12 +2,15 @@
   <div class="">
     <!-- <h2 class="text-primary">Menu</h2> -->
 
-    <div class="alert alert-info">
-      <a href="https://coinmarketcap.com/currencies/tron/" target="_blank">
-        TRX ≈ {{ Number(trxPrice).toFixed(3) }}$ ({{
-          Number(percent_change_24h).toFixed(2)
-        }}%)
-      </a>
+    <div
+      class="alert"
+      v-bind:class="
+        Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
+      "
+    >
+      1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
+        Number(percent_change_24h).toFixed(2)
+      }}%)
     </div>
 
     <div v-if="!isLogin">
@@ -145,7 +148,6 @@
             <i class="fas fa-store"></i>
             &nbsp; Script Store
           </a>
-          <span class="badge badge-primary">Free</span>
         </li>
         <li
           class="list-group-item"
