@@ -18,7 +18,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/' ? 'custom-active  list-link' : '',
+            this.$route.path == '/' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/">
@@ -29,7 +29,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/Register' ? 'custom-active  list-link' : '',
+            this.$route.path == '/Register' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/Register">
@@ -40,7 +40,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/Login' ? 'custom-active  list-link' : '',
+            this.$route.path == '/Login' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/Login">
@@ -52,7 +52,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/ForgotPassword'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -69,7 +69,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/' ? 'custom-active  list-link' : '',
+            this.$route.path == '/' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/">
@@ -81,7 +81,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/BotInstaller'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -93,7 +93,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/MyWallet' ? 'custom-active  list-link' : '',
+            this.$route.path == '/MyWallet' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/MyWallet">
@@ -104,7 +104,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/MyLicense' ? 'custom-active  list-link' : '',
+            this.$route.path == '/MyLicense' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/MyLicense">
@@ -115,7 +115,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/BuyLicense' ? 'custom-active  list-link' : '',
+            this.$route.path == '/BuyLicense' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/BuyLicense">
@@ -127,7 +127,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/RockPaperScissors'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -140,7 +140,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/ScriptStore'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -153,7 +153,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/ChangePassword'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -174,7 +174,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/Summary' ? 'custom-active  list-link' : '',
+            this.$route.path == '/Summary' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/Summary">
@@ -186,7 +186,7 @@
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/AddFreeLicense'
-              ? 'custom-active  list-link'
+              ? 'custom-active list-link'
               : '',
           ]"
         >
@@ -198,7 +198,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/User' ? 'custom-active  list-link' : '',
+            this.$route.path == '/User' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/User">
@@ -209,7 +209,7 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/License' ? 'custom-active  list-link' : '',
+            this.$route.path == '/License' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/License">
