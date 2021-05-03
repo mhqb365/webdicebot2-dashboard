@@ -49,7 +49,7 @@
       </ul>
 
       <p class="small">
-        <span>Dark</span>: Free license |
+        <span class="text-dark">Dark</span>: Free license |
         <span class="text-success">Green</span>: Paid license |
         <span class="text-danger">Red</span>: Expired license |
         <span class="text-warning">Yellow</span>: Locked license
