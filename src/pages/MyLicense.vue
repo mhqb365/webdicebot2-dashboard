@@ -49,9 +49,10 @@
       </ul>
 
       <p class="small">
-        <span class="text-success">Green</span>: Paid and working |
-        <span class="text-danger">Red</span>: Expired |
-        <span class="text-warning">Yellow</span>: Locked
+        <span>Dark</span>: Free license |
+        <span class="text-success">Green</span>: Paid license |
+        <span class="text-danger">Red</span>: Expired license |
+        <span class="text-warning">Yellow</span>: Locked license
       </p>
 
       <div class="table-responsive-sm">
