@@ -9,7 +9,7 @@
       + With luckyfish casino, you must disable HOTKEYS can put dice script to
       script box
       <br />
-      + At Lua mode, dice script must follow syntax of Lua version 5.3. If
+      + With Lua mode, dice script must follow syntax of Lua version 5.3. If
       have any syntax error bot will not work
     </p>
 
