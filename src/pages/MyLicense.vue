@@ -16,11 +16,11 @@
         </div>
         <div class="col-md-6 mb-3">
           <div class="card p-4">
-            TRX spend
+            Spend
             <br />
             <h4 class="text-success">
               <div v-if="isLoading2" class="spinner-border text-muted"></div>
-              <span v-else> {{ Number(spendTrx).toFixed(6) }}</span>
+              <span v-else> {{ Number(spendTrx).toFixed(6) }} TRX</span>
             </h4>
           </div>
         </div>

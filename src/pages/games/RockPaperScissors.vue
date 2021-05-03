@@ -70,15 +70,30 @@
 </template>
 
 <script>
+import tronWeb from "@/utils/tronWeb";
+
 export default {
   data() {
     return {
       isLoading: false,
+      address: localStorage.getItem("address"),
       balance: 0,
     };
   },
+  mounted: function () {
+    his.getBalance();
+    setInterval(() => {
+      this.getBalance();
+    }, 3e4);
+  },
   methods: {
-    getBalance: function () {},
+    getBalance: async function () {
+      this.isLoading = true;
+      let bal = await tronWeb.trx.getBalance(this.address);
+      this.isLoading = false;
+      this.balance = tronWeb.fromSun(bal);
+      // console.log(this.balance);
+    },
   },
 };
 </script>

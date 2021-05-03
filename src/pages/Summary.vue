@@ -34,7 +34,7 @@
             <br />
             <h4 class="text-success">
               <div v-if="isLoading" class="spinner-border text-muted"></div>
-              <span v-else>{{ Number(income).toFixed(6) }}</span>
+              <span v-else>{{ Number(income).toFixed(6) }} TRX</span>
             </h4>
           </div>
         </div>
