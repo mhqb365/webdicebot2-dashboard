@@ -49,7 +49,7 @@ Vue.mixin({
     },
     getTrxPrice: async function () {
       let result = await axios({
-        url: "https://apilist.tronscan.org/api/token/price?token=trx",
+        url: "https://api.coingecko.com/api/v3/simple/price?ids=tron&vs_currencies=usd&include_24hr_change=true",
         method: "GET",
       })
 

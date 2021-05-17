@@ -8,7 +8,7 @@
           <div class="card p-4">
             Total license
             <br />
-            <h4 class="text-primary">
+            <h4 class="text-success">
               <div v-if="isLoading2" class="spinner-border text-muted"></div>
               <span v-else> {{ total }}</span>
             </h4>
@@ -18,7 +18,7 @@
           <div class="card p-4">
             Spend
             <br />
-            <h4 class="text-success">
+            <h4 class="text-primary">
               <div v-if="isLoading2" class="spinner-border text-muted"></div>
               <span v-else> {{ Number(spendTrx).toFixed(6) }} TRX</span>
             </h4>

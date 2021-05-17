@@ -233,8 +233,8 @@ export default {
     updatePrice: function () {
       this.getTrxPrice().then((response) => {
         // console.log(response);
-        this.trxPrice = Number(response.price_in_usd);
-        this.percent_change_24h = Number(response.percent_change_24h);
+        this.trxPrice = Number(response.tron.usd);
+        this.percent_change_24h = Number(response.tron.usd_24h_change);
       });
     },
   },
