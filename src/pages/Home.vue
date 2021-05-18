@@ -17,7 +17,7 @@
 5. You must have license key when use Web DiceBot
 6. Do not share your license if you do not wanna anyone use bot by your money
 7. Only use the installer at dashboard.webdicebot.xyz if you do not wanna someone fake us to trick you
-8. Upgrade level max security in your account at all dice sites</pre
+8. Upgrade level max security, 2FA, etc.. in your account at all dice sites</pre
       >
     </div>
 
