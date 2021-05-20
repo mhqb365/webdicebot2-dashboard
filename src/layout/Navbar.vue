@@ -134,7 +134,7 @@
               &nbsp; Rock Paper Scissors
             </a>
           </li> -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a
               class="nav-link"
               href="/ScriptStore"
@@ -145,7 +145,7 @@
               <i class="fas fa-store"></i>
               &nbsp; Script Store
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a
               class="nav-link"

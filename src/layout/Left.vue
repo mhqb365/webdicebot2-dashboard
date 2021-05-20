@@ -136,7 +136,7 @@
             &nbsp; Rock Paper Scissors
           </a>
         </li> -->
-        <li
+        <!-- <li
           class="list-group-item"
           v-bind:class="[
             this.$route.path == '/ScriptStore'
@@ -148,7 +148,7 @@
             <i class="fas fa-store"></i>
             &nbsp; Script Store
           </a>
-        </li>
+        </li> -->
         <li
           class="list-group-item"
           v-bind:class="[
