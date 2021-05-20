@@ -79,7 +79,7 @@ export default {
       this.getTrxPrice().then((response) => {
         this.isLoading2 = false;
         // console.log(response);
-        this.trxPrice = Number(response.price_in_usd).toFixed(6);
+        this.trxPrice = Number(response.tron.usd).toFixed(6);
         this.calculator();
       });
     },
