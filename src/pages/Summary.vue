@@ -33,7 +33,7 @@
             Income
             <br />
             <h4>
-              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <div v-if="isLoading" class="spinner-border"></div>
               <span v-else>{{ Number(income).toFixed(6) }} TRX</span>
             </h4>
           </div>
@@ -44,7 +44,7 @@
             License
             <br />
             <h4>
-              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <div v-if="isLoading" class="spinner-border"></div>
               <span v-else>{{ license }}</span>
             </h4>
           </div>
@@ -55,7 +55,7 @@
             Pay
             <br />
             <h4>
-              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <div v-if="isLoading" class="spinner-border"></div>
               <span v-else>{{ pay }}</span>
             </h4>
           </div>
@@ -66,7 +66,7 @@
             Free
             <br />
             <h4>
-              <div v-if="isLoading" class="spinner-border text-muted"></div>
+              <div v-if="isLoading" class="spinner-border"></div>
               <span v-else>{{ free }}</span>
             </h4>
           </div>

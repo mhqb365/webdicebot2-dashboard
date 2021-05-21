@@ -14,7 +14,7 @@
         <p>
           <span
             v-if="isLoading"
-            class="spinner-border spinner-border-sm"
+            class="spinner-border"
           ></span>
 
           <span v-else> ≈ {{ Number(balanceUsd).toFixed(3) }} $ </span>
@@ -30,7 +30,7 @@
         <h3 class="m-0">
           <span
             v-if="isLoading"
-            class="spinner-border spinner-border-sm"
+            class="spinner-border"
           ></span>
           <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
         </h3>

@@ -9,7 +9,7 @@
             Total license
             <br />
             <h4>
-              <div v-if="isLoading2" class="spinner-border text-muted"></div>
+              <div v-if="isLoading2" class="spinner-border"></div>
               <span v-else> {{ total }}</span>
             </h4>
           </div>
@@ -19,7 +19,7 @@
             Spend
             <br />
             <h4>
-              <div v-if="isLoading2" class="spinner-border text-muted"></div>
+              <div v-if="isLoading2" class="spinner-border"></div>
               <span v-else> {{ Number(spendTrx).toFixed(6) }} TRX</span>
             </h4>
           </div>
