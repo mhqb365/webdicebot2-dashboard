@@ -4,7 +4,7 @@
       <!-- <h2 class="text-primary">Menu</h2> -->
 
       <div
-        class="alert"
+        class="alert mb-3"
         v-bind:class="
           Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
         "
@@ -70,6 +70,14 @@
         </ul>
 
         <ul v-else class="navbar-nav mb-3">
+          <li class="nav-item nav-link">
+            <i class="fas fa-user"></i> &nbsp; {{ userName }}
+          </li>
+
+          <li class="nav-item nav-link mb-3">
+            <i class="fas fa-envelope"></i> &nbsp; {{ email }}
+          </li>
+
           <li class="nav-item">
             <a
               class="nav-link"
@@ -221,6 +229,8 @@ export default {
     return {
       trxPrice: 0,
       percent_change_24h: 0,
+      userName: localStorage.getItem("userName"),
+      email: localStorage.getItem("email"),
     };
   },
   mounted: function () {

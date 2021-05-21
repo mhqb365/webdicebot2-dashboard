@@ -3,7 +3,7 @@
     <!-- <h2 class="text-primary">Menu</h2> -->
 
     <div
-      class="alert"
+      class="alert mb-3"
       v-bind:class="
         Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
       "
@@ -66,6 +66,15 @@
 
     <div v-else>
       <ul class="list-group mb-3">
+        <li class="list-group-item">
+          <i class="fas fa-user"></i> &nbsp; {{ userName }}
+        </li>
+        <li class="list-group-item">
+          <i class="fas fa-envelope"></i> &nbsp; {{ email }}
+        </li>
+      </ul>
+
+      <ul class="list-group mb-3">
         <li
           class="list-group-item"
           v-bind:class="[
@@ -108,7 +117,7 @@
           ]"
         >
           <a href="/MyLicense">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-key"></i>
             &nbsp; My License
           </a>
         </li>
@@ -228,6 +237,8 @@ export default {
     return {
       trxPrice: 0,
       percent_change_24h: 0,
+      userName: localStorage.getItem("userName"),
+      email: localStorage.getItem("email"),
     };
   },
   mounted: function () {

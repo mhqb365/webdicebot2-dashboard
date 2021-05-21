@@ -9,7 +9,7 @@
         legal binding between the user and all services found on webdicebot.xyz
       </p>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 1. You must know what is dice
 2. You must control your money in dice
 3. You must have to differentiate between dice tools with dice script
@@ -24,7 +24,7 @@
     <div class="pb-5">
       <h2 class="text-primary">How to use</h2>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 Step 1: Join to the Web DiceBot system via Register/Login
 Step 2: Deposit TRX (Tron) to your account at My Wallet then go to Buy License with days you wanna
 Step 3: Go to Bot Installer -> select your casino -> copy installer code
@@ -35,7 +35,7 @@ Step 4: Go to casino -> right click -> Inspect -> paste installer code to Consol
     <div class="pb-5">
       <h2 class="text-primary">Sample Lua dice script</h2>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -54,7 +54,7 @@ end</pre
     <div class="pb-5">
       <h2 class="text-primary">Sample Javascript dice script</h2>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -73,7 +73,7 @@ function dobet() {
     <div class="pb-5">
       <h2 class="text-primary">System variables</h2>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 chance : % win change
 bethigh : bet side, true is over/above, false is under/below
 nextbet : bet amount for next bet make
@@ -98,7 +98,7 @@ currentstreak : streak of bet count
     <div class="pb-5">
       <h2 class="text-primary">System functions</h2>
 
-      <pre class="bg-white border rounded p-2">
+      <pre class="bg-white shadow-sm">
 dobet() : loop betting
 start() : start betting
 stop() : stop betting

@@ -1,92 +1,81 @@
 <template>
-  <div>
-    <div class="pb-5">
-      <h2 class="text-primary">My info</h2>
+  <div class="pb-5">
+    <h2 class="text-primary">My wallet</h2>
 
-      <ul class="list-group">
-        <li class="list-group-item">Username: {{ userName }}</li>
-        <li class="list-group-item">Email: {{ email }}</li>
-      </ul>
+    <p class="small text-warning">
+      + This is a Tron wallet, it link Tron Ecosystem. You can import this
+      wallet to any wallet app support Tron
+    </p>
 
-      <Recevie />
-      <Send />
-      <PrivateKey />
-    </div>
+    <div class="card gradient-primary balance text-center mb-3">
+      <div class="card-body">
+        <p>Current only support TRX</p>
 
-    <div class="pb-5">
-      <h2 class="text-primary">My wallet</h2>
+        <p>
+          <span
+            v-if="isLoading"
+            class="spinner-border spinner-border-sm"
+          ></span>
 
-      <p class="small text-warning">
-        + This is a Tron wallet, it link Tron Ecosystem. You can import this
-        wallet to any wallet app support Tron
-      </p>
-
-      <div class="card text-center mb-3">
-        <div class="card-body">
-          <p>Current only support TRX</p>
-
-          <p>
-            <span
-              v-if="isLoading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-
-            <span v-else> ≈ {{ Number(balanceUsd).toFixed(3) }} $ </span>
-            <button
-              type="button"
-              class="btn btn-light btn-sm"
-              @click="getBalance"
-            >
-              <i class="fas fa-sync"></i>
-            </button>
-          </p>
-
-          <h3 class="m-0">
-            <span
-              v-if="isLoading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-            <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
-          </h3>
-        </div>
-      </div>
-
-      <div class="text-center">
-        <button
-          class="btn btn-success mb-2"
-          data-toggle="modal"
-          data-target="#myModalRecevie"
-        >
-          <img src="/static/receive.svg" width="18px" />
-          Receive
-        </button>
-
-        <button
-          class="btn btn-danger mb-2"
-          data-toggle="modal"
-          data-target="#myModalSend"
-        >
-          <img src="/static/send.svg" width="18px" />
-          Send
-        </button>
-
-        <a :href="tronScan + 'address/' + address" target="_blank">
-          <button class="btn btn-info mb-2">
-            <img src="/static/details.svg" width="18px" />
-            Account Details
+          <span v-else> ≈ {{ Number(balanceUsd).toFixed(3) }} $ </span>
+          <button
+            type="button"
+            class="btn btn-light btn-sm"
+            @click="getBalance"
+          >
+            <i class="fas fa-sync"></i>
           </button>
-        </a>
+        </p>
 
-        <button
-          class="btn btn-secondary mb-2"
-          data-toggle="modal"
-          data-target="#myModalPrivateKey"
-        >
-          <img src="/static/export.svg" width="18px" />
-          Export Private Key
-        </button>
+        <h3 class="m-0">
+          <span
+            v-if="isLoading"
+            class="spinner-border spinner-border-sm"
+          ></span>
+          <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
+        </h3>
       </div>
     </div>
+
+    <div class="text-center">
+      <button
+        class="btn btn-success mb-2"
+        data-toggle="modal"
+        data-target="#myModalRecevie"
+      >
+        <img src="/static/receive.svg" width="18px" />
+        Receive
+      </button>
+
+      <button
+        class="btn btn-danger mb-2"
+        data-toggle="modal"
+        data-target="#myModalSend"
+      >
+        <img src="/static/send.svg" width="18px" />
+        Send
+      </button>
+
+      <a :href="tronScan + 'address/' + address" target="_blank">
+        <button class="btn btn-info mb-2">
+          <img src="/static/details.svg" width="18px" />
+          Account Details
+        </button>
+      </a>
+
+      <button
+        class="btn btn-secondary mb-2"
+        data-toggle="modal"
+        data-target="#myModalPrivateKey"
+      >
+        <img src="/static/export.svg" width="18px" />
+        Export Private Key
+      </button>
+    </div>
+
+    <Recevie />
+    <Send />
+    <PrivateKey />
   </div>
 </template>
 
@@ -106,8 +95,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      userName: localStorage.getItem("userName"),
-      email: localStorage.getItem("email"),
       address: localStorage.getItem("address"),
       balance: 0,
       balanceUsd: 0,

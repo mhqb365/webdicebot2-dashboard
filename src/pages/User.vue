@@ -40,41 +40,45 @@
         </div>
       </div>
 
-      <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div class="card">
+        <div class="card-body">
+          <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-      <table v-else class="table table-bordered table-hover bg-white table-sm">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Username</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+          <table v-else class="table table-hover table-sm">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Username</th>
+                <th>Action</th>
+              </tr>
+            </thead>
 
-        <tbody>
-          <tr v-for="doc in docs" :key="doc._id">
-            <td>
-              {{
-                new Date(doc.time).toLocaleDateString("en-GB", {
-                  timeZone: "UTC",
-                })
-              }}
-            </td>
-            <td>{{ doc.userName }}</td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-primary btn-sm"
-                @click="getProfile(doc.userName)"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                Profile
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tbody>
+              <tr v-for="doc in docs" :key="doc._id">
+                <td>
+                  {{
+                    new Date(doc.time).toLocaleDateString("en-GB", {
+                      timeZone: "UTC",
+                    })
+                  }}
+                </td>
+                <td>{{ doc.userName }}</td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    @click="getProfile(doc.userName)"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                  >
+                    Profile
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="modal fade" id="myModal">

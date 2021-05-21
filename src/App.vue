@@ -33,16 +33,16 @@ export default {
   mounted: function () {
     let duration = 500;
     $(window).scroll(function () {
-      if (jQuery(this).scrollTop() > 200) {
-        jQuery(".to-top").fadeIn(duration);
+      if ($(this).scrollTop() > 200) {
+        $(".to-top").fadeIn(duration);
       } else {
-        jQuery(".to-top").fadeOut(duration);
+        $(".to-top").fadeOut(duration);
       }
     });
 
     $(".to-top").click(function (event) {
       event.preventDefault();
-      jQuery("html").animate({ scrollTop: 0 }, duration);
+      $("html").animate({ scrollTop: 0 }, duration);
       return false;
     });
   },
@@ -74,5 +74,52 @@ export default {
   background: #0069d9;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+}
+
+.list-group,
+.list-group-item,
+.alert {
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+pre {
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.btn,
+.form-control {
+  /* border: 1px solid #000; */
+  border-radius: 20px;
+}
+
+.card {
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.card-body {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.gradient-primary {
+  background-image: linear-gradient(to bottom right, #863ee2, #571f9e);
+}
+
+.gradient-danger {
+  background-image: linear-gradient(to bottom right, #ff9cc3, #fd3484);
+}
+
+.gradient-warning {
+  background-image: linear-gradient(to bottom right, #ffd85d, #ffc200);
+}
+
+.gradient-info {
+  background-image: linear-gradient(to bottom right, #00d2d7, #07b2dd);
 }
 </style>

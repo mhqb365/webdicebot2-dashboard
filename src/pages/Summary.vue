@@ -29,10 +29,10 @@
 
       <div class="row">
         <div class="col-md-6 mb-3">
-          <div class="card p-4 summary">
+          <div class="card gradient-primary p-4 summary">
             Income
             <br />
-            <h4 class="text-success">
+            <h4>
               <div v-if="isLoading" class="spinner-border text-muted"></div>
               <span v-else>{{ Number(income).toFixed(6) }} TRX</span>
             </h4>
@@ -40,10 +40,10 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card p-4 summary">
+          <div class="card gradient-danger p-4 summary">
             License
             <br />
-            <h4 class="text-primary">
+            <h4>
               <div v-if="isLoading" class="spinner-border text-muted"></div>
               <span v-else>{{ license }}</span>
             </h4>
@@ -51,10 +51,10 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card p-4 summary">
+          <div class="card gradient-warning p-4 summary">
             Pay
             <br />
-            <h4 class="text-warning">
+            <h4>
               <div v-if="isLoading" class="spinner-border text-muted"></div>
               <span v-else>{{ pay }}</span>
             </h4>
@@ -62,10 +62,10 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card p-4 summary">
+          <div class="card gradient-info p-4 summary">
             Free
             <br />
-            <h4 class="text-danger">
+            <h4>
               <div v-if="isLoading" class="spinner-border text-muted"></div>
               <span v-else>{{ free }}</span>
             </h4>
