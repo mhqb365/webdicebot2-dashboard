@@ -9,14 +9,11 @@ import MyLicense from '@/pages/MyLicense'
 import BuyLicense from '@/pages/BuyLicense'
 import Summary from '@/pages/Summary'
 import AddFreeLicense from '@/pages/AddFreeLicense'
-import ScriptStore from '@/pages/ScriptStore'
-import ShareYourScript from '@/pages/ShareYourScript'
 import User from '@/pages/User'
 import License from '@/pages/License'
 import Logout from '@/pages/Logout'
 import ForgotPassword from '@/pages/ForgotPassword'
 import ChangePassword from '@/pages/ChangePassword'
-import EditScript from '@/pages/EditScript'
 import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)
@@ -79,18 +76,6 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/ScriptStore',
-      name: 'ScriptStore',
-      component: ScriptStore,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/ShareYourScript',
-      name: 'ShareYourScript',
-      component: ShareYourScript,
-      meta: { requiresAuth: true }
-    },
-    {
       path: '/User',
       name: 'User',
       component: User,
@@ -119,12 +104,6 @@ const router = new Router({
       name: 'ForgotPassword',
       component: ForgotPassword,
       meta: { requiresAuth: false }
-    },
-    {
-      path: '/EditScript',
-      name: 'EditScript',
-      component: EditScript,
-      meta: { requiresAuth: true }
     },
     {
       path: '/NotFound',
