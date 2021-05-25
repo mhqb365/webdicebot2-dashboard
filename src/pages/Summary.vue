@@ -92,7 +92,7 @@ import API_URL from "@/utils/apiUrl";
 export default {
   data() {
     return {
-      isLoading: false, 
+      isLoading: false,
       userName: "",
       state: "ThisMonth",
       income: 0,
@@ -150,13 +150,18 @@ export default {
             "\n    query getPriceBook ($coin_id: String) {\n      apiPricebook (coin_id: $coin_id){\n        coin_id,\n        bid_price_vnd,\n        fast_bid_price,\n        fast_ask_price,\n        ask_price_vnd,\n        fast,\n        normal,\n        is_direct,\n        broker_code,\n        change_24h,\n        volume,\n        coin,\n        trade_buy_fee,\n        trade_sell_fee,\n        base_currency\n      }\n    }\n  ",
           variables: { coin_id: "tron" },
         },
-      }).then((response) => {
-        let res = response.data;
-        // console.log(res);
-        let result = res.data.apiPricebook[0];
-        this.vnd = result.fast_ask_price * this.income;
-        // console.log(this.vnd)
-      });
+      })
+        .then((response) => {
+          let res = response.data;
+          // console.log(res);
+          let result = res.data.apiPricebook[0];
+          this.vnd = result.fast_ask_price * this.income;
+          // console.log(this.vnd)
+        })
+        .catch((error) => {
+          // console.log(error.response.data);
+          this.showAlert(error.response.data, false);
+        });
     },
   },
 };
