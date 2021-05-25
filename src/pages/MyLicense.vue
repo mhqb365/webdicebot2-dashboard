@@ -55,7 +55,7 @@
         <span class="text-warning">Yellow</span>: Locked license
       </p>
 
-      <div class="card">
+      <div class="card shadow-sm">
         <div class="card-body">
           <div class="table-responsive-sm">
             <div v-if="isLoading" class="spinner-border text-muted"></div>

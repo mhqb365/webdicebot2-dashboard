@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card shadow-sm">
         <div class="card-body">
           <div v-if="isLoading" class="spinner-border text-muted"></div>
 
