@@ -77,7 +77,6 @@ export default {
 }
 
 .list-group,
-.list-group-item,
 .alert {
   border: none;
   border-radius: 20px;
@@ -121,5 +120,28 @@ pre {
 
 .gradient-info {
   background-image: linear-gradient(to bottom right, #00d2d7, #07b2dd);
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.input-group-sm > .form-control {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 20px;
+}
+
+.input-group-sm > .input-group-append > .btn {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 </style>
