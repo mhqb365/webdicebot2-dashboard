@@ -36,6 +36,15 @@
               <div v-if="isLoading" class="spinner-border"></div>
               <span v-else>{{ Number(income).toFixed(6) }} TRX</span>
             </h4>
+            <span
+              >≈
+              {{
+                Number(vnd).toLocaleString("vi", {
+                  style: "currency",
+                  currency: "VND",
+                })
+              }}
+            </span>
           </div>
         </div>
 
@@ -79,27 +88,23 @@
 <script>
 import axios from "axios";
 import API_URL from "@/utils/apiUrl";
-import tronWeb from "@/utils/tronWeb";
 
 export default {
   data() {
     return {
-      isLoading: false,
-      isLoading2: false,
+      isLoading: false, 
       userName: "",
       state: "ThisMonth",
       income: 0,
       license: 0,
       pay: 0,
       free: 0,
-      balance: 0,
+      vnd: 0,
       address: localStorage.getItem("address"),
     };
   },
   mounted: function () {
     this.summary(this.state);
-    this.getBalance();
-    setTimeout(() => this.getBalance(), 3e4);
   },
   methods: {
     summary: function (state) {
@@ -108,6 +113,7 @@ export default {
       this.license = 0;
       this.pay = 0;
       this.free = 0;
+      this.vnd = 0;
       this.isLoading = true;
 
       axios({
@@ -126,6 +132,8 @@ export default {
             this.license += 1;
             d.type == "Pay" ? (this.pay += 1) : (this.free += 1);
           });
+
+          this.priceVnd();
         })
         .catch((error) => {
           this.isLoading = false;
@@ -133,12 +141,22 @@ export default {
           window.location.href = "/Logout";
         });
     },
-    getBalance: async function () {
-      this.isLoading2 = true;
-      let bal = await tronWeb.trx.getBalance(this.address);
-      this.isLoading2 = false;
-      this.balance = tronWeb.fromSun(bal);
-      // console.log(this.balance);
+    priceVnd: function () {
+      axios({
+        url: "https://api-prod.bitmoon.net/graphql",
+        method: "POST",
+        data: {
+          query:
+            "\n    query getPriceBook ($coin_id: String) {\n      apiPricebook (coin_id: $coin_id){\n        coin_id,\n        bid_price_vnd,\n        fast_bid_price,\n        fast_ask_price,\n        ask_price_vnd,\n        fast,\n        normal,\n        is_direct,\n        broker_code,\n        change_24h,\n        volume,\n        coin,\n        trade_buy_fee,\n        trade_sell_fee,\n        base_currency\n      }\n    }\n  ",
+          variables: { coin_id: "tron" },
+        },
+      }).then((response) => {
+        let res = response.data;
+        // console.log(res);
+        let result = res.data.apiPricebook[0];
+        this.vnd = result.fast_ask_price * this.income;
+        // console.log(this.vnd)
+      });
     },
   },
 };
