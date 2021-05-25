@@ -3,7 +3,7 @@
     <!-- <h2 class="text-primary">Menu</h2> -->
 
     <div
-      class="alert mb-3"
+      class="alert mb-3 shadow-sm"
       v-bind:class="
         Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
       "

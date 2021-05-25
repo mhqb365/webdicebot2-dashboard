@@ -77,10 +77,15 @@ export default {
 }
 
 .list-group,
+.list-group-item,
 .alert {
   border: none;
   border-radius: 20px;
   margin-bottom: 5px;
+}
+
+.list-group-item {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 pre {
