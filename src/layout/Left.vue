@@ -66,10 +66,10 @@
 
     <div v-else>
       <ul class="list-group mb-3">
-        <li class="list-group-item">
+        <li class="list-group-item text-primary">
           <i class="fas fa-user"></i> &nbsp; {{ userName }}
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item text-primary">
           <i class="fas fa-envelope"></i> &nbsp; {{ email }}
         </li>
       </ul>
