@@ -88,8 +88,6 @@
 
       <p class="small text-warning">
         + Real income VNĐ begin count from 05/2021
-        <br />
-        + Only add income when sell TRX
       </p>
 
       <ul class="list-group">
@@ -111,6 +109,8 @@
 
     <div class="pb-5">
       <h2 class="text-primary">Add income VNĐ</h2>
+
+      <p class="small text-warning">+ Only add income when sell TRX</p>
 
       <div class="form-group">
         <label>Amount</label>
