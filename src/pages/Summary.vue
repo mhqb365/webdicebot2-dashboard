@@ -84,11 +84,9 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary">Real income VNĐ</h2>
+      <h2 class="text-primary">Real income vnđ</h2>
 
-      <p class="small text-warning">
-        + Real income VNĐ begin count from 05/2021
-      </p>
+      <p class="small text-warning">+ Begin count from 05/2021</p>
 
       <ul class="list-group">
         <li class="list-group-item">
@@ -108,9 +106,9 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary">Add income VNĐ</h2>
+      <h2 class="text-primary">Add real income vnđ</h2>
 
-      <p class="small text-warning">+ Only add income when sell TRX</p>
+      <p class="small text-warning">+ Only add when selling TRX</p>
 
       <div class="form-group">
         <label>Amount</label>
