@@ -18,7 +18,7 @@ Vue.mixin({
   },
   mounted: function () {
     localStorage.getItem('token') ? this.isLogin = true : this.isLogin = false
-    localStorage.getItem('permission') >= 2 ? this.isAdmin = true : this.isAdmin = false
+    localStorage.getItem('permission') > 0 ? this.isAdmin = true : this.isAdmin = false
   },
   methods: {
     clipboardSuccess: function ({ value }) {

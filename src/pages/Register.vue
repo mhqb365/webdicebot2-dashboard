@@ -24,6 +24,11 @@
       <input v-model="data.password" type="password" class="form-control" />
     </div>
 
+    <div class="form-group">
+      <label>Re-type password</label>
+      <input type="password" class="form-control" />
+    </div>
+
     <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
       <span class="spinner-border spinner-border-sm"></span>
     </button>

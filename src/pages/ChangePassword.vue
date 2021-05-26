@@ -72,6 +72,7 @@ export default {
             retypeNewPassword: "",
           };
           this.showAlert(res);
+          setTimeout(() => (window.location.href = "/Logout"), 1e3);
         })
         .catch((error) => {
           this.isLoading = false;
