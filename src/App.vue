@@ -65,7 +65,7 @@ export default {
   background: #007bff;
   display: none;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 20px;
 }
 
 .to-top:hover {
@@ -73,7 +73,7 @@ export default {
   color: #fff;
   background: #0069d9;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 20px;
 }
 
 .list-group,
@@ -85,11 +85,10 @@ export default {
 }
 
 .list-group-item {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 pre {
-  border: none;
   border-radius: 20px;
   padding: 20px;
 }
