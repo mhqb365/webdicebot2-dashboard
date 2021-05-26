@@ -82,6 +82,49 @@
         </div>
       </div>
     </div>
+
+    <div class="pb-5">
+      <h2 class="text-primary">Real income VNĐ</h2>
+
+      <p class="small text-warning">
+        + Real income VNĐ begin count from 05/2021
+        <br />
+        + Only add income when sell TRX
+      </p>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          Total real income:
+          <span
+            v-if="isLoading2"
+            class="spinner-border spinner-border-sm"
+          ></span>
+          <span v-else>{{
+            Number(incomeVnd).toLocaleString("vi", {
+              style: "currency",
+              currency: "VND",
+            })
+          }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pb-5">
+      <h2 class="text-primary">Add income VNĐ</h2>
+
+      <div class="form-group">
+        <label>Amount</label>
+        <input v-model="amountIncome" type="number" class="form-control" />
+      </div>
+
+      <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+
+      <button v-else class="btn btn-primary btn-block" @click="addIncome">
+        Add
+      </button>
+    </div>
   </div>
 </template>
 
@@ -93,6 +136,8 @@ export default {
   data() {
     return {
       isLoading: false,
+      isLoading2: false,
+      isLoading3: false,
       userName: "",
       state: "ThisMonth",
       income: 0,
@@ -101,10 +146,13 @@ export default {
       free: 0,
       vnd: 0,
       address: localStorage.getItem("address"),
+      incomeVnd: 0,
+      amountIncome: 0,
     };
   },
   mounted: function () {
     this.summary(this.state);
+    this.fetchIncome();
   },
   methods: {
     summary: function (state) {
@@ -159,6 +207,55 @@ export default {
           // console.log(this.vnd)
         })
         .catch((error) => {
+          // console.log(error.response.data);
+          this.showAlert(error.response.data, false);
+        });
+    },
+    fetchIncome: function () {
+      this.isLoading2 = true;
+      axios({
+        url: API_URL + "/income",
+        method: "GET",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      })
+        .then((response) => {
+          this.isLoading2 = false;
+          let res = response.data;
+          // console.log(res);
+          if (res.length != 0) {
+            res.map((doc) => (this.incomeVnd += Number(doc.amount)));
+          }
+        })
+        .catch((error) => {
+          this.isLoading2 = false;
+          // console.log(error.response.data);
+          this.showAlert(error.response.data, false);
+        });
+    },
+    addIncome: function () {
+      this.isLoading3 = true;
+      axios({
+        url: API_URL + "/income",
+        method: "POST",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+        data: {
+          amount: this.amountIncome,
+        },
+      })
+        .then((response) => {
+          this.isLoading3 = false;
+          let res = response.data;
+          this.amountIncome = 0;
+          // console.log(res);
+          this.showAlert(res);
+          this.fetchIncome();
+        })
+        .catch((error) => {
+          this.isLoading3 = false;
           // console.log(error.response.data);
           this.showAlert(error.response.data, false);
         });
