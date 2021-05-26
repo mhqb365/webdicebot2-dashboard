@@ -1,8 +1,6 @@
 <template>
   <div class="">
     <nav class="navbar navbar-expand-md bg-light navbar-light">
-      <!-- <h2 class="text-primary">Menu</h2> -->
-
       <div
         class="alert mb-3"
         v-bind:class="
@@ -130,30 +128,6 @@
               &nbsp; Buy License
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a
-              class="nav-link"
-              href="/RockPaperScissors"
-              v-bind:class="[
-                this.$route.path == '/RockPaperScissors' ? 'active' : '',
-              ]"
-            >
-              <i class="fas fa-hand-rock"></i>
-              &nbsp; Rock Paper Scissors
-            </a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a
-              class="nav-link"
-              href="/ScriptStore"
-              v-bind:class="[
-                this.$route.path == '/ScriptStore' ? 'active' : '',
-              ]"
-            >
-              <i class="fas fa-store"></i>
-              &nbsp; Script Store
-            </a>
-          </li> -->
           <li class="nav-item">
             <a
               class="nav-link"
@@ -200,21 +174,21 @@
           <li class="nav-item">
             <a
               class="nav-link"
-              href="/User"
-              v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
-            >
-              <i class="fas fa-users"></i>
-              &nbsp; User List
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
               href="/License"
               v-bind:class="[this.$route.path == '/License' ? 'active' : '']"
             >
               <i class="fas fa-th-list"></i>
               &nbsp; License List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="/User"
+              v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
+            >
+              <i class="fas fa-users"></i>
+              &nbsp; User List
             </a>
           </li>
         </ul>

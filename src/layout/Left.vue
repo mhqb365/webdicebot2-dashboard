@@ -1,7 +1,5 @@
 <template>
   <div class="">
-    <!-- <h2 class="text-primary">Menu</h2> -->
-
     <div
       class="alert mb-3 shadow-sm"
       v-bind:class="
@@ -132,32 +130,6 @@
             &nbsp; Buy License
           </a>
         </li>
-        <!-- <li
-          class="list-group-item"
-          v-bind:class="[
-            this.$route.path == '/RockPaperScissors'
-              ? 'custom-active list-link'
-              : '',
-          ]"
-        >
-          <a href="/RockPaperScissors">
-          <i class="fas fa-hand-rock"></i>
-            &nbsp; Rock Paper Scissors
-          </a>
-        </li> -->
-        <!-- <li
-          class="list-group-item"
-          v-bind:class="[
-            this.$route.path == '/ScriptStore'
-              ? 'custom-active list-link'
-              : '',
-          ]"
-        >
-          <a href="/ScriptStore">
-            <i class="fas fa-store"></i>
-            &nbsp; Script Store
-          </a>
-        </li> -->
         <li
           class="list-group-item"
           v-bind:class="[
@@ -207,23 +179,23 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/User' ? 'custom-active list-link' : '',
-          ]"
-        >
-          <a href="/User">
-            <i class="fas fa-users"></i>
-            &nbsp; User List
-          </a>
-        </li>
-        <li
-          class="list-group-item"
-          v-bind:class="[
             this.$route.path == '/License' ? 'custom-active list-link' : '',
           ]"
         >
           <a href="/License">
             <i class="fas fa-th-list"></i>
             &nbsp; License List
+          </a>
+        </li>
+        <li
+          class="list-group-item"
+          v-bind:class="[
+            this.$route.path == '/User' ? 'custom-active list-link' : '',
+          ]"
+        >
+          <a href="/User">
+            <i class="fas fa-users"></i>
+            &nbsp; User List
           </a>
         </li>
       </ul>
