@@ -159,16 +159,15 @@
               &nbsp; Summary
             </a>
           </li>
+
           <li class="nav-item">
             <a
               class="nav-link"
-              href="/AddFreeLicense"
-              v-bind:class="[
-                this.$route.path == '/AddFreeLicense' ? 'active' : '',
-              ]"
+              href="/User"
+              v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
             >
-              <i class="fas fa-plus-square"></i>
-              &nbsp; Add Free License
+              <i class="fas fa-users"></i>
+              &nbsp; User List
             </a>
           </li>
           <li class="nav-item">
@@ -184,11 +183,13 @@
           <li class="nav-item">
             <a
               class="nav-link"
-              href="/User"
-              v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
+              href="/AddFreeLicense"
+              v-bind:class="[
+                this.$route.path == '/AddFreeLicense' ? 'active' : '',
+              ]"
             >
-              <i class="fas fa-users"></i>
-              &nbsp; User List
+              <i class="fas fa-plus-square"></i>
+              &nbsp; Add Free License
             </a>
           </li>
         </ul>

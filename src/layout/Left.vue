@@ -166,14 +166,12 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/AddFreeLicense'
-              ? 'custom-active list-link'
-              : '',
+            this.$route.path == '/User' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/AddFreeLicense">
-            <i class="fas fa-plus-square"></i>
-            &nbsp; Add Free License
+          <a href="/User">
+            <i class="fas fa-users"></i>
+            &nbsp; User List
           </a>
         </li>
         <li
@@ -190,12 +188,14 @@
         <li
           class="list-group-item"
           v-bind:class="[
-            this.$route.path == '/User' ? 'custom-active list-link' : '',
+            this.$route.path == '/AddFreeLicense'
+              ? 'custom-active list-link'
+              : '',
           ]"
         >
-          <a href="/User">
-            <i class="fas fa-users"></i>
-            &nbsp; User List
+          <a href="/AddFreeLicense">
+            <i class="fas fa-plus-square"></i>
+            &nbsp; Add Free License
           </a>
         </li>
       </ul>
