@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div
       class="alert mb-3 shadow-sm"
       v-bind:class="
@@ -19,10 +19,10 @@
             this.$route.path == '/' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/">
+          <router-link to="/">
             <i class="fas fa-bars"></i>
             &nbsp; Getting Started
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -30,10 +30,10 @@
             this.$route.path == '/Register' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/Register">
+          <router-link to="/Register">
             <i class="fas fa-user-plus"></i>
             &nbsp; Register
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -41,10 +41,10 @@
             this.$route.path == '/Login' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/Login">
+          <router-link to="/Login">
             <i class="fas fa-sign-in-alt"></i>
             &nbsp; Login
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -54,10 +54,10 @@
               : '',
           ]"
         >
-          <a href="/ForgotPassword">
+          <router-link to="/ForgotPassword">
             <i class="fas fa-lock"></i>
             &nbsp; Forgot Password
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -79,10 +79,10 @@
             this.$route.path == '/' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/">
+          <router-link to="/">
             <i class="fas fa-bars"></i>
             &nbsp; Getting Started
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -92,10 +92,10 @@
               : '',
           ]"
         >
-          <a href="/BotInstaller">
+          <router-link to="/BotInstaller">
             <i class="fas fa-robot"></i>
             &nbsp; Bot Installer
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -103,10 +103,10 @@
             this.$route.path == '/MyWallet' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/MyWallet">
+          <router-link to="/MyWallet">
             <i class="fas fa-wallet"></i>
             &nbsp; My Wallet
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -114,10 +114,10 @@
             this.$route.path == '/MyLicense' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/MyLicense">
+          <router-link to="/MyLicense">
             <i class="fas fa-key"></i>
             &nbsp; My License
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -125,10 +125,10 @@
             this.$route.path == '/BuyLicense' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/BuyLicense">
+          <router-link to="/BuyLicense">
             <i class="fas fa-shopping-cart"></i>
             &nbsp; Buy License
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -138,16 +138,16 @@
               : '',
           ]"
         >
-          <a href="/ChangePassword">
+          <router-link to="/ChangePassword">
             <i class="fas fa-lock"></i>
             &nbsp; Change Password
-          </a>
+          </router-link>
         </li>
         <li class="list-group-item">
-          <a href="/Logout">
+          <router-link to="/Logout">
             <i class="fas fa-sign-out-alt"></i>
             &nbsp; Logout
-          </a>
+          </router-link>
         </li>
       </ul>
 
@@ -158,10 +158,10 @@
             this.$route.path == '/Summary' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/Summary">
+          <router-link to="/Summary">
             <i class="fas fa-user-shield"></i>
             &nbsp; Summary
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -169,10 +169,10 @@
             this.$route.path == '/User' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/User">
+          <router-link to="/User">
             <i class="fas fa-users"></i>
             &nbsp; User List
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -180,10 +180,10 @@
             this.$route.path == '/License' ? 'custom-active list-link' : '',
           ]"
         >
-          <a href="/License">
+          <router-link to="/License">
             <i class="fas fa-th-list"></i>
             &nbsp; License List
-          </a>
+          </router-link>
         </li>
         <li
           class="list-group-item"
@@ -193,10 +193,10 @@
               : '',
           ]"
         >
-          <a href="/AddFreeLicense">
+          <router-link to="/AddFreeLicense">
             <i class="fas fa-plus-square"></i>
             &nbsp; Add Free License
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

@@ -24,46 +24,46 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul v-if="!isLogin" class="navbar-nav">
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/"
+              to="/"
               v-bind:class="[this.$route.path == '/' ? 'active' : '']"
             >
               <i class="fas fa-bars"></i>
               &nbsp; Getting Started
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/Register"
+              to="/Register"
               v-bind:class="[this.$route.path == '/Register' ? 'active' : '']"
             >
               <i class="fas fa-user-plus"></i>
               &nbsp; Register
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/Login"
+              to="/Login"
               v-bind:class="[this.$route.path == '/Login' ? 'active' : '']"
             >
               <i class="fas fa-sign-in-alt"></i>
               &nbsp; Login
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/ForgotPassword"
+              to="/ForgotPassword"
               v-bind:class="[
                 this.$route.path == '/ForgotPassword' ? 'active' : '',
               ]"
             >
               <i class="fas fa-lock"></i>
               &nbsp; Forgot Password
-            </a>
+            </router-link>
           </li>
         </ul>
 
@@ -77,120 +77,120 @@
           </li>
 
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/"
+              to="/"
               v-bind:class="[this.$route.path == '/' ? 'active' : '']"
             >
               <i class="fas fa-bars"></i>
               &nbsp; Getting Started
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/BotInstaller"
+              to="/BotInstaller"
               v-bind:class="[
                 this.$route.path == '/BotInstaller' ? 'active' : '',
               ]"
             >
               <i class="fas fa-robot"></i>
               &nbsp; Bot Installer
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/MyWallet"
+              to="/MyWallet"
               v-bind:class="[this.$route.path == '/MyWallet' ? 'active' : '']"
             >
               <i class="fas fa-wallet"></i>
               &nbsp; My Wallet
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/MyLicense"
+              to="/MyLicense"
               v-bind:class="[this.$route.path == '/MyLicense' ? 'active' : '']"
             >
               <i class="fas fa-user"></i>
               &nbsp; My License
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/BuyLicense"
+              to="/BuyLicense"
               v-bind:class="[this.$route.path == '/BuyLicense' ? 'active' : '']"
             >
               <i class="fas fa-shopping-cart"></i>
               &nbsp; Buy License
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/ChangePassword"
+              to="/ChangePassword"
               v-bind:class="[
                 this.$route.path == '/ChangePassword' ? 'active' : '',
               ]"
             >
               <i class="fas fa-lock"></i>
               &nbsp; Change Password
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Logout">
+            <router-link class="nav-link" to="/Logout">
               <i class="fas fa-sign-out-alt"></i>
               &nbsp; Logout
-            </a>
+            </router-link>
           </li>
         </ul>
 
         <ul v-if="isAdmin" class="navbar-nav mb-3">
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/Summary"
+              to="/Summary"
               v-bind:class="[this.$route.path == '/Summary' ? 'active' : '']"
             >
               <i class="fas fa-user-shield"></i>
               &nbsp; Summary
-            </a>
+            </router-link>
           </li>
 
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/User"
+              to="/User"
               v-bind:class="[this.$route.path == '/User' ? 'active' : '']"
             >
               <i class="fas fa-users"></i>
               &nbsp; User List
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/License"
+              to="/License"
               v-bind:class="[this.$route.path == '/License' ? 'active' : '']"
             >
               <i class="fas fa-th-list"></i>
               &nbsp; License List
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
               class="nav-link"
-              href="/AddFreeLicense"
+              to="/AddFreeLicense"
               v-bind:class="[
                 this.$route.path == '/AddFreeLicense' ? 'active' : '',
               ]"
             >
               <i class="fas fa-plus-square"></i>
               &nbsp; Add Free License
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
