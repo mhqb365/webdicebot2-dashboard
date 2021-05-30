@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div class="spinner-wrapper">
+      <div class="spinner">
+        <div class="spinner-border text-white"></div>
+      </div>
+    </div>
+
     <Navbar class="d-block d-sm-none" />
 
     <div class="container-fuild p-3">
@@ -31,9 +37,21 @@ export default {
     Left,
   },
   mounted: function () {
-    let duration = 500;
+    $(document).ready(function () {
+      //Preloader
+      let preloaderFadeOutTime = 2e3;
+
+      function hidePreloader() {
+        var preloader = $(".spinner-wrapper");
+        preloader.fadeOut(preloaderFadeOutTime);
+      }
+
+      hidePreloader();
+    });
+
+    let duration = 5e2;
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 200) {
+      if ($(this).scrollTop() > 2e2) {
         $(".to-top").fadeIn(duration);
       } else {
         $(".to-top").fadeOut(duration);
@@ -54,6 +72,22 @@ export default {
 
 #app {
   font-family: "Kanit", sans-serif;
+}
+
+.spinner-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #7b86ff;
+  z-index: 999999;
+}
+
+.spinner {
+  position: relative;
+  top: 50%;
+  left: 50%;
 }
 
 .to-top {
