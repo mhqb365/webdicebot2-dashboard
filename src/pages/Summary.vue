@@ -84,13 +84,26 @@
     </div>
 
     <div class="pb-5">
-      <h2 class="text-primary">Real income vnđ</h2>
+      <h2 class="text-primary">Real income VNĐ</h2>
 
-      <p class="small text-warning">+ Begin count from 05/2021</p>
+      <p class="small text-warning">
+        + Real income VNĐ begin count from 05/2021
+        <br />
+        + Only add when sold TRX income
+      </p>
+
+      <button
+        type="button"
+        class="btn btn-primary mb-3"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Add
+      </button>
 
       <ul class="list-group">
         <li class="list-group-item">
-          Total real income:
+          Total:
           <span
             v-if="isLoading2"
             class="spinner-border spinner-border-sm"
@@ -105,23 +118,46 @@
       </ul>
     </div>
 
-    <div class="pb-5">
-      <h2 class="text-primary">Add real income vnđ</h2>
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add real income VNĐ</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
 
-      <p class="small text-warning">+ Only add when selling TRX</p>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Amount</label>
+              <input
+                v-model="amountIncome"
+                type="number"
+                class="form-control"
+              />
+            </div>
 
-      <div class="form-group">
-        <label>Amount</label>
-        <input v-model="amountIncome" type="number" class="form-control" />
+            <button
+              v-if="isLoading3"
+              class="btn btn-primary btn-block"
+              disabled
+            >
+              <span class="spinner-border spinner-border-sm"></span>
+            </button>
+
+            <button v-else class="btn btn-primary btn-block" @click="addIncome">
+              Add
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
       </div>
-
-      <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
-
-      <button v-else class="btn btn-primary btn-block" @click="addIncome">
-        Add
-      </button>
     </div>
   </div>
 </template>
