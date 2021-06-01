@@ -3,7 +3,7 @@
     <div class="pb-5">
       <h2 class="text-primary">Terms of use</h2>
 
-      <p class="small text-warning">
+      <p class="small">
         + The following user agreement is to read in its entirety prior to the
         use of Web DiceBot's products and services. The agreement constitutes a
         legal binding between the user and all services found on webdicebot.xyz

@@ -10,7 +10,7 @@
         </div>
 
         <div class="modal-body text-center">
-          <p>Current only support TRX</p>
+          <p>Only send TRX to this address, 1 confirmation(s) required</p>
 
           <qrcode-vue
             class="my-4"
@@ -21,7 +21,7 @@
 
           <div class="input-group mb-3">
             <input v-model="address" type="text" class="form-control" />
-            
+
             <div class="input-group-append">
               <button
                 type="button"

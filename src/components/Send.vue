@@ -10,7 +10,10 @@
         </div>
 
         <div class="modal-body text-center">
-          <p>Current only support TRX</p>
+          <p>
+            Transaction fee default by
+            <a href="https://tron.network" target="_blank">Tron.network</a>
+          </p>
 
           <div class="form-group text-left">
             <label>Address</label>
@@ -26,14 +29,14 @@
             <span class="spinner-border spinner-border-sm"></span>
           </button>
 
-          <button v-else type="button" class="btn btn-primary btn-block" @click="send">
+          <button
+            v-else
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="send"
+          >
             Send
           </button>
-
-          <p class="small pt-4">
-            Transaction fee default by
-            <a href="https://tron.network" target="_blank">Tron.network</a>
-          </p>
         </div>
       </div>
     </div>
