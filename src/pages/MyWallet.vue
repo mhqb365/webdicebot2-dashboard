@@ -220,7 +220,11 @@ export default {
         // console.log(response.data);
         response.data.data.map((res) => {
           // console.log(res);
-          if (res.tokenInfo.tokenAbbr == "trx") this.docs.push(res);
+          if (
+            res.tokenInfo.tokenAbbr == "trx" &&
+            Number(res.contractData.amount) > 1
+          )
+            this.docs.push(res);
         });
       });
     },
