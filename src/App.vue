@@ -2,7 +2,8 @@
   <div id="app">
     <div class="spinner-wrapper">
       <div class="spinner">
-        <div class="spinner-border text-white"></div>
+        <!-- <div class="spinner-border text-white"></div> -->
+        <img src="/static/favicon.png" class="rounded-circle img-loader" width="64px"/>
       </div>
     </div>
 
@@ -72,6 +73,10 @@ export default {
 
 #app {
   font-family: "Kanit", sans-serif;
+}
+
+.img-loader {
+  animation: fa-spin 2s infinite linear
 }
 
 .spinner-wrapper {
