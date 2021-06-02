@@ -24,7 +24,7 @@
     <p>
       You will pay
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>≈ {{ Number(data.price).toFixed(6) }} TRX</span>
+      <span v-else>{{ Number(data.price).toFixed(6) }} TRX</span>
     </p>
 
     <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>

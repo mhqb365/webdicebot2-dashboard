@@ -24,7 +24,6 @@
           ></span>
 
           <span v-else>
-            ≈
             {{
               Number(balanceUsd).toLocaleString("vi", {
                 style: "currency",
@@ -93,7 +92,6 @@ import tronWeb from "@/utils/tronWeb";
 import Recevie from "@/components/Recevie";
 import Send from "@/components/Send";
 import PrivateKey from "@/components/PrivateKey";
-import axios from "axios";
 
 export default {
   components: {
@@ -126,7 +124,6 @@ export default {
       this.getTrxPrice().then((response) => {
         // console.log(response);
         this.balanceUsd = Number(response.tron.usd) * this.balance;
-        this.getTransaction();
       });
     },
   },
