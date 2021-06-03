@@ -10,15 +10,12 @@
       </p>
 
       <pre class="bg-white shadow-sm">
-1. You must know what is dice
-2. You must control your money in dice
-3. You must have to differentiate between dice tools with dice script
-4. You must know the Lua language (v5.3) or Javascript language when play with dice script
-5. You must have license key when use Web DiceBot
-6. License can use all account, all site dice, all device of you
-7. Do not share your license if you do not wanna anyone use bot by your money
-8. Only use the installer at dashboard.webdicebot.xyz if you do not wanna someone fake us to trick you
-9. Upgrade level max security, 2FA, etc.. in your account at all dice sites</pre
+1. You must know what is dice, dice bot, dice script
+2. You must know the Lua language (v5.3) or Javascript language for make dice script
+3. You must control your crypto currency in dice
+4. You must have license when use Web DiceBot
+5. License can use for all account, all dice sites and all devices of you
+6. Upgrade level max of security (strong password, 2FA, etc..) for your account at all dice sites</pre
       >
     </div>
 
@@ -27,16 +24,17 @@
 
       <pre class="bg-white shadow-sm">
 Step 1: Join to the Web DiceBot system via Register/Login
-Step 2: Deposit TRX (Tron) to your account at My Wallet then go to Buy License with days you wanna
-Step 3: Go to Bot Installer -> select your casino -> copy installer code
-Step 4: Go to casino -> right click -> Inspect -> paste installer code to Console -> follow the next request of bot on casino</pre
+Step 2: Deposit TRX (Tron) at My Wallet then buy license with days you want at Buy License
+Step 3: Select dice site then copy installer script at Bot Installer
+Step 4: Paste installer script to console of dice site then follow next request</pre
       >
     </div>
 
-    <div class="pb-5">
-      <h2 class="text-primary">Sample Lua dice script</h2>
+    <div class="row pb-5">
+      <div class="col-md-6">
+        <h2 class="text-primary">Sample Lua dice script</h2>
 
-      <pre class="bg-white shadow-sm">
+        <pre class="bg-white shadow-sm">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -49,13 +47,12 @@ function dobet()
         nextbet=previousbet*2
     end
 end</pre
-      >
-    </div>
+        >
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-primary">Sample Javascript dice script</h2>
 
-    <div class="pb-5">
-      <h2 class="text-primary">Sample Javascript dice script</h2>
-
-      <pre class="bg-white shadow-sm">
+        <pre class="bg-white shadow-sm">
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -68,7 +65,8 @@ function dobet() {
         nextbet=previousbet*2
     }
 }</pre
-      >
+        >
+      </div>
     </div>
 
     <div class="pb-5">
@@ -82,8 +80,8 @@ balance : current balance
 profit : total profit in round
 currentprofit, lastBet.profit : profit of last bet make
 previousbet, lastBet.amount : amount of last bet make
-lastBet.nonce : nonce of bets
-lastBet.id : id of bets
+lastBet.nonce : nonce of bets (some dice sites not have)
+lastBet.id : id of bets (some dice sites not have)
 lastBet.chance : win chance of last bet make
 lastBet.roll : result number of last bet make
 win : true is last bet make has win, false is lose
@@ -109,7 +107,7 @@ resetseed() : reset seed fair
 resetstats() : reset stats in round
 ching() : alert with sound
 checkbalance() : check current balance if new deposit
-sleep(n) : play bet after n seconds
+sleep(n) : play bet after n seconds (only work at lua mode)
 </pre
       >
     </div>
