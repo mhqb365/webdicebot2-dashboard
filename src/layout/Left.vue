@@ -1,15 +1,20 @@
 <template>
   <div>
-    <div
-      class="alert mb-3 shadow-sm"
-      v-bind:class="
-        Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
-      "
-    >
-      1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
-        Number(percent_change_24h).toFixed(2)
-      }}%)
-    </div>
+    <ul class="list-group mb-3">
+      <li class="list-group-item">
+        <img src="/static/logo.png" class="w-100" />
+      </li>
+      <li
+        class="list-group-item"
+        v-bind:class="
+          Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
+        "
+      >
+        1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
+          Number(percent_change_24h).toFixed(2)
+        }}%)
+      </li>
+    </ul>
 
     <div v-if="!isLogin">
       <ul class="list-group">

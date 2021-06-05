@@ -59,14 +59,14 @@ script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/999dice'
 document.body.appendChild(script)`,
         },
-//         {
-//           name: "betfury.io - circle",
-//           value: `const BOT_URL = '${API_URL}'
-// var script = document.createElement('script')
-// script.type = 'text/javascript'
-// script.src = BOT_URL+'/bot/init/betfury-circle'
-// document.body.appendChild(script)`,
-//         },
+        {
+          name: "bc.game - hash dice",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/bc.game-hashdice'
+document.body.appendChild(script)`,
+        },
         {
           name: "betfury.io - dice",
           value: `const BOT_URL = '${API_URL}'

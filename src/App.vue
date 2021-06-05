@@ -91,8 +91,8 @@ export default {
 
 .spinner {
   position: relative;
-  top: 50%;
-  left: 50%;
+  top: 46%;
+  left: 46%;
 }
 
 .to-top {

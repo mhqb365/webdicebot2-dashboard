@@ -1,15 +1,18 @@
 <template>
   <div class="">
     <nav class="navbar navbar-expand-md bg-light navbar-light">
-      <div
-        class="alert mb-3"
-        v-bind:class="
-          Number(percent_change_24h) >= 0 ? 'alert-success' : 'alert-danger'
-        "
-      >
-        1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
-          Number(percent_change_24h).toFixed(2)
-        }}%)
+      <div class="navbar-brand">
+        <img src="/static/logo.png" class="w-100 mb-2" />
+
+        <div
+          v-bind:class="
+            Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
+          "
+        >
+          1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
+            Number(percent_change_24h).toFixed(2)
+          }}%)
+        </div>
       </div>
 
       <button
