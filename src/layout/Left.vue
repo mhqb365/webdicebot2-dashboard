@@ -4,15 +4,17 @@
       <li class="list-group-item">
         <img src="/static/logo.png" class="w-100" />
       </li>
-      <li
-        class="list-group-item"
-        v-bind:class="
-          Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
-        "
-      >
-        1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
-          Number(percent_change_24h).toFixed(2)
-        }}%)
+
+      <li class="list-group-item">
+        <img src="/static/trx.svg" width="34px" height="34px" />
+        {{ Number(trxPrice).toFixed(3) }} $
+        <span
+          v-bind:class="
+            Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
+          "
+          >({{ percent_change_24h > 0 ? "+" : ""
+          }}{{ Number(percent_change_24h).toFixed(2) }}%)</span
+        >
       </li>
     </ul>
 

@@ -4,14 +4,16 @@
       <div class="navbar-brand">
         <img src="/static/logo.png" class="w-100 mb-2" />
 
-        <div
-          v-bind:class="
-            Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
-          "
-        >
-          1 TRX ≈ {{ Number(trxPrice).toFixed(3) }} $ ({{
-            Number(percent_change_24h).toFixed(2)
-          }}%)
+        <div>
+          <img src="/static/trx.svg" width="34px" height="34px" />
+          {{ Number(trxPrice).toFixed(3) }} $
+          <span
+            v-bind:class="
+              Number(percent_change_24h) >= 0 ? 'text-success' : 'text-danger'
+            "
+            >({{ percent_change_24h > 0 ? "+" : ""
+            }}{{ Number(percent_change_24h).toFixed(2) }}%)</span
+          >
         </div>
       </div>
 

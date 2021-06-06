@@ -236,6 +236,14 @@ script.src = BOT_URL+'/bot/init/stake-limbo'
 document.body.appendChild(script)`,
         },
         {
+          name: "stargames.bz - dice",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/stargames.bz-dice'
+document.body.appendChild(script)`,
+        },
+        {
           name: "trustdice.win - dice",
           value: `const BOT_URL = '${API_URL}'
 var script = document.createElement('script')
