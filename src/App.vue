@@ -2,7 +2,6 @@
   <div id="app">
     <div class="spinner-wrapper">
       <div class="spinner">
-        <!-- <div class="spinner-border text-white"></div> -->
         <img src="/static/favicon.png" class="rounded-circle img-loader" width="64px"/>
       </div>
     </div>
@@ -39,11 +38,10 @@ export default {
   },
   mounted: function () {
     $(document).ready(function () {
-      //Preloader
       let preloaderFadeOutTime = 2e3;
 
       function hidePreloader() {
-        var preloader = $(".spinner-wrapper");
+        let preloader = $(".spinner-wrapper");
         preloader.fadeOut(preloaderFadeOutTime);
       }
 

@@ -4,9 +4,6 @@
 
     <p class="small">
       + Account only use at webdicebot.xyz
-      <br />
-      + You do not have an account?
-      <router-link to="/Register">Register</router-link>
     </p>
 
     <div class="form-group">
