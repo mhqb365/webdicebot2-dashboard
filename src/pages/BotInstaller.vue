@@ -46,10 +46,7 @@
 
       <ul class="list-group">
         <li class="list-group-item">
-          <a
-            href="https://jacksclub-emulator.webdicebot.xyz/"
-            target="_blank"
-          >
+          <a href="https://jacksclub-emulator.webdicebot.xyz/" target="_blank">
             JacksClub.io Emulator
           </a>
           (mobile working)
@@ -57,11 +54,11 @@
       </ul>
     </div>
     <div class="pb-5">
-      <h2 class="text-primary">How to use?</h2>
+      <h2 class="text-primary">How to use emulator?</h2>
 
-      <div class="text-center">
+      <div class="text-center pt-2">
         <video class="w-50 border border-secondary rounded-sm" controls>
-          <source src="/static/Video-2021-06-09-171927.mp4" type="video/mp4" />
+          <source src="/static/Video-2021-06-09-215627.mp4" type="video/mp4" />
           Your browser does not support HTML video
         </video>
       </div>
