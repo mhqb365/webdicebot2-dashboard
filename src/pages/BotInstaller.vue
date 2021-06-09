@@ -56,10 +56,18 @@
     <div class="pb-5">
       <h2 class="text-primary">How to use?</h2>
 
+      <div class="text-center">
+        <video class="w-50 border border-secondary rounded-sm" controls>
+          <source src="/static/Video_2021-06-09_124347.mp4" type="video/mp4" />
+          Your browser does not support HTML video
+        </video>
+      </div>
+
       <h5>Windows</h5>
       <ul class="list-group mb-3">
         <li class="list-group-item">
-          Step 1: Double Click webdicebot-win.exe File, or Open Command Prompt at emulator you need
+          Step 1: Double Click webdicebot-win.exe File, or Open Command Prompt
+          at emulator you need
         </li>
         <li class="list-group-item">
           Step 2: Open browser then go to url show in Command Prompt
@@ -69,7 +77,8 @@
       <h4>Mac</h4>
       <ul class="list-group mb-3">
         <li class="list-group-item">
-          Step 1: Open Terminal in folder emulator you need then paste in order the 2 lines below
+          Step 1: Open Terminal in folder emulator you need then paste in order
+          the 2 lines below
         </li>
         <pre class="bg-white shadow-sm">
 chmod +x webdicebot-macos
@@ -83,7 +92,8 @@ chmod +x webdicebot-macos
       <h4>Linux</h4>
       <ul class="list-group mb-3">
         <li class="list-group-item">
-          Step 1: Open Terminal in folder emulator you need then Paste in order the 2 lines below
+          Step 1: Open Terminal in folder emulator you need then Paste in order
+          the 2 lines below
         </li>
         <pre class="bg-white shadow-sm">
 chmod +x webdicebot-linux
