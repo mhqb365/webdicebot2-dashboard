@@ -55,16 +55,16 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="pb-5">
+    <div class="pb-5">
       <h2 class="text-primary">How to use?</h2>
 
       <div class="text-center">
         <video class="w-50 border border-secondary rounded-sm" controls>
-          <source src="/static/Video_2021-06-09_124347.mp4" type="video/mp4" />
+          <source src="/static/Video-2021-06-09-171927.mp4" type="video/mp4" />
           Your browser does not support HTML video
         </video>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
