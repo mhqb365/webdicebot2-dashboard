@@ -47,11 +47,12 @@
       <ul class="list-group">
         <li class="list-group-item">
           <a
-            href="https://jacksclub-dice-emulator.webdicebot.xyz/"
+            href="https://jacksclub-emulator.webdicebot.xyz/"
             target="_blank"
           >
-            JacksClub.io - Dice
-          </a> (mobile working)
+            JacksClub.io Emulator
+          </a>
+          (mobile working)
         </li>
       </ul>
     </div>
@@ -201,6 +202,14 @@ document.body.appendChild(script)`,
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/freebitco'
+document.body.appendChild(script)`,
+        },
+        {
+          name: "jacksclub.io - blaze (work on emulator)",
+          value: `const BOT_URL = '${API_URL}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/jacksclub.io-blaze'
 document.body.appendChild(script)`,
         },
         {
