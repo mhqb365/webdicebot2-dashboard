@@ -42,6 +42,8 @@
       <p class="small">
         + Emulator is a dice sites simulation. It will help Web DiceBot work
         with dice sites
+        <br>
+        + Emulator can work in mobile browser
       </p>
 
       <ul class="list-group">
@@ -49,7 +51,6 @@
           <a href="https://jacksclub-emulator.webdicebot.xyz/" target="_blank">
             JacksClub.io Emulator
           </a>
-          (mobile working)
         </li>
       </ul>
     </div>
