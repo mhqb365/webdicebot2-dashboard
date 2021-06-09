@@ -51,7 +51,7 @@
             target="_blank"
           >
             JacksClub.io - Dice
-          </a>
+          </a> (mobile working)
         </li>
       </ul>
     </div>
