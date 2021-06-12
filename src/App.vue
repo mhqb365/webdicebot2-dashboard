@@ -2,7 +2,11 @@
   <div id="app">
     <div class="spinner-wrapper">
       <div class="spinner">
-        <img src="/static/favicon.png" class="rounded-circle img-loader border border-white" width="64px"/>
+        <img
+          src="/static/favicon.png"
+          class="rounded-circle img-loader border border-white"
+          width="64px"
+        />
       </div>
     </div>
 
@@ -67,14 +71,14 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 #app {
-  font-family: "Kanit", sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 .img-loader {
-  animation: fa-spin 2s infinite linear
+  animation: fa-spin 2s infinite linear;
 }
 
 .spinner-wrapper {
