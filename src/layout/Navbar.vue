@@ -2,8 +2,6 @@
   <div class="">
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <div class="navbar-brand">
-        <img src="/static/logo.png" class="w-100 mb-2" />
-
         <div>
           <img src="/static/trx.svg" width="34px" height="34px" />
           {{ Number(trxPrice).toFixed(3) }} $

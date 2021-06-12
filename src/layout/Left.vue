@@ -2,10 +2,6 @@
   <div>
     <ul class="list-group mb-3">
       <li class="list-group-item">
-        <img src="/static/logo.png" class="w-100" />
-      </li>
-
-      <li class="list-group-item">
         <img src="/static/trx.svg" width="34px" height="34px" />
         {{ Number(trxPrice).toFixed(3) }} $
         <span
