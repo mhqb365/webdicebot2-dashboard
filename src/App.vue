@@ -2,7 +2,7 @@
   <div id="app">
     <div class="spinner-wrapper">
       <div class="spinner">
-        <img src="/static/favicon.png" class="rounded-circle img-loader" width="64px"/>
+        <img src="/static/favicon.png" class="rounded-circle img-loader border border-white" width="64px"/>
       </div>
     </div>
 
