@@ -24,6 +24,7 @@
           ></span>
 
           <span v-else>
+            ≈
             {{
               Number(balanceUsd).toLocaleString("vi", {
                 style: "currency",
