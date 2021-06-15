@@ -2,9 +2,7 @@
   <div class="pb-5">
     <h2 class="text-primary">Register</h2>
 
-    <p class="small">
-      + Account only use at webdicebot.xyz
-    </p>
+    <p class="small">+ Account only use at webdicebot.xyz</p>
 
     <div class="form-group">
       <label>Username</label>
@@ -70,7 +68,7 @@ export default {
           localStorage.setItem("permission", res.permission);
           localStorage.setItem("token", res.token);
           this.showAlert("Register success");
-          setTimeout(() => (window.location.href = "/"), 1e3);
+          window.location.href = "/";
         })
         .catch((error) => {
           this.isLoading = false;
