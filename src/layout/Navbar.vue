@@ -89,6 +89,7 @@
               &nbsp; Getting Started
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -101,6 +102,7 @@
               &nbsp; Bot Installer
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -111,6 +113,7 @@
               &nbsp; My Wallet
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -121,6 +124,7 @@
               &nbsp; My License
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -131,6 +135,7 @@
               &nbsp; Buy License
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -143,6 +148,7 @@
               &nbsp; Change Password
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link class="nav-link" to="/Logout">
               <i class="fas fa-sign-out-alt"></i>
@@ -216,6 +222,10 @@ export default {
     setInterval(() => {
       this.updatePrice();
     }, 3e4);
+
+    $(document).ready(() => {
+      $(".nav-item").click(() => $(".navbar-collapse").collapse("hide"));
+    });
   },
   methods: {
     updatePrice: function () {
