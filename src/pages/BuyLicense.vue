@@ -22,7 +22,7 @@
     </div>
 
     <p>
-      You will pay
+      You will pay ≈
       <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(data.price).toFixed(6) }} TRX</span>
     </p>
