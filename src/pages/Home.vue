@@ -3,6 +3,7 @@
     <div class="pb-5 text-center">
       <div class="jumbotron text-center welcome text-white">
         <h1>WELCOME</h1>
+        to WebDiceBot.Xyz
       </div>
     </div>
 

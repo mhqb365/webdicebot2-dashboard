@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <div class="navbar-brand">
         <div>
-          <img src="/static/trx.svg" width="34px" height="34px" />
+          TRX:
           {{ Number(trxPrice).toFixed(3) }} $
           <span
             v-bind:class="
@@ -73,10 +73,6 @@
         <ul v-else class="navbar-nav mb-3">
           <li class="nav-item nav-link">
             <i class="fas fa-user"></i> &nbsp; {{ userName }}
-          </li>
-
-          <li class="nav-item nav-link mb-3">
-            <i class="fas fa-envelope"></i> &nbsp; {{ email }}
           </li>
 
           <li class="nav-item">
@@ -214,7 +210,6 @@ export default {
       trxPrice: 0,
       percent_change_24h: 0,
       userName: localStorage.getItem("userName"),
-      email: localStorage.getItem("email"),
     };
   },
   mounted: function () {

@@ -2,7 +2,7 @@
   <div>
     <ul class="list-group mb-3">
       <li class="list-group-item">
-        <img src="/static/trx.svg" width="34px" height="34px" />
+        TRX:
         {{ Number(trxPrice).toFixed(3) }} $
         <span
           v-bind:class="
@@ -69,9 +69,6 @@
       <ul class="list-group mb-3">
         <li class="list-group-item text-primary">
           <i class="fas fa-user"></i> &nbsp; {{ userName }}
-        </li>
-        <li class="list-group-item text-primary">
-          <i class="fas fa-envelope"></i> &nbsp; {{ email }}
         </li>
       </ul>
 
@@ -213,7 +210,6 @@ export default {
       trxPrice: 0,
       percent_change_24h: 0,
       userName: localStorage.getItem("userName"),
-      email: localStorage.getItem("email"),
     };
   },
   mounted: function () {

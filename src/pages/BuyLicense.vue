@@ -60,10 +60,8 @@ export default {
   },
   mounted: function () {
     this.getBalance();
-    this.getPrice();
     setInterval(() => {
       this.getBalance();
-      this.getPrice();
     }, 3e4);
   },
   methods: {
@@ -73,6 +71,7 @@ export default {
       this.isLoading = false;
       this.balance = tronWeb.fromSun(bal);
       // console.log(this.balance);
+      this.getPrice();
     },
     getPrice: function () {
       this.isLoading2 = true;
