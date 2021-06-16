@@ -6,7 +6,7 @@
       + This is a Tron wallet, link Tron Ecosystem
       <br />
       + You can import it to any wallet app support Tron
-      <br>
+      <br />
       + Current only support TRX
     </p>
 
@@ -88,13 +88,15 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Private key</h4>
+            <h4 class="modal-title">Export Private Key</h4>
             <button type="button" class="close" data-dismiss="modal">
               &times;
             </button>
           </div>
 
-          <div class="modal-body text-center">
+          <div class="modal-body">
+            <label>Your private key</label>
+
             <div class="input-group mb-3">
               <input v-model="privateKey" type="text" class="form-control" />
 
@@ -126,16 +128,19 @@
             </button>
           </div>
 
-          <div class="modal-body text-center">
-            <p>Only send TRX to this address, 1 confirmation(s) required</p>
+          <div class="modal-body">
+            <p class="text-center">
+              Only send TRX to this address, 1 confirmation(s) required
+            </p>
 
             <qrcode-vue
-              class="my-4"
+              class="my-4 text-center"
               :value="address"
               :size="120"
               level="H"
             ></qrcode-vue>
 
+            <label>Your address</label>
             <div class="input-group mb-3">
               <input v-model="address" type="text" class="form-control" />
 
@@ -169,7 +174,7 @@
 
           <div class="modal-body text-center">
             <div class="form-group text-left">
-              <label>Address</label>
+              <label>To address</label>
               <input v-model="toAddress" type="text" class="form-control" />
             </div>
 
