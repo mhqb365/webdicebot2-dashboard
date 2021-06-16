@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="pb-5 text-center">
+      <div class="jumbotron text-center welcome text-white">
+        <h1>WELCOME</h1>
+      </div>
+    </div>
+
     <div class="pb-5">
       <h2 class="text-primary">Terms of use</h2>
 

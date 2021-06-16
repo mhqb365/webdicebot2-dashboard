@@ -87,7 +87,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #292826;
+  background-color: #f0f0f0;
   z-index: 999999;
 }
 
@@ -119,6 +119,7 @@ export default {
 
 .list-group,
 .list-group-item,
+.jumbotron,
 .alert {
   border: none;
   border-radius: 20px;
@@ -151,7 +152,8 @@ pre {
   border-top-right-radius: 20px;
 }
 
-.gradient-primary {
+.gradient-primary,
+.welcome {
   background-image: linear-gradient(to bottom right, #863ee2, #571f9e);
 }
 
