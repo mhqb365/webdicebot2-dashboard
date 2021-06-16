@@ -6,6 +6,8 @@
       + This is a Tron wallet, link Tron Ecosystem
       <br />
       + You can import it to any wallet app support Tron
+      <br>
+      + Current only support TRX
     </p>
 
     <div class="row">

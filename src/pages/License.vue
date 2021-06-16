@@ -80,7 +80,7 @@
                   }}
                 </td>
                 <td>{{ doc.userName }}</td>
-                <td>{{ doc.limit }}</td>
+                <td>{{ doc.limit }} days</td>
                 <td>
                   {{
                     Number(doc.price) > 0
@@ -91,7 +91,7 @@
                 <td>
                   <div class="input-group mb-3 input-group-sm">
                     <input
-                      type="text"
+                      type="password"
                       class="form-control"
                       :value="doc.value"
                     />
