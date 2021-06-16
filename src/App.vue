@@ -4,7 +4,7 @@
       <div class="spinner">
         <img
           src="/static/favicon.png"
-          class="rounded-circle img-loader border border-white"
+          class="rounded-circle img-loader"
           width="64px"
         />
       </div>
