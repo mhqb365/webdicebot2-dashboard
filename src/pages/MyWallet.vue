@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="col-md-12 mb-3 text-center">
+      <div class="col-md-12 mb-3 text-center control">
         <button
           class="btn btn-success mb-2"
           data-toggle="modal"
@@ -267,4 +267,8 @@ export default {
 </script>
 
 <style>
+.control {
+  position: relative;
+  top: -35px;
+}
 </style>

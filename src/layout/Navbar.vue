@@ -116,7 +116,7 @@
               to="/MyLicense"
               v-bind:class="[this.$route.path == '/MyLicense' ? 'active' : '']"
             >
-              <i class="fas fa-user"></i>
+              <i class="fas fa-key"></i>
               &nbsp; My License
             </router-link>
           </li>
