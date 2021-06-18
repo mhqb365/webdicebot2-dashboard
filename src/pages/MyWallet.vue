@@ -93,40 +93,6 @@
       </div>
     </div>
 
-    <!-- PrivateKey -->
-    <div class="modal fade" id="myModalPrivateKey">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Export Private Key</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <label>Your private key</label>
-
-            <div class="input-group mb-3">
-              <input v-model="privateKey" type="text" class="form-control" />
-
-              <div class="input-group-append">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  v-clipboard="() => privateKey"
-                  v-clipboard:success="clipboardSuccess"
-                  v-clipboard:error="clipboardError"
-                >
-                  Copy
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Recevie -->
     <div class="modal fade" id="myModalRecevie">
       <div class="modal-dialog modal-dialog-centered">
@@ -209,6 +175,40 @@
         </div>
       </div>
     </div>
+
+    <!-- Export -->
+    <div class="modal fade" id="myModalPrivateKey">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Export</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <label>Your private key</label>
+
+            <div class="input-group mb-3">
+              <input v-model="privateKey" type="text" class="form-control" />
+
+              <div class="input-group-append">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  v-clipboard="() => privateKey"
+                  v-clipboard:success="clipboardSuccess"
+                  v-clipboard:error="clipboardError"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -233,18 +233,19 @@ export default {
       balance: 0,
       balanceUsd: 0,
       tronScan: TRON_SCAN,
-      toAddress: "",
-      amount: 0,
       freeNetLimit: 0,
       freeNetRemaining: 0,
       netLimit: 0,
       netRemaining: 0,
       energyLimit: 0,
       energyRemaining: 0,
+      toAddress: "",
+      amount: 0,
     };
   },
   mounted: function () {
     this.getAccount();
+    tronWeb.setPrivateKey(this.privateKey);
   },
   methods: {
     getAccount: function () {
@@ -285,6 +286,7 @@ export default {
         return this.showAlert("Wrong amount", false);
 
       this.isLoading2 = true;
+      
       let dataTransaction = await tronWeb.trx.sendTransaction(
         this.toAddress,
         tronWeb.toSun(Number(this.amount).toFixed(6))
@@ -295,6 +297,7 @@ export default {
       if (dataTransaction.result) {
         this.showAlert("Success");
         $("#myModalSend").modal("hide");
+        this.getAccount();
       } else this.showAlert("Fail, error by Tron.network", false);
     },
   },
