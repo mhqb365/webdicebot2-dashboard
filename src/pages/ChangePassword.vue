@@ -2,36 +2,41 @@
   <div class="pb-5">
     <h2 class="text-primary">Change password</h2>
 
-    <div class="form-group">
-      <label>Current password</label>
-      <input
-        v-model="data.currentPassword"
-        type="password"
-        class="form-control"
-      />
-    </div>
+    <form>
+      <div class="form-group">
+        <label>Current password</label>
+        <input
+          v-model="data.currentPassword"
+          type="password"
+          class="form-control"
+        />
+      </div>
 
-    <div class="form-group">
-      <label>New password</label>
-      <input v-model="data.newPassword" type="password" class="form-control" />
-    </div>
+      <div class="form-group">
+        <label>New password</label>
+        <input
+          v-model="data.newPassword"
+          type="password"
+          class="form-control"
+        />
+      </div>
 
-    <div class="form-group">
-      <label>Re-type new password</label>
-      <input
-        v-model="data.retypeNewPassword"
-        type="password"
-        class="form-control"
-      />
-    </div>
+      <div class="form-group">
+        <label>Re-type new password</label>
+        <input
+          v-model="data.retypeNewPassword"
+          type="password"
+          class="form-control"
+        />
+      </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-      <span class="spinner-border spinner-border-sm"></span>
-    </button>
-
-    <button v-else class="btn btn-primary btn-block" @click="changePassword">
-      Save
-    </button>
+      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+      <button v-else class="btn btn-primary btn-block" @click="changePassword">
+        Save
+      </button>
+    </form>
   </div>
 </template>
 
@@ -52,6 +57,13 @@ export default {
   },
   methods: {
     changePassword: function () {
+      if (
+        !this.data.currentPassword ||
+        !this.data.newPassword ||
+        !this.data.retypeNewPassword
+      )
+        return this.showAlert("Enter all requirements", false);
+
       this.isLoading = true;
       axios({
         url:

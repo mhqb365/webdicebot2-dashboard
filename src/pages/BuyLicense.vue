@@ -6,38 +6,39 @@
       You have
       <span v-if="isLoading" class="spinner-border spinner-border-sm"></span>
       <span v-else>{{ Number(balance).toFixed(6) }} TRX</span>
-      <button type="button" class="btn btn-light btn-sm" @click="getBalance">
+      <button type="button" class="btn btn-light btn-sm" @click="getAccount">
         <i class="fas fa-sync"></i>
       </button>
     </p>
 
-    <div class="form-group">
-      <label>How many day you wanna? Minimum 10 days</label>
-      <input
-        type="number"
-        class="form-control"
-        v-model="data.limit"
-        @change="calculator"
-      />
-    </div>
+    <form>
+      <div class="form-group">
+        <label>How many day you wanna? Minimum 10 days</label>
+        <input
+          type="number"
+          class="form-control"
+          v-model="data.limit"
+          @change="calculator"
+        />
+      </div>
 
-    <p>
-      You will pay ≈
-      <span v-if="isLoading2" class="spinner-border spinner-border-sm"></span>
-      <span v-else>{{ Number(data.price).toFixed(6) }} TRX</span>
-    </p>
+      <p>
+        You will pay ≈
+        <span>{{ Number(data.price).toFixed(6) }} TRX</span>
+      </p>
 
-    <button v-if="isLoading3" class="btn btn-primary btn-block" disabled>
-      <span class="spinner-border spinner-border-sm"></span>
-    </button>
-
-    <button v-else class="btn btn-primary btn-block" @click="buy">Buy</button>
+      <button v-if="isLoading2" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+      <button v-else class="btn btn-primary btn-block" @click="buy">Buy</button>
+    </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import BOT_API from "@/utils/botApi";
+import TRON_API from "@/utils/tronApi";
 import TRON_SCAN from "@/utils/tronScan";
 import tronWeb from "@/utils/tronWeb";
 
@@ -46,7 +47,6 @@ export default {
     return {
       isLoading: false,
       isLoading2: false,
-      isLoading3: false,
       address: localStorage.getItem("address"),
       balance: 0,
       trxPrice: 0,
@@ -59,24 +59,29 @@ export default {
     };
   },
   mounted: function () {
-    this.getBalance();
+    this.getAccount();
     setInterval(() => {
-      this.getBalance();
+      this.getAccount();
     }, 3e4);
   },
   methods: {
-    getBalance: async function () {
+    getAccount: function () {
       this.isLoading = true;
-      let bal = await tronWeb.trx.getBalance(this.address);
-      this.isLoading = false;
-      this.balance = tronWeb.fromSun(bal);
-      // console.log(this.balance);
-      this.getPrice();
+      this.data.price = 0;
+
+      axios({
+        url: TRON_API + "/api/account?address=" + this.address,
+        method: "GET",
+      }).then((response) => {
+        this.isLoading = false;
+        let result = response.data;
+        // console.log(result);
+        this.balance = tronWeb.fromSun(result.balance);
+        this.getPrice();
+      });
     },
     getPrice: function () {
-      this.isLoading2 = true;
       this.getTrxPrice().then((response) => {
-        this.isLoading2 = false;
         // console.log(response);
         this.trxPrice = Number(response.tron.usd).toFixed(6);
         this.calculator();
@@ -89,7 +94,11 @@ export default {
       this.data.price = this.data.limit * Number(this.licensePricePerDays) + 1;
     },
     buy: function () {
-      this.isLoading3 = true;
+      if (!this.data.limit || this.data.limit <= 10)
+        return this.showAlert("Min is 10 days", false);
+
+      this.isLoading2 = true;
+
       axios({
         url:
           BOT_API + "/license/buyLicense/" + localStorage.getItem("userName"),
@@ -100,14 +109,14 @@ export default {
         data: this.data,
       })
         .then((response) => {
-          this.isLoading3 = false;
+          this.isLoading2 = false;
           let res = response.data;
           // console.log(res);
           this.showAlert(res);
           window.location.href = "/MyLicense";
         })
         .catch((error) => {
-          this.isLoading3 = false;
+          this.isLoading2 = false;
           // console.error(error.response.data);
           this.showAlert(error.response.data, false);
         });

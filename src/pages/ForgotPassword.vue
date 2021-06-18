@@ -2,18 +2,19 @@
   <div class="pb-5">
     <h2 class="text-primary">Forgot password</h2>
 
-    <div class="form-group">
-      <label>Email</label>
-      <input v-model="data.email" type="email" class="form-control" />
-    </div>
+    <form>
+      <div class="form-group">
+        <label>Email</label>
+        <input v-model="data.email" type="email" class="form-control" />
+      </div>
 
-    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-      <span class="spinner-border spinner-border-sm"></span>
-    </button>
-
-    <button v-else class="btn btn-primary btn-block" @click="requestPassword">
-      Request
-    </button>
+      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+      </button>
+      <button v-else class="btn btn-primary btn-block" @click="requestPassword">
+        Request
+      </button>
+    </form>
   </div>
 </template>
 
@@ -32,6 +33,9 @@ export default {
   },
   methods: {
     requestPassword: function () {
+      if (!this.data.email)
+        return this.showAlert("Enter all requirements", false);
+
       this.isLoading = true;
       axios({
         url: BOT_API + "/user/forgotPassword",
