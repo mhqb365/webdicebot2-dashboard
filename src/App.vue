@@ -92,9 +92,10 @@ export default {
 }
 
 .spinner {
-  position: relative;
-  top: 46%;
-  left: 46%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .to-top {
