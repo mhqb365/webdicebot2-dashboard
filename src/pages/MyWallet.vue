@@ -286,7 +286,7 @@ export default {
         return this.showAlert("Wrong amount", false);
 
       this.isLoading2 = true;
-      
+
       let dataTransaction = await tronWeb.trx.sendTransaction(
         this.toAddress,
         tronWeb.toSun(Number(this.amount).toFixed(6))
