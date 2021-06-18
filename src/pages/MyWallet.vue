@@ -12,12 +12,9 @@
 
     <div class="row">
       <div class="col-md-12 mb-3">
-        <div class="card gradient-primary p-4">
+        <div class="card gradient-primary p-4 text-center">
           <h4>
-            <span
-              v-if="isLoading"
-              class="spinner-border spinner-border-sm"
-            ></span>
+            <span v-if="isLoading" class="spinner-border"></span>
 
             <span v-else>
               {{ Number(balance).toFixed(6) }}
@@ -36,17 +33,23 @@
             <button
               type="button"
               class="btn btn-light btn-sm"
-              @click="getBalance"
+              @click="getAccount"
             >
               <i class="fas fa-sync"></i>
             </button>
           </span>
 
-          <div class="row text-center p-2">
+          <div class="row p-3 small">
             <div class="col-md-6">
-              <!-- Bandwidth: {{ availableBandwidth }}/{{ totalBandwidth }} -->
+              <i class="fas fa-tachometer-alt"></i>&nbsp; Bandwidth:
+              {{ freeNetRemaining + netRemaining }}/<span class="small">{{
+                freeNetLimit + netLimit
+              }}</span>
             </div>
-            <div class="col-md-6">Energy</div>
+            <div class="col-md-6">
+              <i class="fas fa-gas-pump"></i>&nbsp; Energy:
+              {{ energyRemaining }}/<span class="small">{{ energyLimit }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +79,7 @@
           class="btn btn-info mb-2"
         >
           <i class="fas fa-info-circle"></i>
-          Account Details
+          Details
         </a>
 
         <button
@@ -85,7 +88,7 @@
           data-target="#myModalPrivateKey"
         >
           <i class="fas fa-file-export"></i>
-          Export Private Key
+          Export
         </button>
       </div>
     </div>
@@ -190,7 +193,7 @@
               <input v-model="amount" type="number" class="form-control" />
             </div>
 
-            <button v-if="isLoading3" class="btn btn-primary" disabled>
+            <button v-if="isLoading2" class="btn btn-primary" disabled>
               <span class="spinner-border spinner-border-sm"></span>
             </button>
 
@@ -211,8 +214,10 @@
 
 <script>
 import TRON_SCAN from "@/utils/tronScan";
+import TRON_API from "@/utils/tronApi";
 import tronWeb from "@/utils/tronWeb";
 import QrcodeVue from "qrcode.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -223,7 +228,6 @@ export default {
       tronWeb,
       isLoading: false,
       isLoading2: false,
-      isLoading3: false,
       address: localStorage.getItem("address"),
       privateKey: localStorage.getItem("privateKey"),
       balance: 0,
@@ -231,29 +235,48 @@ export default {
       tronScan: TRON_SCAN,
       toAddress: "",
       amount: 0,
-      availableBandwidth: 0,
-      totalBandwidth: 0,
+      freeNetLimit: 0,
+      freeNetRemaining: 0,
+      netLimit: 0,
+      netRemaining: 0,
+      energyLimit: 0,
+      energyRemaining: 0,
     };
   },
   mounted: function () {
-    this.getBalance();
-    setTimeout(() => this.getBalance(), 3e4);
+    this.getAccount();
   },
   methods: {
-    getBalance: async function () {
+    getAccount: function () {
       this.isLoading = true;
-      this.balanceUsd = 0;
-      let bal = await tronWeb.trx.getBalance(this.address);
-      this.isLoading = false;
-      this.balance = tronWeb.fromSun(bal);
-      // console.log(this.balance);
-      this.getTrxPrice().then((response) => {
-        // console.log(response);
-        this.balanceUsd = Number(response.tron.usd) * this.balance;
-      });
-      let accountResources = await tronWeb.trx.getAccountResources(this.address);
 
-      console.log(accountResources);
+      this.balanceUsd = 0;
+      this.freeNetLimit = 0;
+      this.netLimit = 0;
+      this.freeNetRemaining = 0;
+      this.netRemaining = 0;
+      this.energyLimit = 0;
+      this.energyRemaining = 0;
+
+      axios({
+        url: TRON_API + "/api/account?address=" + this.address,
+        method: "GET",
+      }).then((response) => {
+        this.isLoading = false;
+        let result = response.data;
+        // console.log(result);
+        this.balance = tronWeb.fromSun(result.balance);
+        this.getTrxPrice().then((response) => {
+          // console.log(response);
+          this.balanceUsd = Number(response.tron.usd) * this.balance;
+        });
+        this.freeNetLimit = result.bandwidth.freeNetLimit;
+        this.freeNetRemaining = result.bandwidth.freeNetRemaining;
+        this.netLimit = result.bandwidth.netLimit;
+        this.netRemaining = result.bandwidth.netRemaining;
+        this.energyLimit = result.bandwidth.energyLimit;
+        this.energyRemaining = result.bandwidth.energyRemaining;
+      });
     },
     send: async function () {
       if (!this.toAddress) return this.showAlert("Wrong address", false);
@@ -261,13 +284,13 @@ export default {
       if (!this.amount || Number(this.amount) < 0)
         return this.showAlert("Wrong amount", false);
 
-      this.isLoading3 = true;
+      this.isLoading2 = true;
       let dataTransaction = await tronWeb.trx.sendTransaction(
         this.toAddress,
         tronWeb.toSun(Number(this.amount).toFixed(6))
       );
 
-      this.isLoading3 = false;
+      this.isLoading2 = false;
 
       if (dataTransaction.result) {
         this.showAlert("Success");
