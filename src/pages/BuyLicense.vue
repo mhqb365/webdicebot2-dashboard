@@ -37,7 +37,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 import TRON_SCAN from "@/utils/tronScan";
 import tronWeb from "@/utils/tronWeb";
 
@@ -92,7 +92,7 @@ export default {
       this.isLoading3 = true;
       axios({
         url:
-          API_URL + "/license/buyLicense/" + localStorage.getItem("userName"),
+          BOT_API + "/license/buyLicense/" + localStorage.getItem("userName"),
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),

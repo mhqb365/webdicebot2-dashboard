@@ -37,7 +37,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -55,7 +55,7 @@ export default {
       this.isLoading = true;
       axios({
         url:
-          API_URL + "/user/changePassword/" + localStorage.getItem("userName"),
+          BOT_API + "/user/changePassword/" + localStorage.getItem("userName"),
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),

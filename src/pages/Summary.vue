@@ -164,7 +164,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -199,7 +199,7 @@ export default {
       this.isLoading = true;
 
       axios({
-        url: API_URL + "/license/summary/" + state,
+        url: BOT_API + "/license/summary/" + state,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -248,7 +248,7 @@ export default {
     fetchIncome: function () {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/income",
+        url: BOT_API + "/income",
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -271,7 +271,7 @@ export default {
     addIncome: function () {
       this.isLoading3 = true;
       axios({
-        url: API_URL + "/income",
+        url: BOT_API + "/income",
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),

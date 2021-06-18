@@ -145,7 +145,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -168,7 +168,7 @@ export default {
     licensesList: function (page) {
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/licenseList?page=" + page,
+        url: BOT_API + "/license/licenseList?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -188,7 +188,7 @@ export default {
     action: function (action, license) {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/license/" + action + "/" + license,
+        url: BOT_API + "/license/" + action + "/" + license,
         method: "PUT",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -204,7 +204,7 @@ export default {
       if (this.keyword == "") return this.licensesList(this.page);
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/search/" + this.keyword,
+        url: BOT_API + "/license/search/" + this.keyword,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

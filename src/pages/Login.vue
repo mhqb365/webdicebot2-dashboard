@@ -26,7 +26,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -42,7 +42,7 @@ export default {
     login: function () {
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/login",
+        url: BOT_API + "/user/login",
         method: "POST",
         data: this.data,
       })

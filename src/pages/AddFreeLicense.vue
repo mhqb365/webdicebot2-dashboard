@@ -22,7 +22,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -38,7 +38,7 @@ export default {
     add: function () {
       this.isLoading = true;
       axios({
-        url: API_URL + "/license/addFree",
+        url: BOT_API + "/license/addFree",
         method: "POST",
         headers: {
           Auth: localStorage.getItem("token"),

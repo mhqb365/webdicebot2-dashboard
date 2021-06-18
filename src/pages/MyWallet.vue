@@ -41,6 +41,13 @@
               <i class="fas fa-sync"></i>
             </button>
           </span>
+
+          <div class="row text-center p-2">
+            <div class="col-md-6">
+              <!-- Bandwidth: {{ availableBandwidth }}/{{ totalBandwidth }} -->
+            </div>
+            <div class="col-md-6">Energy</div>
+          </div>
         </div>
       </div>
 
@@ -224,6 +231,8 @@ export default {
       tronScan: TRON_SCAN,
       toAddress: "",
       amount: 0,
+      availableBandwidth: 0,
+      totalBandwidth: 0,
     };
   },
   mounted: function () {
@@ -242,6 +251,9 @@ export default {
         // console.log(response);
         this.balanceUsd = Number(response.tron.usd) * this.balance;
       });
+      let accountResources = await tronWeb.trx.getAccountResources(this.address);
+
+      console.log(accountResources);
     },
     send: async function () {
       if (!this.toAddress) return this.showAlert("Wrong address", false);

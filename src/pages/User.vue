@@ -139,7 +139,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 import TRON_SCAN from "@/utils/tronScan";
 import tronWeb from "@/utils/tronWeb";
 
@@ -172,7 +172,7 @@ export default {
     userList: function (page) {
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/userList?page=" + page,
+        url: BOT_API + "/user/userList?page=" + page,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -197,7 +197,7 @@ export default {
     getProfile: function (userName) {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/user/profile/" + userName,
+        url: BOT_API + "/user/profile/" + userName,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -225,7 +225,7 @@ export default {
       if (this.keyword == "") return this.userList(this.page);
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/search/" + this.keyword,
+        url: BOT_API + "/user/search/" + this.keyword,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

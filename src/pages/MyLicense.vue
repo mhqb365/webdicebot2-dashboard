@@ -138,7 +138,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -164,7 +164,7 @@ export default {
       this.isLoading = true;
       axios({
         url:
-          API_URL +
+          BOT_API +
           "/license/myLicense/" +
           localStorage.getItem("userName") +
           "?page=" +
@@ -194,7 +194,7 @@ export default {
     getSummary: function () {
       this.isLoading2 = true;
       axios({
-        url: API_URL + "/license/mySummary/" + localStorage.getItem("userName"),
+        url: BOT_API + "/license/mySummary/" + localStorage.getItem("userName"),
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),

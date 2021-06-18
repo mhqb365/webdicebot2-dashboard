@@ -19,7 +19,7 @@
 
 <script>
 import axios from "axios";
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -34,7 +34,7 @@ export default {
     requestPassword: function () {
       this.isLoading = true;
       axios({
-        url: API_URL + "/user/forgotPassword",
+        url: BOT_API + "/user/forgotPassword",
         method: "POST",
         headers: {
           //   Auth: localStorage.getItem("token"),

@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import API_URL from "@/utils/apiUrl";
+import BOT_API from "@/utils/botApi";
 
 export default {
   data() {
@@ -82,7 +82,7 @@ export default {
         },
         {
           name: "999dice.com",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/999dice'
@@ -90,7 +90,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "betfury.io - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/betfury-dice'
@@ -98,7 +98,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "betfury.io - limbo",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/betfury-limbo'
@@ -106,7 +106,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "bitdice.me - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/bitdice'
@@ -114,7 +114,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "bitsler.com - boom",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/bitsler-boom'
@@ -122,7 +122,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "bitsler.com - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/bitsler-dice'
@@ -130,7 +130,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "bitvest.io - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/bitvest'
@@ -138,7 +138,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "casinoroyale.bet - dice classic",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/casinoroyale-dice-classic'
@@ -146,7 +146,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "crypto.games - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/crypto-games-dice'
@@ -154,7 +154,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "cryptoplay.io - dice classic",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/cryptoplay-dice'
@@ -162,7 +162,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "cryptoplay.io - limbo",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/cryptoplay-limbo'
@@ -170,7 +170,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "duckdice.io - bonus mode",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/duckdice-bonus-mode'
@@ -178,7 +178,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "duckdice.io - faucet mode",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/duckdice-faucet-mode'
@@ -186,7 +186,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "duckdice.io - main mode",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/duckdice'
@@ -194,7 +194,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "freebitco.in",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/freebitco'
@@ -202,7 +202,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "jacksclub.io - blaze (work on emulator)",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/jacksclub.io-blaze'
@@ -210,7 +210,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "jacksclub.io - dice (work on emulator)",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/jacksclub.io-dice'
@@ -218,7 +218,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "luckyfish.io - dice classic",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/luckyfish-dice-classic'
@@ -226,7 +226,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "luckyfish.io - dice multiplayer",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/luckyfish-dice-multiplayer'
@@ -234,7 +234,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "luckyfish.io - limbo",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/luckyfish-limbo'
@@ -242,7 +242,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "nanogames.io - hash dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/nanogames-hash-dice'
@@ -250,7 +250,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "paradice.in - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/paradice'
@@ -258,7 +258,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "primedice.com",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/primedice'
@@ -266,7 +266,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "stake.com - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/stake-dice'
@@ -274,7 +274,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "stake.com - limbo",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/stake-limbo'
@@ -282,7 +282,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "trustdice.win - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/trustdice-dice'
@@ -290,7 +290,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "wolf.bet - dice",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/wolf-dice'
@@ -298,7 +298,7 @@ document.body.appendChild(script)`,
         },
         {
           name: "wolf.bet - limbo",
-          value: `const BOT_URL = '${API_URL}'
+          value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = BOT_URL+'/bot/init/wolf-limbo'
