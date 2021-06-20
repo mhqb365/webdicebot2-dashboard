@@ -2,41 +2,35 @@
   <div class="pb-5">
     <h2 class="text-primary">Change password</h2>
 
-    <form>
-      <div class="form-group">
-        <label>Current password</label>
-        <input
-          v-model="data.currentPassword"
-          type="password"
-          class="form-control"
-        />
-      </div>
+    <div class="form-group">
+      <label>Current password</label>
+      <input
+        v-model="data.currentPassword"
+        type="password"
+        class="form-control"
+      />
+    </div>
 
-      <div class="form-group">
-        <label>New password</label>
-        <input
-          v-model="data.newPassword"
-          type="password"
-          class="form-control"
-        />
-      </div>
+    <div class="form-group">
+      <label>New password</label>
+      <input v-model="data.newPassword" type="password" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Re-type new password</label>
-        <input
-          v-model="data.retypeNewPassword"
-          type="password"
-          class="form-control"
-        />
-      </div>
+    <div class="form-group">
+      <label>Re-type new password</label>
+      <input
+        v-model="data.retypeNewPassword"
+        type="password"
+        class="form-control"
+      />
+    </div>
 
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
-      <button v-else class="btn btn-primary btn-block" @click="changePassword">
-        Save
-      </button>
-    </form>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+    <button v-else class="btn btn-primary btn-block" @click="changePassword">
+      Save
+    </button>
   </div>
 </template>
 

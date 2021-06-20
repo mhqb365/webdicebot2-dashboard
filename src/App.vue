@@ -22,7 +22,7 @@
           <router-view />
         </div>
 
-        <a class="to-top pl-2 pr-2" href="#app">
+        <a class="gotop pl-2 pr-2" href="#app">
           <i class="fas fa-angle-up" style="font-size: 36px"></i>
         </a>
       </div>
@@ -55,13 +55,13 @@ export default {
     let duration = 5e2;
     $(window).scroll(function () {
       if ($(this).scrollTop() > 2e2) {
-        $(".to-top").fadeIn(duration);
+        $(".gotop").fadeIn(duration);
       } else {
-        $(".to-top").fadeOut(duration);
+        $(".gotop").fadeOut(duration);
       }
     });
 
-    $(".to-top").click(function (event) {
+    $(".gotop").click(function (event) {
       event.preventDefault();
       $("html").animate({ scrollTop: 0 }, duration);
       return false;
@@ -87,7 +87,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #f0f0f0;
+  background-color: white;
   z-index: 999999;
 }
 
@@ -98,7 +98,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-.to-top {
+.gotop {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -106,51 +106,26 @@ export default {
   color: #fff;
   background: #007bff;
   display: none;
-  border: 1px solid transparent;
-  border-radius: 20px;
 }
 
-.to-top:hover {
-  text-decoration: none;
+.gotop:hover {
   color: #fff;
-  background: #0069d9;
-  border: 1px solid transparent;
-  border-radius: 20px;
-}
-
-.list-group,
-.list-group-item,
-.jumbotron,
-.alert {
-  border: none;
-  border-radius: 20px;
-  margin-bottom: 5px;
-}
-
-.list-group-item {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-pre {
-  border-radius: 20px;
-  padding: 20px;
 }
 
 .btn,
-.form-control {
-  /* border: 1px solid #000; */
+.card,
+.gotop,
+.form-control,
+.jumbotron,
+.list-group,
+.modal-content,
+pre {
   border-radius: 20px;
 }
 
-.card {
-  color: white;
-  border: none;
-  border-radius: 20px;
-}
-
-.card-body {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+pre {
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .gradient-primary,
@@ -191,5 +166,9 @@ pre {
 .input-group-sm > .input-group-append > .btn {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+table > .table > thead {
+  border-top: none
 }
 </style>

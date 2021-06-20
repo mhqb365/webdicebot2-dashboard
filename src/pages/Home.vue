@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="pb-5 text-center">
+    <div class="text-center">
       <div class="jumbotron text-center welcome text-white">
         <h1>WELCOME</h1>
         to WebDiceBot.Xyz
       </div>
     </div>
 
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">Terms of use</h2>
 
       <p class="small">
@@ -16,7 +16,7 @@
         legal binding between the user and all services found on webdicebot.xyz
       </p>
 
-      <pre class="bg-white shadow-sm">
+      <pre>
 1. You must know what is dice, dice bot, dice script
 2. You must know the Lua language (v5.3) or Javascript language for make dice script
 3. You must control your crypto currency in dice
@@ -26,10 +26,10 @@
       >
     </div>
 
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">How to use</h2>
 
-      <pre class="bg-white shadow-sm">
+      <pre>
 Step 1: Join to the Web DiceBot system via Register/Login
 Step 2: Deposit TRX (Tron) at My Wallet then buy license with days you want at Buy License
 Step 3: Select dice site then copy installer script at Bot Installer
@@ -37,11 +37,11 @@ Step 4: Paste installer script to console of dice site then follow next request<
       >
     </div>
 
-    <div class="row pb-5">
+    <div class="row mb-4">
       <div class="col-md-6">
         <h2 class="text-primary">Sample Lua dice script</h2>
 
-        <pre class="bg-white shadow-sm">
+        <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -59,7 +59,7 @@ end</pre
       <div class="col-md-6">
         <h2 class="text-primary">Sample Javascript dice script</h2>
 
-        <pre class="bg-white shadow-sm">
+        <pre>
 chance=49.5
 bethigh=true
 basebet=0.00000001
@@ -76,10 +76,10 @@ function dobet() {
       </div>
     </div>
 
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">System variables</h2>
 
-      <pre class="bg-white shadow-sm">
+      <pre>
 chance : % win change
 bethigh : bet side, true is over/above, false is under/below
 nextbet : bet amount for next bet make
@@ -102,10 +102,10 @@ currentstreak : streak of bet count
       >
     </div>
 
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">System functions</h2>
 
-      <pre class="bg-white shadow-sm">
+      <pre>
 dobet() : loop betting
 start() : start betting
 stop() : stop betting

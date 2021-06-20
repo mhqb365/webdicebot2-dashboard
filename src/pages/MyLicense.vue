@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">Summary</h2>
 
       <div class="row">
-        <div class="col-md-6 mb-3">
-          <div class="card gradient-primary p-4">
+        <div class="col-md-6 mb-3 text-white">
+          <div class="card gradient-primary p-4 border border-0">
             Total license
             <br />
             <h4>
@@ -14,8 +14,8 @@
             </h4>
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <div class="card gradient-danger p-4">
+        <div class="col-md-6 mb-3 text-white">
+          <div class="card gradient-danger p-4 border border-0">
             Spend
             <br />
             <h4>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="pb-5">
+    <div class="mb-4">
       <h2 class="text-primary">My license</h2>
 
       <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
@@ -55,82 +55,74 @@
         <span class="text-warning">Yellow</span>: Locked license
       </p>
 
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <div class="table-responsive-sm">
-            <div v-if="isLoading" class="spinner-border text-muted"></div>
+      <div class="table-responsive-sm">
+        <div v-if="isLoading" class="spinner-border text-muted"></div>
 
-            <table v-else class="table table-hover table-sm">
-              <thead>
-                <tr>
-                  <th>Price</th>
-                  <th>License</th>
-                  <th>Begin</th>
-                  <th>End</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="doc in docs"
-                  :key="doc._id"
-                  v-bind:class="[
-                    (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
-                      ? 'text-danger'
-                      : doc.locked
-                      ? 'text-warning'
-                      : doc.type == 'Pay'
-                      ? 'text-success'
-                      : 'text-dark',
-                  ]"
-                >
-                  <td>
-                    {{
-                      Number(doc.price) > 0
-                        ? Number(doc.price).toFixed(6) + " TRX"
-                        : "Free"
-                    }}
-                  </td>
-                  <td>
-                    <div class="input-group mb-3 input-group-sm">
-                      <input
-                        type="text"
-                        class="form-control"
-                        :value="doc.value"
-                      />
-                      <div class="input-group-append">
-                        <button
-                          type="button"
-                          class="btn btn-primary btn-sm"
-                          v-clipboard="() => doc.value"
-                          v-clipboard:success="clipboardSuccess"
-                          v-clipboard:error="clipboardError"
-                        >
-                          Copy
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    {{
-                      new Date(doc.time).toLocaleString("en-GB", {
-                        timeZone: "UTC",
-                      })
-                    }}
-                  </td>
-                  <td>
-                    {{
-                      new Date(
-                        Number(864e5 * doc.limit) + Number(new Date(doc.time))
-                      ).toLocaleString("en-GB", {
-                        timeZone: "UTC",
-                      })
-                    }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <table v-else class="table table-hover table-sm">
+          <thead>
+            <tr>
+              <th>Price</th>
+              <th>License</th>
+              <th>Begin</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="doc in docs"
+              :key="doc._id"
+              v-bind:class="[
+                (Date.now() - new Date(doc.time)) / 864e5 > doc.limit
+                  ? 'text-danger'
+                  : doc.locked
+                  ? 'text-warning'
+                  : doc.type == 'Pay'
+                  ? 'text-success'
+                  : 'text-dark',
+              ]"
+            >
+              <td>
+                {{
+                  Number(doc.price) > 0
+                    ? Number(doc.price).toFixed(6) + " TRX"
+                    : "Free"
+                }}
+              </td>
+              <td>
+                <div class="input-group mb-3 input-group-sm">
+                  <input type="text" class="form-control" :value="doc.value" />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      v-clipboard="() => doc.value"
+                      v-clipboard:success="clipboardSuccess"
+                      v-clipboard:error="clipboardError"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td>
+                {{
+                  new Date(doc.time).toLocaleString("en-GB", {
+                    timeZone: "UTC",
+                  })
+                }}
+              </td>
+              <td>
+                {{
+                  new Date(
+                    Number(864e5 * doc.limit) + Number(new Date(doc.time))
+                  ).toLocaleString("en-GB", {
+                    timeZone: "UTC",
+                  })
+                }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

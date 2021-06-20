@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-5">
+  <div class="mb-4">
     <h2 class="text-primary">My wallet</h2>
 
     <p class="small">
@@ -11,8 +11,8 @@
     </p>
 
     <div class="row">
-      <div class="col-md-12 mb-3">
-        <div class="card gradient-primary p-4 text-center">
+      <div class="col-md-12">
+        <div class="card gradient-primary p-4 text-center text-white border border-0">
           <h4>
             <span v-if="isLoading" class="spinner-border"></span>
 
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="col-md-12 mb-3 text-center control">
+      <div class="col-md-12 text-center control">
         <button
           class="btn btn-success mb-2"
           data-toggle="modal"
@@ -307,6 +307,6 @@ export default {
 <style>
 .control {
   position: relative;
-  top: -35px;
+  top: -20px;
 }
 </style>

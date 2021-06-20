@@ -2,22 +2,20 @@
   <div class="pb-5">
     <h2 class="text-primary">Add free license</h2>
 
-    <form>
-      <div class="form-group">
-        <label>Username</label>
-        <input v-model="data.userName" type="text" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input v-model="data.userName" type="text" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Limit</label>
-        <input v-model="data.limit" type="number" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Limit</label>
+      <input v-model="data.limit" type="number" class="form-control" />
+    </div>
 
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
-      <button v-else class="btn btn-primary btn-block" @click="add">Add</button>
-    </form>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+    <button v-else class="btn btn-primary btn-block" @click="add">Add</button>
   </div>
 </template>
 

@@ -2,19 +2,17 @@
   <div class="pb-5">
     <h2 class="text-primary">Forgot password</h2>
 
-    <form>
-      <div class="form-group">
-        <label>Email</label>
-        <input v-model="data.email" type="email" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input v-model="data.email" type="email" class="form-control" />
+    </div>
 
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
-      <button v-else class="btn btn-primary btn-block" @click="requestPassword">
-        Request
-      </button>
-    </form>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
+    <button v-else class="btn btn-primary btn-block" @click="requestPassword">
+      Request
+    </button>
   </div>
 </template>
 

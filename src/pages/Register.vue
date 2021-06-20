@@ -4,39 +4,37 @@
 
     <p class="small">+ Account only use at webdicebot.xyz</p>
 
-    <form>
-      <div class="form-group">
-        <label>Username</label>
-        <input v-model="data.userName" type="text" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input v-model="data.userName" type="text" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input v-model="data.email" type="email" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input v-model="data.email" type="email" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input v-model="data.password" type="password" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input v-model="data.password" type="password" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Re-type password</label>
-        <input
-          v-model="data.retypePassword"
-          type="password"
-          class="form-control"
-        />
-      </div>
+    <div class="form-group">
+      <label>Re-type password</label>
+      <input
+        v-model="data.retypePassword"
+        type="password"
+        class="form-control"
+      />
+    </div>
 
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
 
-      <button v-else class="btn btn-primary btn-block" @click="register">
-        Register
-      </button>
-    </form>
+    <button v-else class="btn btn-primary btn-block" @click="register">
+      Register
+    </button>
   </div>
 </template>
 

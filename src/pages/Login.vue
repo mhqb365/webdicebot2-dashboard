@@ -4,25 +4,23 @@
 
     <p class="small">+ Account only use at webdicebot.xyz</p>
 
-    <form>
-      <div class="form-group">
-        <label>Username</label>
-        <input v-model="data.userName" type="text" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input v-model="data.userName" type="text" class="form-control" />
+    </div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input v-model="data.password" type="password" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input v-model="data.password" type="password" class="form-control" />
+    </div>
 
-      <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-      </button>
+    <button v-if="isLoading" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+    </button>
 
-      <button v-else class="btn btn-primary btn-block" @click="login">
-        Login
-      </button>
-    </form>
+    <button v-else class="btn btn-primary btn-block" @click="login">
+      Login
+    </button>
   </div>
 </template>
 
