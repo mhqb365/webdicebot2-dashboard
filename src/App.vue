@@ -128,8 +128,12 @@ pre {
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.gradient-primary,
 .welcome {
+  background: #292826;
+  color: #f9d342;
+}
+
+.gradient-primary {
   background-image: linear-gradient(to bottom right, #863ee2, #571f9e);
 }
 
@@ -169,6 +173,6 @@ pre {
 }
 
 table > .table > thead {
-  border-top: none
+  border-top: none;
 }
 </style>
