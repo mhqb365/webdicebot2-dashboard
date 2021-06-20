@@ -12,7 +12,15 @@
 
     <div class="row">
       <div class="col-md-12">
-        <div class="card gradient-primary p-4 text-center text-white border border-0">
+        <div
+          class="
+            card
+            gradient-primary
+            p-4
+            text-center text-white
+            border border-0
+          "
+        >
           <h4>
             <span v-if="isLoading" class="spinner-border"></span>
 
@@ -61,7 +69,7 @@
           data-target="#myModalRecevie"
         >
           <i class="fas fa-arrow-down"></i>
-          Receive
+          &nbsp; Receive
         </button>
 
         <button
@@ -70,7 +78,7 @@
           data-target="#myModalSend"
         >
           <i class="fas fa-arrow-up"></i>
-          Send
+          &nbsp; Send
         </button>
 
         <a
@@ -79,7 +87,7 @@
           class="btn btn-info mb-2"
         >
           <i class="fas fa-info-circle"></i>
-          Details
+          &nbsp; Details
         </a>
 
         <button
@@ -88,7 +96,7 @@
           data-target="#myModalPrivateKey"
         >
           <i class="fas fa-file-export"></i>
-          Export
+          &nbsp; Export
         </button>
       </div>
     </div>

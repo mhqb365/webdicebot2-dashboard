@@ -23,7 +23,7 @@
         </div>
 
         <a class="gotop pl-2 pr-2" href="#app">
-          <i class="fas fa-angle-up" style="font-size: 36px"></i>
+          <i class="fas fa-angle-up text-white" style="font-size: 36px"></i>
         </a>
       </div>
     </div>
@@ -103,7 +103,7 @@ export default {
   bottom: 20px;
   right: 20px;
   text-decoration: none;
-  color: #fff;
+  /* color: #fff; */
   background: #007bff;
   display: none;
 }

@@ -2,8 +2,12 @@
   <div class="pb-5">
     <h2 class="text-primary">Forgot password</h2>
 
+    <p class="small">
+      + Enter email has been register in Web DiceBot to request temp password
+    </p>
+
     <div class="form-group">
-      <label>Email</label>
+      <label>Your email</label>
       <input v-model="data.email" type="email" class="form-control" />
     </div>
 
