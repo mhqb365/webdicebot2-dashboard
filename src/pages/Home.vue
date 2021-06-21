@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">
-      <div class="jumbotron text-center welcome">
+      <div class="jumbotron text-center gradient-primary text-white">
         <h1>WELCOME</h1>
         to WebDiceBot.Xyz
       </div>
