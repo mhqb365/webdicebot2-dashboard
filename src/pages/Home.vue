@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">Terms of use</h2>
 
       <p class="small">
@@ -26,7 +26,7 @@
       >
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">How to use</h2>
 
       <pre>
@@ -37,7 +37,7 @@ Step 4: Paste installer script to console of dice site then follow next request<
       >
     </div>
 
-    <div class="row mb-4">
+    <div class="row pb-4">
       <div class="col-md-6">
         <h2 class="text-primary">Sample Lua dice script</h2>
 
@@ -76,7 +76,7 @@ function dobet() {
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">System variables</h2>
 
       <pre>
@@ -102,7 +102,7 @@ currentstreak : streak of bet count
       >
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">System functions</h2>
 
       <pre>
