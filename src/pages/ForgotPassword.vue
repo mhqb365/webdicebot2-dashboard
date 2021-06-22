@@ -7,7 +7,7 @@
     </p>
 
     <div class="form-group">
-      <label>Your email</label>
+      <label>Email:</label>
       <input v-model="data.email" type="email" class="form-control" />
     </div>
 

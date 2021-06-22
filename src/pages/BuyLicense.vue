@@ -12,10 +12,15 @@
       <button type="button" class="btn btn-light btn-sm" @click="getAccount">
         <i class="fas fa-sync"></i>
       </button>
+      <br />
+      You will pay ≈
+      <span
+        >{{ Number(data.price).toFixed(6) }} TRX for {{ data.limit }} days license</span
+      >
     </p>
 
     <div class="form-group">
-      <label>How many day you wanna? Minimum 10 days</label>
+      <label>Number of days you want:</label>
       <input
         type="number"
         class="form-control"
@@ -23,11 +28,6 @@
         @change="calculator"
       />
     </div>
-
-    <p>
-      You will pay ≈
-      <span>{{ Number(data.price).toFixed(6) }} TRX</span>
-    </p>
 
     <button v-if="isLoading2" class="btn btn-primary btn-block" disabled>
       <span class="spinner-border spinner-border-sm"></span>

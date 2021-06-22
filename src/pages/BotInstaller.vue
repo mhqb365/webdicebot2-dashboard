@@ -15,6 +15,7 @@
       </p>
 
       <div class="form-group">
+        <label>Select casino you play:</label>
         <select class="form-control" v-model="selectName" @change="changeBot">
           <option v-for="bot in bots" :key="bot.name" :value="bot.name">
             {{ bot.name }}
@@ -23,6 +24,7 @@
       </div>
 
       <div class="form-group">
+        <label>Installer script:</label>
         <textarea class="form-control" rows="5" v-model="selectValue">
         </textarea>
       </div>

@@ -3,7 +3,7 @@
     <h2 class="text-primary">Change password</h2>
 
     <div class="form-group">
-      <label>Current password</label>
+      <label>Current password:</label>
       <input
         v-model="data.currentPassword"
         type="password"
@@ -12,12 +12,12 @@
     </div>
 
     <div class="form-group">
-      <label>New password</label>
+      <label>New password:</label>
       <input v-model="data.newPassword" type="password" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Re-type new password</label>
+      <label>Re-type new password:</label>
       <input
         v-model="data.retypeNewPassword"
         type="password"

@@ -5,22 +5,22 @@
     <p class="small">+ Account only use at webdicebot.xyz</p>
 
     <div class="form-group">
-      <label>Username</label>
+      <label>Username:</label>
       <input v-model="data.userName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Email</label>
+      <label>Email:</label>
       <input v-model="data.email" type="email" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Password</label>
+      <label>Password:</label>
       <input v-model="data.password" type="password" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Re-type password</label>
+      <label>Re-type password:</label>
       <input
         v-model="data.retypePassword"
         type="password"

@@ -124,7 +124,7 @@
               level="H"
             ></qrcode-vue>
 
-            <label>Your address</label>
+            <label>Your address:</label>
             <div class="input-group mb-3">
               <input v-model="address" type="text" class="form-control" />
 
@@ -158,12 +158,12 @@
 
           <div class="modal-body text-center">
             <div class="form-group text-left">
-              <label>To address</label>
+              <label>To address:</label>
               <input v-model="toAddress" type="text" class="form-control" />
             </div>
 
             <div class="form-group text-left">
-              <label>Amount</label>
+              <label>Amount:</label>
               <input v-model="amount" type="number" class="form-control" />
             </div>
 
@@ -196,7 +196,7 @@
           </div>
 
           <div class="modal-body">
-            <label>Your private key</label>
+            <label>Your private key:</label>
 
             <div class="input-group mb-3">
               <input v-model="privateKey" type="text" class="form-control" />

@@ -5,12 +5,12 @@
     <p class="small">+ Account only use at webdicebot.xyz</p>
 
     <div class="form-group">
-      <label>Username</label>
+      <label>Username:</label>
       <input v-model="data.userName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Password</label>
+      <label>Password:</label>
       <input v-model="data.password" type="password" class="form-control" />
     </div>
 

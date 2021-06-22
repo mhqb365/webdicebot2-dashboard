@@ -3,12 +3,12 @@
     <h2 class="text-primary">Add free license</h2>
 
     <div class="form-group">
-      <label>Username</label>
+      <label>Username:</label>
       <input v-model="data.userName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
-      <label>Limit</label>
+      <label>Days:</label>
       <input v-model="data.limit" type="number" class="form-control" />
     </div>
 
