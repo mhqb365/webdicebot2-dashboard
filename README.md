@@ -1,4 +1,4 @@
-# webdicebot2-fe
+# webdicebot2-dashboard
 
 > A Vue.js project
 
