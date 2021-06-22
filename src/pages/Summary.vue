@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="pb-5">
+    <div class="pb-4">
       <h2 class="text-primary">Summary</h2>
 
       <ul class="pagination">

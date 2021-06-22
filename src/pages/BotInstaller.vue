@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">Bot installer</h2>
 
       <p class="small">
@@ -39,15 +39,15 @@
       </button>
     </div>
 
-    <div>
-      <h2 class="text-primary">How to use installer?</h2>
+    <div class="pb-4">
+      <h2 class="text-primary">How to use bot installer?</h2>
       <video class="card w-50" controls>
         <source src="/static/Video-2021-06-23-021547.mp4" type="video/mp4" />
         Your browser does not support HTML video
       </video>
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">Emulator</h2>
       <p class="small">
         + Emulator is a dice sites simulation. It will help Web DiceBot work
@@ -65,7 +65,7 @@
       </ul>
     </div>
 
-    <div>
+    <div class="pb-4">
       <h2 class="text-primary">How to use emulator?</h2>
       <video class="card w-50" controls>
         <source src="/static/Video-2021-06-09-215627.mp4" type="video/mp4" />

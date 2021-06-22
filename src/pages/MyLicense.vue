@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">Summary</h2>
 
       <div class="row">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="pb-4">
       <h2 class="text-primary">My license</h2>
 
       <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>

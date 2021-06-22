@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="pb-4">
     <h2 class="text-primary">My wallet</h2>
 
     <p class="small">

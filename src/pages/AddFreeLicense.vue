@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-5">
+  <div class="pb-4">
     <h2 class="text-primary">Add free license</h2>
 
     <div class="form-group">

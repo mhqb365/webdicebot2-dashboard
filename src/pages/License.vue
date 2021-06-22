@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-5">
+  <div class="pb-4">
     <h2 class="text-primary"># License list</h2>
 
     <p>Total: {{ totalDocs }} | Pages: {{ totalPages }}</p>
