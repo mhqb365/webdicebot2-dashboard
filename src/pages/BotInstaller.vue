@@ -39,6 +39,14 @@
       </button>
     </div>
 
+    <div>
+      <h2 class="text-primary">How to use installer?</h2>
+      <video class="card w-50" controls>
+        <source src="/static/Video-2021-06-23-021547.mp4" type="video/mp4" />
+        Your browser does not support HTML video
+      </video>
+    </div>
+
     <div class="mb-4">
       <h2 class="text-primary">Emulator</h2>
       <p class="small">
@@ -56,10 +64,9 @@
         </li>
       </ul>
     </div>
-    
+
     <div>
       <h2 class="text-primary">How to use emulator?</h2>
-      <p></p>
       <video class="card w-50" controls>
         <source src="/static/Video-2021-06-09-215627.mp4" type="video/mp4" />
         Your browser does not support HTML video
