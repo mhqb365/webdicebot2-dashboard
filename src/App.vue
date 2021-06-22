@@ -103,7 +103,6 @@ export default {
   bottom: 20px;
   right: 20px;
   text-decoration: none;
-  /* color: #fff; */
   background: #007bff;
   display: none;
 }
@@ -165,9 +164,5 @@ pre {
 .input-group-sm > .input-group-append > .btn {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-}
-
-table > .table > thead {
-  border-top: none;
 }
 </style>

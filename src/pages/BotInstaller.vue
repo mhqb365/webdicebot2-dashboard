@@ -254,7 +254,15 @@ document.body.appendChild(script)`,
           value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
-script.src = BOT_URL+'/bot/init/paradice'
+script.src = BOT_URL+'/bot/init/pasino.com-hash-dice'
+document.body.appendChild(script)`,
+        },
+        {
+          name: "pasino.com - hash dice",
+          value: `const BOT_URL = '${BOT_API}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/pasino.com-hash-dice'
 document.body.appendChild(script)`,
         },
         {
