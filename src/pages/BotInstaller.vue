@@ -115,6 +115,14 @@ script.src = BOT_URL+'/bot/init/betfury-limbo'
 document.body.appendChild(script)`,
         },
         {
+          name: "betking.io",
+          value: `const BOT_URL = '${BOT_API}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/betking.io'
+document.body.appendChild(script)`,
+        },
+        {
           name: "bitdice.me - dice",
           value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')

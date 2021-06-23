@@ -3,7 +3,7 @@
     <div class="spinner-wrapper">
       <div class="spinner">
         <img
-          src="/static/favicon.png"
+          src="/static/logo.png"
           class="rounded-circle img-loader"
           width="64px"
         />

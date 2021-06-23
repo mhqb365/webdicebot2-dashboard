@@ -15,7 +15,8 @@
       <br />
       You will pay ≈
       <span
-        >{{ Number(data.price).toFixed(6) }} TRX for {{ data.limit }} days license</span
+        >{{ Number(data.price).toFixed(6) }} TRX for {{ data.limit }} days
+        license</span
       >
     </p>
 
@@ -95,7 +96,7 @@ export default {
       this.data.price = this.data.limit * Number(this.licensePricePerDays) + 1;
     },
     buy: function () {
-      if (!this.data.limit || this.data.limit <= 10)
+      if (!this.data.limit || this.data.limit < 10)
         return this.showAlert("Min is 10 days", false);
 
       this.isLoading2 = true;
