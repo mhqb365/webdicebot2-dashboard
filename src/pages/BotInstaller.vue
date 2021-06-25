@@ -219,6 +219,14 @@ script.src = BOT_URL+'/bot/init/faucetpay.io-dice'
 document.body.appendChild(script)`,
         },
         {
+          name: "faucetpay.io - limbo",
+          value: `const BOT_URL = '${BOT_API}'
+var script = document.createElement('script')
+script.type = 'text/javascript'
+script.src = BOT_URL+'/bot/init/faucetpay.io-limbo'
+document.body.appendChild(script)`,
+        },
+        {
           name: "freebitco.in",
           value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
