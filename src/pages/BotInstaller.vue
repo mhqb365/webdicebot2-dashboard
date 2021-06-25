@@ -58,8 +58,8 @@
 
       <ul class="list-group">
         <li class="list-group-item">
-          <a href="https://jacksclub-emulator.webdicebot.xyz/" target="_blank">
-            JacksClub.io Emulator
+          <a href="https://jacksclub.webdicebot.xyz" target="_blank">
+            jacksclub.io emulator
           </a>
         </li>
       </ul>
