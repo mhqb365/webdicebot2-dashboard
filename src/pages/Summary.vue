@@ -29,7 +29,9 @@
 
       <div class="row">
         <div class="col-md-6 mb-3">
-          <div class="card gradient-primary p-4 summary border border-0 text-white">
+          <div
+            class="card gradient-primary p-4 summary border border-0 text-white"
+          >
             Income
             <br />
             <h4>
@@ -49,7 +51,9 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card gradient-danger p-4 summary border border-0 text-white">
+          <div
+            class="card gradient-danger p-4 summary border border-0 text-white"
+          >
             License
             <br />
             <h4>
@@ -60,7 +64,9 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card gradient-warning p-4 summary border border-0 text-white">
+          <div
+            class="card gradient-warning p-4 summary border border-0 text-white"
+          >
             Pay
             <br />
             <h4>
@@ -71,7 +77,9 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <div class="card gradient-info p-4 summary border border-0 text-white">
+          <div
+            class="card gradient-info p-4 summary border border-0 text-white"
+          >
             Free
             <br />
             <h4>
@@ -240,6 +248,7 @@ export default {
         });
     },
     fetchIncome: function () {
+      this.incomeVnd = 0;
       this.isLoading2 = true;
       axios({
         url: BOT_API + "/income",
@@ -280,6 +289,7 @@ export default {
           this.amountIncome = 0;
           // console.log(res);
           this.showAlert(res);
+          $("#myModal").modal("hide");
           this.fetchIncome();
         })
         .catch((error) => {
