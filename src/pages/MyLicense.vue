@@ -180,7 +180,7 @@ export default {
         .catch((error) => {
           this.isLoading = false;
           this.showAlert(error.response.data, false);
-          window.location.href = "/Logout";
+          setTimeout(() => this.$router.push({ path: "/Logout" }), 1e3);
         });
     },
     getSummary: function () {
@@ -204,7 +204,7 @@ export default {
         .catch((error) => {
           this.isLoading2 = false;
           this.showAlert(error.response.data, false);
-          window.location.href = "/Logout";
+          setTimeout(() => this.$router.push({ path: "/Logout" }), 1e3);
         });
     },
   },

@@ -71,6 +71,32 @@
               >
                 Profile
               </button>
+
+              <span v-if="isLoading4">
+                <button class="btn btn-warning btn-sm" disabled>
+                  <span class="spinner-border spinner-border-sm"></span>
+                </button>
+              </span>
+
+              <span v-else>
+                <button
+                  v-if="doc.locked == false"
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                  @click="lockUser('lock', doc._id)"
+                >
+                  Lock
+                </button>
+
+                <button
+                  v-else
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                  @click="lockUser('unlock', doc._id)"
+                >
+                  Unlock
+                </button>
+              </span>
             </td>
           </tr>
         </tbody>
@@ -140,6 +166,7 @@ export default {
       isLoading: false,
       isLoading2: false,
       isLoading3: false,
+      isLoading4: false,
       docs: [],
       page: 1,
       totalDocs: 0,
@@ -204,6 +231,27 @@ export default {
         .catch((error) => {
           this.isLoading2 = false;
           this.showAlert(error.response.data, false);
+        });
+    },
+    lockUser: function (type, id) {
+      this.isLoading4 = true;
+      axios({
+        url: BOT_API + "/user/" + type + "/" + id,
+        method: "PUT",
+        headers: {
+          Auth: localStorage.getItem("token"),
+        },
+      })
+        .then((response) => {
+          this.isLoading4 = false;
+          let res = response.data;
+          // console.log(res);
+          this.showAlert(res);
+          this.userList();
+        })
+        .catch((error) => {
+          this.isLoading4 = false;
+          this.showAlert(error.response, false);
         });
     },
     getBalance: async function () {

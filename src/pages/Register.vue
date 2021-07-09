@@ -89,7 +89,7 @@ export default {
           localStorage.setItem("permission", res.permission);
           localStorage.setItem("token", res.token);
           this.showAlert("Register success");
-          window.location.href = "/";
+          setTimeout(() => this.$router.push({ path: "/Login" }), 1e3);
         })
         .catch((error) => {
           this.isLoading = false;

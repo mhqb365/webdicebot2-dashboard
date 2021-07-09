@@ -52,7 +52,7 @@ export default {
           let res = response.data;
           // console.log(res);
           this.showAlert(res);
-          this.data.email = "";
+          setTimeout(() => this.$router.push({ path: "/Login" }), 1e3);
         })
         .catch((error) => {
           this.isLoading = false;
