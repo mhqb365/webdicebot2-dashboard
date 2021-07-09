@@ -94,11 +94,7 @@
     <div class="pb-5">
       <h2 class="text-primary">Real income VNĐ</h2>
 
-      <p class="small">
-        + Real income VNĐ begin count from 05/2021
-        <br />
-        + Only add when sold TRX income
-      </p>
+      <p class="small">+ Count from 01/06/2021</p>
 
       <button
         type="button"
@@ -109,9 +105,38 @@
         Add
       </button>
 
+      <ul class="pagination">
+        <li
+          class="page-item"
+          v-bind:class="[state2 == 'ThisYear' ? 'active' : '']"
+        >
+          <button class="page-link" @click="fetchIncome('ThisYear')">
+            This year
+          </button>
+        </li>
+
+        <li
+          class="page-item"
+          v-bind:class="[state2 == 'LastYear' ? 'active' : '']"
+        >
+          <button class="page-link" @click="fetchIncome('LastYear')">
+            Last year
+          </button>
+        </li>
+
+        <li
+          class="page-item"
+          v-bind:class="[state2 == 'TotalYear' ? 'active' : '']"
+        >
+          <button class="page-link" @click="fetchIncome('TotalYear')">
+            Total
+          </button>
+        </li>
+      </ul>
+
       <ul class="list-group">
         <li class="list-group-item">
-          Total:
+          Real income:
           <span
             v-if="isLoading2"
             class="spinner-border spinner-border-sm"
@@ -124,6 +149,12 @@
           }}</span>
         </li>
       </ul>
+
+      <div
+        class="pt-4"
+        id="chartContainer"
+        style="height: 360px; width: 100%"
+      ></div>
     </div>
 
     <div class="modal fade" id="myModal">
@@ -176,6 +207,7 @@ export default {
       isLoading3: false,
       userName: "",
       state: "ThisMonth",
+      state2: "ThisYear",
       income: 0,
       license: 0,
       pay: 0,
@@ -184,11 +216,37 @@ export default {
       address: localStorage.getItem("address"),
       incomeVnd: 0,
       amountIncome: 0,
+      chartOptions: {
+        theme: "light2",
+        toolTip: {
+          enabled: false,
+        },
+        axisX: {
+          valueFormatString: "D/M/YYYY",
+        },
+        axisY: {
+          gridThickness: 0,
+          tickLength: 0,
+          lineThickness: 0,
+          labelFormatter: function () {
+            return "";
+          },
+        },
+        data: [
+          {
+            type: "column",
+            dataPoints: [],
+          },
+        ],
+      },
+      chart: null,
     };
   },
   mounted: function () {
     this.summary(this.state);
-    this.fetchIncome();
+    this.fetchIncome(this.state2);
+    this.chart = new CanvasJS.Chart("chartContainer", this.chartOptions);
+    // this.chart.render();
   },
   methods: {
     summary: function (state) {
@@ -247,11 +305,12 @@ export default {
           this.showAlert(error.response.data, false);
         });
     },
-    fetchIncome: function () {
+    fetchIncome: function (state) {
       this.incomeVnd = 0;
+      this.state2 = state;
       this.isLoading2 = true;
       axios({
-        url: BOT_API + "/income",
+        url: BOT_API + "/income/" + state,
         method: "GET",
         headers: {
           Auth: localStorage.getItem("token"),
@@ -263,6 +322,21 @@ export default {
           // console.log(res);
           if (res.length != 0) {
             res.map((doc) => (this.incomeVnd += Number(doc.amount)));
+            res.map((doc) => {
+              // console.log(doc);
+              this.chartOptions.data[0].dataPoints.push({
+                x: new Date(doc.time),
+                y: doc.amount,
+                indexLabel: `${Number(doc.amount).toLocaleString("vi", {
+                  style: "currency",
+                  currency: "VND",
+                })}`,
+              });
+              this.chart.render();
+            });
+          } else {
+            this.chartOptions.data[0].dataPoints = [];
+            this.chart.render();
           }
         })
         .catch((error) => {
