@@ -295,7 +295,7 @@ document.body.appendChild(script)`,
           value: `const BOT_URL = '${BOT_API}'
 var script = document.createElement('script')
 script.type = 'text/javascript'
-script.src = BOT_URL+'/bot/init/pasino.com-hash-dice'
+script.src = BOT_URL+'/bot/init/paradice'
 document.body.appendChild(script)`,
         },
         {
