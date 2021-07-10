@@ -159,7 +159,7 @@
           ]"
         >
           <router-link to="/Summary">
-            <i class="fas fa-user-shield"></i>
+            <i class="fas fa-chart-line"></i>
             &nbsp; Summary
           </router-link>
         </li>
@@ -195,7 +195,7 @@
         >
           <router-link to="/AddFreeLicense">
             <i class="fas fa-plus-square"></i>
-            &nbsp; Add Free License
+            &nbsp; Free License
           </router-link>
         </li>
       </ul>
