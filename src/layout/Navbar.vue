@@ -21,7 +21,7 @@
         data-toggle="collapse"
         data-target="#collapsibleNavbar"
       >
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars"></i>
       </button>
 
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -160,7 +160,7 @@
               to="/Summary"
               v-bind:class="[this.$route.path == '/Summary' ? 'active' : '']"
             >
-              <i class="fas fa-user-shield"></i>
+              <i class="fas fa-chart-line"></i>
               &nbsp; Summary
             </router-link>
           </li>
