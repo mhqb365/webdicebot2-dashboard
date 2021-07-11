@@ -64,7 +64,7 @@
 
       <div class="col-md-12 text-center control">
         <button
-          class="btn btn-success mb-2"
+          class="btn btn-success mb-2 ml-1 mr-1 control-button"
           data-toggle="modal"
           data-target="#myModalRecevie"
         >
@@ -73,7 +73,7 @@
         </button>
 
         <button
-          class="btn btn-danger mb-2"
+          class="btn btn-danger mb-2 ml-1 mr-1 control-button"
           data-toggle="modal"
           data-target="#myModalSend"
         >
@@ -84,14 +84,14 @@
         <a
           :href="tronScan + '/address/' + address + '/transactions'"
           target="_blank"
-          class="btn btn-info mb-2"
+          class="btn btn-info mb-2 ml-1 mr-1 control-button"
         >
           <i class="fas fa-info-circle"></i>
           &nbsp; Details
         </a>
 
         <button
-          class="btn btn-secondary mb-2"
+          class="btn btn-secondary mb-2 ml-1 mr-1 control-button"
           data-toggle="modal"
           data-target="#myModalPrivateKey"
         >
@@ -316,5 +316,9 @@ export default {
 .control {
   position: relative;
   top: -20px;
+}
+
+.control-button:hover {
+  transform: scale(1.05);
 }
 </style>
