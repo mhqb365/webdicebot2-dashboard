@@ -1,216 +1,233 @@
 <template>
-  <div class="pb-4">
-    <h2 class="text-primary">My wallet</h2>
+  <div>
+    <div class="pb-4">
+      <h2 class="text-primary">My info</h2>
 
-    <p class="small">
-      + This is a Tron wallet, link Tron Ecosystem
-      <br />
-      + You can import it to any wallet app support Tron
-      <br />
-      + Current only support TRX
-    </p>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">
+          <i class="fas fa-user"></i> &nbsp; {{ userName }}
+        </li>
+        <li class="list-group-item">
+          <i class="fas fa-envelope"></i> &nbsp; {{ email }}
+        </li>
+      </ul>
+    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div
-          class="
-            card
-            gradient-primary
-            p-4
-            text-center text-white
-            border border-0
-          "
-        >
-          <h4>
-            <span v-if="isLoading" class="spinner-border"></span>
+    <div class="pb-4">
+      <h2 class="text-primary">My wallet</h2>
 
-            <span v-else>
-              {{ Number(balance).toFixed(6) }}
+      <p class="small">
+        + This is a Tron wallet, link Tron Ecosystem
+        <br />
+        + You can import it to any wallet app support Tron
+        <br />
+        + Current only support TRX
+      </p>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div
+            class="
+              card
+              gradient-primary
+              p-4
+              text-center text-white
+              border border-0
+            "
+          >
+            <h4>
+              <span v-if="isLoading" class="spinner-border"></span>
+
+              <span v-else>
+                {{ Number(balance).toFixed(6) }}
+              </span>
+              TRX
+            </h4>
+
+            <span
+              >≈
+              {{
+                Number(balanceUsd).toLocaleString("vi", {
+                  style: "currency",
+                  currency: "USD",
+                })
+              }}
+              <button
+                type="button"
+                class="btn btn-light btn-sm"
+                @click="getAccount"
+              >
+                <i class="fas fa-sync"></i>
+              </button>
             </span>
-            TRX
-          </h4>
 
-          <span
-            >≈
-            {{
-              Number(balanceUsd).toLocaleString("vi", {
-                style: "currency",
-                currency: "USD",
-              })
-            }}
-            <button
-              type="button"
-              class="btn btn-light btn-sm"
-              @click="getAccount"
-            >
-              <i class="fas fa-sync"></i>
-            </button>
-          </span>
-
-          <div class="row p-3 small">
-            <div class="col-md-6">
-              <i class="fas fa-tachometer-alt"></i>&nbsp; Bandwidth:
-              {{ freeNetRemaining + netRemaining }}/<span class="small">{{
-                freeNetLimit + netLimit
-              }}</span>
-            </div>
-            <div class="col-md-6">
-              <i class="fas fa-gas-pump"></i>&nbsp; Energy:
-              {{ energyRemaining }}/<span class="small">{{ energyLimit }}</span>
+            <div class="row p-3 small">
+              <div class="col-md-6">
+                <i class="fas fa-tachometer-alt"></i>&nbsp; Bandwidth:
+                {{ freeNetRemaining + netRemaining }}/<span class="small">{{
+                  freeNetLimit + netLimit
+                }}</span>
+              </div>
+              <div class="col-md-6">
+                <i class="fas fa-gas-pump"></i>&nbsp; Energy:
+                {{ energyRemaining }}/<span class="small">{{
+                  energyLimit
+                }}</span>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="col-md-12 text-center control">
+          <button
+            class="btn btn-success mb-2 ml-1 mr-1 control-button shadow"
+            data-toggle="modal"
+            data-target="#myModalRecevie"
+          >
+            <i class="fas fa-arrow-down"></i>
+            &nbsp; Receive
+          </button>
+
+          <button
+            class="btn btn-danger mb-2 ml-1 mr-1 control-button shadow"
+            data-toggle="modal"
+            data-target="#myModalSend"
+          >
+            <i class="fas fa-arrow-up"></i>
+            &nbsp; Send
+          </button>
+
+          <a
+            :href="tronScan + '/address/' + address + '/transactions'"
+            target="_blank"
+            class="btn btn-info mb-2 ml-1 mr-1 control-button shadow"
+          >
+            <i class="fas fa-info-circle"></i>
+            &nbsp; Details
+          </a>
+
+          <button
+            class="btn btn-secondary mb-2 ml-1 mr-1 control-button shadow"
+            data-toggle="modal"
+            data-target="#myModalPrivateKey"
+          >
+            <i class="fas fa-file-export"></i>
+            &nbsp; Export
+          </button>
+        </div>
       </div>
 
-      <div class="col-md-12 text-center control">
-        <button
-          class="btn btn-success mb-2 ml-1 mr-1 control-button shadow"
-          data-toggle="modal"
-          data-target="#myModalRecevie"
-        >
-          <i class="fas fa-arrow-down"></i>
-          &nbsp; Receive
-        </button>
+      <!-- Recevie -->
+      <div class="modal fade" id="myModalRecevie">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Receive</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
 
-        <button
-          class="btn btn-danger mb-2 ml-1 mr-1 control-button shadow"
-          data-toggle="modal"
-          data-target="#myModalSend"
-        >
-          <i class="fas fa-arrow-up"></i>
-          &nbsp; Send
-        </button>
+            <div class="modal-body">
+              <p class="text-center">
+                Only send TRX to this address, 1 confirmation(s) required
+              </p>
 
-        <a
-          :href="tronScan + '/address/' + address + '/transactions'"
-          target="_blank"
-          class="btn btn-info mb-2 ml-1 mr-1 control-button shadow"
-        >
-          <i class="fas fa-info-circle"></i>
-          &nbsp; Details
-        </a>
+              <qrcode-vue
+                class="my-4 text-center"
+                :value="address"
+                :size="120"
+                level="H"
+              ></qrcode-vue>
 
-        <button
-          class="btn btn-secondary mb-2 ml-1 mr-1 control-button shadow"
-          data-toggle="modal"
-          data-target="#myModalPrivateKey"
-        >
-          <i class="fas fa-file-export"></i>
-          &nbsp; Export
-        </button>
-      </div>
-    </div>
+              <label>Your address:</label>
+              <div class="input-group mb-3">
+                <input v-model="address" type="text" class="form-control" />
 
-    <!-- Recevie -->
-    <div class="modal fade" id="myModalRecevie">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Receive</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <p class="text-center">
-              Only send TRX to this address, 1 confirmation(s) required
-            </p>
-
-            <qrcode-vue
-              class="my-4 text-center"
-              :value="address"
-              :size="120"
-              level="H"
-            ></qrcode-vue>
-
-            <label>Your address:</label>
-            <div class="input-group mb-3">
-              <input v-model="address" type="text" class="form-control" />
-
-              <div class="input-group-append">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  v-clipboard="() => address"
-                  v-clipboard:success="clipboardSuccess"
-                  v-clipboard:error="clipboardError"
-                >
-                  Copy
-                </button>
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    v-clipboard="() => address"
+                    v-clipboard:success="clipboardSuccess"
+                    v-clipboard:error="clipboardError"
+                  >
+                    Copy
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Send -->
-    <div class="modal fade" id="myModalSend">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Send</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
-
-          <div class="modal-body text-center">
-            <div class="form-group text-left">
-              <label>To address:</label>
-              <input v-model="toAddress" type="text" class="form-control" />
+      <!-- Send -->
+      <div class="modal fade" id="myModalSend">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Send</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
             </div>
 
-            <div class="form-group text-left">
-              <label>Amount:</label>
-              <input v-model="amount" type="number" class="form-control" />
+            <div class="modal-body text-center">
+              <div class="form-group text-left">
+                <label>To address:</label>
+                <input v-model="toAddress" type="text" class="form-control" />
+              </div>
+
+              <div class="form-group text-left">
+                <label>Amount:</label>
+                <input v-model="amount" type="number" class="form-control" />
+              </div>
+
+              <button v-if="isLoading2" class="btn btn-primary" disabled>
+                <span class="spinner-border spinner-border-sm"></span>
+              </button>
+
+              <button
+                v-else
+                type="button"
+                class="btn btn-primary btn-block"
+                @click="send"
+              >
+                Send
+              </button>
             </div>
-
-            <button v-if="isLoading2" class="btn btn-primary" disabled>
-              <span class="spinner-border spinner-border-sm"></span>
-            </button>
-
-            <button
-              v-else
-              type="button"
-              class="btn btn-primary btn-block"
-              @click="send"
-            >
-              Send
-            </button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Export -->
-    <div class="modal fade" id="myModalPrivateKey">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Export</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
+      <!-- Export -->
+      <div class="modal fade" id="myModalPrivateKey">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Export</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
 
-          <div class="modal-body">
-            <label>Your private key:</label>
+            <div class="modal-body">
+              <label>Your private key:</label>
 
-            <div class="input-group mb-3">
-              <input v-model="privateKey" type="text" class="form-control" />
+              <div class="input-group mb-3">
+                <input v-model="privateKey" type="text" class="form-control" />
 
-              <div class="input-group-append">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  v-clipboard="() => privateKey"
-                  v-clipboard:success="clipboardSuccess"
-                  v-clipboard:error="clipboardError"
-                >
-                  Copy
-                </button>
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    v-clipboard="() => privateKey"
+                    v-clipboard:success="clipboardSuccess"
+                    v-clipboard:error="clipboardError"
+                  >
+                    Copy
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -236,6 +253,8 @@ export default {
       tronWeb,
       isLoading: false,
       isLoading2: false,
+      userName: localStorage.getItem("userName"),
+      email: localStorage.getItem("email"),
       address: localStorage.getItem("address"),
       privateKey: localStorage.getItem("privateKey"),
       balance: 0,

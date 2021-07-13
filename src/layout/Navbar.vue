@@ -71,9 +71,9 @@
         </ul>
 
         <ul v-else class="navbar-nav mb-3">
-          <li class="nav-item nav-link">
+          <!-- <li class="nav-item nav-link">
             <i class="fas fa-user"></i> &nbsp; {{ userName }}
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <router-link
