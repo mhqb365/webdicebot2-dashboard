@@ -103,8 +103,9 @@ export default {
   bottom: 20px;
   right: 20px;
   text-decoration: none;
-  background: #007bff;
+  background: #05bbc9;
   display: none;
+  box-shadow: 0px 0px 30px 4px rgb(5 187 201 / 30%);
 }
 
 .gotop:hover {
@@ -128,19 +129,23 @@ pre {
 }
 
 .gradient-primary {
-  background-image: linear-gradient(to bottom right, #863ee2, #571f9e);
+  background-color: #876cfe;
 }
 
 .gradient-danger {
-  background-image: linear-gradient(to bottom right, #ff9cc3, #fd3484);
+  background-color: #ff4b4b;
 }
 
 .gradient-warning {
-  background-image: linear-gradient(to bottom right, #ffd85d, #ffc200);
+  background-color: #ffca44;
 }
 
 .gradient-info {
-  background-image: linear-gradient(to bottom right, #00d2d7, #07b2dd);
+  background-color: #05bbc9;
+}
+
+.gradient-success {
+  background-color: #43d396;
 }
 
 .page-item:first-child .page-link {

@@ -246,7 +246,6 @@ export default {
     this.summary(this.state);
     this.fetchIncome(this.state2);
     this.chart = new CanvasJS.Chart("chartContainer", this.chartOptions);
-    // this.chart.render();
   },
   methods: {
     summary: function (state) {
